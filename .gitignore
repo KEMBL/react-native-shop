@@ -9,6 +9,7 @@ yarn.lock
 *.lock
 *.tmp
 *.tmp.*
+*.js
 
 .vscode/
 .versions/
@@ -18,3 +19,8 @@ node_modules/
 .DS_Store
 Thumbs.db
 .env
+
+# Jest
+#
+.jest/
+

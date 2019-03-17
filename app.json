@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "React native shop application",
-    "slug": "AwesomeProject",
+    "name": "Mobile application React Native shop",
+    "slug": "react-native-shop",
     "privacy": "public",
     "sdkVersion": "32.0.0",
     "platforms": [
@@ -10,9 +10,9 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/images/splash.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
