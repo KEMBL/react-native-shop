@@ -8,13 +8,12 @@
     "eject": "expo eject",
     "tslint": "tslint -p tsconfig.json",
     "tslint-fix": "tslint --fix -p tsconfig.json",
-    "purge": "yarn clean:all && yarn && yarn prepare:all",
-    "postinstall": "scripts\\fix-react-native.cmd"    
+    "purge": "yarn clean:all && yarn && yarn prepare:all"
   },
   "dependencies": {
     "expo": "^32.0.0",
     "react": "16.5.0",
-    "react-native": "0.57.1"
+    "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz" 
   },
   "devDependencies": {
     "@types/expo": "^32.0.8",
