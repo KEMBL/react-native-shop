@@ -1,4 +1,6 @@
 {
+  "name": "reactnative.shop",
+  "displayName": "Mobile application React Native shop",
   "expo": {
     "name": "Mobile application React Native shop",
     "slug": "react-native-shop",
@@ -9,7 +11,7 @@
       "android"
     ],
     "android": {
-      "package": "com.termokot.mobileshop"
+      "package": "com.reactnative.shop"
     },    
     "version": "1.0.0",
     "orientation": "portrait",

@@ -6,7 +6,7 @@ export default class Main extends Component {
     return (
       <View style={styles.container}>
         <Text>The first page. Hello!</Text>
-        <Text>Russian: Аз есмь реакт натив аппликация!!!</Text>
+        <Text>Russian: Аз есмь реакт натив аппликация...</Text>
       </View>
     );
   }
@@ -18,6 +18,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-    color: "red",
-  },
+    color: "red"
+  }
 });
