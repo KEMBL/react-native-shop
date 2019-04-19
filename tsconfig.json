@@ -11,6 +11,7 @@
     // "declarationMap": true,                /* Generates a sourcemap for each corresponding '.d.ts' file. */
     // "sourceMap": true,                     /* Generates corresponding '.map' file. */
     // "outFile": "./",                       /* Concatenate and emit output to single file. */
+    // "baseUrl": "src", // !!!does not work after compilation
     "outDir": "build" /* Redirect output structure to the directory. */,
     "rootDir": "src" /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */,
     // "composite": true,                     /* Enable project compilation */
@@ -59,7 +60,7 @@
     // "emitDecoratorMetadata": true,         /* Enables experimental support for emitting type metadata for decorators. */
     "plugins": [
       {
-        "name": "typescript-styled-plugin"
+        "name": "typescript-styled-plugin" // TypeScript server plugin that adds intellisense to styled component css strings
       }
     ]
   },

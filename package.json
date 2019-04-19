@@ -15,7 +15,9 @@
   "dependencies": {
     "expo": "^32.0.0",
     "react": "16.8.3",
-    "react-native": "0.59.4"
+    "react-native": "0.59.4",
+    "react-native-image-cache-hoc": "^2.0.0",
+    "rn-fetch-blob": "^0.10.15"
   },
   "devDependencies": {
     "@types/expo": "^32.0.8",

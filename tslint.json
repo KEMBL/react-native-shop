@@ -22,6 +22,15 @@
       "check-format",
       "allow-pascal-case",
       "allow-leading-underscore"
-    ]
+    ],
+    "trailing-comma": [true, {
+      "singleline": "never",
+      "multiline": {
+        "objects": "ignore",
+        "arrays": "ignore",
+        "functions": "never",
+        "typeLiterals": "ignore"
+      }
+    }]
   }
 }
