@@ -1,8 +1,9 @@
-import React, { Component } from "react";
-import { StyleSheet, Image } from "react-native";
+import React, { PureComponent } from "react";
+import { Image, ImageResizeMode, ImageStyle } from "react-native";
 import imageCacheHoc from "react-native-image-cache-hoc";
 
 export interface CacheableImageProps {
+  style: ImageStyle;
   src: string;
   width: number;
   height: number;
@@ -11,23 +12,18 @@ export interface CacheableImageProps {
   validProtocols?: string[];
   /** Max size of file cache in bytes before pruning occurs */
   cachePruneTriggerLimit?: number;
+  resizeMode: ImageResizeMode;
   // TODO: add Default placeholder,
   // more https://github.com/billmalarky/react-native-image-cache-hoc/tree/20c438a62c5997e8e5bc673abeedf63f6fbb1321
 }
 
-export class CacheableImage extends Component<CacheableImageProps> {
+export class CacheableImage extends PureComponent<CacheableImageProps> {
   public static defaultProps: Partial<CacheableImageProps> = {
     validProtocols: ["http", "https"], // iOS only allows requests to https urls!!!
     cachePruneTriggerLimit: 1024 * 1024 * 20,
-    permanent: false
+    permanent: false,
+    resizeMode: "contain"
   };
-
-  private styles = StyleSheet.create({
-    image: {
-      width: this.props.width,
-      height: this.props.height
-    }
-  });
 
   // more https://github.com/billmalarky/react-native-image-cache-hoc/tree/20c438a62c5997e8e5bc673abeedf63f6fbb1321
   private cacheableImage = imageCacheHoc(Image, {
@@ -37,13 +33,14 @@ export class CacheableImage extends Component<CacheableImageProps> {
   });
 
   public render() {
-    const { src, permanent } = this.props;
+    const { src, style, permanent, resizeMode } = this.props;
 
     return (
       <this.cacheableImage
-        style={this.styles.image}
+        style={style}
         source={{ uri: src }}
         permanent={permanent}
+        resizeMode={resizeMode}
       />
     );
   }
