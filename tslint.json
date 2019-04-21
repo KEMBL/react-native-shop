@@ -1,7 +1,8 @@
 {
   "defaultSeverity": "error",
-  "extends": ["tslint:recommended", "tslint-react"],
-  "rules": {    
+  "rulesDirectory": ["tslint-plugin-prettier"],
+  "rules": {
+    "prettier": true,
     "no-any": true,
     "ordered-imports": false,
     "no-submodule-imports": false,
@@ -15,7 +16,7 @@
     "prefer-const": true,
     "object-literal-sort-keys": false,
     "max-classes-per-file": false,
-    "no-empty-interface": false,    
+    "no-empty-interface": false,
     "variable-name": [
       true,
       "ban-keywords",
@@ -23,14 +24,18 @@
       "allow-pascal-case",
       "allow-leading-underscore"
     ],
-    "trailing-comma": [true, {
-      "singleline": "never",
-      "multiline": {
-        "objects": "ignore",
-        "arrays": "ignore",
-        "functions": "never",
-        "typeLiterals": "ignore"
+    "trailing-comma": [
+      true,
+      {
+        "singleline": "never",
+        "multiline": {
+          "objects": "ignore",
+          "arrays": "ignore",
+          "functions": "never",
+          "typeLiterals": "ignore"
+        }
       }
-    }]
-  }
+    ]
+  },
+  "extends": ["tslint:latest", "tslint-react", "tslint-config-prettier"]
 }

@@ -10,7 +10,8 @@
     "eject": "expo eject",
     "tslint": "tslint -p tsconfig.json",
     "tslint-fix": "tslint --fix -p tsconfig.json",
-    "purge": "yarn clean:all && yarn && yarn prepare:all"
+    "purge": "yarn clean:all && yarn && yarn prepare:all",
+    "tslint-check": "tslint-config-prettier-check ./tslint.json"
   },
   "dependencies": {
     "expo": "^32.0.0",
@@ -25,11 +26,14 @@
     "@types/react": "^16.8.8",
     "@types/react-native": "^0.57.1",
     "@types/react-test-renderer": "^16.8.1",
+    "prettier": "^1.17.0",
     "react-addons-test-utils": "^15.6.2",
     "react-native-typescript-transformer": "^1.2.12",
     "schedule": "^0.4.0",
     "ts-jest": "^24.0.0",
     "tslint": "^5.14.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.0.1",
     "tslint-react": "^3.6.0",
     "typescript": "^3.3.3333",
     "typescript-styled-plugin": "^0.14.0"
