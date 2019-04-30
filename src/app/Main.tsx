@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 import { ProductCard } from "./components/advanced/ProductCard";
 import { Theme } from "./theme/Theme";
