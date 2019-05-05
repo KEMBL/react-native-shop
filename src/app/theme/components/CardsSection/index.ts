@@ -7,45 +7,51 @@ export interface CardsSectionStyle {
   header: ViewStyle;
   title: TextStyle;
   button: ViewStyle;
+  cardsRowContainer: ViewStyle;
   cardsRow: ViewStyle;
 }
 
 const steelShitInstance = StyleSheet.create<CardsSectionStyle>({
   container: {
-    // flex: 1,
-    // alignItems: "center",
-    // justifyContent: "center",
-    // backgroundColor: Theme.green,
-    // height: 580,
-    // width: 1040
+    flex: 1,
+    flexDirection: "column",
+
+    height: 195,
+    backgroundColor: Theme.white,
+    borderRadius: 3,
+    borderWidth: 0.2,
+    borderColor: "#CFCFCF",
+    elevation: 2,
+    marginBottom: 7,
+    marginLeft: 6,
+    marginRight: 6,
+    paddingTop: 14,
+    paddingLeft: 14
   },
   header: {
     flex: 1,
-    flexDirection: "row"
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingRight: 10
   },
   title: {
     alignItems: "center",
-    alignSelf: "center",
+    alignSelf: "stretch",
     textAlign: "left",
-    color: Theme.grey
+    fontSize: 13,
+    fontFamily: Theme.fontFamily,
+    color: Theme.textColor
   },
   button: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: Theme.white,
-    height: 410,
-    width: 260
+    paddingRight: 45,
+    alignContent: "flex-end",
+    width: 100,
+    backgroundColor: Theme.green
   },
-  cardsRow: {
-    // flex: 1,
-    // flexDirection: "row",
-    // alignItems: "center",
-    // justifyContent: "center",
-    // backgroundColor: Theme.white,
-    // height: 410,
-    // width: 260
-  }
+  cardsRowContainer: {
+    height: 160
+  },
+  cardsRow: {}
 });
 
 export default steelShitInstance;

@@ -18,6 +18,7 @@
     "react": "16.8.3",
     "react-native": "0.59.4",
     "react-native-image-cache-hoc": "^2.0.0",
+    "react-native-svg": "^9.4.0",
     "rn-fetch-blob": "^0.10.15"
   },
   "devDependencies": {

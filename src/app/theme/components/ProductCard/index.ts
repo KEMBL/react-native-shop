@@ -5,6 +5,7 @@ import { Theme } from "./../../Theme";
 export interface ProductCardStyle {
   container: ViewStyle;
   image: ImageStyle;
+  weight: TextStyle;
   price: TextStyle;
   title: TextStyle;
 }
@@ -12,32 +13,36 @@ export interface ProductCardStyle {
 const steelShitInstance = StyleSheet.create<ProductCardStyle>({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: Theme.white,
-    height: 410,
-    width: 260
+    width: 100
   },
   image: {
-    flex: 1,
-    alignItems: "center",
-    alignSelf: "center",
-    height: 256,
-    width: 256
+    height: 100,
+    width: 100
+  },
+  weight: {
+    marginRight: 10,
+    textAlign: "left",
+    color: Theme.grey,
+    height: 27,
+    fontSize: 11,
+    fontWeight: "400",
+    fontFamily: Theme.fontFamily
   },
   price: {
-    flex: 1,
-    alignItems: "center",
-    alignSelf: "center",
+    marginRight: 10,
     textAlign: "right",
     color: Theme.green,
-    height: 27
+    height: 27,
+    fontSize: 11,
+    fontWeight: "400",
+    fontFamily: Theme.fontFamily
   },
   title: {
-    alignItems: "center",
-    alignSelf: "center",
     textAlign: "left",
-    color: Theme.grey
+    color: Theme.black,
+    fontSize: 11,
+    fontWeight: "400",
+    fontFamily: Theme.fontFamily
   }
 });
 

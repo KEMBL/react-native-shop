@@ -5,9 +5,14 @@ class Theme {
   public platform = platformVars;
 
   // Colors
-  public green = "green";
+  public green = "#01875F";
   public white = "white";
   public grey = "grey";
+  public black = "black"; //"#212121";
+
+  // text
+  public fontFamily = platformVars.isIos ? "System" : "Roboto_medium";
+  public textColor = this.black;
 }
 
 const appThemeInstance = new Theme();
