@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { View } from "react-native";
+import { View, FlatList } from "react-native";
 
 import { default as CardsSectionTheme } from "./../../../theme/components/CardsSection";
 import { PlainText } from "../../trivial/text/PlainText";
@@ -13,15 +13,7 @@ interface CardsSectionProps {
 
 export class CardsSection extends PureComponent<CardsSectionProps> {
   public render() {
-    const { title, cards } = this.props;
-    const productCards = cards.map((card, index) => (
-      <ProductCard
-        thumbnail={card.thumbnail}
-        title={card.title}
-        price={card.price}
-        key={index}
-      />
-    ));
+    const { title, cards: items } = this.props;
     return (
       <View style={CardsSectionTheme.container}>
         <View style={CardsSectionTheme.header}>
@@ -32,8 +24,30 @@ export class CardsSection extends PureComponent<CardsSectionProps> {
             <PlainText>More</PlainText>
           </View>
         </View>
-        <View style={CardsSectionTheme.cardsRow}>{productCards}</View>
+        <FlatList<ProductCardModel>
+          horizontal={true}
+          data={items}
+          pagingEnabled={true}
+          showsHorizontalScrollIndicator={true}
+          keyExtractor={this.keyExtractor}
+          contentContainerStyle={CardsSectionTheme.cardsRow}
+          renderItem={this.renderCard}
+        />
       </View>
     );
   }
+
+  private renderCard = ({ item }: { item: ProductCardModel }) => { 
+    return (
+      <ProductCard
+        thumbnail={item.thumbnail}
+        title={item.title}
+        price={item.price}
+      />
+    );
+  };
+
+  private keyExtractor = (_item: ProductCardModel, index: number) => {
+    return index.toString(); 
+  };
 }

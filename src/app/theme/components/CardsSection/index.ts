@@ -12,12 +12,12 @@ export interface CardsSectionStyle {
 
 const steelShitInstance = StyleSheet.create<CardsSectionStyle>({
   container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: Theme.green,
-    height: 580,
-    width: 1040
+    // flex: 1,
+    // alignItems: "center",
+    // justifyContent: "center",
+    // backgroundColor: Theme.green,
+    // height: 580,
+    // width: 1040
   },
   header: {
     flex: 1,
@@ -38,13 +38,13 @@ const steelShitInstance = StyleSheet.create<CardsSectionStyle>({
     width: 260
   },
   cardsRow: {
-    flex: 1,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: Theme.white,
-    height: 410,
-    width: 260
+    // flex: 1,
+    // flexDirection: "row",
+    // alignItems: "center",
+    // justifyContent: "center",
+    // backgroundColor: Theme.white,
+    // height: 410,
+    // width: 260
   }
 });
 
