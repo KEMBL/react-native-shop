@@ -2,7 +2,6 @@ import React, { PureComponent } from "react";
 import { StyleSheet, View, StatusBar, FlatList } from "react-native";
 
 import { Theme } from "./../../theme/Theme";
-import { PlainText } from "./../../components/trivial/text/PlainText";
 import { CardsSection } from "../../components/advanced/CardsSection";
 import { ProductCardModel } from "../../models/ProductCardModel";
 import { TopDownGradient } from "../../components/trivial/icons/gradients/TopDownGradient";
@@ -82,17 +81,4 @@ export default class MainPage extends PureComponent {
     const { title } = item;
     return <CardsSection title={title} cards={cards} />;
   };
-
-  public render1() {
-    return (
-      <View style={this.mainStyle.container}>
-        <PlainText>
-          The first page. {Theme.platform.deviceWidth}x
-          {Theme.platform.deviceHeight}
-        </PlainText>
-        <PlainText>Russian: Аз есмь реакт натив аппликация...</PlainText>
-        <CardsSection title="Recomended for you" cards={cards} />
-      </View>
-    );
-  }
 }

@@ -4,20 +4,17 @@ import { Theme } from "./../../Theme";
 
 export interface CardsSectionStyle {
   container: ViewStyle;
+  headerContainer: ViewStyle;
   header: ViewStyle;
   title: TextStyle;
   buttonMoreContainer: ViewStyle;
   buttonMoreText: TextStyle;
   buttonMoreView: ViewStyle;
   cardsRowContainer: ViewStyle;
-  cardsRow: ViewStyle;
 }
 
 const steelShitInstance = StyleSheet.create<CardsSectionStyle>({
   container: {
-    flex: 1,
-    flexDirection: "column",
-
     height: 195,
     backgroundColor: Theme.white,
     borderRadius: 3,
@@ -29,6 +26,9 @@ const steelShitInstance = StyleSheet.create<CardsSectionStyle>({
     marginRight: 6,
     paddingTop: 14,
     paddingLeft: 14
+  },
+  headerContainer: {
+    height: 20
   },
   header: {
     flex: 1,
@@ -46,10 +46,9 @@ const steelShitInstance = StyleSheet.create<CardsSectionStyle>({
   },
   buttonMoreContainer: {},
   buttonMoreView: {
-    flex: 1,
-    alignItems: "flex-end",
+    alignItems: "center",
     justifyContent: "center",
-    width: 50,
+    width: 40,
     height: 17
   },
   buttonMoreText: {
@@ -58,9 +57,9 @@ const steelShitInstance = StyleSheet.create<CardsSectionStyle>({
     color: Theme.green
   },
   cardsRowContainer: {
-    height: 160
-  },
-  cardsRow: {}
+    flex: 1,
+    flexDirection: "column"
+  }
 });
 
 export default steelShitInstance;

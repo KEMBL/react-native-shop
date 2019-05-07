@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { View, FlatList, Alert } from "react-native";
+import { View, FlatList } from "react-native";
 
 import { default as CardsSectionTheme } from "./../../../theme/components/CardsSection";
 import { ProductCard } from "../ProductCard";
@@ -34,26 +34,29 @@ export class CardsSection extends PureComponent<
 
   public render() {
     const { title, cards } = this.props;
+    const { isHorisontal } = this.state;
+
     return (
       <View style={CardsSectionTheme.container}>
-        <View style={CardsSectionTheme.header}>
-          <View>
-            <Header3Text style={CardsSectionTheme.title}>{title}</Header3Text>
+        <View style={CardsSectionTheme.headerContainer}>
+          <View style={CardsSectionTheme.header}>
+            <View>
+              <Header3Text style={CardsSectionTheme.title}>{title}</Header3Text>
+            </View>
+            <Button
+              onPress={this.onLayoutChanged}
+              title="MORE"
+              style={this.buttonStyle}
+            />
           </View>
-          <Button
-            onPress={this.onLayoutChanged}
-            title="MORE"
-            style={this.buttonStyle}
-          />
         </View>
         <View style={CardsSectionTheme.cardsRowContainer}>
           <FlatList<ProductCardModel>
-            horizontal={this.state.isHorisontal}
+            horizontal={isHorisontal}
             data={cards}
             pagingEnabled={true}
             showsHorizontalScrollIndicator={false}
             keyExtractor={this.keyExtractor}
-            contentContainerStyle={CardsSectionTheme.cardsRow}
             renderItem={this.renderCard}
           />
         </View>
@@ -77,10 +80,6 @@ export class CardsSection extends PureComponent<
   };
 
   private onLayoutChanged = () => {
-    Alert.alert("You tapped the button!");
-
-    this.setState(previousState => ({
-      isHorisontal: !previousState.isHorisontal
-    }));
+    this.setState(prevState => ({ isHorisontal: !prevState.isHorisontal }));
   };
 }
