@@ -1,17 +1,37 @@
 import React, { PureComponent } from "react";
-import { View, FlatList } from "react-native";
+import { View, FlatList, Alert } from "react-native";
 
 import { default as CardsSectionTheme } from "./../../../theme/components/CardsSection";
 import { ProductCard } from "../ProductCard";
 import { ProductCardModel } from "../../../models/ProductCardModel";
 import { Header3Text } from "../../trivial/text/Header3Text";
+import { Button } from "../../trivial/buttons/Button";
+import { ButtonStyle } from "../../../theme/components/Button";
 
 interface CardsSectionProps {
   title: string;
   cards: ProductCardModel[];
 }
 
-export class CardsSection extends PureComponent<CardsSectionProps> {
+interface CardsSectionState {
+  isHorisontal: boolean;
+}
+
+export class CardsSection extends PureComponent<
+  CardsSectionProps,
+  CardsSectionState
+> {
+  public state = {
+    isHorisontal: true
+  };
+
+  public buttonStyle: ButtonStyle = {
+    button: CardsSectionTheme.buttonMoreView,
+    buttonDisabled: {},
+    text: CardsSectionTheme.buttonMoreText,
+    textDisabled: {}
+  };
+
   public render() {
     const { title, cards } = this.props;
     return (
@@ -20,13 +40,15 @@ export class CardsSection extends PureComponent<CardsSectionProps> {
           <View>
             <Header3Text style={CardsSectionTheme.title}>{title}</Header3Text>
           </View>
-          <View>
-            <Header3Text>MORE</Header3Text>
-          </View>
+          <Button
+            onPress={this.onLayoutChanged}
+            title="MORE"
+            style={this.buttonStyle}
+          />
         </View>
         <View style={CardsSectionTheme.cardsRowContainer}>
           <FlatList<ProductCardModel>
-            horizontal={true}
+            horizontal={this.state.isHorisontal}
             data={cards}
             pagingEnabled={true}
             showsHorizontalScrollIndicator={false}
@@ -52,5 +74,13 @@ export class CardsSection extends PureComponent<CardsSectionProps> {
 
   private keyExtractor = (_item: ProductCardModel, index: number) => {
     return index.toString();
+  };
+
+  private onLayoutChanged = () => {
+    Alert.alert("You tapped the button!");
+
+    this.setState(previousState => ({
+      isHorisontal: !previousState.isHorisontal
+    }));
   };
 }

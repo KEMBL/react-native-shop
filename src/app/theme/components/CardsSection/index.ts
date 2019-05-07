@@ -6,7 +6,9 @@ export interface CardsSectionStyle {
   container: ViewStyle;
   header: ViewStyle;
   title: TextStyle;
-  button: ViewStyle;
+  buttonMoreContainer: ViewStyle;
+  buttonMoreText: TextStyle;
+  buttonMoreView: ViewStyle;
   cardsRowContainer: ViewStyle;
   cardsRow: ViewStyle;
 }
@@ -42,11 +44,18 @@ const steelShitInstance = StyleSheet.create<CardsSectionStyle>({
     fontFamily: Theme.fontFamily,
     color: Theme.textColor
   },
-  button: {
-    paddingRight: 45,
-    alignContent: "flex-end",
-    width: 100,
-    backgroundColor: Theme.green
+  buttonMoreContainer: {},
+  buttonMoreView: {
+    flex: 1,
+    alignItems: "flex-end",
+    justifyContent: "center",
+    width: 50,
+    height: 17
+  },
+  buttonMoreText: {
+    fontSize: 13,
+    fontFamily: Theme.fontFamily,
+    color: Theme.green
   },
   cardsRowContainer: {
     height: 160
