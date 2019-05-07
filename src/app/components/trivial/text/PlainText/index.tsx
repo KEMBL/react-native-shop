@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import { Text, TextStyle } from "react-native";
+import { Theme } from "../../../../theme/Theme";
 
 type EllipsizeMode = "head" | "middle" | "tail" | "clip";
 
@@ -9,8 +10,16 @@ export interface PlainTextProps {
 }
 
 export class PlainText extends PureComponent<PlainTextProps> {
+  public static defaultProps: Partial<PlainTextProps> = {
+    style: {
+      fontSize: 11,
+      fontFamily: Theme.fontFamily,
+      color: Theme.textColor
+    }
+  };
+
   public render() {
-    const { style, wrapLines, children } = this.props;
+    let { style, wrapLines, children } = this.props;
 
     let numberOfLines: number = 0;
     let ellipsizeMode: EllipsizeMode = "clip";
