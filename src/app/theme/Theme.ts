@@ -6,6 +6,7 @@ class Theme {
 
   // Colors
   public green = "#01875F";
+  public darkGreen = "#016C4C";
   public white = "white";
   public grey = "grey";
   public black = "black"; //"#212121";
