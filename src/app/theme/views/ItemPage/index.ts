@@ -8,41 +8,46 @@ export interface ItemPageStyle {
   toolBar: ViewStyle;
   image: ImageStyle;
   priceContainer: ViewStyle;
-  priceFlexContainer: ViewStyle;
+  // priceFlexContainer: ViewStyle;
   price: TextStyle;
   variantsContainer: ViewStyle;
 }
 
 const steelShitInstance = StyleSheet.create<ItemPageStyle>({
   container: {
-    backgroundColor: Theme.white,
+    backgroundColor: Theme.white
   },
   statusBar: {
-    backgroundColor: Theme.darkGreen,
+    backgroundColor: Theme.darkGreen
   },
   toolBar: {
     height: 52,
     backgroundColor: Theme.green
   },
   image: {
-      width: 300,
-      height: 300
+    width: 300,
+    height: 300
   },
   priceContainer: {
     height: 52,
-    backgroundColor: "red"
+    backgroundColor: "red"    
   },
-  priceFlexContainer: {
-    height: 52,
-    backgroundColor: "green"
-  },
+  // priceFlexContainer: {
+  //   height: 52,
+  //   backgroundColor: "green" 
+  // },
   price: {
-    fontSize: 20
+    includeFontPadding: false,
+    fontFamily: "sans-serif-condensed",
+    fontWeight: "bold",
+    backgroundColor: "transparent" ,
+    fontSize: 19,
+    marginTop: 10,
+    marginLeft: 10
   },
   variantsContainer: {
     flex: 1,
     flexDirection: "row",
-//    height: 52,
     backgroundColor: "blue"
   }
 });

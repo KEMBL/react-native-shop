@@ -23,7 +23,7 @@ export default class ItemPage extends PureComponent {
             }
           />
           <View style={ItemPageTheme.priceContainer}>
-            <StylableText style={ItemPageTheme.price}>250 руб.</StylableText>
+            <StylableText style={ItemPageTheme.price}>250 - 2 500 руб.</StylableText>
           </View>
           <View style={ItemPageTheme.variantsContainer}>
             <Button title="250гр" onPress={()=>{}} />
