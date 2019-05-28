@@ -11,7 +11,7 @@ const card: ProductCardModel = {
   thumbnail:
     "http://termokot.ru/wa-data/public/shop/products/55/35/3555/images/3128/3128.200x0.jpg",
   title:
-    "One &amp; Only (Ван&amp;Онли) Sterilized Cat для стерилизованных кошек с индейкой и рисом,2 кг",
+    "One & Only (Ван & Онли) Sterilized Cat для стерилизованных кошек с индейкой и рисом,2 кг",
   weight: 1.2,
   price: 200.0
 };

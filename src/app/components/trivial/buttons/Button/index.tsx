@@ -22,7 +22,7 @@ interface ButtonProps {
 }
 
 export class Button extends React.PureComponent<ButtonProps> {
-  render() {
+  public render() {
     const {
       accessibilityLabel,
       onPress,
@@ -31,7 +31,7 @@ export class Button extends React.PureComponent<ButtonProps> {
       style
     } = this.props;
 
-    const theme = style !== undefined ? style : ButtonTheme;
+    const theme = style || ButtonTheme;
 
     const buttonStyle = isDisabled ? theme.buttonDisabled : theme.button;
     const textStyle = isDisabled ? theme.textDisabled : theme.text;

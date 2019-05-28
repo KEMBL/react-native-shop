@@ -10,15 +10,15 @@ export interface StylableTextProps {
 }
 
 export class StylableText extends PureComponent<StylableTextProps> {
-    public static defaultProps: Partial<StylableTextProps> = {
-        style: {
-          fontFamily: Theme.fontFamily,
-          color: Theme.textColor
-        }
-      };
+  public static defaultProps: Partial<StylableTextProps> = {
+    style: {
+      fontFamily: Theme.fontFamily,
+      color: Theme.textColor
+    }
+  };
 
   public render() {
-    let { style, wrapLines, children } = this.props;
+    const { style, wrapLines, children } = this.props;
 
     let numberOfLines: number = 0;
     let ellipsizeMode: EllipsizeMode = "clip";

@@ -10,7 +10,12 @@ export interface ItemPageStyle {
   priceContainer: ViewStyle;
   // priceFlexContainer: ViewStyle;
   price: TextStyle;
+  titleContainer: ViewStyle;
+  title: TextStyle;
   variantsContainer: ViewStyle;
+  variantsButton: ViewStyle;
+  variantsButtonText: TextStyle;
+  variantSelectedText: TextStyle;
 }
 
 const steelShitInstance = StyleSheet.create<ItemPageStyle>({
@@ -29,26 +34,56 @@ const steelShitInstance = StyleSheet.create<ItemPageStyle>({
     height: 300
   },
   priceContainer: {
-    height: 52,
-    backgroundColor: "red"    
+    height: 35,
+    backgroundColor: "#f2f2f2"
   },
   // priceFlexContainer: {
   //   height: 52,
-  //   backgroundColor: "green" 
+  //   backgroundColor: "green"
   // },
   price: {
     includeFontPadding: false,
     fontFamily: "sans-serif-condensed",
     fontWeight: "bold",
-    backgroundColor: "transparent" ,
+    color: Theme.black,
     fontSize: 19,
-    marginTop: 10,
+    marginTop: 5,
     marginLeft: 10
+  },
+  titleContainer: {
+    marginTop: 10,
+    // marginLeft: 10
+  },
+  title: {
+    fontFamily: "sans-serif-condensed",
+    // fontWeight: "500",
+    fontSize: 15,
+    color: Theme.black,
+    lineHeight: 22
+    // flex: 1,
   },
   variantsContainer: {
     flex: 1,
     flexDirection: "row",
-    backgroundColor: "blue"
+    marginTop: 5
+    // backgroundColor: "blue"
+  },
+  variantsButton: {
+    // width: 80,
+    // height: 30,
+    // paddingLeft: 10
+    // backgroundColor: "blue"
+  },
+  variantsButtonText: {
+    // color: Theme.black,
+    // padding: 5,
+    // fontSize: 13
+  },
+  variantSelectedText: {
+    marginTop: 5,
+    fontFamily: "sans-serif-condensed",
+    fontSize: 13,
+    color: Theme.black
   }
 });
 
