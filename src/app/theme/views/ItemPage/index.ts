@@ -16,6 +16,10 @@ export interface ItemPageStyle {
   variantsButton: ViewStyle;
   variantsButtonText: TextStyle;
   variantSelectedText: TextStyle;
+  amountContainer: ViewStyle;
+  amountSelectorContainer: ViewStyle;
+  amountSelectorText: TextStyle;
+  deliverySelectedText: TextStyle;
 }
 
 const steelShitInstance = StyleSheet.create<ItemPageStyle>({
@@ -51,7 +55,7 @@ const steelShitInstance = StyleSheet.create<ItemPageStyle>({
     marginLeft: 10
   },
   titleContainer: {
-    marginTop: 10,
+    marginTop: 10
     // marginLeft: 10
   },
   title: {
@@ -82,7 +86,33 @@ const steelShitInstance = StyleSheet.create<ItemPageStyle>({
   variantSelectedText: {
     marginTop: 5,
     fontFamily: "sans-serif-condensed",
-    fontSize: 13,
+    fontSize: 15,
+    color: Theme.black
+  },
+  amountContainer: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignContent: "center",
+    width: 180,
+    marginTop: 5
+  },
+  amountSelectorContainer: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginLeft: 20
+  },
+  amountSelectorText: {
+    // marginTop: 10,
+    fontFamily: "roboto",
+    fontSize: 20,
+    color: Theme.black
+  },
+  deliverySelectedText: {
+    marginTop: 5,
+    fontFamily: "sans-serif-condensed",
+    fontSize: 15,
     color: Theme.black
   }
 });

@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { View, StatusBar, ScrollView } from "react-native";
+import { View, StatusBar, ScrollView, StyleSheet } from "react-native";
 
 import { default as ItemPageTheme } from "./../../theme/views/ItemPage";
 import { CacheableImage } from "../../components/trivial/CacheableImage";
@@ -59,6 +59,32 @@ const variantsButton: ButtonStyle = {
   }
 };
 
+const amountButton: ButtonStyle = {
+  button: {
+    flex: 1,
+    justifyContent: "center",
+    backgroundColor: "#f1f1f1",
+    borderRadius: 15,
+    borderWidth: 0,
+    height: 30,
+    width: 30
+  },
+  text: {
+    textAlign: "center",
+    fontSize: 15,
+    fontFamily: "sans-serif-medium",
+    color: "black",
+    marginBottom: 3
+  },
+  buttonDisabled: {
+    elevation: 0,
+    backgroundColor: "#dfdfdf"
+  },
+  textDisabled: {
+    color: "#a1a1a1"
+  }
+};
+
 export default class ItemPage extends PureComponent {
   public render() {
     return (
@@ -101,13 +127,92 @@ export default class ItemPage extends PureComponent {
                 индейкой и рисом
               </StylableText>
             </View>
-            <StylableText style={ItemPageTheme.variantSelectedText}>
-              Количество: 5
-            </StylableText>
-            <StylableText style={ItemPageTheme.variantSelectedText}>
-              Доставка: 150руб.
-            </StylableText>
+            <View
+              style={{
+                marginRight: 10,
+                marginTop: 8,
+                marginBottom: 8,
+                borderBottomWidth: StyleSheet.hairlineWidth * 2,
+                borderBottomColor: "#dfdfdf"
+              }}
+            />
+            <View style={ItemPageTheme.amountContainer}>
+              <StylableText style={ItemPageTheme.variantSelectedText}>
+                Количество:
+              </StylableText>
+              <View style={ItemPageTheme.amountSelectorContainer}>
+                <Button style={amountButton} title="-" onPress={() => {}} />
+                <StylableText style={ItemPageTheme.amountSelectorText}>
+                  5
+                </StylableText>
+                <Button style={amountButton} title="+" onPress={() => {}} />
+              </View>
+            </View>
+            {/* <View
+              style={{
+                marginRight: 10,
+                marginTop: 14,
+                marginBottom: 8,
+                borderBottomWidth: StyleSheet.hairlineWidth * 2,
+                borderBottomColor: "#dfdfdf"
+              }}
+            /> */}
+            <View
+              style={{
+                flex: 1,
+                flexDirection: "row",
+                marginTop: 14,
+                justifyContent: "space-between",
+                alignItems: "center",
+                borderColor: "#ADB1B8",
+                borderRadius: 3,
+                borderWidth: 1,
+                backgroundColor: "#ECEEF1",
+                height: 70,
+                // width: 20,
+                marginRight: 10,
+                padding: 10
+              }}
+            >
+              <View style={{ flex: 1, flexDirection: "column" }}>
+                <StylableText
+                  style={{
+                    fontFamily: "sans-serif-condensed",
+                    fontSize: 15,
+                    color: "black"
+                  }}
+                >
+                  Доставка: 150 руб
+                </StylableText>
+                <StylableText
+                  style={{
+                    fontFamily: "sans-serif-condensed",
+                    fontSize: 15,
+                    color: "black",
+                    paddingBottom: 10
+                  }}
+                >
+                  г.Ростов-на-Дону, ул. Освобождения, ...
+                </StylableText>
+              </View>
+              <StylableText
+                style={{
+                  fontFamily: "Roboto",
+                  fontSize: 20,
+                  color: "black",
+                  paddingBottom: 10
+                }}
+              >
+                >
+              </StylableText>
+            </View>
           </View>
+          <View
+            style={{
+              width: 100,
+              height: 100
+            }}
+          />
         </ScrollView>
       </View>
     );
