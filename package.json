@@ -39,5 +39,10 @@
     "typescript": "^3.3.3333",
     "typescript-styled-plugin": "^0.14.0"
   },
-  "private": true
+  "private": true,
+  "rnpm": {
+    "assets": [
+	  "./assets/fonts/"
+    ]
+  }
 }

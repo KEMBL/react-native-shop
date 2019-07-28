@@ -4,7 +4,9 @@ import { Theme } from "./../../Theme";
 
 export interface ItemPageStyle {
   container: ViewStyle;
+  /* area with clock, batarry, etc. */
   statusBar: ViewStyle;
+  /* area with user menu and basket */
   toolBar: ViewStyle;
   image: ImageStyle;
   priceContainer: ViewStyle;
@@ -20,6 +22,7 @@ export interface ItemPageStyle {
   amountSelectorContainer: ViewStyle;
   amountSelectorText: TextStyle;
   deliverySelectedText: TextStyle;
+  buyBar: ViewStyle;
 }
 
 const steelShitInstance = StyleSheet.create<ItemPageStyle>({
@@ -114,6 +117,10 @@ const steelShitInstance = StyleSheet.create<ItemPageStyle>({
     fontFamily: "sans-serif-condensed",
     fontSize: 15,
     color: Theme.black
+  },
+  buyBar: {
+    height: 52,
+    backgroundColor: "#ffdad7"
   }
 });
 

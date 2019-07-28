@@ -94,7 +94,7 @@ export default class ItemPage extends PureComponent {
           barStyle="light-content"
         />
         <View style={ItemPageTheme.toolBar} />
-        <ScrollView>
+        <ScrollView style={{height: 550}}>
           <CacheableImage
             style={ItemPageTheme.image}
             src={
@@ -182,7 +182,7 @@ export default class ItemPage extends PureComponent {
                     color: "black"
                   }}
                 >
-                  Доставка: 150 руб
+                  Доставка: 150 руб, 5 Мая
                 </StylableText>
                 <StylableText
                   style={{
@@ -214,6 +214,17 @@ export default class ItemPage extends PureComponent {
             }}
           />
         </ScrollView>
+        <View style={ItemPageTheme.buyBar}>
+        <StylableText
+                style={{
+                  fontFamily: "Arial Cyr Bold",
+                  fontSize: 15,
+                  color: "#F44336"
+                }}
+              >
+                ДОБАВИТЬ В КОРЗИНУ
+              </StylableText>
+        </View>
       </View>
     );
   }
