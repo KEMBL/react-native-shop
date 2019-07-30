@@ -1,8 +1,107 @@
 import { StyleSheet, ViewStyle, TextStyle, ImageStyle } from "react-native";
 
 import { Theme } from "./../../Theme";
+import { ButtonStyle } from "../../components/Button";
+
+export const variantsButton: ButtonStyle = {
+  button: {
+    flex: 1,
+    justifyContent: "center",
+    borderColor: "#dfdfdf",
+    borderRadius: 3,
+    borderWidth: 1,
+    height: 30,
+    width: 60,
+    marginRight: 10
+  },
+  text: {
+    textAlign: "center",
+    fontSize: 10,
+    fontFamily: "Roboto",
+    color: "black"
+  },
+  buttonDisabled: {
+    elevation: 0,
+    backgroundColor: "#dfdfdf"
+  },
+  textDisabled: {
+    color: "#a1a1a1"
+  }
+};
+
+export const variantsButtonSelected: ButtonStyle = {
+  button: {
+    flex: 1,
+    justifyContent: "center",
+    borderColor: "red",
+    borderRadius: 3,
+    borderWidth: 2,
+    height: 30,
+    width: 60,
+    marginRight: 10
+  },
+  text: {
+    textAlign: "center",
+    fontSize: 10,
+    fontFamily: "Roboto",
+    color: "black"
+  },
+  buttonDisabled: {
+    elevation: 0,
+    backgroundColor: "#dfdfdf"
+  },
+  textDisabled: {
+    color: "#a1a1a1"
+  }
+};
+
+export const amountButton: ButtonStyle = {
+  button: {
+    flex: 1,
+    justifyContent: "center",
+    backgroundColor: "#f1f1f1",
+    borderRadius: 15,
+    borderWidth: 0,
+    height: 30,
+    width: 30
+  },
+  text: {
+    textAlign: "center",
+    fontSize: 15,
+    fontFamily: "sans-serif-medium",
+    color: "black",
+    marginBottom: 3
+  },
+  buttonDisabled: {
+    elevation: 0,
+    backgroundColor: "#dfdfdf"
+  },
+  textDisabled: {
+    color: "#a1a1a1"
+  }
+};
+
+export const buyButton: ButtonStyle = {
+  button: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#FF4747",
+    height: 47
+  },
+  text: {
+    textAlign: "center",
+    textAlignVertical: "center",
+    fontFamily: "Arial Cyr Bold",
+    fontSize: 15,
+    color: "#FFFFFF"
+  },
+  buttonDisabled: {},
+  textDisabled: {}
+};
 
 export interface ItemPageStyle {
+  /* the whole item page container */
   container: ViewStyle;
   /* area with clock, batarry, etc. */
   statusBar: ViewStyle;
@@ -10,23 +109,21 @@ export interface ItemPageStyle {
   toolBar: ViewStyle;
   image: ImageStyle;
   priceContainer: ViewStyle;
-  // priceFlexContainer: ViewStyle;
   price: TextStyle;
+  infoContainer: ViewStyle;
   titleContainer: ViewStyle;
   title: TextStyle;
   variantsContainer: ViewStyle;
-  variantsButton: ViewStyle;
-  variantsButtonText: TextStyle;
   variantSelectedText: TextStyle;
   amountContainer: ViewStyle;
   amountSelectorContainer: ViewStyle;
   amountSelectorText: TextStyle;
-  deliverySelectedText: TextStyle;
-  buyBar: ViewStyle;
+  deliveryContainer: ViewStyle;
 }
 
-const steelShitInstance = StyleSheet.create<ItemPageStyle>({
+export const steelShitInstance = StyleSheet.create<ItemPageStyle>({
   container: {
+    flex: 1,
     backgroundColor: Theme.white
   },
   statusBar: {
@@ -44,10 +141,6 @@ const steelShitInstance = StyleSheet.create<ItemPageStyle>({
     height: 35,
     backgroundColor: "#f2f2f2"
   },
-  // priceFlexContainer: {
-  //   height: 52,
-  //   backgroundColor: "green"
-  // },
   price: {
     includeFontPadding: false,
     fontFamily: "sans-serif-condensed",
@@ -57,34 +150,22 @@ const steelShitInstance = StyleSheet.create<ItemPageStyle>({
     marginTop: 5,
     marginLeft: 10
   },
+  infoContainer: {
+    paddingLeft: 10
+  },
   titleContainer: {
     marginTop: 10
-    // marginLeft: 10
   },
   title: {
     fontFamily: "sans-serif-condensed",
-    // fontWeight: "500",
     fontSize: 15,
     color: Theme.black,
     lineHeight: 22
-    // flex: 1,
   },
   variantsContainer: {
     flex: 1,
     flexDirection: "row",
     marginTop: 5
-    // backgroundColor: "blue"
-  },
-  variantsButton: {
-    // width: 80,
-    // height: 30,
-    // paddingLeft: 10
-    // backgroundColor: "blue"
-  },
-  variantsButtonText: {
-    // color: Theme.black,
-    // padding: 5,
-    // fontSize: 13
   },
   variantSelectedText: {
     marginTop: 5,
@@ -107,21 +188,21 @@ const steelShitInstance = StyleSheet.create<ItemPageStyle>({
     marginLeft: 20
   },
   amountSelectorText: {
-    // marginTop: 10,
     fontFamily: "roboto",
     fontSize: 20,
     color: Theme.black
   },
-  deliverySelectedText: {
-    marginTop: 5,
-    fontFamily: "sans-serif-condensed",
-    fontSize: 15,
-    color: Theme.black
-  },
-  buyBar: {
-    height: 52,
-    backgroundColor: "#ffdad7"
+  deliveryContainer: {
+    flexDirection: "row",
+    marginTop: 14,
+    justifyContent: "space-between",
+    alignItems: "center",
+    borderColor: "#ADB1B8",
+    borderRadius: 3,
+    borderWidth: 1,
+    backgroundColor: "#ECEEF1",
+    height: 70,
+    marginRight: 10,
+    padding: 10
   }
 });
-
-export default steelShitInstance;
