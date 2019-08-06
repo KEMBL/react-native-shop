@@ -7,14 +7,28 @@ import {
   variantsButton,
   amountButton,
   buyButton
-} from "./../../theme/views/ItemPage";
+} from "../../theme/views/ProductPage";
 import { CacheableImage } from "../../components/trivial/CacheableImage";
 import { StylableText } from "../../components/trivial/text/StylableText";
 import { Button } from "../../components/trivial/buttons/Button";
 import { Hr } from "../../components/trivial/hr";
+import { ProductModel } from "../../models/ProductModels";
+import { PriceUtils } from "../../utils";
 
-export default class ItemPage extends PureComponent {
+interface ProductPageProps {
+  product: ProductModel;
+}
+
+interface ProductPageState {
+  isHorisontal: boolean;
+}
+
+export default class ProductPage extends PureComponent<
+  ProductPageProps,
+  ProductPageState
+> {
   public render() {
+    const product = this.props.product;
     return (
       <View style={ItemPageTheme.container}>
         <StatusBar
@@ -25,13 +39,11 @@ export default class ItemPage extends PureComponent {
         <ScrollView style={{ height: 550 }}>
           <CacheableImage
             style={ItemPageTheme.image}
-            src={
-              "http://termokot.ru/wa-data/public/shop/products/55/35/3555/images/3128/3128.200x0.jpg"
-            }
+            src={product.image_url[0]}
           />
           <View style={ItemPageTheme.priceContainer}>
             <StylableText style={ItemPageTheme.price}>
-              250 - 2 500 руб.
+              {PriceUtils.makePriceString(product.price.properties, -1, 1)}
             </StylableText>
           </View>
           <View style={ItemPageTheme.infoContainer}>

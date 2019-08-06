@@ -1,6 +1,6 @@
 import { StyleSheet, ViewStyle, TextStyle, ImageStyle } from "react-native";
 
-import { Theme } from "./../../Theme";
+import { Theme } from "../../Theme";
 import { ButtonStyle } from "../../components/Button";
 
 export const variantsButton: ButtonStyle = {
@@ -100,7 +100,7 @@ export const buyButton: ButtonStyle = {
   textDisabled: {}
 };
 
-export interface ItemPageStyle {
+export interface ProductPageStyle {
   /* the whole item page container */
   container: ViewStyle;
   /* area with clock, batarry, etc. */
@@ -121,7 +121,7 @@ export interface ItemPageStyle {
   deliveryContainer: ViewStyle;
 }
 
-export const steelShitInstance = StyleSheet.create<ItemPageStyle>({
+export const steelShitInstance = StyleSheet.create<ProductPageStyle>({
   container: {
     flex: 1,
     backgroundColor: Theme.white
