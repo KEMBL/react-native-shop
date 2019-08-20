@@ -4,7 +4,8 @@ import {
   TouchableOpacity,
   AccessibilityState,
   Text,
-  View
+  View,
+  GestureResponderEvent
 } from "react-native";
 
 import { Theme } from "../../../../theme/Theme";
@@ -15,7 +16,7 @@ import {
 
 interface ButtonProps {
   title: string;
-  onPress: () => void;
+  onPress: (event: GestureResponderEvent) => void;
   style?: ButtonStyle;
   isDisabled?: boolean;
   accessibilityLabel?: string;

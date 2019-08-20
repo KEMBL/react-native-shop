@@ -1,5 +1,10 @@
 import React, { PureComponent } from "react";
-import { View, StatusBar, ScrollView } from "react-native";
+import {
+  View,
+  StatusBar,
+  ScrollView,
+  GestureResponderEvent
+} from "react-native";
 
 import {
   steelShitInstance as ItemPageTheme,
@@ -12,7 +17,7 @@ import { CacheableImage } from "../../components/trivial/CacheableImage";
 import { StylableText } from "../../components/trivial/text/StylableText";
 import { Button } from "../../components/trivial/buttons/Button";
 import { Hr } from "../../components/trivial/hr";
-import { ProductModel } from "../../models/ProductModels";
+import { ProductModel, PriceModel } from "../../models/ProductModels";
 import { PriceUtils } from "../../utils";
 
 interface ProductPageProps {
@@ -50,6 +55,7 @@ export default class ProductPage extends PureComponent<
             <StylableText style={ItemPageTheme.variantSelectedText}>
               Вес: 350гр
             </StylableText>
+            {this.priceContainer(product.price)}
             <View style={ItemPageTheme.variantsContainer}>
               <Button style={variantsButton} title="250гр" onPress={() => {}} />
               <Button
@@ -128,4 +134,42 @@ export default class ProductPage extends PureComponent<
       </View>
     );
   }
+
+  private priceContainer = (priceModel: PriceModel) => {
+    const buttons = priceModel.properties.map((p, index) =>
+      this.priceButton(index, p.property)
+    );
+
+    return <View style={ItemPageTheme.variantsContainer}>{buttons}</View>;
+  };
+
+  private priceButton = (index: number, property: string) => {
+    return (
+      <Button
+        style={variantsButton}
+        title={property}
+        onPress={this.onPriceButtonClick}
+      />
+    );
+  };
+
+  private onPriceButtonClick = (event: GestureResponderEvent) => {
+    // tslint:disable-next-line:no-console
+    // index: number
+    // console.log(`Button: ${index}`);
+  };
+}
+
+{
+  /* <View style={ItemPageTheme.variantsContainer}>
+{this.priceButtons()}
+<Button style={variantsButton} title="250гр" onPress={() => {}} />
+<Button
+  style={variantsButtonSelected}
+  title="350гр"
+  onPress={() => {}}
+/>
+<Button style={variantsButton} title="2кг" onPress={() => {}} />
+<Button style={variantsButton} title="7.5кг" onPress={() => {}} />
+</View> */
 }
