@@ -143,9 +143,14 @@ export default class ProductPage extends PureComponent<
     return <View style={ItemPageTheme.variantsContainer}>{buttons}</View>;
   };
 
+  private buttonPriceeRef = React.createRef<Button>();
+
   private priceButton = (index: number, property: string) => {
     return (
       <Button
+        id={index}
+        key={index}
+        ref={this.buttonPriceeRef}
         style={variantsButton}
         title={property}
         onPress={this.onPriceButtonClick}
@@ -154,14 +159,17 @@ export default class ProductPage extends PureComponent<
   };
 
   private onPriceButtonClick = (event: GestureResponderEvent) => {
+    const button = this.buttonPriceeRef.current!;
+
+    // event.target.ref
+    // .target
     // tslint:disable-next-line:no-console
     // index: number
-    // console.log(`Button: ${index}`);
+    console.log(`Button: ${button.props.id}, ${button.props.title}, ${event.target}`);
   };
 }
 
-{
-  /* <View style={ItemPageTheme.variantsContainer}>
+/* <View style={ItemPageTheme.variantsContainer}>
 {this.priceButtons()}
 <Button style={variantsButton} title="250гр" onPress={() => {}} />
 <Button
@@ -172,4 +180,24 @@ export default class ProductPage extends PureComponent<
 <Button style={variantsButton} title="2кг" onPress={() => {}} />
 <Button style={variantsButton} title="7.5кг" onPress={() => {}} />
 </View> */
-}
+
+// import { Button as RNButton } from "react-native";
+// export class Button1 extends React.PureComponent<{
+//   data: number;
+//   onPress: Function;
+// }> {
+//   // static defaultProps = {
+//   //   onPress: () => {}
+//   // }
+//   // static propTypes = {
+//   //   data: PropTypes.any,
+//   //   onPress: PropTypes.func
+//   // }
+//   private onPress = () => {
+//     this.props.onPress(this.props.data);
+//   };
+//   render() {
+//     const { data, onPress, ...otherProps } = this.props;
+//     return <RNButton {...otherProps} onPress={this.onPress} />;
+//   }
+// }

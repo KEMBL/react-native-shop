@@ -1,4 +1,4 @@
-import React from "react";
+import React, { RefObject } from "react";
 import {
   TouchableNativeFeedback,
   TouchableOpacity,
@@ -15,8 +15,10 @@ import {
 } from "./../../../../theme/components/Button";
 
 interface ButtonProps {
+  id?: number;
   title: string;
   onPress: (event: GestureResponderEvent) => void;
+  ref?: RefObject<Button>;
   style?: ButtonStyle;
   isDisabled?: boolean;
   accessibilityLabel?: string;
