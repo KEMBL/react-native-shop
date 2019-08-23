@@ -16,6 +16,7 @@ import {
 import { CacheableImage } from "../../components/trivial/CacheableImage";
 import { StylableText } from "../../components/trivial/text/StylableText";
 import { Button } from "../../components/trivial/buttons/Button";
+import { DataButton } from "../../components/trivial/buttons/DataButton";
 import { Hr } from "../../components/trivial/hr";
 import { ProductModel, PriceModel } from "../../models/ProductModels";
 import { PriceUtils } from "../../utils";
@@ -143,29 +144,28 @@ export default class ProductPage extends PureComponent<
     return <View style={ItemPageTheme.variantsContainer}>{buttons}</View>;
   };
 
-  private buttonPriceeRef = React.createRef<Button>();
+  ///private buttonPriceeRef = React.createRef<Button>();
 
   private priceButton = (index: number, property: string) => {
     return (
-      <Button
-        id={index}
+      <DataButton<number>
+        // id={index}
         key={index}
-        ref={this.buttonPriceeRef}
+        //        ref={this.buttonPriceeRef}
         style={variantsButton}
         title={property}
-        onPress={this.onPriceButtonClick}
+        onClick={this.onPriceButtonClick}
+        data={index}
       />
     );
   };
 
-  private onPriceButtonClick = (event: GestureResponderEvent) => {
-    const button = this.buttonPriceeRef.current!;
-
+  private onPriceButtonClick = (data: number, event: GestureResponderEvent) => {
     // event.target.ref
     // .target
     // tslint:disable-next-line:no-console
     // index: number
-    console.log(`Button: ${button.props.id}, ${button.props.title}, ${event.target}`);
+    console.log(`Button: ${data}, ${event.target}`);
   };
 }
 

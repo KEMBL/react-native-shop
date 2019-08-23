@@ -1,4 +1,4 @@
-import React, { RefObject } from "react";
+import React from "react";
 import {
   TouchableNativeFeedback,
   TouchableOpacity,
@@ -14,11 +14,9 @@ import {
   ButtonStyle
 } from "./../../../../theme/components/Button";
 
-interface ButtonProps {
-  id?: number;
+export interface ButtonProps {
   title: string;
   onPress: (event: GestureResponderEvent) => void;
-  ref?: RefObject<Button>;
   style?: ButtonStyle;
   isDisabled?: boolean;
   accessibilityLabel?: string;
@@ -26,13 +24,7 @@ interface ButtonProps {
 
 export class Button extends React.PureComponent<ButtonProps> {
   public render() {
-    const {
-      accessibilityLabel,
-      onPress,
-      title,
-      isDisabled,
-      style
-    } = this.props;
+    const { accessibilityLabel, title, isDisabled, style } = this.props;
 
     const theme = style || ButtonTheme;
 
@@ -52,7 +44,7 @@ export class Button extends React.PureComponent<ButtonProps> {
             accessibilityRole="button"
             accessibilityStates={accessibilityStates}
             disabled={isDisabled}
-            onPress={onPress}
+            onPress={this.onButtonPressed}
           >
             <View style={buttonStyle}>
               <Text style={textStyle} ellipsizeMode={"clip"} numberOfLines={1}>
@@ -71,7 +63,7 @@ export class Button extends React.PureComponent<ButtonProps> {
           accessibilityRole="button"
           accessibilityStates={accessibilityStates}
           disabled={isDisabled}
-          onPress={onPress}
+          onPress={this.onButtonPressed}
         >
           <View style={buttonStyle}>
             <Text style={textStyle} ellipsizeMode={"clip"} numberOfLines={1}>
@@ -81,5 +73,9 @@ export class Button extends React.PureComponent<ButtonProps> {
         </TouchableNativeFeedback>
       </View>
     );
+  }
+
+  protected onButtonPressed(event: GestureResponderEvent) {
+    this.props.onPress(event);
   }
 }
