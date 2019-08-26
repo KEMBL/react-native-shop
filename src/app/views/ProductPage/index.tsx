@@ -26,13 +26,17 @@ interface ProductPageProps {
 }
 
 interface ProductPageState {
-  isHorisontal: boolean;
+  selectedVariantIndex?: number;
 }
 
 export default class ProductPage extends PureComponent<
   ProductPageProps,
   ProductPageState
 > {
+  public state = {
+    selectedVariantIndex: undefined
+  };
+
   public render() {
     const product = this.props.product;
     return (
@@ -57,7 +61,7 @@ export default class ProductPage extends PureComponent<
               Вес: 350гр
             </StylableText>
             {this.priceContainer(product.price)}
-            <View style={ItemPageTheme.variantsContainer}>
+            {/* <View style={ItemPageTheme.variantsContainer}>
               <Button style={variantsButton} title="250гр" onPress={() => {}} />
               <Button
                 style={variantsButtonSelected}
@@ -66,7 +70,7 @@ export default class ProductPage extends PureComponent<
               />
               <Button style={variantsButton} title="2кг" onPress={() => {}} />
               <Button style={variantsButton} title="7.5кг" onPress={() => {}} />
-            </View>
+            </View> */}
             <View style={ItemPageTheme.titleContainer}>
               <StylableText style={ItemPageTheme.title}>
                 New Dog Cat Bowls Stainless Steel Travel Footprint Feeding One &
@@ -147,12 +151,14 @@ export default class ProductPage extends PureComponent<
   ///private buttonPriceeRef = React.createRef<Button>();
 
   private priceButton = (index: number, property: string) => {
+    const isSelected = this.state.selectedVariantIndex === index;
+    const currentStyle = isSelected ? variantsButtonSelected : variantsButton;
     return (
       <DataButton<number>
         // id={index}
         key={index}
         //        ref={this.buttonPriceeRef}
-        style={variantsButton}
+        style={currentStyle}
         title={property}
         onClick={this.onPriceButtonClick}
         data={index}
@@ -166,6 +172,10 @@ export default class ProductPage extends PureComponent<
     // tslint:disable-next-line:no-console
     // index: number
     console.log(`Button: ${data}, ${event.target}`);
+
+    const nextState =
+      this.state.selectedVariantIndex === data ? undefined : data;
+    this.setState(() => ({ selectedVariantIndex: nextState }));
   };
 }
 

@@ -75,7 +75,7 @@ export class Button extends React.PureComponent<ButtonProps> {
     );
   }
 
-  protected onButtonPressed(event: GestureResponderEvent) {
+  protected onButtonPressed = (event: GestureResponderEvent) => {
     this.props.onPress(event);
-  }
+  };
 }

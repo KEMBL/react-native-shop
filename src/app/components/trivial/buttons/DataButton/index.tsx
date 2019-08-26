@@ -1,11 +1,9 @@
 import React from "react";
 import { GestureResponderEvent } from "react-native";
 
-import { ButtonProps } from "../Button";
+import { Button, ButtonProps } from "../Button";
 
 interface MakeOnPressOptional<T> {
-  // isDisabled?: boolean;
-  // accessibilityLabel?: string;
   onPress?: (event: GestureResponderEvent) => void;
   onClick: (data: T, event: GestureResponderEvent) => void;
   data: T;
@@ -15,12 +13,23 @@ interface MakeOnPressOptional<T> {
 type DataButtonProps<T> = Modify<ButtonProps, MakeOnPressOptional<T>>;
 
 export class DataButton<T> extends React.PureComponent<DataButtonProps<T>> {
-  protected onButtonPressed(event: GestureResponderEvent) {
+  public render() {
+    const { accessibilityLabel, title, isDisabled, style } = this.props;
+    return (
+      <Button
+        accessibilityLabel={accessibilityLabel}
+        title={title}
+        isDisabled={isDisabled}
+        style={style}
+        onPress={this.onButtonPressed}
+      />
+    );
+  }
+  private onButtonPressed = (event: GestureResponderEvent) => {
     if (this.props.onPress) {
       this.props.onPress(event);
     }
-    if (this.props.onClick) {
-      this.props.onClick(this.props.data, event);
-    }
-  }
+
+    this.props.onClick(this.props.data, event);
+  };
 }
