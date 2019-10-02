@@ -1,18 +1,18 @@
-import React from "react";
+import React from 'react';
 import {
   TouchableNativeFeedback,
   TouchableOpacity,
   AccessibilityState,
   Text,
   View,
-  GestureResponderEvent
-} from "react-native";
+  GestureResponderEvent,
+} from 'react-native';
 
-import { Theme } from "../../../../theme/Theme";
+import {Theme} from '../../../../theme/Theme';
 import {
   default as ButtonTheme,
-  ButtonStyle
-} from "./../../../../theme/components/Button";
+  ButtonStyle,
+} from './../../../../theme/components/Button';
 
 export interface ButtonProps {
   title: string;
@@ -24,16 +24,16 @@ export interface ButtonProps {
 
 export class Button extends React.PureComponent<ButtonProps> {
   public render() {
-    const { accessibilityLabel, title, isDisabled, style } = this.props;
+    const {accessibilityLabel, title, isDisabled, style} = this.props;
 
     const theme = style || ButtonTheme;
 
     const buttonStyle = isDisabled ? theme.buttonDisabled : theme.button;
     const textStyle = isDisabled ? theme.textDisabled : theme.text;
 
-    const accessibilityStates: AccessibilityState[] = [];
+    const accessibilityState: AccessibilityState = {};
     if (isDisabled) {
-      accessibilityStates.push("disabled");
+      accessibilityState.disabled = true;
     }
 
     if (Theme.platform.isIos) {
@@ -42,12 +42,11 @@ export class Button extends React.PureComponent<ButtonProps> {
           <TouchableOpacity
             accessibilityLabel={accessibilityLabel}
             accessibilityRole="button"
-            accessibilityStates={accessibilityStates}
+            accessibilityState={accessibilityState}
             disabled={isDisabled}
-            onPress={this.onButtonPressed}
-          >
+            onPress={this.onButtonPressed}>
             <View style={buttonStyle}>
-              <Text style={textStyle} ellipsizeMode={"clip"} numberOfLines={1}>
+              <Text style={textStyle} ellipsizeMode={'clip'} numberOfLines={1}>
                 {title}
               </Text>
             </View>
@@ -61,12 +60,11 @@ export class Button extends React.PureComponent<ButtonProps> {
         <TouchableNativeFeedback
           accessibilityLabel={accessibilityLabel}
           accessibilityRole="button"
-          accessibilityStates={accessibilityStates}
+          accessibilityState={accessibilityState}
           disabled={isDisabled}
-          onPress={this.onButtonPressed}
-        >
+          onPress={this.onButtonPressed}>
           <View style={buttonStyle}>
-            <Text style={textStyle} ellipsizeMode={"clip"} numberOfLines={1}>
+            <Text style={textStyle} ellipsizeMode={'clip'} numberOfLines={1}>
               {title}
             </Text>
           </View>

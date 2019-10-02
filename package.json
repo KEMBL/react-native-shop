@@ -1,48 +1,36 @@
 {
   "name": "react-native-shop",
   "version": "0.0.1",
-  "main": "node_modules/expo/AppEntry.js",
+  "private": true,
   "scripts": {
-    "start": "expo start",
+    "android": "react-native run-android",
+    "start": "react-native start",
     "start-tunnel": "tsc && expo start --tunnel",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "eject": "expo eject",
     "tslint": "tslint -p tsconfig.json",
     "tslint-fix": "tslint --fix -p tsconfig.json",
     "purge": "yarn clean:all && yarn && yarn prepare:all",
     "tslint-check": "tslint-config-prettier-check ./tslint.json"
   },
   "dependencies": {
-    "expo": "^32.0.0",
-    "react": "16.8.3",
-    "react-native": "0.59.4",
+    "react": "16.9.0",
+    "react-native": "0.61.2",
     "react-native-image-cache-hoc": "^2.0.0",
     "react-native-svg": "^9.4.0",
-    "rn-fetch-blob": "^0.10.16"
+    "rn-fetch-blob": "^0.11.2"
   },
   "devDependencies": {
     "@types/expo": "^32.0.13",
     "@types/node": "^11.11.3",
-    "@types/react": "^16.8.8",
-    "@types/react-native": "^0.57.1",
-    "@types/react-test-renderer": "^16.8.1",
+    "@types/react": "16.9.0",
+    "@types/react-native": "^0.60.17",
+    "@types/react-test-renderer": "16.9.0",
     "prettier": "^1.17.0",
-    "react-addons-test-utils": "^15.6.2",
-    "react-native-typescript-transformer": "^1.2.13",
     "schedule": "^0.4.0",
-    "ts-jest": "^24.0.2",
-    "tslint": "^5.19.0",
+    "tslint": "^5.20.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.0.1",
     "tslint-react": "^3.6.0",
-    "typescript": "^3.5.1",
+    "typescript": "^3.6.3",
     "typescript-styled-plugin": "^0.14.0"
-  },
-  "private": true,
-  "rnpm": {
-    "assets": [
-      "./assets/fonts/"
-    ]
   }
 }

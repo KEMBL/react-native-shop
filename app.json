@@ -1,31 +1,4 @@
 {
   "name": "reactnativeshop",
-  "displayName": "Mobile application React Native shop",
-  "expo": {
-    "name": "Mobile application React Native shop",
-    "slug": "react-native-shop",
-    "privacy": "public",
-    "sdkVersion": "32.0.0",
-    "platforms": [
-      "ios",
-      "android"
-    ],
-    "android": {
-      "package": "com.reactnative.shop"
-    },
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ]
-  }
+  "displayName": "Mobile application React Native shop"
 }
