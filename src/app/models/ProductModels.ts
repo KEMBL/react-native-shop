@@ -1,4 +1,3 @@
-
 export interface PricePropertiesModel {
   price: number; // 200, 300, 3000
   property: string; // 100gr, 200gr, 2kg

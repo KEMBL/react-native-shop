@@ -1,25 +1,20 @@
-import React, { PureComponent } from "react";
-import {
-  View,
-  StatusBar,
-  ScrollView,
-  GestureResponderEvent
-} from "react-native";
+import React, {PureComponent} from 'react';
+import {View, StatusBar, ScrollView, GestureResponderEvent} from 'react-native';
 
 import {
   steelShitInstance as ItemPageTheme,
   variantsButtonSelected,
   variantsButton,
   amountButton,
-  buyButton
-} from "../../theme/views/ProductPage";
-import { CacheableImage } from "../../components/trivial/CacheableImage";
-import { StylableText } from "../../components/trivial/text/StylableText";
-import { Button } from "../../components/trivial/buttons/Button";
-import { DataButton } from "../../components/trivial/buttons/DataButton";
-import { Hr } from "../../components/trivial/hr";
-import { ProductModel, PriceModel } from "../../models/ProductModels";
-import { PriceUtils } from "../../utils";
+  buyButton,
+} from '../../theme/views/ProductPage';
+import {CacheableImage} from '../../components/trivial/CacheableImage';
+import {StylableText} from '../../components/trivial/text/StylableText';
+import {Button} from '../../components/trivial/buttons/Button';
+import {DataButton} from '../../components/trivial/buttons/DataButton';
+import {Hr} from '../../components/trivial/hr';
+import {ProductModel, PriceModel} from '../../models/ProductModels';
+import {PriceUtils} from '../../utils';
 
 interface ProductPageProps {
   product: ProductModel;
@@ -27,6 +22,7 @@ interface ProductPageProps {
 
 interface ProductPageState {
   selectedVariantIndex?: number;
+  amount: number;
 }
 
 export default class ProductPage extends PureComponent<
@@ -34,10 +30,12 @@ export default class ProductPage extends PureComponent<
   ProductPageState
 > {
   public state = {
-    selectedVariantIndex: undefined
+    selectedVariantIndex: -1,
+    amount: 1,
   };
 
   public render() {
+    const {selectedVariantIndex, amount} = this.state;
     const product = this.props.product;
     return (
       <View style={ItemPageTheme.container}>
@@ -46,14 +44,18 @@ export default class ProductPage extends PureComponent<
           barStyle="light-content"
         />
         <View style={ItemPageTheme.toolBar} />
-        <ScrollView style={{ height: 550 }}>
+        <ScrollView style={{height: 550}}>
           <CacheableImage
             style={ItemPageTheme.image}
             src={product.image_url[0]}
           />
           <View style={ItemPageTheme.priceContainer}>
             <StylableText style={ItemPageTheme.price}>
-              {PriceUtils.makePriceString(product.price.properties, -1, 1)}
+              {PriceUtils.makePriceString(
+                product.price.properties,
+                selectedVariantIndex,
+                amount,
+              )}
             </StylableText>
           </View>
           <View style={ItemPageTheme.infoContainer}>
@@ -79,55 +81,62 @@ export default class ProductPage extends PureComponent<
               </StylableText>
             </View>
             <Hr color="#dfdfdf" />
-            <View style={ItemPageTheme.amountContainer}>
-              <StylableText style={ItemPageTheme.variantSelectedText}>
-                Количество:
-              </StylableText>
-              <View style={ItemPageTheme.amountSelectorContainer}>
-                <Button style={amountButton} title="-" onPress={() => {}} />
-                <StylableText style={ItemPageTheme.amountSelectorText}>
-                  5
+            {selectedVariantIndex !== -1 && (
+              <View style={ItemPageTheme.amountContainer}>
+                <StylableText style={ItemPageTheme.variantSelectedText}>
+                  Количество:
                 </StylableText>
-                <Button style={amountButton} title="+" onPress={() => {}} />
+                <View style={ItemPageTheme.amountSelectorContainer}>
+                  <Button
+                    style={amountButton}
+                    title="-"
+                    onPress={this.onAmountDecrease}
+                  />
+                  <StylableText style={ItemPageTheme.amountSelectorText}>
+                    {amount}
+                  </StylableText>
+                  <Button
+                    style={amountButton}
+                    title="+"
+                    onPress={this.onAmountIncrease}
+                  />
+                </View>
               </View>
-            </View>
+            )}
             <View style={ItemPageTheme.deliveryContainer}>
-              <View style={{ flexDirection: "column" }}>
+              <View style={{flexDirection: 'column'}}>
                 <StylableText
                   style={{
-                    fontFamily: "sans-serif-condensed",
+                    fontFamily: 'sans-serif-condensed',
                     fontSize: 15,
-                    color: "black"
-                  }}
-                >
+                    color: 'black',
+                  }}>
                   Доставка: 150 руб, 5 Мая
                 </StylableText>
                 <StylableText
                   style={{
-                    fontFamily: "sans-serif-condensed",
+                    fontFamily: 'sans-serif-condensed',
                     fontSize: 15,
-                    color: "black",
-                    paddingBottom: 10
-                  }}
-                >
+                    color: 'black',
+                    paddingBottom: 10,
+                  }}>
                   г.Ростов-на-Дону, ул. Освобождения, ...
                 </StylableText>
               </View>
               <StylableText
                 style={{
-                  fontFamily: "Roboto",
+                  fontFamily: 'Roboto',
                   fontSize: 20,
-                  color: "black",
-                  paddingBottom: 10
-                }}
-              >
+                  color: 'black',
+                  paddingBottom: 10,
+                }}>
                 >
               </StylableText>
             </View>
           </View>
           <View
             style={{
-              height: 10
+              height: 10,
             }}
           />
         </ScrollView>
@@ -142,13 +151,11 @@ export default class ProductPage extends PureComponent<
 
   private priceContainer = (priceModel: PriceModel) => {
     const buttons = priceModel.properties.map((p, index) =>
-      this.priceButton(index, p.property)
+      this.priceButton(index, p.property),
     );
 
     return <View style={ItemPageTheme.variantsContainer}>{buttons}</View>;
   };
-
-  ///private buttonPriceeRef = React.createRef<Button>();
 
   private priceButton = (index: number, property: string) => {
     const isSelected = this.state.selectedVariantIndex === index;
@@ -167,15 +174,20 @@ export default class ProductPage extends PureComponent<
   };
 
   private onPriceButtonClick = (data: number, event: GestureResponderEvent) => {
-    // event.target.ref
-    // .target
-    // tslint:disable-next-line:no-console
-    // index: number
-    console.log(`Button: ${data}, ${event.target}`);
+    const nextState = this.state.selectedVariantIndex === data ? -1 : data; // turn button on / off
+    this.setState(() => ({
+      selectedVariantIndex: nextState,
+    }));
+  };
 
-    const nextState =
-      this.state.selectedVariantIndex === data ? undefined : data;
-    this.setState(() => ({ selectedVariantIndex: nextState }));
+  private onAmountIncrease = () => {
+    const nextAmount = this.state.amount + 1;
+    this.setState(() => ({amount: nextAmount}));
+  };
+  private onAmountDecrease = () => {
+    if (this.state.amount > 1) {
+      this.setState(() => ({amount: this.state.amount - 1}));
+    }
   };
 }
 
@@ -183,7 +195,7 @@ export default class ProductPage extends PureComponent<
 {this.priceButtons()}
 <Button style={variantsButton} title="250гр" onPress={() => {}} />
 <Button
-  style={variantsButtonSelected}
+  style={variantsButtonSelected} 
   title="350гр"
   onPress={() => {}}
 />
