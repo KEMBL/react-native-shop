@@ -5,13 +5,13 @@ import {
   AccessibilityState,
   Text,
   View,
-  GestureResponderEvent,
+  GestureResponderEvent
 } from 'react-native';
 
 import {Theme} from '../../../../theme/Theme';
 import {
   default as ButtonTheme,
-  ButtonStyle,
+  ButtonStyle
 } from './../../../../theme/components/Button';
 
 export interface ButtonProps {

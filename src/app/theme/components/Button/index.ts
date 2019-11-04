@@ -1,6 +1,6 @@
-import { StyleSheet, ViewStyle, TextStyle } from "react-native";
+import {StyleSheet, ViewStyle, TextStyle} from 'react-native';
 
-import { Theme } from "./../../Theme";
+import {Theme} from './../../Theme';
 
 export interface ButtonStyle {
   button: ViewStyle;
@@ -9,20 +9,20 @@ export interface ButtonStyle {
   textDisabled: TextStyle;
 }
 
-const steelShitInstance = StyleSheet.create<ButtonStyle>({
+const steelSheetInstance = StyleSheet.create<ButtonStyle>({
   button: {},
   text: {
-    textAlign: "center",
+    textAlign: 'center',
     fontSize: 13,
     fontFamily: Theme.fontFamily
   },
   buttonDisabled: {
     elevation: 0,
-    backgroundColor: "#dfdfdf"
+    backgroundColor: '#dfdfdf'
   },
   textDisabled: {
-    color: "#a1a1a1"
+    color: '#a1a1a1'
   }
 });
 
-export default steelShitInstance;
+export default steelSheetInstance;

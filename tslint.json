@@ -27,13 +27,7 @@
     "trailing-comma": [
       true,
       {
-        "singleline": "never",
-        "multiline": {
-          "objects": "ignore",
-          "arrays": "ignore",
-          "functions": "never",
-          "typeLiterals": "ignore"
-        }
+        "esSpecCompliant": "true"
       }
     ]
   },

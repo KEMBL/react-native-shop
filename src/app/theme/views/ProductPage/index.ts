@@ -1,13 +1,13 @@
-import { StyleSheet, ViewStyle, TextStyle, ImageStyle } from "react-native";
+import {StyleSheet, ViewStyle, TextStyle, ImageStyle} from 'react-native';
 
-import { Theme } from "../../Theme";
-import { ButtonStyle } from "../../components/Button";
+import {Theme} from '../../Theme';
+import {ButtonStyle} from '../../components/Button';
 
 export const variantsButton: ButtonStyle = {
   button: {
     flex: 1,
-    justifyContent: "center",
-    borderColor: "#dfdfdf",
+    justifyContent: 'center',
+    borderColor: '#dfdfdf',
     borderRadius: 3,
     borderWidth: 1,
     height: 30,
@@ -15,25 +15,25 @@ export const variantsButton: ButtonStyle = {
     marginRight: 10
   },
   text: {
-    textAlign: "center",
+    textAlign: 'center',
     fontSize: 10,
-    fontFamily: "Roboto",
-    color: "black"
+    fontFamily: 'Roboto',
+    color: 'black'
   },
   buttonDisabled: {
     elevation: 0,
-    backgroundColor: "#dfdfdf"
+    backgroundColor: '#dfdfdf'
   },
   textDisabled: {
-    color: "#a1a1a1"
+    color: '#a1a1a1'
   }
 };
 
 export const variantsButtonSelected: ButtonStyle = {
   button: {
     flex: 1,
-    justifyContent: "center",
-    borderColor: "red",
+    justifyContent: 'center',
+    borderColor: 'red',
     borderRadius: 3,
     borderWidth: 2,
     height: 30,
@@ -41,60 +41,60 @@ export const variantsButtonSelected: ButtonStyle = {
     marginRight: 10
   },
   text: {
-    textAlign: "center",
+    textAlign: 'center',
     fontSize: 10,
-    fontFamily: "Roboto",
-    color: "black"
+    fontFamily: 'Roboto',
+    color: 'black'
   },
   buttonDisabled: {
     elevation: 0,
-    backgroundColor: "#dfdfdf"
+    backgroundColor: '#dfdfdf'
   },
   textDisabled: {
-    color: "#a1a1a1"
+    color: '#a1a1a1'
   }
 };
 
 export const amountButton: ButtonStyle = {
   button: {
     flex: 1,
-    justifyContent: "center",
-    backgroundColor: "#f1f1f1",
+    justifyContent: 'center',
+    backgroundColor: '#f1f1f1',
     borderRadius: 15,
     borderWidth: 0,
     height: 30,
     width: 30
   },
   text: {
-    textAlign: "center",
+    textAlign: 'center',
     fontSize: 15,
-    fontFamily: "sans-serif-medium",
-    color: "black",
+    fontFamily: 'sans-serif-medium',
+    color: 'black',
     marginBottom: 3
   },
   buttonDisabled: {
     elevation: 0,
-    backgroundColor: "#dfdfdf"
+    backgroundColor: '#dfdfdf'
   },
   textDisabled: {
-    color: "#a1a1a1"
+    color: '#a1a1a1'
   }
 };
 
 export const buyButton: ButtonStyle = {
   button: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#FF4747",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#FF4747',
     height: 47
   },
   text: {
-    textAlign: "center",
-    textAlignVertical: "center",
-    fontFamily: "Arial Cyr Bold",
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    fontFamily: 'Arial Cyr Bold',
     fontSize: 15,
-    color: "#FFFFFF"
+    color: '#FFFFFF'
   },
   buttonDisabled: {},
   textDisabled: {}
@@ -118,10 +118,9 @@ export interface ProductPageStyle {
   amountContainer: ViewStyle;
   amountSelectorContainer: ViewStyle;
   amountSelectorText: TextStyle;
-  deliveryContainer: ViewStyle;
 }
 
-export const steelShitInstance = StyleSheet.create<ProductPageStyle>({
+export const steelSheetInstance = StyleSheet.create<ProductPageStyle>({
   container: {
     flex: 1,
     backgroundColor: Theme.white
@@ -139,70 +138,58 @@ export const steelShitInstance = StyleSheet.create<ProductPageStyle>({
   },
   priceContainer: {
     height: 35,
-    backgroundColor: "#f2f2f2"
+    backgroundColor: '#f2f2f2'
   },
   price: {
     includeFontPadding: false,
-    fontFamily: "sans-serif-condensed",
-    fontWeight: "bold",
+    fontFamily: 'sans-serif-condensed',
+    fontWeight: 'bold',
     color: Theme.black,
     fontSize: 19,
     marginTop: 5,
     marginLeft: 10
   },
   infoContainer: {
-    paddingLeft: 10
+    paddingLeft: 10,
+    marginTop: 10
   },
   titleContainer: {
     marginTop: 10
   },
   title: {
-    fontFamily: "sans-serif-condensed",
+    fontFamily: 'sans-serif-condensed',
     fontSize: 15,
     color: Theme.black,
     lineHeight: 22
   },
   variantsContainer: {
     flex: 1,
-    flexDirection: "row",
+    flexDirection: 'row',
     marginTop: 5
   },
   variantSelectedText: {
     marginTop: 5,
-    fontFamily: "sans-serif-condensed",
+    fontFamily: 'sans-serif-condensed',
     fontSize: 15,
     color: Theme.black
   },
   amountContainer: {
     flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignContent: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignContent: 'center',
     width: 180,
     marginTop: 5
   },
   amountSelectorContainer: {
     flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     marginLeft: 20
   },
   amountSelectorText: {
-    fontFamily: "roboto",
+    fontFamily: 'roboto',
     fontSize: 20,
     color: Theme.black
-  },
-  deliveryContainer: {
-    flexDirection: "row",
-    marginTop: 14,
-    justifyContent: "space-between",
-    alignItems: "center",
-    borderColor: "#ADB1B8",
-    borderRadius: 3,
-    borderWidth: 1,
-    backgroundColor: "#ECEEF1",
-    height: 70,
-    marginRight: 10,
-    padding: 10
   }
 });

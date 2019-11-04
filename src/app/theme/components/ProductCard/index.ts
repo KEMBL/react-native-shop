@@ -1,6 +1,6 @@
-import { StyleSheet, ViewStyle, TextStyle, ImageStyle } from "react-native";
+import {StyleSheet, ViewStyle, TextStyle, ImageStyle} from 'react-native';
 
-import { Theme } from "./../../Theme";
+import {Theme} from './../../Theme';
 
 export interface ProductCardStyle {
   container: ViewStyle;
@@ -10,7 +10,7 @@ export interface ProductCardStyle {
   title: TextStyle;
 }
 
-const steelShitInstance = StyleSheet.create<ProductCardStyle>({
+const steelSheetInstance = StyleSheet.create<ProductCardStyle>({
   container: {
     flex: 1,
     width: 100
@@ -21,29 +21,29 @@ const steelShitInstance = StyleSheet.create<ProductCardStyle>({
   },
   weight: {
     marginRight: 10,
-    textAlign: "left",
+    textAlign: 'left',
     color: Theme.grey,
     height: 27,
     fontSize: 11,
-    fontWeight: "400",
+    fontWeight: '400',
     fontFamily: Theme.fontFamily
   },
   price: {
     marginRight: 10,
-    textAlign: "right",
+    textAlign: 'right',
     color: Theme.green,
     height: 27,
     fontSize: 11,
-    fontWeight: "400",
+    fontWeight: '400',
     fontFamily: Theme.fontFamily
   },
   title: {
-    textAlign: "left",
+    textAlign: 'left',
     color: Theme.black,
     fontSize: 11,
-    fontWeight: "400",
+    fontWeight: '400',
     fontFamily: Theme.fontFamily
   }
 });
 
-export default steelShitInstance;
+export default steelSheetInstance;

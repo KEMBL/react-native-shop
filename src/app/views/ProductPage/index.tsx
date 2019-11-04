@@ -1,12 +1,12 @@
 import React, {PureComponent} from 'react';
-import {View, StatusBar, ScrollView, GestureResponderEvent} from 'react-native';
+import {View, StatusBar, ScrollView} from 'react-native';
 
 import {
-  steelShitInstance as ItemPageTheme,
+  steelSheetInstance as ItemPageTheme,
   variantsButtonSelected,
   variantsButton,
   amountButton,
-  buyButton,
+  buyButton
 } from '../../theme/views/ProductPage';
 import {CacheableImage} from '../../components/trivial/CacheableImage';
 import {StylableText} from '../../components/trivial/text/StylableText';
@@ -15,6 +15,7 @@ import {DataButton} from '../../components/trivial/buttons/DataButton';
 import {Hr} from '../../components/trivial/hr';
 import {ProductModel, PriceModel} from '../../models/ProductModels';
 import {PriceUtils} from '../../utils';
+import {DeliverySelector} from '../../components/advanced/DeliverySelector';
 
 interface ProductPageProps {
   product: ProductModel;
@@ -31,7 +32,7 @@ export default class ProductPage extends PureComponent<
 > {
   public state = {
     selectedVariantIndex: -1,
-    amount: 1,
+    amount: 1
   };
 
   public render() {
@@ -54,25 +55,12 @@ export default class ProductPage extends PureComponent<
               {PriceUtils.makePriceString(
                 product.price.properties,
                 selectedVariantIndex,
-                amount,
+                amount
               )}
             </StylableText>
           </View>
           <View style={ItemPageTheme.infoContainer}>
-            <StylableText style={ItemPageTheme.variantSelectedText}>
-              Вес: 350гр
-            </StylableText>
             {this.priceContainer(product.price)}
-            {/* <View style={ItemPageTheme.variantsContainer}>
-              <Button style={variantsButton} title="250гр" onPress={() => {}} />
-              <Button
-                style={variantsButtonSelected}
-                title="350гр"
-                onPress={() => {}}
-              />
-              <Button style={variantsButton} title="2кг" onPress={() => {}} />
-              <Button style={variantsButton} title="7.5кг" onPress={() => {}} />
-            </View> */}
             <View style={ItemPageTheme.titleContainer}>
               <StylableText style={ItemPageTheme.title}>
                 New Dog Cat Bowls Stainless Steel Travel Footprint Feeding One &
@@ -103,40 +91,11 @@ export default class ProductPage extends PureComponent<
                 </View>
               </View>
             )}
-            <View style={ItemPageTheme.deliveryContainer}>
-              <View style={{flexDirection: 'column'}}>
-                <StylableText
-                  style={{
-                    fontFamily: 'sans-serif-condensed',
-                    fontSize: 15,
-                    color: 'black',
-                  }}>
-                  Доставка: 150 руб, 5 Мая
-                </StylableText>
-                <StylableText
-                  style={{
-                    fontFamily: 'sans-serif-condensed',
-                    fontSize: 15,
-                    color: 'black',
-                    paddingBottom: 10,
-                  }}>
-                  г.Ростов-на-Дону, ул. Освобождения, ...
-                </StylableText>
-              </View>
-              <StylableText
-                style={{
-                  fontFamily: 'Roboto',
-                  fontSize: 20,
-                  color: 'black',
-                  paddingBottom: 10,
-                }}>
-                >
-              </StylableText>
-            </View>
+            <DeliverySelector />
           </View>
           <View
             style={{
-              height: 10,
+              height: 10
             }}
           />
         </ScrollView>
@@ -151,7 +110,7 @@ export default class ProductPage extends PureComponent<
 
   private priceContainer = (priceModel: PriceModel) => {
     const buttons = priceModel.properties.map((p, index) =>
-      this.priceButton(index, p.property),
+      this.priceButton(index, p.property)
     );
 
     return <View style={ItemPageTheme.variantsContainer}>{buttons}</View>;
@@ -162,9 +121,7 @@ export default class ProductPage extends PureComponent<
     const currentStyle = isSelected ? variantsButtonSelected : variantsButton;
     return (
       <DataButton<number>
-        // id={index}
         key={index}
-        //        ref={this.buttonPriceeRef}
         style={currentStyle}
         title={property}
         onClick={this.onPriceButtonClick}
@@ -173,10 +130,10 @@ export default class ProductPage extends PureComponent<
     );
   };
 
-  private onPriceButtonClick = (data: number, event: GestureResponderEvent) => {
+  private onPriceButtonClick = (data: number) => {
     const nextState = this.state.selectedVariantIndex === data ? -1 : data; // turn button on / off
     this.setState(() => ({
-      selectedVariantIndex: nextState,
+      selectedVariantIndex: nextState
     }));
   };
 
@@ -184,42 +141,10 @@ export default class ProductPage extends PureComponent<
     const nextAmount = this.state.amount + 1;
     this.setState(() => ({amount: nextAmount}));
   };
+
   private onAmountDecrease = () => {
     if (this.state.amount > 1) {
       this.setState(() => ({amount: this.state.amount - 1}));
     }
   };
 }
-
-/* <View style={ItemPageTheme.variantsContainer}>
-{this.priceButtons()}
-<Button style={variantsButton} title="250гр" onPress={() => {}} />
-<Button
-  style={variantsButtonSelected} 
-  title="350гр"
-  onPress={() => {}}
-/>
-<Button style={variantsButton} title="2кг" onPress={() => {}} />
-<Button style={variantsButton} title="7.5кг" onPress={() => {}} />
-</View> */
-
-// import { Button as RNButton } from "react-native";
-// export class Button1 extends React.PureComponent<{
-//   data: number;
-//   onPress: Function;
-// }> {
-//   // static defaultProps = {
-//   //   onPress: () => {}
-//   // }
-//   // static propTypes = {
-//   //   data: PropTypes.any,
-//   //   onPress: PropTypes.func
-//   // }
-//   private onPress = () => {
-//     this.props.onPress(this.props.data);
-//   };
-//   render() {
-//     const { data, onPress, ...otherProps } = this.props;
-//     return <RNButton {...otherProps} onPress={this.onPress} />;
-//   }
-// }
