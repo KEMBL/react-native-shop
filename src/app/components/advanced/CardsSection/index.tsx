@@ -3,7 +3,7 @@ import { View, FlatList } from "react-native";
 
 import { default as CardsSectionTheme } from "./../../../theme/components/CardsSection";
 import { ProductCard } from "../ProductCard";
-import { ProductCardModel } from "../../../models/ProductCardModel";
+import { ProductCardModel } from "../../../models/Product/ProductCardModel";
 import { Header3Text } from "../../trivial/text/Header3Text";
 import { Button } from "../../trivial/buttons/Button";
 import { ButtonStyle } from "../../../theme/components/Button";

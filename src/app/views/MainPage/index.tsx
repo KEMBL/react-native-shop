@@ -3,9 +3,9 @@ import {StyleSheet, View, StatusBar, FlatList} from 'react-native';
 
 import {Theme} from './../../theme/Theme';
 import {CardsSection} from '../../components/advanced/CardsSection';
-import {ProductCardModel} from '../../models/ProductCardModel';
+import {ProductCardModel} from '../../models/Product/ProductCardModel';
 import {TopDownGradient} from '../../components/trivial/icons/gradients/TopDownGradient';
-import {ProductCategoryModel} from '../../models/ProductCategoryModel';
+import {ProductCategoryModel} from '../../models/Product/ProductCategoryModel';
 
 const card: ProductCardModel = {
   thumbnail:

@@ -1,4 +1,4 @@
-import {PricePropertiesModel} from '../models/ProductModels';
+import {PricePropertiesModel} from '../models/Product/ProductModels';
 import ConfiguationService from '../services/ConfigurationService';
 
 class PriceUtils {

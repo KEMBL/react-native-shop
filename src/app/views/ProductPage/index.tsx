@@ -13,7 +13,7 @@ import {StylableText} from '../../components/trivial/text/StylableText';
 import {Button} from '../../components/trivial/buttons/Button';
 import {DataButton} from '../../components/trivial/buttons/DataButton';
 import {Hr} from '../../components/trivial/hr';
-import {ProductModel, PriceModel} from '../../models/ProductModels';
+import {ProductModel, PriceModel} from '../../models/Product/ProductModels';
 import {PriceUtils} from '../../utils';
 import {DeliverySelector} from '../../components/advanced/DeliverySelector';
 
