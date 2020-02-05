@@ -1,10 +1,25 @@
 import {AnyAction, Reducer} from 'redux';
-import {ProductModel} from '../../../models/Product/ProductModels';
+import {useSelector, shallowEqual} from 'react-redux';
+import {createSelector} from 'reselect';
+import {Set as ImmSet} from 'immutable';
+import {AxiosResponse} from 'axios';
+import {isArray} from 'util';
+
+import configuationService from '../../ConfigurationService';
+import {
+  ProductModel,
+  ProductLoadingState
+} from '../../../models/Product/ProductModels';
 import {ProductsState} from '../../../models/Product/ProductsState';
+import {ApplicationState} from '../../../models/Application/ApplicationState';
 
 export const GET_PRODUCTS = 'app/products/LOAD';
 export const GET_PRODUCTS_SUCCESS = 'app/products/LOAD_SUCCESS';
 export const GET_PRODUCTS_FAIL = 'app/products/LOAD_FAIL';
+
+interface ProductsResponse {
+  products: ProductModel[];
+}
 
 interface GetProductsAction extends AnyAction {
   type: typeof GET_PRODUCTS;
@@ -17,7 +32,7 @@ interface GetProductsAction extends AnyAction {
 
 interface GetProductsSuccessAction extends AnyAction {
   type: typeof GET_PRODUCTS_SUCCESS;
-  payload: ProductModel[];
+  payload: AxiosResponse<ProductsResponse>;
 }
 
 interface GetProductsFailAction extends AnyAction {
@@ -29,6 +44,55 @@ export type ProductsActionTypes =
   | GetProductsSuccessAction
   | GetProductsFailAction;
 
+export interface ProductSelectorsHookResult {
+  productsSelector: ImmSet<ProductModel>;
+  productLoadingStateSelector: ProductLoadingState;
+}
+
+export type ProductSelectorsHook = () => ProductSelectorsHookResult;
+
+export const useProductSelectors: ProductSelectorsHook = () => {
+  const loadingStateSelector = (state: ApplicationState) => {
+    return state.productsState.productsLoading;
+  };
+
+  const loadingErrorSelector = (state: ApplicationState) => {
+    return state.productsState.productsLoadingError !== undefined;
+  };
+
+  const selectLoadingState = createSelector(
+    loadingStateSelector,
+    loadingErrorSelector,
+    (isLoading: boolean, isEror: boolean) => {
+      if (isEror) {
+        return ProductLoadingState.error;
+      }
+
+      if (isLoading) {
+        return ProductLoadingState.isLoading;
+      }
+
+      return ProductLoadingState.success;
+    }
+  );
+
+  /**
+   * Returns current product loading state
+   */
+  const productLoadingStateSelector = useSelector(
+    selectLoadingState,
+    shallowEqual
+  );
+
+  const stateProductsSelector = (state: ApplicationState) => {
+    return state.productsState.products;
+  };
+
+  const productsSelector = useSelector(stateProductsSelector, shallowEqual);
+
+  return {productsSelector, productLoadingStateSelector};
+};
+
 export const reducer: Reducer<ProductsState, ProductsActionTypes> = (
   state: ProductsState = new ProductsState(),
   action
@@ -39,11 +103,20 @@ export const reducer: Reducer<ProductsState, ProductsActionTypes> = (
         .set('productsLoading', true)
         .set('productsLoadingError', undefined);
     case GET_PRODUCTS_SUCCESS:
-      return state
-        .set('products', action.payload)
-        .set('productsLoading', false)
-        .set('productsLoadingError', undefined);
-    // {...state, loading: false, repos: action.payload.data};
+      if (action.payload.data && isArray(action.payload.data.products)) {
+        return state.merge({
+          products: ImmSet(action.payload.data.products),
+          // products: ImmSet(new Array<ProductModel>()),
+          productsLoading: false,
+          productsLoadingError: undefined
+        });
+      }
+
+      return state.merge({
+        productsLoading: false,
+        productsLoadingError: 'Error while unpacking products!'
+      });
+
     case GET_PRODUCTS_FAIL:
       return state
         .set(
@@ -56,13 +129,13 @@ export const reducer: Reducer<ProductsState, ProductsActionTypes> = (
   }
 };
 
-export const dispatchProductsRequest = () => {
+export const actionProductsRequest = (): GetProductsAction => {
   return {
     type: GET_PRODUCTS,
     payload: {
       // axios-middleware takes all actions with payload formatted as below and return <ActionName>_SUCCESS or _FAIL actions
       request: {
-        url: `http://kembl.ru/rns/products.json`
+        url: configuationService.getProductsUrl
       }
     }
   };

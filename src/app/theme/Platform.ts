@@ -1,8 +1,4 @@
-import {
-  Platform as PlatformRN,
-  Dimensions,
-  PlatformOSType
-} from "react-native";
+import {Platform as PlatformRN, Dimensions, PlatformOSType} from 'react-native';
 
 class Platform {
   public deviceHeight: number;
@@ -11,10 +7,10 @@ class Platform {
   public isIos: boolean;
 
   constructor() {
-    this.deviceHeight = Dimensions.get("window").height;
-    this.deviceWidth = Dimensions.get("window").width;
+    this.deviceHeight = Dimensions.get('window').height;
+    this.deviceWidth = Dimensions.get('window').width;
     this.operationSystem = PlatformRN.OS;
-    this.isIos = this.operationSystem === "ios";
+    this.isIos = this.operationSystem === 'ios';
   }
 }
 

@@ -1,22 +1,19 @@
 # React native shop
 
-React native shop application.
-
-For now it is more react components UI library playground.
+React native e-commerce shop application
 
 
 # To start
 
-1) yarn upgrade
+1) yarn install
 
-2) npm run start-tunnel
+2) tsc
 
-At first run it could asc about Expo CLI install - agree
+3) Eject Android folder (could be tricky - dig the net for more info)
 
-3) use Expoapp to scan QR code and preview the application
+4) start Android device emulation in Android studio
+
+5) react-native run-android
 
 
-# Developing tips
-
-* after starting this application inside expo, run tsc -w and you will see changes in TS codebase "on fly"
 

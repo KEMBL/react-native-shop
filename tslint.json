@@ -29,7 +29,14 @@
       {
         "esSpecCompliant": "true"
       }
-    ]
+    ],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   },
-  "extends": ["tslint:latest", "tslint-react", "tslint-config-prettier"]
+  "extends": [
+    "tslint:latest",
+    "tslint-react",
+    "tslint-react-hooks",
+    "tslint-config-prettier"
+  ]
 }

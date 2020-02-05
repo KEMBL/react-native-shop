@@ -52,3 +52,9 @@ export interface ProductModel {
   //  rating_html: string;
   image_url: string[];
 }
+
+export enum ProductLoadingState {
+  success,
+  isLoading,
+  error
+}

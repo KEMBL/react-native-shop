@@ -10,6 +10,4 @@ const appStateDefaults: ApplicationStateInterface = {
   productsState: new ProductsState()
 };
 
-export class ApplicationState extends Record<ApplicationStateInterface>(
-  appStateDefaults
-) {}
+export class ApplicationState extends Record(appStateDefaults) {}

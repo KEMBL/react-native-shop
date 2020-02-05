@@ -1,19 +1,18 @@
-import {Record} from 'immutable';
+import {Set as ImmSet, Record} from 'immutable';
 
 import {ProductModel} from './ProductModels';
 
-interface ProductsStateInterface {
-  products: ProductModel[];
+export interface ProductsStateInterface {
+  products: ImmSet<ProductModel>;
   productsLoading: boolean;
   productsLoadingError?: string;
 }
 
 const productStateDefaults: ProductsStateInterface = {
-  products: new Array<ProductModel>(),
+  products: ImmSet(),
   productsLoading: false,
   productsLoadingError: undefined
 };
 
-export class ProductsState extends Record<ProductsStateInterface>(
-  productStateDefaults
-) {}
+// Record allows to have default values for our state
+export class ProductsState extends Record(productStateDefaults) {}
