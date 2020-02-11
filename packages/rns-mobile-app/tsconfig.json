@@ -1,0 +1,22 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "build",   
+    // "allowJs": true /* Allow javascript files to be compiled. */,
+    // "isolatedModules": false,
+    // "resolveJsonModule": true,
+    "typeRoots": ["@types", "../../node_modules/@types"]
+  },
+  "include": ["index.tsx", "src"],
+  "references": [
+    {
+      "path": "../components"
+    },
+    {
+      "path": "../rns-core"
+    },
+    {
+      "path": "../rns-theme"
+    }
+  ]
+}

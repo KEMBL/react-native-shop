@@ -1,0 +1,1678 @@
+{
+  "program": {
+    "fileInfos": {
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.d.ts": {
+        "version": "49ff9798f592c8b7e628fd881401e68810c1b3589ecd7a41b32b3c287374cde0",
+        "signature": "49ff9798f592c8b7e628fd881401e68810c1b3589ecd7a41b32b3c287374cde0"
+      },
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es5.d.ts": {
+        "version": "1f753cee573dea40df8a9dc873fef5566957b19ad513874f6643d8dfb14842d0",
+        "signature": "1f753cee573dea40df8a9dc873fef5566957b19ad513874f6643d8dfb14842d0"
+      },
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.d.ts": {
+        "version": "7994d44005046d1413ea31d046577cdda33b8b2470f30281fd9c8b3c99fe2d96",
+        "signature": "7994d44005046d1413ea31d046577cdda33b8b2470f30281fd9c8b3c99fe2d96"
+      },
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2016.d.ts": {
+        "version": "5f217838d25704474d9ef93774f04164889169ca31475fe423a9de6758f058d1",
+        "signature": "5f217838d25704474d9ef93774f04164889169ca31475fe423a9de6758f058d1"
+      },
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2017.d.ts": {
+        "version": "459097c7bdd88fc5731367e56591e4f465f2c9de81a35427a7bd473165c34743",
+        "signature": "459097c7bdd88fc5731367e56591e4f465f2c9de81a35427a7bd473165c34743"
+      },
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2018.d.ts": {
+        "version": "2edd3ddf436ef8e12df876dcae4ecd6a8748577944c477bf4b20d5596e0c9843",
+        "signature": "2edd3ddf436ef8e12df876dcae4ecd6a8748577944c477bf4b20d5596e0c9843"
+      },
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.dom.d.ts": {
+        "version": "973df4e41aea3780ce77073777d37dd5896f684124f4c42409f3a832133837a4",
+        "signature": "973df4e41aea3780ce77073777d37dd5896f684124f4c42409f3a832133837a4"
+      },
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.webworker.importscripts.d.ts": {
+        "version": "fe4e59403e34c7ff747abe4ff6abbc7718229556d7c1a5b93473fb53156c913b",
+        "signature": "fe4e59403e34c7ff747abe4ff6abbc7718229556d7c1a5b93473fb53156c913b"
+      },
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.scripthost.d.ts": {
+        "version": "b9faa17292f17d2ad75e34fac77dd63a6403af1dba02d39cd0cbb9ffdf3de8b9",
+        "signature": "b9faa17292f17d2ad75e34fac77dd63a6403af1dba02d39cd0cbb9ffdf3de8b9"
+      },
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.core.d.ts": {
+        "version": "2a0390a665763bcc90f0670e43c587928d8fefe2a94a11209c1e22cba7b09f52",
+        "signature": "2a0390a665763bcc90f0670e43c587928d8fefe2a94a11209c1e22cba7b09f52"
+      },
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.collection.d.ts": {
+        "version": "dd94d8ef48c562389eb58af8df3a3a34d11367f7c818192aa5f16470d469e3f0",
+        "signature": "dd94d8ef48c562389eb58af8df3a3a34d11367f7c818192aa5f16470d469e3f0"
+      },
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.generator.d.ts": {
+        "version": "828413486bdcaa342558e8e4570b1b287b776cb61b4b70b0214bd10c5d9a94c3",
+        "signature": "828413486bdcaa342558e8e4570b1b287b776cb61b4b70b0214bd10c5d9a94c3"
+      },
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.iterable.d.ts": {
+        "version": "6c9f73334f8bf47aea685ca5b46a8f7e992a223e96fbceb030f26a4d2324ba21",
+        "signature": "6c9f73334f8bf47aea685ca5b46a8f7e992a223e96fbceb030f26a4d2324ba21"
+      },
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.promise.d.ts": {
+        "version": "e6b8ff2798f8ebd7a1c7afd8671f2cb67ee1901c422f5964d74b0b34c6574ea2",
+        "signature": "e6b8ff2798f8ebd7a1c7afd8671f2cb67ee1901c422f5964d74b0b34c6574ea2"
+      },
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.proxy.d.ts": {
+        "version": "5e72f949a89717db444e3bd9433468890068bb21a5638d8ab15a1359e05e54fe",
+        "signature": "5e72f949a89717db444e3bd9433468890068bb21a5638d8ab15a1359e05e54fe"
+      },
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.reflect.d.ts": {
+        "version": "f5b242136ae9bfb1cc99a5971cccc44e99947ae6b5ef6fd8aa54b5ade553b976",
+        "signature": "f5b242136ae9bfb1cc99a5971cccc44e99947ae6b5ef6fd8aa54b5ade553b976"
+      },
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.symbol.d.ts": {
+        "version": "9ae2860252d6b5f16e2026d8a2c2069db7b2a3295e98b6031d01337b96437230",
+        "signature": "9ae2860252d6b5f16e2026d8a2c2069db7b2a3295e98b6031d01337b96437230"
+      },
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts": {
+        "version": "3e0a459888f32b42138d5a39f706ff2d55d500ab1031e0988b5568b0f67c2303",
+        "signature": "3e0a459888f32b42138d5a39f706ff2d55d500ab1031e0988b5568b0f67c2303"
+      },
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2016.array.include.d.ts": {
+        "version": "3f96f1e570aedbd97bf818c246727151e873125d0512e4ae904330286c721bc0",
+        "signature": "3f96f1e570aedbd97bf818c246727151e873125d0512e4ae904330286c721bc0"
+      },
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2017.object.d.ts": {
+        "version": "ff8ad203e83338289b0f5defc1a5b5c253fb7d251b464db497383f915a0df3f4",
+        "signature": "ff8ad203e83338289b0f5defc1a5b5c253fb7d251b464db497383f915a0df3f4"
+      },
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts": {
+        "version": "b8667586a618c5cf64523d4e500ae39e781428abfb28f3de441fc66b56144b6f",
+        "signature": "b8667586a618c5cf64523d4e500ae39e781428abfb28f3de441fc66b56144b6f"
+      },
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2017.string.d.ts": {
+        "version": "21df2e0059f14dcb4c3a0e125859f6b6ff01332ee24b0065a741d121250bc71c",
+        "signature": "21df2e0059f14dcb4c3a0e125859f6b6ff01332ee24b0065a741d121250bc71c"
+      },
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2017.intl.d.ts": {
+        "version": "c1759cb171c7619af0d2234f2f8fb2a871ee88e956e2ed91bb61778e41f272c6",
+        "signature": "c1759cb171c7619af0d2234f2f8fb2a871ee88e956e2ed91bb61778e41f272c6"
+      },
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts": {
+        "version": "28569d59e07d4378cb3d54979c4c60f9f06305c9bb6999ffe6cab758957adc46",
+        "signature": "28569d59e07d4378cb3d54979c4c60f9f06305c9bb6999ffe6cab758957adc46"
+      },
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2018.asynciterable.d.ts": {
+        "version": "42102aaeb1bfec213be1e9777466a6d551eeba8567fed18c0cdbca8c35e3c6e4",
+        "signature": "42102aaeb1bfec213be1e9777466a6d551eeba8567fed18c0cdbca8c35e3c6e4"
+      },
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2018.intl.d.ts": {
+        "version": "1b820b57379c726f94af50cd60053674af53ff9d079c1563cc70071e8b757dd0",
+        "signature": "1b820b57379c726f94af50cd60053674af53ff9d079c1563cc70071e8b757dd0"
+      },
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2018.promise.d.ts": {
+        "version": "efe049114bad1035b0aa9a4a0359f50ab776e3897c411521e51d3013079cbd62",
+        "signature": "efe049114bad1035b0aa9a4a0359f50ab776e3897c411521e51d3013079cbd62"
+      },
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2018.regexp.d.ts": {
+        "version": "e7780d04cd4120ee554c665829db2bbdd6b947cbaa3c150b7d9ea74df3beb2e8",
+        "signature": "e7780d04cd4120ee554c665829db2bbdd6b947cbaa3c150b7d9ea74df3beb2e8"
+      },
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.esnext.intl.d.ts": {
+        "version": "f6e0c89daaf72eac38dfb1d5ef0972183f7f26a68da15bfe5bcb7cfccf0c7db8",
+        "signature": "f6e0c89daaf72eac38dfb1d5ef0972183f7f26a68da15bfe5bcb7cfccf0c7db8"
+      },
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.esnext.bigint.d.ts": {
+        "version": "63b66918290d794f73832a6d0325be5026236674fe8c0cb0b68d162000d7bbe8",
+        "signature": "63b66918290d794f73832a6d0325be5026236674fe8c0cb0b68d162000d7bbe8"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/globals.d.ts": {
+        "version": "2f7aca43a9ae6d79c5e77913b20193aac53d065ab27fc7a720c4aad7feee1406",
+        "signature": "2f7aca43a9ae6d79c5e77913b20193aac53d065ab27fc7a720c4aad7feee1406"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/legacy-properties.d.ts": {
+        "version": "818a9a35cf844bd8380e9273b8ed82023c614164d0975f096b8c9b680730cbc3",
+        "signature": "818a9a35cf844bd8380e9273b8ed82023c614164d0975f096b8c9b680730cbc3"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/batchedbridge.d.ts": {
+        "version": "496293b62091a5bfb97dac7a0055f3e73dfc7b8d8c220000ecf68635c0bef790",
+        "signature": "496293b62091a5bfb97dac7a0055f3e73dfc7b8d8c220000ecf68635c0bef790"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/devtools.d.ts": {
+        "version": "715ee74e86e7388d2923cd6377fafcf3f86bea534d5cb4c827a1603383fabdb3",
+        "signature": "715ee74e86e7388d2923cd6377fafcf3f86bea534d5cb4c827a1603383fabdb3"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/launchscreen.d.ts": {
+        "version": "234b97ac9af46707f2315ff395a9b340d37b7dbc8290d91f5d6bd97189d220f3",
+        "signature": "234b97ac9af46707f2315ff395a9b340d37b7dbc8290d91f5d6bd97189d220f3"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/prop-types/index.d.ts": {
+        "version": "a7e32dcb90bf0c1b7a1e4ac89b0f7747cbcba25e7beddc1ebf17be1e161842ad",
+        "signature": "a7e32dcb90bf0c1b7a1e4ac89b0f7747cbcba25e7beddc1ebf17be1e161842ad"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/node_modules/@types/react/global.d.ts": {
+        "version": "b4cd656db9b65fff477f65dbda00a5de4e2e765375316abd0c3ffd1282664ccc",
+        "signature": "b4cd656db9b65fff477f65dbda00a5de4e2e765375316abd0c3ffd1282664ccc"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/csstype/index.d.ts": {
+        "version": "a849a53cf1d5a35db4ae42e8bef37b82e43c58a805356f45d1f08de2ab905ccc",
+        "signature": "a849a53cf1d5a35db4ae42e8bef37b82e43c58a805356f45d1f08de2ab905ccc"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/node_modules/@types/react/index.d.ts": {
+        "version": "7cc61da56addb5ebbe560dcb3867b50a6445b75c59cfae427df4d1c1edbfa444",
+        "signature": "7cc61da56addb5ebbe560dcb3867b50a6445b75c59cfae427df4d1c1edbfa444"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/index.d.ts": {
+        "version": "d29831c4f134468bba49d2d25db23849a016a6426e17a8d0932fdad5ac4698ff",
+        "signature": "d29831c4f134468bba49d2d25db23849a016a6426e17a8d0932fdad5ac4698ff"
+      },
+      "o:/work/termokot/sources/react-native-shop/packages/rns-theme/src/theme/platform.ts": {
+        "version": "5d29c28ee4d7911c8569b693a8bb30408c960cc4bcc3fd33be1aaf07589dee73",
+        "signature": "ace46b75109f3f38f614ca02e6ffcd2288b49469ecdaf18be46a57107f91db47"
+      },
+      "o:/work/termokot/sources/react-native-shop/packages/rns-theme/src/theme/theme.ts": {
+        "version": "ad50ed47dd9dd8838407026e394bfd3d39501bddec74c0751149fd134ebccedf",
+        "signature": "49e6aca353780aa9c2384d1197ae38c0716c877bc9d0c68bf5c54cd797b9e0cd"
+      },
+      "o:/work/termokot/sources/react-native-shop/packages/rns-theme/src/theme/components/button/index.ts": {
+        "version": "cbeea226c9e005a44718e2f2ae723ac73612d29ee3d369dd785cdd1d3485f723",
+        "signature": "1008a1e5b3798fa87a62f9a3206ddedc48880c69a57fc5488713ef33575a3e0b"
+      },
+      "o:/work/termokot/sources/react-native-shop/packages/rns-theme/src/theme/components/cardssection/index.ts": {
+        "version": "838cda87da2bb57ba0c4613a12a360fe4c5ae7617faa404914c4fc2cc81021c9",
+        "signature": "eed9b6d402b18c66b6ac1cd06d10c20412987fe165de38e74a112cbd48a02b24"
+      },
+      "o:/work/termokot/sources/react-native-shop/packages/rns-theme/src/theme/components/deliveryselector/index.ts": {
+        "version": "9597d50db2d245540221ea1ad35f938d7d312fb6c7dfcad732df9111758f308a",
+        "signature": "c938ade8d117611d8d007d83dbbced7a68cba53fde9f65b5cff2da77c49cddaf"
+      },
+      "o:/work/termokot/sources/react-native-shop/packages/rns-theme/src/theme/components/productcard/index.ts": {
+        "version": "c1ce3b6b76b261d0650a2b684e556fc4546c8bb2efa45ac6ad2058ff156e83d3",
+        "signature": "739b27c0aff1dcbafbf0f03b034ac634fc02d4d183af2acd35bb5632a9a637e3"
+      },
+      "o:/work/termokot/sources/react-native-shop/packages/rns-theme/src/theme/views/productpage/index.ts": {
+        "version": "75eef57f063e7be2a946bbecc9305787a66709d2e2d8acb6c0c1af7c22145899",
+        "signature": "182e29ee7794f57ee323162893ff1a91e9637fbba4713b6eb9aef5ac073d77c3"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/hoist-non-react-statics/node_modules/@types/react/index.d.ts": {
+        "version": "7cc61da56addb5ebbe560dcb3867b50a6445b75c59cfae427df4d1c1edbfa444",
+        "signature": "7cc61da56addb5ebbe560dcb3867b50a6445b75c59cfae427df4d1c1edbfa444"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/hoist-non-react-statics/index.d.ts": {
+        "version": "bfe1b52cf71aea9bf8815810cc5d9490fa9617313e3d3c2ee3809a28b80d0bb4",
+        "signature": "bfe1b52cf71aea9bf8815810cc5d9490fa9617313e3d3c2ee3809a28b80d0bb4"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/istanbul-lib-coverage/index.d.ts": {
+        "version": "9e951ec338c4232d611552a1be7b4ecec79a8c2307a893ce39701316fe2374bd",
+        "signature": "9e951ec338c4232d611552a1be7b4ecec79a8c2307a893ce39701316fe2374bd"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/istanbul-lib-report/index.d.ts": {
+        "version": "70c61ff569aabdf2b36220da6c06caaa27e45cd7acac81a1966ab4ee2eadc4f2",
+        "signature": "70c61ff569aabdf2b36220da6c06caaa27e45cd7acac81a1966ab4ee2eadc4f2"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/istanbul-reports/index.d.ts": {
+        "version": "93b59bc67329d5add033e3198583c39aa939cef891e6a2b763e0bea2b514ea9b",
+        "signature": "93b59bc67329d5add033e3198583c39aa939cef891e6a2b763e0bea2b514ea9b"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/globals.d.ts": {
+        "version": "1c56244348d2e259a3d7cee5d116c82c65252f9f8e1001ed1c87d3e876037252",
+        "signature": "1c56244348d2e259a3d7cee5d116c82c65252f9f8e1001ed1c87d3e876037252"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/assert.d.ts": {
+        "version": "58a52f282f1dad18179023804c1f3a7536bf875748a0a314abd43f60fd5b244f",
+        "signature": "58a52f282f1dad18179023804c1f3a7536bf875748a0a314abd43f60fd5b244f"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/async_hooks.d.ts": {
+        "version": "138476cfdccbb9e2c7e06602bc216af843a56c4f3469a79106bc660ba94bd66a",
+        "signature": "138476cfdccbb9e2c7e06602bc216af843a56c4f3469a79106bc660ba94bd66a"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/buffer.d.ts": {
+        "version": "fe892fea1e75a442fffb4a604d7eeb451e858787a9f2f01c4e83bf12a3b5048d",
+        "signature": "fe892fea1e75a442fffb4a604d7eeb451e858787a9f2f01c4e83bf12a3b5048d"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/child_process.d.ts": {
+        "version": "df18c49bd3f5c6c9497a9986bb6dd6a40ae7195a3f0265a7b558736fb7333356",
+        "signature": "df18c49bd3f5c6c9497a9986bb6dd6a40ae7195a3f0265a7b558736fb7333356"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/cluster.d.ts": {
+        "version": "ce629710e5e58724902b753212e97861fd73e2aa09f5d88cb6d55dc763cf8c8a",
+        "signature": "ce629710e5e58724902b753212e97861fd73e2aa09f5d88cb6d55dc763cf8c8a"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/console.d.ts": {
+        "version": "525c8fc510d9632d2a0a9de2d41c3ac1cdd79ff44d3b45c6d81cacabb683528d",
+        "signature": "525c8fc510d9632d2a0a9de2d41c3ac1cdd79ff44d3b45c6d81cacabb683528d"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/constants.d.ts": {
+        "version": "e1e8a8a24bc0fe64cc9c5ccfa60e89f6e20783da8e8b76a242ebf99ef0ef07f3",
+        "signature": "e1e8a8a24bc0fe64cc9c5ccfa60e89f6e20783da8e8b76a242ebf99ef0ef07f3"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/crypto.d.ts": {
+        "version": "318fa97881102be1af51ba0591d5cece422ec4fdc3ca6d794c83422d77e188a6",
+        "signature": "318fa97881102be1af51ba0591d5cece422ec4fdc3ca6d794c83422d77e188a6"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/dgram.d.ts": {
+        "version": "b6c6861bccf209a98eeddb99bdb7bd987fb29fc52130d5d9fd2f79d3607a0a7a",
+        "signature": "b6c6861bccf209a98eeddb99bdb7bd987fb29fc52130d5d9fd2f79d3607a0a7a"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/dns.d.ts": {
+        "version": "05e732266b5a36789fd9eb846b1f45fec1b6e318b740e3f20fc22fd95f9ebf31",
+        "signature": "05e732266b5a36789fd9eb846b1f45fec1b6e318b740e3f20fc22fd95f9ebf31"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/domain.d.ts": {
+        "version": "d5b7c8819ce1bd31a45f7675309e145ec28e3aa1b60a8e0637fd0e8916255baa",
+        "signature": "d5b7c8819ce1bd31a45f7675309e145ec28e3aa1b60a8e0637fd0e8916255baa"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/events.d.ts": {
+        "version": "c53b63229a0b7e9d64347c4fc975dd52a9e9a81f9be099f5a21220e2a1276d28",
+        "signature": "c53b63229a0b7e9d64347c4fc975dd52a9e9a81f9be099f5a21220e2a1276d28"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/fs.d.ts": {
+        "version": "7d587a6c108c8bdd2d331a0e0e0d5ccbf8de6280f32bdd5820376c7928d6ad31",
+        "signature": "7d587a6c108c8bdd2d331a0e0e0d5ccbf8de6280f32bdd5820376c7928d6ad31"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/http.d.ts": {
+        "version": "946c7e412926cc0ed539d0002005a0a07572e85e1bb91828162680debd898a6e",
+        "signature": "946c7e412926cc0ed539d0002005a0a07572e85e1bb91828162680debd898a6e"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/http2.d.ts": {
+        "version": "28fdca6c7a3d5dd62c738461051ef345b50d167efab39dceb2fcc9a079db1b07",
+        "signature": "28fdca6c7a3d5dd62c738461051ef345b50d167efab39dceb2fcc9a079db1b07"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/https.d.ts": {
+        "version": "dacbe08610729f6343ea9880ea8e737c6d7a6efa4a318d8f6acaf85db4aceed6",
+        "signature": "dacbe08610729f6343ea9880ea8e737c6d7a6efa4a318d8f6acaf85db4aceed6"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/inspector.d.ts": {
+        "version": "8cfa78f4c052a93ac1e7accb0a78ce331dbd14f277ee0e193279ec31ce7efb25",
+        "signature": "8cfa78f4c052a93ac1e7accb0a78ce331dbd14f277ee0e193279ec31ce7efb25"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/module.d.ts": {
+        "version": "03394bf8deb8781b490ae9266a843fbdf00647947d79e25fcbf1d89a9e9c8a66",
+        "signature": "03394bf8deb8781b490ae9266a843fbdf00647947d79e25fcbf1d89a9e9c8a66"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/net.d.ts": {
+        "version": "cc5fac2b9e45a6670b96fd32cb42c97e0d4a7b2ee12c87963c6fe0f55fa84f50",
+        "signature": "cc5fac2b9e45a6670b96fd32cb42c97e0d4a7b2ee12c87963c6fe0f55fa84f50"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/os.d.ts": {
+        "version": "37307ad10f30884fb9470a4e170b7be5f68a33b3d458cc3b7c63cd494802e594",
+        "signature": "37307ad10f30884fb9470a4e170b7be5f68a33b3d458cc3b7c63cd494802e594"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/path.d.ts": {
+        "version": "5fb30076f0e0e5744db8993648bfb67aadd895f439edad5cce039127a87a8a36",
+        "signature": "5fb30076f0e0e5744db8993648bfb67aadd895f439edad5cce039127a87a8a36"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/perf_hooks.d.ts": {
+        "version": "27ef4001526ee9d8afa57687a60bb3b59c52b32d29db0a2260094ab64726164f",
+        "signature": "27ef4001526ee9d8afa57687a60bb3b59c52b32d29db0a2260094ab64726164f"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/process.d.ts": {
+        "version": "3a8848a9c307429b861402cc69bc472ffe0c05b86474fc158723169161e16389",
+        "signature": "3a8848a9c307429b861402cc69bc472ffe0c05b86474fc158723169161e16389"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/punycode.d.ts": {
+        "version": "30ec6f9c683b988c3cfaa0c4690692049c4e7ed7dc6f6e94f56194c06b86f5e1",
+        "signature": "30ec6f9c683b988c3cfaa0c4690692049c4e7ed7dc6f6e94f56194c06b86f5e1"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/querystring.d.ts": {
+        "version": "5b34786b5d59b4e627c76f1294a00b5e92260a31ca87b29d9b7cb9acd3ba1acc",
+        "signature": "5b34786b5d59b4e627c76f1294a00b5e92260a31ca87b29d9b7cb9acd3ba1acc"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/readline.d.ts": {
+        "version": "94cf93922adcc9cb4acf11d8d71641af728de919a50ae55d8e83159afea1a42c",
+        "signature": "94cf93922adcc9cb4acf11d8d71641af728de919a50ae55d8e83159afea1a42c"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/repl.d.ts": {
+        "version": "65dbe15ed8a8ed5d4707a63868178dc38111cfc06de28a2e50713ca017a9c157",
+        "signature": "65dbe15ed8a8ed5d4707a63868178dc38111cfc06de28a2e50713ca017a9c157"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/stream.d.ts": {
+        "version": "15087156b728a1bdf46de0e1299f904c6a658af37f80851f6fe76fb21bb99b65",
+        "signature": "15087156b728a1bdf46de0e1299f904c6a658af37f80851f6fe76fb21bb99b65"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/string_decoder.d.ts": {
+        "version": "17e157df6125098a1a34eb4d201ee4ac03bbe97e471ab5627bb2c40fce555948",
+        "signature": "17e157df6125098a1a34eb4d201ee4ac03bbe97e471ab5627bb2c40fce555948"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/timers.d.ts": {
+        "version": "b40652bf8ce4a18133b31349086523b219724dca8df3448c1a0742528e7ad5b9",
+        "signature": "b40652bf8ce4a18133b31349086523b219724dca8df3448c1a0742528e7ad5b9"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/tls.d.ts": {
+        "version": "8fd6756e8a6fac64089e19e4fbe822bcfafa62f79b237172288eaa1379e84083",
+        "signature": "8fd6756e8a6fac64089e19e4fbe822bcfafa62f79b237172288eaa1379e84083"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/trace_events.d.ts": {
+        "version": "978aecd2e6bc2ac094e9a35eda98ff8586713857b3655e7c98ca5ed8f7d50662",
+        "signature": "978aecd2e6bc2ac094e9a35eda98ff8586713857b3655e7c98ca5ed8f7d50662"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/tty.d.ts": {
+        "version": "9e666de17856eb640570276c9c71755080f0ba0bfea840438cabf25ef063886e",
+        "signature": "9e666de17856eb640570276c9c71755080f0ba0bfea840438cabf25ef063886e"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/url.d.ts": {
+        "version": "1e3da92862604b1f7a32265169f9aa712c4567742d42597704e04ae3e07019e7",
+        "signature": "1e3da92862604b1f7a32265169f9aa712c4567742d42597704e04ae3e07019e7"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts": {
+        "version": "20e55abae3dd750a85fda7c4d140670ada679c3d5b640de5e4f3eaafcee18a0d",
+        "signature": "20e55abae3dd750a85fda7c4d140670ada679c3d5b640de5e4f3eaafcee18a0d"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/v8.d.ts": {
+        "version": "6ad2dd29dbf3aea031062298e9978d4b2a1fadd0997eb9d8caaf95aaa89e7033",
+        "signature": "6ad2dd29dbf3aea031062298e9978d4b2a1fadd0997eb9d8caaf95aaa89e7033"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/vm.d.ts": {
+        "version": "f98df5ec124f441b465332271d0b083aeec815cd3c92d9249b9739e6318477a9",
+        "signature": "f98df5ec124f441b465332271d0b083aeec815cd3c92d9249b9739e6318477a9"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/worker_threads.d.ts": {
+        "version": "16de20ae20cd1d948409a56b55832f3d416c66c8cb44bb8475e1e9db14d8e402",
+        "signature": "16de20ae20cd1d948409a56b55832f3d416c66c8cb44bb8475e1e9db14d8e402"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/zlib.d.ts": {
+        "version": "f91189e04264b0e41ee96ff96661c3871e739b90156df2f2288da7a81019dcd9",
+        "signature": "f91189e04264b0e41ee96ff96661c3871e739b90156df2f2288da7a81019dcd9"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/base.d.ts": {
+        "version": "6622f76993bdfeaacb947ba7c4cf26f2e5c5194194d02d792c3cba4174cd8fce",
+        "signature": "6622f76993bdfeaacb947ba7c4cf26f2e5c5194194d02d792c3cba4174cd8fce"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts": {
+        "version": "4f54f0a9dd3b644c99ec32b32f8804d5978bc854799b228ae9c467bf3c84c64c",
+        "signature": "4f54f0a9dd3b644c99ec32b32f8804d5978bc854799b228ae9c467bf3c84c64c"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/globals.d.ts": {
+        "version": "ce6b191c382ee19f23678b8c364484627bcf424e8f408357a2f5530fb8d52a45",
+        "signature": "ce6b191c382ee19f23678b8c364484627bcf424e8f408357a2f5530fb8d52a45"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/index.d.ts": {
+        "version": "765fc34423b93c2ab763670d8d11d99e5f47387c13c161d6f1640dd6d91b7d1c",
+        "signature": "765fc34423b93c2ab763670d8d11d99e5f47387c13c161d6f1640dd6d91b7d1c"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react/global.d.ts": {
+        "version": "2bbdfc5ed049f38787376bb01b7bcfe5299eac853c76c16a3e21ab0279078314",
+        "signature": "2bbdfc5ed049f38787376bb01b7bcfe5299eac853c76c16a3e21ab0279078314"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react/index.d.ts": {
+        "version": "4d76f16c04d23362a92aa212ee5fa6e96717be2f3ed34e5e0c3be16b33501a41",
+        "signature": "4d76f16c04d23362a92aa212ee5fa6e96717be2f3ed34e5e0c3be16b33501a41"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-redux/node_modules/@types/react/index.d.ts": {
+        "version": "7cc61da56addb5ebbe560dcb3867b50a6445b75c59cfae427df4d1c1edbfa444",
+        "signature": "7cc61da56addb5ebbe560dcb3867b50a6445b75c59cfae427df4d1c1edbfa444"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/symbol-observable/index.d.ts": {
+        "version": "7ccece60f62968f5765383f1f5322ace6937e42c3a2068834ac214fe24f9b7bc",
+        "signature": "7ccece60f62968f5765383f1f5322ace6937e42c3a2068834ac214fe24f9b7bc"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/redux/index.d.ts": {
+        "version": "7d194050bddceaddf8956706259fd6076cff3b5505ae83857f33fb03db6eda76",
+        "signature": "7d194050bddceaddf8956706259fd6076cff3b5505ae83857f33fb03db6eda76"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-redux/index.d.ts": {
+        "version": "de25c073e95a4ba8b4556147c8cef60fa0a7aba72d424dd53d898ec071949a90",
+        "signature": "de25c073e95a4ba8b4556147c8cef60fa0a7aba72d424dd53d898ec071949a90"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/remote-redux-devtools/index.d.ts": {
+        "version": "fdf6deb19c9e64c2784755df3d5cfdee4d6e016d09f707daaa2745f678b197bc",
+        "signature": "fdf6deb19c9e64c2784755df3d5cfdee4d6e016d09f707daaa2745f678b197bc"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/stack-utils/index.d.ts": {
+        "version": "41422586881bcd739b4e62d9b91cd29909f8572aa3e3cdf316b7c50f14708d49",
+        "signature": "41422586881bcd739b4e62d9b91cd29909f8572aa3e3cdf316b7c50f14708d49"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/yargs-parser/index.d.ts": {
+        "version": "e65fca93c26b09681d33dad7b3af32ae42bf0d114d859671ffed30a92691439c",
+        "signature": "e65fca93c26b09681d33dad7b3af32ae42bf0d114d859671ffed30a92691439c"
+      },
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/yargs/index.d.ts": {
+        "version": "989ea8e89ef2d6a07a1872fcee14be6b9e1920b04f19a4ab149d673f89af67e6",
+        "signature": "989ea8e89ef2d6a07a1872fcee14be6b9e1920b04f19a4ab149d673f89af67e6"
+      }
+    },
+    "options": {
+      "target": 1,
+      "module": 6,
+      "jsx": 2,
+      "sourceMap": true,
+      "skipLibCheck": true,
+      "strict": true,
+      "noImplicitAny": true,
+      "strictNullChecks": true,
+      "strictFunctionTypes": true,
+      "strictPropertyInitialization": true,
+      "noImplicitThis": true,
+      "alwaysStrict": true,
+      "forceConsistentCasingInFileNames": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "noImplicitReturns": true,
+      "noFallthroughCasesInSwitch": true,
+      "suppressImplicitAnyIndexErrors": true,
+      "moduleResolution": 2,
+      "allowSyntheticDefaultImports": true,
+      "esModuleInterop": true,
+      "resolveJsonModule": true,
+      "plugins": [
+        {
+          "name": "typescript-styled-plugin"
+        }
+      ],
+      "composite": true,
+      "baseUrl": "O:/work/termokot/sources/react-native-shop/packages/rns-theme",
+      "rootDir": "O:/work/termokot/sources/react-native-shop/packages/rns-theme/src",
+      "outDir": "O:/work/termokot/sources/react-native-shop/packages/rns-theme/build",
+      "isolatedModules": false,
+      "typeRoots": [
+        "O:/work/termokot/sources/react-native-shop/packages/rns-theme/@types",
+        "O:/work/termokot/sources/react-native-shop/node_modules/@types"
+      ],
+      "configFilePath": "O:/work/termokot/sources/react-native-shop/packages/rns-theme/tsconfig.json"
+    },
+    "referencedMap": {
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es5.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2016.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2017.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2018.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.dom.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.webworker.importscripts.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.scripthost.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.core.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.collection.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.generator.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.iterable.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.promise.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.proxy.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.reflect.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.symbol.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2016.array.include.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2017.object.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2017.string.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2017.intl.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2018.asynciterable.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2018.intl.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2018.promise.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2018.regexp.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.esnext.intl.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.esnext.bigint.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/globals.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/legacy-properties.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/batchedbridge.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/devtools.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/devtools.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/launchscreen.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/prop-types/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/node_modules/@types/react/global.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/csstype/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/node_modules/@types/react/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/csstype/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/prop-types/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/node_modules/@types/react/global.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/prop-types/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/node_modules/@types/react/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/globals.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/legacy-properties.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/batchedbridge.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/devtools.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/launchscreen.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/packages/rns-theme/src/theme/platform.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/packages/rns-theme/src/theme/theme.ts": [
+        "o:/work/termokot/sources/react-native-shop/packages/rns-theme/src/theme/platform.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/packages/rns-theme/src/theme/components/button/index.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/packages/rns-theme/src/theme/theme.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/packages/rns-theme/src/theme/components/cardssection/index.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/packages/rns-theme/src/theme/theme.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/packages/rns-theme/src/theme/components/deliveryselector/index.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/packages/rns-theme/src/theme/components/productcard/index.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/packages/rns-theme/src/theme/theme.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/packages/rns-theme/src/theme/views/productpage/index.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/packages/rns-theme/src/theme/theme.ts",
+        "o:/work/termokot/sources/react-native-shop/packages/rns-theme/src/theme/components/button/index.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/hoist-non-react-statics/node_modules/@types/react/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/csstype/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/prop-types/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/hoist-non-react-statics/node_modules/@types/react/global.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/hoist-non-react-statics/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/node_modules/@types/react/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/istanbul-lib-coverage/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/istanbul-lib-report/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/istanbul-lib-coverage/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/istanbul-reports/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/istanbul-lib-report/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/istanbul-lib-coverage/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/globals.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/assert.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/async_hooks.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/buffer.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/child_process.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/events.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/net.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/stream.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/cluster.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/child_process.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/events.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/net.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/console.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/constants.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/crypto.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/stream.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/dgram.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/net.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/dns.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/events.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/dns.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/domain.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/events.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/events.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/fs.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/stream.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/events.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/url.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/http.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/events.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/stream.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/url.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/net.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/http2.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/events.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/fs.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/net.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/stream.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/tls.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/url.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/http.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/https.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/tls.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/events.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/http.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/url.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/inspector.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/events.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/module.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/net.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/stream.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/events.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/dns.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/os.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/path.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/perf_hooks.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/async_hooks.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/process.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/punycode.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/querystring.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/readline.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/events.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/stream.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/repl.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/readline.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/vm.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/stream.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/events.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/string_decoder.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/timers.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/tls.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/crypto.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/dns.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/net.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/stream.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/trace_events.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/tty.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/net.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/url.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/querystring.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/v8.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/stream.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/vm.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/worker_threads.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/vm.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/events.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/stream.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/zlib.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/stream.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/base.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/globals.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/assert.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/async_hooks.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/buffer.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/child_process.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/cluster.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/console.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/constants.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/crypto.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/dgram.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/dns.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/domain.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/events.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/fs.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/http.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/http2.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/https.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/inspector.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/module.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/net.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/os.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/path.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/perf_hooks.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/process.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/punycode.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/querystring.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/readline.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/repl.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/stream.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/string_decoder.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/timers.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/tls.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/trace_events.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/tty.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/url.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/v8.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/vm.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/worker_threads.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/zlib.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/globals.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/globals.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/base.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/globals.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react/global.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/csstype/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/prop-types/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react/global.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-redux/node_modules/@types/react/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/csstype/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/prop-types/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-redux/node_modules/@types/react/global.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/symbol-observable/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/redux/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/symbol-observable/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-redux/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/node_modules/@types/react/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/redux/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/hoist-non-react-statics/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/remote-redux-devtools/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/redux/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/stack-utils/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/yargs-parser/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/yargs/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/yargs-parser/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ]
+    },
+    "exportedModulesMap": {
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es5.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2016.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2017.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2018.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.dom.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.webworker.importscripts.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.scripthost.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.core.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.collection.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.generator.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.iterable.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.promise.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.proxy.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.reflect.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.symbol.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2016.array.include.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2017.object.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2017.string.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2017.intl.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2018.asynciterable.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2018.intl.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2018.promise.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2018.regexp.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.esnext.intl.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.esnext.bigint.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/globals.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/legacy-properties.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/batchedbridge.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/devtools.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/devtools.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/launchscreen.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/prop-types/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/node_modules/@types/react/global.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/csstype/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/node_modules/@types/react/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/csstype/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/prop-types/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/node_modules/@types/react/global.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/prop-types/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/node_modules/@types/react/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/globals.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/legacy-properties.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/batchedbridge.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/devtools.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/launchscreen.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/packages/rns-theme/src/theme/platform.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/index.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/packages/rns-theme/src/theme/theme.ts": [
+        "o:/work/termokot/sources/react-native-shop/packages/rns-theme/src/theme/platform.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/packages/rns-theme/src/theme/components/button/index.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/index.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/packages/rns-theme/src/theme/components/cardssection/index.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/index.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/packages/rns-theme/src/theme/components/deliveryselector/index.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/index.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/packages/rns-theme/src/theme/components/productcard/index.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/index.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/packages/rns-theme/src/theme/views/productpage/index.ts": [
+        "o:/work/termokot/sources/react-native-shop/packages/rns-theme/src/theme/components/button/index.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/index.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/hoist-non-react-statics/node_modules/@types/react/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/csstype/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/prop-types/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/hoist-non-react-statics/node_modules/@types/react/global.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/hoist-non-react-statics/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/node_modules/@types/react/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/istanbul-lib-coverage/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/istanbul-lib-report/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/istanbul-lib-coverage/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/istanbul-reports/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/istanbul-lib-report/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/istanbul-lib-coverage/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/globals.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/assert.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/async_hooks.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/buffer.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/child_process.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/events.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/net.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/stream.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/cluster.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/child_process.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/events.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/net.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/console.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/constants.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/crypto.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/stream.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/dgram.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/net.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/dns.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/events.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/dns.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/domain.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/events.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/events.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/fs.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/stream.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/events.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/url.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/http.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/events.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/stream.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/url.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/net.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/http2.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/events.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/fs.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/net.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/stream.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/tls.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/url.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/http.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/https.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/tls.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/events.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/http.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/url.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/inspector.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/events.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/module.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/net.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/stream.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/events.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/dns.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/os.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/path.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/perf_hooks.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/async_hooks.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/process.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/punycode.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/querystring.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/readline.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/events.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/stream.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/repl.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/readline.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/vm.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/stream.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/events.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/string_decoder.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/timers.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/tls.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/crypto.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/dns.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/net.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/stream.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/trace_events.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/tty.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/net.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/url.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/querystring.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/v8.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/stream.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/vm.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/worker_threads.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/vm.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/events.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/stream.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/zlib.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/stream.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/base.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/globals.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/assert.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/async_hooks.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/buffer.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/child_process.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/cluster.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/console.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/constants.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/crypto.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/dgram.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/dns.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/domain.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/events.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/fs.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/http.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/http2.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/https.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/inspector.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/module.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/net.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/os.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/path.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/perf_hooks.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/process.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/punycode.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/querystring.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/readline.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/repl.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/stream.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/string_decoder.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/timers.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/tls.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/trace_events.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/tty.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/url.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/v8.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/vm.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/worker_threads.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/zlib.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/globals.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/globals.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/base.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/globals.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react/global.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/csstype/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/prop-types/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react/global.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-redux/node_modules/@types/react/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/csstype/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/prop-types/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-redux/node_modules/@types/react/global.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/symbol-observable/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/redux/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/symbol-observable/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-redux/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/node_modules/@types/react/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/redux/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/hoist-non-react-statics/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/remote-redux-devtools/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/redux/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/stack-utils/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/yargs-parser/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/yargs/index.d.ts": [
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/yargs-parser/index.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+        "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts"
+      ]
+    },
+    "semanticDiagnosticsPerFile": [
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.d.ts",
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es5.d.ts",
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.d.ts",
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2016.d.ts",
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2017.d.ts",
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2018.d.ts",
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.dom.d.ts",
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.webworker.importscripts.d.ts",
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.scripthost.d.ts",
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.core.d.ts",
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.collection.d.ts",
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.generator.d.ts",
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.iterable.d.ts",
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.promise.d.ts",
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.proxy.d.ts",
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.reflect.d.ts",
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.symbol.d.ts",
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts",
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2016.array.include.d.ts",
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2017.object.d.ts",
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts",
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2017.string.d.ts",
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2017.intl.d.ts",
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts",
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2018.asynciterable.d.ts",
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2018.intl.d.ts",
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2018.promise.d.ts",
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.es2018.regexp.d.ts",
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.esnext.intl.d.ts",
+      "c:/users/kembl/appdata/roaming/npm/node_modules/typescript/lib/lib.esnext.bigint.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/globals.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/legacy-properties.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/batchedbridge.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/devtools.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/launchscreen.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/prop-types/index.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/node_modules/@types/react/global.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/csstype/index.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/node_modules/@types/react/index.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-native/index.d.ts",
+      "o:/work/termokot/sources/react-native-shop/packages/rns-theme/src/theme/platform.ts",
+      "o:/work/termokot/sources/react-native-shop/packages/rns-theme/src/theme/theme.ts",
+      "o:/work/termokot/sources/react-native-shop/packages/rns-theme/src/theme/components/button/index.ts",
+      "o:/work/termokot/sources/react-native-shop/packages/rns-theme/src/theme/components/cardssection/index.ts",
+      "o:/work/termokot/sources/react-native-shop/packages/rns-theme/src/theme/components/deliveryselector/index.ts",
+      "o:/work/termokot/sources/react-native-shop/packages/rns-theme/src/theme/components/productcard/index.ts",
+      "o:/work/termokot/sources/react-native-shop/packages/rns-theme/src/theme/views/productpage/index.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/hoist-non-react-statics/node_modules/@types/react/index.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/hoist-non-react-statics/index.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/istanbul-lib-coverage/index.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/istanbul-lib-report/index.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/istanbul-reports/index.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/globals.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/assert.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/async_hooks.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/buffer.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/child_process.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/cluster.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/console.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/constants.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/crypto.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/dgram.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/dns.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/domain.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/events.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/fs.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/http.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/http2.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/https.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/inspector.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/module.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/net.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/os.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/path.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/perf_hooks.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/process.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/punycode.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/querystring.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/readline.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/repl.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/stream.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/string_decoder.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/timers.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/tls.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/trace_events.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/tty.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/url.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/util.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/v8.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/vm.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/worker_threads.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/zlib.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/base.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/util.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/globals.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/node/ts3.2/index.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react/global.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react/index.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-redux/node_modules/@types/react/index.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/symbol-observable/index.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/redux/index.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/react-redux/index.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/remote-redux-devtools/index.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/stack-utils/index.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/yargs-parser/index.d.ts",
+      "o:/work/termokot/sources/react-native-shop/node_modules/@types/yargs/index.d.ts"
+    ]
+  },
+  "version": "3.5.3"
+}

@@ -1,0 +1,21 @@
+{
+    "name": "rns-mobile-app",
+    "version": "0.0.2",
+    "private": true,
+    "scripts": {
+        "android": "react-native run-android",
+        "start": "react-native start",
+        "start-tunnel": "tsc && expo start --tunnel",
+        "tslint": "tslint -p tsconfig.json",
+        "tslint-fix": "tslint --fix -p tsconfig.json",
+        "purge": "yarn clean:all && yarn && yarn prepare:all",
+        "tslint-check": "tslint-config-prettier-check ./tslint.json",
+        "gradle-clean": "cd android && ./gradlew clean"
+    },
+    "dependencies": {
+        "react-native": "0.61.5",
+        "react-native-image-cache-hoc": "^2.0.0",
+        "react-native-svg": "^9.4.0",
+        "rn-fetch-blob": "^0.11.2"
+    }
+}
