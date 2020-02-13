@@ -16,4 +16,4 @@ Nothing useful for now
     e) upcoming: web application based on react-native-web
 
 
-Check it here https://github.com/KEMBL/react-native-shop/compare/develop
+Check it here https://github.com/KEMBL/react-native-shop/tree/develop
