@@ -1,22 +1,19 @@
 # React native shop
 
-React native shop application.
+It is a monorepo. It's used for creation of Mobile React Native ecommerce application. 
 
-For now it is more react components UI library playground.
+# Master branch
 
+Nothing useful for now
 
-# To start
-
-1) yarn upgrade
-
-2) npm run start-tunnel
-
-At first run it could asc about Expo CLI install - agree
-
-3) use Expoapp to scan QR code and preview the application
+# Dev branch
 
 
-# Developing tips
+    a) Monorepo 
+    b) Android applocation package
+    c) Components package
+    d) Theme package
+    e) upcoming: web application based on react-native-web
 
-* after starting this application inside expo, run tsc -w and you will see changes in TS codebase "on fly"
 
+Check it here https://github.com/KEMBL/react-native-shop/compare/develop
