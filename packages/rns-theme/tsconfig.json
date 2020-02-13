@@ -2,11 +2,11 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "composite": true,
-    "baseUrl": ".",
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "isolatedModules": false,
     "rootDir": "src",
     "outDir": "build",
-    "isolatedModules": false,
     "typeRoots": ["@types", "../../node_modules/@types"]
-  },
-  "include": ["src"]
+  }
 }

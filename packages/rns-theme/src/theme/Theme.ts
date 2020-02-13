@@ -9,7 +9,7 @@ class Theme {
   public darkGreen = '#016C4C';
   public white = 'white';
   public grey = 'grey';
-  public black = 'black'; //"#212121";
+  public black = 'black'; // "#212121";
 
   // text
   public fontFamily = this.platform.isIos ? 'System' : 'Roboto_medium';

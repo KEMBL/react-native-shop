@@ -13,6 +13,7 @@
         "gradle-clean": "cd android && ./gradlew clean"
     },
     "dependencies": {
+        "rns-core": "0.0.1",
         "react-native": "0.61.5",
         "react-native-image-cache-hoc": "^2.0.0",
         "react-native-svg": "^9.4.0",

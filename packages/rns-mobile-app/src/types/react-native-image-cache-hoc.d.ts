@@ -1,1 +1,1 @@
-declare module "react-native-image-cache-hoc";
+declare module 'react-native-image-cache-hoc';

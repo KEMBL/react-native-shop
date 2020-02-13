@@ -1,3 +1,4 @@
 {
-    "workbench.colorCustomizations": {}
+    "workbench.colorCustomizations": {},
+    "java.configuration.updateBuildConfiguration": "interactive"
 }

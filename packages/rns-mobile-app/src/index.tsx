@@ -5,19 +5,14 @@ import imageCacheHoc from 'react-native-image-cache-hoc';
 import {AppBootStrap} from 'rns-core/src/AppBootStrap';
 import {name as appName} from 'rns-core/src/app.json';
 
-/**
- * React native App initialisation
- * Metro bundler will search for this file, do not move it anywhere
- */
-
 const AddedContext: React.FC = _ => {
+  // Problem: Core package should not wotk with platform dependent modules but in Mobile env
+  // we have java dependent library.
+  // Solution: Send Java dependent library to Core package as a dependency injection
   return <AppBootStrap imageCacherInterface={imageCacheHoc} />;
 };
 
-// imageCacherInterface={imageCacheHoc}
-
+/**
+ * React native mobile application entry point
+ */
 AppRegistry.registerComponent(appName, () => AddedContext);
-
-//  (
-//  <AppBootStrap imageCacherInterface={imageCacheHoc} />
-//  )
