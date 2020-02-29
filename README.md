@@ -35,9 +35,7 @@ Famous problems were fixed:
 
 3. yarn
 
-4. yarn compile
-
-5. yarn android
+4. yarn android
 
 After this android emulator shold start and you will see current progress
 
