@@ -1,12 +1,6 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "composite": true,
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "isolatedModules": false,
-    "rootDir": "src",
-    "outDir": "build",
-    "typeRoots": ["@types", "../../node_modules/@types"]
+    "composite": true
   }
 }

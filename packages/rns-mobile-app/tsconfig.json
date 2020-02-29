@@ -1,13 +1,17 @@
 {
-  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "rootDir": "src",
-    "outDir": "build",
-    // "allowJs": true /* Allow javascript files to be compiled. */,
-    // "isolatedModules": false,
-    // "resolveJsonModule": true,
-    "typeRoots": ["@types", "../../node_modules/@types"]
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "jsx": "react",
+    "lib": ["es6"],
+    "moduleResolution": "node",
+    "strict": true,
+    "target": "esnext",
+    "resolveJsonModule": true
   },
+  "exclude": ["node_modules", "metro.config.js", "rn-cli.config.js"],
   "references": [
     {
       "path": "../components"

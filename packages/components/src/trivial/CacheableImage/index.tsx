@@ -14,8 +14,6 @@ export interface CacheableImageProps {
   resizeMode: ImageResizeMode;
   // tslint:disable-next-line:no-any
   imageCacheHoc: any;
-  // TODO: add Default placeholder,
-  // more https://github.com/billmalarky/react-native-image-cache-hoc/tree/20c438a62c5997e8e5bc673abeedf63f6fbb1321
 }
 
 export class CacheableImage extends PureComponent<CacheableImageProps> {
@@ -26,7 +24,6 @@ export class CacheableImage extends PureComponent<CacheableImageProps> {
     resizeMode: 'contain'
   };
 
-  // more https://github.com/billmalarky/react-native-image-cache-hoc/tree/20c438a62c5997e8e5bc673abeedf63f6fbb1321
   private cacheableImage = this.props.imageCacheHoc(Image, {
     fileHostWhitelist: [...(this.props.fileHostWhitelist || []), 'termokot.ru'], // TODO: move hardcode to state
     validProtocols: this.props.validProtocols,

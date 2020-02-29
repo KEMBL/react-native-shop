@@ -3,7 +3,7 @@ import {AppRegistry} from 'react-native';
 import imageCacheHoc from 'react-native-image-cache-hoc';
 
 import {AppBootStrap} from 'rns-core/src/AppBootStrap';
-import {name as appName} from 'rns-core/src/app.json';
+import {name as appName} from './app.json';
 
 const AddedContext: React.FC = _ => {
   // Problem: Core package should not wotk with platform dependent modules but in Mobile env

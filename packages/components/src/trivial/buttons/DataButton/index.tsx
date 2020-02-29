@@ -2,6 +2,7 @@ import React from 'react';
 import {GestureResponderEvent} from 'react-native';
 
 import {Button, ButtonProps} from '../Button';
+import {Modify} from '../../../types';
 
 interface MakeOnPressOptional<T> {
   onPress?: (event: GestureResponderEvent) => void;

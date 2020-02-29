@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { StyleSheet, Image as ImageRN } from "react-native";
+import React, {Component} from 'react';
+import {StyleSheet, Image as ImageRN} from 'react-native';
 
 export interface ImageProps {
   src: string;
@@ -16,8 +16,6 @@ export class Image extends Component<ImageProps> {
   });
 
   public render() {
-    return (
-      <ImageRN style={this.styles.image} source={{ uri: this.props.src }} />
-    );
+    return <ImageRN style={this.styles.image} source={{uri: this.props.src}} />;
   }
 }

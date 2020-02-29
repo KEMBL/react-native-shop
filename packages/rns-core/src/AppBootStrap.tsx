@@ -15,19 +15,6 @@ export interface ImageCacherOptionsInterface {
   defaultPlaceholder: string | null;
 }
 
-// interface ImageCacherInterface {
-//   Image: React.Component;
-//   options: ImageCacherOptionsInterface;
-// }
-
-// const options: ImageCacherOptionsInterface = {
-//   validProtocols: ['https'],
-//   fileHostWhitelist: [],
-//   cachePruneTriggerLimit: 1024 * 1024 * 15,
-//   fileDirName: null,
-//   defaultPlaceholder: null
-// };
-
 export interface AppBootStrapProps {
   imageCacherInterface: (
     image: Image,

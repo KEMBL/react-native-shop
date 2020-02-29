@@ -10,6 +10,10 @@ yarn-error.log
 yarn.lock
 package-lock.json
 
+# typescript
+#
+*.tsbuildinfo
+
 # fastlane
 #
 # It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the

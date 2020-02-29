@@ -3,7 +3,6 @@ import {useSelector, shallowEqual} from 'react-redux';
 import {createSelector} from 'reselect';
 import {Set as ImmSet} from 'immutable';
 import {AxiosResponse} from 'axios';
-import {isArray} from 'util';
 
 import configuationService from '../../ConfigurationService';
 import {
@@ -103,7 +102,7 @@ export const reducer: Reducer<ProductsState, ProductsActionTypes> = (
         .set('productsLoading', true)
         .set('productsLoadingError', undefined);
     case GET_PRODUCTS_SUCCESS:
-      if (action.payload.data && isArray(action.payload.data.products)) {
+      if (action.payload.data && Array.isArray(action.payload.data.products)) {
         return state.merge({
           products: ImmSet(action.payload.data.products),
           // products: ImmSet(new Array<ProductModel>()),
