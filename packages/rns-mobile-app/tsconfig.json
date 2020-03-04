@@ -1,17 +1,11 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "allowJs": true,
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "isolatedModules": true,
-    "jsx": "react",
-    "lib": ["es6"],
-    "moduleResolution": "node",
-    "strict": true,
-    "target": "esnext",
-    "resolveJsonModule": true
+    "composite": true,
+    "typeRoots": ["./types"]
   },
-  "exclude": ["node_modules", "metro.config.js", "rn-cli.config.js"],
+  "include": ["./app.json"],
+  "exclude": ["metro.config.js", "rn-cli.config.js"],
   "references": [
     {
       "path": "../components"
