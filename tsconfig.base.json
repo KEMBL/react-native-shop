@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "declaration": true,
-    "emitDeclarationOnly": true,
+    "noEmit": true,
+    "incremental": false,
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
