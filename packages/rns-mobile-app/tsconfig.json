@@ -2,9 +2,13 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "composite": true,
-    "typeRoots": ["./types"]
+    "typeRoots": [
+      "./types",
+      "./node_modules/@types",
+      "../../node_modules/@types"
+    ]
   },
-  "include": ["./app.json"],
+  "include": ["index.tsx", "app.json", "types"],
   "exclude": ["metro.config.js", "rn-cli.config.js"],
   "references": [
     {

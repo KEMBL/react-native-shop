@@ -13,6 +13,24 @@ package-lock.json
 # typescript
 #
 *.tsbuildinfo
+*.ts.map
+*.d.ts
+packages/components/src/*.js*
+packages/components/src/*.js*.map
+packages/rns-core/src/*.js*
+packages/rns-core/src/*.js*.map
+packages/rns-theme/src/*.js*
+packages/rns-theme/src/*.js*.map
+packages/rns-mobile-app/index.js*
+packages/rns-mobile-app/index.js*.map
+packages/rns-web-app/src/*.js*
+packages/rns-web-app/src/*.js*.map
+
+# web package derivatives
+#
+**/dist/report.html
+**/dist/bundle.js
+**/dist/bundle.js.map
 
 # fastlane
 #

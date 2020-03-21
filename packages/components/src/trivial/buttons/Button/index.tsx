@@ -36,7 +36,10 @@ export class Button extends React.PureComponent<ButtonProps> {
       accessibilityState.disabled = true;
     }
 
-    if (Theme.platform.isIos) {
+    if (
+      Theme.platform.isWeb || // in Web TouchableNativeFeedback is not implemented yet in react-native-web
+      Theme.platform.isIos
+    ) {
       return (
         <View>
           <TouchableOpacity

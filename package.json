@@ -1,7 +1,7 @@
 {
   "name": "react-native-shop",
-  "version": "0.1.2",
-  "description": "React native playground packages",
+  "version": "0.2.1",
+  "description": "React native shop monorepo",
   "private": true,
   "workspaces": {
     "packages": [
@@ -16,11 +16,13 @@
   },
   "scripts": {
     "postinstall": "npm-link-shared .\\node_modules .\\packages\\rns-mobile-app\\node_modules react --yarn",
-    "compile": "tsc -b",
+    "compile": "tsc --build --incremental --verbose",
+    "tsclean": "tsc --build --clean",
+    "recompile": "yarn tsclean && yarn compile",
     "android": "yarn workspace rns-mobile-app android",
     "android-gradle-clean": "yarn workspace rns-mobile-app android-gradle-clean",
     "android-reset-metro-cache": "yarn workspace rns-mobile-app android-reset-metro-cache",
-    "react-native-start": "yarn workspace rns-mobile-app start",
+    "web": "yarn workspace rns-web-app web",
     "remotedev": "remotedev --hostname=localhost --port=8888"
   },
   "dependencies": {},
@@ -42,7 +44,8 @@
     "react",
     "react-native",
     "monorepo",
-    "workspaces"
+    "workspaces",
+    "react-native-web"
   ],
   "repository": {
     "type": "git",

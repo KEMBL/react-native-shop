@@ -1,17 +1,21 @@
 {
   "compilerOptions": {
-    "noEmit": true,
-    "incremental": false,
-    "allowJs": true,
+    "strict": true,
+    "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "declarationMap": true,
     "esModuleInterop": true,
     "isolatedModules": true,
     "jsx": "react",
-    "lib": ["es6"],
     "moduleResolution": "node",
-    "strict": true,
+    "lib": ["esnext", "dom"],
     "target": "esnext",
-    "resolveJsonModule": true,
-    "noEmitOnError": true
+    "module": "esnext",
+    "noEmitOnError": true,
+    "sourceMap": true,
+    "resolveJsonModule": true
   }
 }
