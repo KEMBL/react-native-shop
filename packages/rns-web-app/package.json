@@ -1,6 +1,6 @@
 {
   "name": "rns-web-app",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "compile": "tsc -b --incremental --verbose --lib dom",
@@ -14,7 +14,6 @@
     "react-native-image-cache-hoc": "^2.0.0",
     "react-native-web": "0.12.2",
     "react-native-svg-web": "1.0.1",
-    "react-native-image-cache-hoc-mock": "file:local_modules/react-native-image-cache-hoc-mock",
     "react-dom": "^16.10.2"
   },
   "devDependencies": {

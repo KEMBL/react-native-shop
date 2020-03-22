@@ -12,7 +12,6 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js'],
     alias: {
       'react-native$': 'react-native-web',
-      'react-native-image-cache-hoc': 'react-native-image-cache-hoc-mock',
       'react-native-svg': 'react-native-svg-web'
     }
   },

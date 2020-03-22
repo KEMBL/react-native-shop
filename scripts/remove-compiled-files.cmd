@@ -1,41 +1,39 @@
 @echo off
 
-del /s "..\tsconfig.tsbuildinfo"
+SET ProjectDir=%~dp0..
 
-del /s /q ..\packages\components\src\*.js
-del /s /q ..\packages\components\src\*.js.map
-del /s /q ..\packages\components\src\*.jsx
-del /s /q ..\packages\components\src\*.jsx.map
-del /s /q ..\packages\components\src\*.d.ts
-del /s /q ..\packages\components\src\*.d.ts.map
+for %%x in (
+        tsconfig.tsbuildinfo
+        packages\rns-mobile-app\index.js
+        packages\rns-mobile-app\index.js.map
+        packages\rns-mobile-app\index.jsx
+        packages\rns-mobile-app\index.jsx.map
+        packages\rns-mobile-app\index.d.ts
+        packages\rns-mobile-app\index.d.ts.map        
+       ) do (
+        call :removefile %%x
+       )
 
+for %%x in (
+        packages\components\src
+        packages\rns-core\src
+        packages\rns-theme\src
+        packages\rns-web-app\src
+       ) do (
+        call :remove-files-by-ext-from-dir %%x
+       )
 
-del /s /q ..\packages\rns-core\src\*.js
-del /s /q ..\packages\rns-core\src\*.js.map
-del /s /q ..\packages\rns-core\src\*.jsx
-del /s /q ..\packages\rns-core\src\*.jsx.map
-del /s /q ..\packages\rns-core\src\*.d.ts
-del /s /q ..\packages\rns-core\src\*.d.ts.map
+exit 0
 
-del /s /q ..\packages\rns-theme\src\*.js
-del /s /q ..\packages\rns-theme\src\*.js.map
-del /s /q ..\packages\rns-theme\src\*.jsx
-del /s /q ..\packages\rns-theme\src\*.jsx.map
-del /s /q ..\packages\rns-theme\src\*.d.ts
-del /s /q ..\packages\rns-theme\src\*.d.ts.map
+:remove-files-by-ext-from-dir
 
-REM forfiles /p "..\packages\rns-theme\src" /s /m *.d.ts /c "cmd /c del @file"
+for %%G in (
+    .js, .js.map, .jsx, .jsx.map, .d.ts, .d.ts.map
+    ) do (
+    FORFILES /P "%ProjectDir%\%1" /S /M *%%G /C "CMD /C ECHO @path"
+    )
+exit /b
 
-del /s /q ..\packages\rns-mobile-app\index.js
-del /s /q ..\packages\rns-mobile-app\index.js.map
-del /s /q ..\packages\rns-mobile-app\index.jsx
-del /s /q ..\packages\rns-mobile-app\index.jsx.map
-del /s /q ..\packages\rns-mobile-app\index.d.ts
-del /s /q ..\packages\rns-mobile-app\index.d.ts.map
-
-del /s /q ..\packages\rns-web-app\src\*.js
-del /s /q ..\packages\rns-web-app\src\*.js.map
-del /s /q ..\packages\rns-web-app\src\*.jsx
-del /s /q ..\packages\rns-web-app\src\*.jsx.map
-del /s /q ..\packages\rns-web-app\src\*.d.ts
-del /s /q ..\packages\rns-web-app\src\*.d.ts.map
+:removefile
+DEL /Q "%ProjectDir%\%1"
+exit /b

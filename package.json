@@ -17,12 +17,14 @@
   "scripts": {
     "postinstall": "npm-link-shared .\\node_modules .\\packages\\rns-mobile-app\\node_modules react --yarn",
     "compile": "tsc --build --incremental --verbose",
-    "tsclean": "tsc --build --clean",
-    "recompile": "yarn tsclean && yarn compile",
     "android": "yarn workspace rns-mobile-app android",
     "android-gradle-clean": "yarn workspace rns-mobile-app android-gradle-clean",
     "android-reset-metro-cache": "yarn workspace rns-mobile-app android-reset-metro-cache",
     "web": "yarn workspace rns-web-app web",
+    "tsclean": "tsc --build --clean",
+    "recompile": "yarn tsclean && yarn compile",
+    "clean": "yarn tsclean && ./scripts/cleanup_project.cmd",
+    "clean-run-android": "yarn clean && yarn && yarn android",
     "remotedev": "remotedev --hostname=localhost --port=8888"
   },
   "dependencies": {},
