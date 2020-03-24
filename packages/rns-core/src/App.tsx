@@ -19,15 +19,9 @@ const App: React.FC = () => {
     <InitialLoadingPage />
   ));
   const dispatch = useDispatch();
-
   const {productsSelector, productLoadingStateSelector} = useProductSelectors();
 
-  useEffect(() => {
-    if (productsSelector.count() > 0 && !isLoaded) {
-      setIsLoaded(true);
-    }
-  }, [productsSelector]);
-
+  /** Sends product request or shows main page */
   useEffect(() => {
     if (isLoaded) {
       setCurrentComponent(<Main productsCustom={productsSelector.toArray()} />);
@@ -37,6 +31,7 @@ const App: React.FC = () => {
     // return () => console.log('App unloaded...');
   }, [isLoaded]);
 
+  /** switches main page view depend on product loading state  */
   useEffect(() => {
     switch (productLoadingStateSelector) {
       case ProductLoadingState.isLoading:
@@ -46,9 +41,17 @@ const App: React.FC = () => {
         setCurrentComponent(<InitialLoadingPage isError={true} />);
         break;
       default:
+        // success
         break;
     }
   }, [productLoadingStateSelector]);
+
+  /** Tracks moment when all products are loaded */
+  useEffect(() => {
+    if (productsSelector.count() > 0 && !isLoaded) {
+      setIsLoaded(true);
+    }
+  }, [productsSelector]);
 
   return currentComponent;
 };

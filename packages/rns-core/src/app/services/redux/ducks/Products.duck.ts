@@ -50,45 +50,40 @@ export interface ProductSelectorsHookResult {
 
 export type ProductSelectorsHook = () => ProductSelectorsHookResult;
 
-export const useProductSelectors: ProductSelectorsHook = () => {
-  const loadingStateSelector = (state: ApplicationState) => {
-    return state.productsState.productsLoading;
-  };
+const loadingStateSelector = (state: ApplicationState) => {
+  return state.productsState.productsLoading;
+};
 
-  const loadingErrorSelector = (state: ApplicationState) => {
-    return state.productsState.productsLoadingError !== undefined;
-  };
+const loadingErrorSelector = (state: ApplicationState) => {
+  return state.productsState.productsLoadingError !== undefined;
+};
 
-  const selectLoadingState = createSelector(
-    loadingStateSelector,
-    loadingErrorSelector,
-    (isLoading: boolean, isEror: boolean) => {
-      if (isEror) {
-        return ProductLoadingState.error;
-      }
+const stateProductsSelector = (state: ApplicationState) => {
+  return state.productsState.products;
+};
 
-      if (isLoading) {
-        return ProductLoadingState.isLoading;
-      }
-
-      return ProductLoadingState.success;
+/**
+ * Returns current product loading state
+ */
+const selectLoadingState = createSelector(
+  loadingStateSelector,
+  loadingErrorSelector,
+  (isLoading: boolean, isEror: boolean) => {
+    if (isEror) {
+      return ProductLoadingState.error;
     }
-  );
 
-  /**
-   * Returns current product loading state
-   */
-  const productLoadingStateSelector = useSelector(
-    selectLoadingState,
-    shallowEqual
-  );
+    if (isLoading) {
+      return ProductLoadingState.isLoading;
+    }
 
-  const stateProductsSelector = (state: ApplicationState) => {
-    return state.productsState.products;
-  };
+    return ProductLoadingState.success;
+  }
+);
 
+export const useProductSelectors: ProductSelectorsHook = () => {
+  const productLoadingStateSelector = useSelector(selectLoadingState);
   const productsSelector = useSelector(stateProductsSelector, shallowEqual);
-
   return {productsSelector, productLoadingStateSelector};
 };
 
