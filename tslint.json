@@ -1,7 +1,8 @@
 {
   "defaultSeverity": "error",
-  "extends": ["tslint:recommended", "tslint-react"],
-  "rules": {    
+  "rulesDirectory": ["tslint-plugin-prettier"],
+  "rules": {
+    "prettier": true,
     "no-any": true,
     "ordered-imports": false,
     "no-submodule-imports": false,
@@ -15,13 +16,27 @@
     "prefer-const": true,
     "object-literal-sort-keys": false,
     "max-classes-per-file": false,
-    "no-empty-interface": false,    
+    "no-empty-interface": false,
     "variable-name": [
       true,
       "ban-keywords",
       "check-format",
       "allow-pascal-case",
       "allow-leading-underscore"
-    ]
-  }
+    ],
+    "trailing-comma": [
+      true,
+      {
+        "esSpecCompliant": "true"
+      }
+    ],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
+  },
+  "extends": [
+    "tslint:latest",
+    "tslint-react",
+    "tslint-react-hooks",
+    "tslint-config-prettier"
+  ]
 }

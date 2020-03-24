@@ -1,0 +1,23 @@
+#platforms
+#
+android/app/release
+android/app/build
+android/app/src/main/assets
+.gradle
+
+# Android/IntelliJ
+#
+.idea
+.gradle
+local.properties
+*.iml
+
+# BUCK
+buck-out/
+\.buckd/
+*.keystore
+!debug.keystore
+
+#IDE
+#
+.vscode/

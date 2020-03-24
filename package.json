@@ -1,35 +1,56 @@
 {
-  "main": "node_modules/expo/AppEntry.js",
+  "name": "react-native-shop",
+  "version": "0.2.1",
+  "description": "React native shop monorepo",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/react-native",
+      "**/react-native/**",
+      "**/react-native-svg",
+      "**/react-native-svg/**"
+    ]
+  },
   "scripts": {
-    "start": "expo start",
-    "start-tunnel": "tsc && expo start --tunnel",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "eject": "expo eject",
-    "tslint": "tslint -p tsconfig.json",
-    "tslint-fix": "tslint --fix -p tsconfig.json",
-    "purge": "yarn clean:all && yarn && yarn prepare:all",
-    "postinstall": "scripts\\fix-react-native.cmd"    
+    "postinstall": "npm-link-shared .\\node_modules .\\packages\\rns-mobile-app\\node_modules react --yarn",
+    "compile": "tsc --build --incremental --verbose",
+    "android": "yarn workspace rns-mobile-app android",
+    "android-gradle-clean": "yarn workspace rns-mobile-app android-gradle-clean",
+    "android-reset-metro-cache": "yarn workspace rns-mobile-app android-reset-metro-cache",
+    "web": "yarn workspace rns-web-app web",
+    "tsclean": "tsc --build --clean",
+    "recompile": "yarn tsclean && yarn compile",
+    "clean": "yarn tsclean && ./scripts/cleanup_project.cmd",
+    "clean-run-android": "yarn clean && yarn && yarn android",
+    "remotedev": "remotedev --hostname=localhost --port=8888"
   },
-  "dependencies": {
-    "expo": "^32.0.0",
-    "react": "16.5.0",
-    "react-native": "0.57.1"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@types/expo": "^32.0.8",
-    "@types/node": "^11.11.3",
-    "@types/react": "^16.8.8",
-    "@types/react-native": "^0.57.1",
-    "@types/react-test-renderer": "^16.8.1",
-    "react-addons-test-utils": "^15.6.2",
-    "react-native-typescript-transformer": "^1.2.12",
-    "schedule": "^0.4.0",
-    "ts-jest": "^24.0.0",
-    "tslint": "^5.14.0",
+    "prettier": "^1.17.0",
+    "remotedev-server": "^0.3.1",
+    "tslint": "^5.20.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.0.1",
     "tslint-react": "^3.6.0",
-    "typescript": "^3.3.3333",
-    "typescript-styled-plugin": "^0.14.0"
+    "tslint-react-hooks": "^2.2.1",
+    "typescript": "^3.8.3"
   },
-  "private": true
+  "bugs": {
+    "url": "https://github.com/KEMBL/react-native-shop/issues"
+  },
+  "homepage": "https://github.com/KEMBL/react-native-shop",
+  "keywords": [
+    "react",
+    "react-native",
+    "monorepo",
+    "workspaces",
+    "react-native-web"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KEMBL/react-native-shop.git"
+  }
 }
