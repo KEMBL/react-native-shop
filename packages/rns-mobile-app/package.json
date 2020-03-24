@@ -1,0 +1,21 @@
+{
+  "name": "rns-mobile-app",
+  "version": "0.0.2",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android --verbose",
+    "android-gradle-clean": "cd ./android && ./gradlew clean && cd ../../..",
+    "android-reset-metro-cache": "react-native start --reset-cache --verbose"
+  },
+  "dependencies": {
+    "rns-core": "0.0.1",
+    "react": "16.12.0",
+    "react-native": "0.61.5",
+    "react-native-image-cache-hoc": "^2.0.0",
+    "react-native-svg": "^9.4.0",
+    "rn-fetch-blob": "^0.12.0"
+  },
+  "devDependencies": {
+    "@types/react-native": "^0.60.17"
+  }
+}

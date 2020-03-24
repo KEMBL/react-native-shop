@@ -1,26 +1,51 @@
-dist/
-www/*
-package-lock.json
-yarn.lock
-
-*~
-*.sw[mnpcod]
-*.log
-*.lock
-*.tmp
-*.tmp.*
-*.js
-
-.vscode/
-.versions/
-node_modules/
-.stencil
-
-.DS_Store
-Thumbs.db
-.env
-
-# Jest
+# OSX
 #
-.jest/
+.DS_Store
 
+# node.js
+#
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn.lock
+package-lock.json
+
+# typescript
+#
+*.tsbuildinfo
+*.ts.map
+*.d.ts
+packages/components/src/*.js*
+packages/components/src/*.js*.map
+packages/rns-core/src/*.js*
+packages/rns-core/src/*.js*.map
+packages/rns-theme/src/*.js*
+packages/rns-theme/src/*.js*.map
+packages/rns-mobile-app/index.js*
+packages/rns-mobile-app/index.js*.map
+packages/rns-web-app/src/*.js*
+packages/rns-web-app/src/*.js*.map
+
+# web package derivatives
+#
+**/dist/report.html
+**/dist/bundle.js
+**/dist/bundle.js.map
+
+# fastlane
+#
+# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
+# screenshots whenever they are needed.
+# For more information about the recommended setup visit:
+# https://docs.fastlane.tools/best-practices/source-control/
+
+*/fastlane/report.xml
+*/fastlane/Preview.html
+*/fastlane/screenshots
+
+# Bundle artifact
+*.jsbundle
+
+# Other
+__tests__/
+build/
