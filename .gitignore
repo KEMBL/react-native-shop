@@ -7,24 +7,31 @@
 node_modules/
 npm-debug.log
 yarn-error.log
-yarn.lock
 package-lock.json
+
+# VS code
+.vscode
 
 # typescript
 #
 *.tsbuildinfo
 *.ts.map
-*.d.ts
-packages/components/src/*.js*
-packages/components/src/*.js*.map
-packages/rns-core/src/*.js*
-packages/rns-core/src/*.js*.map
-packages/rns-theme/src/*.js*
-packages/rns-theme/src/*.js*.map
+packages/components/src/**/*.js*
+packages/components/src/**/*.js*.map
+packages/components/src/**/*.d.ts
+packages/rns-core/src/**/*.js*
+packages/rns-core/src/**/*.js*.map
+packages/rns-core/src/**/*.d.ts
+packages/rns-theme/src/**/*.js*
+packages/rns-theme/src/**/*.js*.map
+packages/rns-theme/src/**/*.d.ts
+
+packages/rns-web-app/src/**/*.js*
+packages/rns-web-app/src/**/*.js*.map
+packages/rns-web-app/src/**/*.d.ts
 packages/rns-mobile-app/index.js*
 packages/rns-mobile-app/index.js*.map
-packages/rns-web-app/src/*.js*
-packages/rns-web-app/src/*.js*.map
+packages/rns-mobile-app/index.d.ts
 
 # web package derivatives
 #

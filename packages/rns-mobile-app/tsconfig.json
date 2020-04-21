@@ -3,13 +3,12 @@
   "compilerOptions": {
     "composite": true,
     "typeRoots": [
-      "./types",
-      "./node_modules/@types",
+      "./@types",
       "../../node_modules/@types"
     ]
   },
-  "include": ["index.tsx", "app.json", "types"],
-  "exclude": ["metro.config.js", "rn-cli.config.js"],
+  "include": ["index.tsx", "app.json", "@types"],
+  "exclude": ["rn-cli.config.js"],
   "references": [
     {
       "path": "../components"
