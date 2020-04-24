@@ -1,13 +1,18 @@
 import React from 'react';
+import {RouteProp, useRoute} from '@react-navigation/native';
 
+import {NavigationStackParamList} from './models/navigation';
 import ProductPage from './views/ProductPage';
-import {ProductModel} from './models/Product/ProductModels';
 
-interface MainProps {
-  productsCustom: ProductModel[];
-}
+export const MainScreen: React.FC = () => {
+  type InitialLoadingScreenRouteProp = RouteProp<
+    NavigationStackParamList,
+    'MainScreen'
+  >;
 
-export const Main: React.FC<MainProps> = ({productsCustom}) => {
-  const product = productsCustom[0];
-  return <ProductPage product={product} />;
+  const route = useRoute<InitialLoadingScreenRouteProp>();
+  const {products} = route.params;
+
+  const product = products?.[0];
+  return product ? <ProductPage product={product} /> : <></>;
 };
