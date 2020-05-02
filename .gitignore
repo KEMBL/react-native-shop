@@ -16,39 +16,6 @@ package-lock.json
 #
 *.tsbuildinfo
 *.ts.map
-packages/components/src/**/*.js*
-packages/components/src/**/*.js*.map
-packages/components/src/**/*.d.ts
-packages/rns-core/src/**/*.js*
-packages/rns-core/src/**/*.js*.map
-packages/rns-core/src/**/*.d.ts
-packages/rns-theme/src/**/*.js*
-packages/rns-theme/src/**/*.js*.map
-packages/rns-theme/src/**/*.d.ts
-
-packages/rns-web-app/src/**/*.js*
-packages/rns-web-app/src/**/*.js*.map
-packages/rns-web-app/src/**/*.d.ts
-packages/rns-mobile-app/index.js*
-packages/rns-mobile-app/index.js*.map
-packages/rns-mobile-app/index.d.ts
-
-# web package derivatives
-#
-**/dist/report.html
-**/dist/bundle.js
-**/dist/bundle.js.map
-
-# fastlane
-#
-# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
-# screenshots whenever they are needed.
-# For more information about the recommended setup visit:
-# https://docs.fastlane.tools/best-practices/source-control/
-
-*/fastlane/report.xml
-*/fastlane/Preview.html
-*/fastlane/screenshots
 
 # Bundle artifact
 *.jsbundle

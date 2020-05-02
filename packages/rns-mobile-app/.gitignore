@@ -1,3 +1,8 @@
+
+index.js*
+index.js*.map
+index.d.ts
+
 #platforms
 #
 android/app/release

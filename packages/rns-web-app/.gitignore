@@ -1,0 +1,9 @@
+src/**/*.js*
+src/**/*.js*.map
+src/**/*.d.ts
+
+dist/report.html
+dist/bundle.js
+dist/bundle.js.map
+dist/**/*.png
+
