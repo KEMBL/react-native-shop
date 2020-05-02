@@ -1,6 +1,6 @@
 {
   "name": "rns-mobile-app",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
@@ -9,7 +9,7 @@
     "android-release": "npx react-native run-android --variant release"
   },
   "dependencies": {
-    "rns-core": "0.0.1",
+    "rns-core": "0.0.2",
     "react-native": "0.62.2",
     "react-native-image-cache-hoc": "^2.0.0",
     "react-native-svg": "^9.4.0",
