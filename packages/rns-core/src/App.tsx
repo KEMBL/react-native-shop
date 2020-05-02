@@ -1,13 +1,16 @@
 import React, {useState, useEffect} from 'react';
+import {useNavigation} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 import {useDispatch} from 'react-redux';
 
+import {NavigationStackParamList} from './app/models/navigation';
 import {ProductLoadingState} from './app/models/Product/ProductModels';
-import {InitialLoadingPage} from './app/views/InitialLoadingPage';
+import {InitialLoadingScreen} from './app/views/InitialLoadingScreen';
 import {
   actionProductsRequest,
   useProductSelectors
 } from './app/services/redux/ducks/Products.duck';
-import {Main} from './app/Main';
+import {MainScreen} from './app/Main';
 
 /**
  * Application logic starts here
@@ -15,30 +18,31 @@ import {Main} from './app/Main';
  */
 const App: React.FC = () => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [currentComponent, setCurrentComponent] = useState<JSX.Element>(() => (
-    <InitialLoadingPage />
-  ));
-  const dispatch = useDispatch();
+  const [isLoadingError, setLoadedingState] = useState(false);
   const {productsSelector, productLoadingStateSelector} = useProductSelectors();
+
+  const navigation = useNavigation();
+  const dispatch = useDispatch();
+  const NavigationStack = createStackNavigator<NavigationStackParamList>();
 
   /** Sends product request or shows main page */
   useEffect(() => {
     if (isLoaded) {
-      setCurrentComponent(<Main productsCustom={productsSelector.toArray()} />);
+      navigation.navigate('MainScreen');
     } else {
       dispatch(actionProductsRequest());
     }
     // return () => console.log('App unloaded...');
   }, [isLoaded]);
 
-  /** switches main page view depend on product loading state  */
+  /** switches main page screen depending on product loading state  */
   useEffect(() => {
     switch (productLoadingStateSelector) {
       case ProductLoadingState.isLoading:
-        setCurrentComponent(<InitialLoadingPage />);
+        setLoadedingState(true);
         break;
       case ProductLoadingState.error:
-        setCurrentComponent(<InitialLoadingPage isError={true} />);
+        setLoadedingState(false);
         break;
       default:
         // success
@@ -53,6 +57,29 @@ const App: React.FC = () => {
     }
   }, [productsSelector]);
 
-  return currentComponent;
+  return (
+    <NavigationStack.Navigator headerMode="none">
+      {!isLoaded && (
+        <NavigationStack.Screen
+          name="Loading"
+          component={InitialLoadingScreen}
+          options={{title: 'Loading...'}}
+          initialParams={{isError: isLoadingError}}
+        />
+      )}
+      <NavigationStack.Screen
+        name="MainScreen"
+        component={MainScreen}
+        options={{title: 'Main Screen'}}
+        initialParams={{products: productsSelector.toArray()}}
+      />
+      <NavigationStack.Screen
+        name="ProductPage"
+        component={MainScreen}
+        options={{title: 'Product Page'}}
+        initialParams={{products: productsSelector.toArray()}}
+      />
+    </NavigationStack.Navigator>
+  );
 };
 export default App;

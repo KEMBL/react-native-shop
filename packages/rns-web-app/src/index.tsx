@@ -3,7 +3,6 @@ import {AppRegistry} from 'react-native';
 import ReactDOM from 'react-dom';
 
 import {AppBootStrap} from 'rns-core/src/AppBootStrap';
-import {name as appName} from './app.json';
 import {mokedImage} from './components/MockedImage';
 
 const AddedContext: React.FC = _ => {
@@ -16,5 +15,5 @@ const AddedContext: React.FC = _ => {
 /**
  * React native mobile application entry point
  */
-AppRegistry.registerComponent(appName, () => AddedContext);
+AppRegistry.registerComponent('reactnativeshop', () => AddedContext);
 ReactDOM.render(<AddedContext />, document.querySelector('.root'));

@@ -1,21 +1,14 @@
 {
   "name": "react-native-shop",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "React native shop monorepo",
   "private": true,
   "workspaces": {
     "packages": [
       "packages/*"
-    ],
-    "nohoist": [
-      "**/react-native",
-      "**/react-native/**",
-      "**/react-native-svg",
-      "**/react-native-svg/**"
     ]
   },
   "scripts": {
-    "postinstall": "npm-link-shared .\\node_modules .\\packages\\rns-mobile-app\\node_modules react --yarn",
     "compile": "tsc --build --incremental --verbose",
     "android": "yarn workspace rns-mobile-app android",
     "android-gradle-clean": "yarn workspace rns-mobile-app android-gradle-clean",
@@ -27,8 +20,16 @@
     "clean-run-android": "yarn clean && yarn && yarn android",
     "remotedev": "remotedev --hostname=localhost --port=8888"
   },
-  "dependencies": {},
+  "dependencies": {
+    "react": "16.13.1",
+    "react-redux": "^7.1.3",
+    "redux": "^4.0.4",
+    "react-native": "0.62.2"
+  },
   "devDependencies": {
+    "@types/node": "^11.11.3",
+    "@types/react-redux": "^7.1.5",
+    "@types/react-native": "^0.60.17",
     "prettier": "^1.17.0",
     "remotedev-server": "^0.3.1",
     "tslint": "^5.20.0",
@@ -45,9 +46,11 @@
   "keywords": [
     "react",
     "react-native",
+    "react-native-web",
+    "react-navigation",
+    "redux",
     "monorepo",
-    "workspaces",
-    "react-native-web"
+    "workspaces"
   ],
   "repository": {
     "type": "git",

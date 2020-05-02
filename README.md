@@ -7,9 +7,9 @@ The programming language is Typescript. Os Windows.
 
 # What it uses already
 
-- React (with hooks), Redux (controls the global store), Redux ducks, Immutable, Axios
+- React (with hooks), Rect-Navigation, Redux (controls the global store), Redux ducks, Immutable, Axios
 - Java dependent modules are injected into the core package. Core package supposed not to know anything about platform-dependent things like Java modules (unless they work fine in both web and mobile platforms)
-- Metro for working for bundling the Android version and Webpack for the web version
+- Metro for bundling the Android buld and Webpack for the Web build
 
 # How it looks like
 
@@ -37,6 +37,7 @@ Famous problems were fixed:
     a) metro.config file content is not picked-up from a react-native package folder #6
     b) "Module AppRegistry is not a registered ..." #8
     c) "Invalid hook call ..." for react-hooks #9
+    d) Zero Screen height in react navigation v5 used with react-native-web 
 
 # How to start the app
 

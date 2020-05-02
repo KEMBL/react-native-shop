@@ -1,3 +1,5 @@
+import 'react-native-gesture-handler';
+
 import React from 'react';
 import {AppRegistry} from 'react-native';
 import imageCacheHoc from 'react-native-image-cache-hoc';
