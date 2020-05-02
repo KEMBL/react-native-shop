@@ -2,12 +2,13 @@ import React from 'react';
 import {Provider} from 'react-redux';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {Image} from 'react-native';
+import {Image, View} from 'react-native';
 
 import {StylableText} from 'components/src/trivial/text/StylableText';
 
 import App from './App';
 import {StoreService} from './app/services/store/Store.service';
+import {Platform} from 'rns-theme/src/theme/Platform';
 
 export interface ImageCacherOptionsInterface {
   validProtocols: string[];
@@ -42,12 +43,23 @@ export const AppBootStrap: React.FC<AppBootStrapProps> = (
   return (
     <AppContext.Provider value={props}>
       <Provider store={store}>
-        <NavigationContainer>
-          <NavigationStack.Navigator headerMode="none">
-            <NavigationStack.Screen name="Application" component={App} />
-          </NavigationStack.Navigator>
-        </NavigationContainer>
+        {Platform.isWeb ? (
+          // solves zero height in a web build
+          <View style={{height: Platform.deviceHeight}}>
+            {getNavigationContainer()}
+          </View>
+        ) : (
+          getNavigationContainer()
+        )}
       </Provider>
     </AppContext.Provider>
   );
+};
+
+const getNavigationContainer = (): JSX.Element => {
+ return  <NavigationContainer>
+    <NavigationStack.Navigator headerMode="none">
+      <NavigationStack.Screen name="Application" component={App} />
+    </NavigationStack.Navigator>
+  </NavigationContainer>
 };
