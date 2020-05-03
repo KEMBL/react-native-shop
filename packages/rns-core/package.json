@@ -3,6 +3,10 @@
   "version": "0.0.2",
   "private": true,
   "description": "React native shop application core",
+  "scripts": {
+    "lint": "eslint -c ../../.eslintrc.js --ext .ts,.tsx --ignore-pattern *.d.ts ./src",
+    "lint:fix": "eslint -c ../../.eslintrc.js --ext .ts,.tsx --ignore-pattern *.d.ts --fix ./src"
+  },
   "dependencies": {
     "components": "0.0.1",
     "rns-theme": "0.0.1",

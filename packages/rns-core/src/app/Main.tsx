@@ -7,8 +7,8 @@ import ProductPage from './views/ProductPage';
 
 export const MainScreen: React.FC = () => {
   type InitialLoadingScreenRouteProp = RouteProp<
-    NavigationStackParamList,
-    'MainScreen'
+  NavigationStackParamList,
+  'MainScreen'
   >;
 
   const route = useRoute<InitialLoadingScreenRouteProp>();

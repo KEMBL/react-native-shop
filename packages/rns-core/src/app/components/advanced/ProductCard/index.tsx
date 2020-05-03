@@ -14,12 +14,12 @@ interface ProductCardProps {
 }
 
 export class ProductCard extends PureComponent<ProductCardProps> {
-  public render() {
+  public render(): JSX.Element {
     const {thumbnail, title, weight, price} = this.props;
     return (
       <View style={ProductCardTheme.container}>
         <AppContext.Consumer>
-          {({imageCacherInterface}) => (
+          {({imageCacherInterface}): JSX.Element => (
             <CacheableImage
               style={ProductCardTheme.image}
               src={thumbnail}

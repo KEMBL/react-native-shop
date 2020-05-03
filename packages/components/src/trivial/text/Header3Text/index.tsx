@@ -12,7 +12,7 @@ export class Header3Text extends PureComponent<Header3TextProps> {
     style: { fontSize: 14 }
   };
 
-  public render() {
+  public render(): JSX.Element {
     const { style, children } = this.props;
     return (
       <StylableText style={style} wrapLines={1}>

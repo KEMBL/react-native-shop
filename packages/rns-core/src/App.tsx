@@ -15,8 +15,10 @@ import {MainScreen} from './app/Main';
 /**
  * Application logic starts here
  * Here we make initial loading of necessary data right before start business logic
+ *
+ * @returns {React.FC} Component with the main application logic
  */
-const App: React.FC = () => {
+const App: React.FC = (): JSX.Element => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isLoadingError, setLoadedingState] = useState(false);
   const {productsSelector, productLoadingStateSelector} = useProductSelectors();
@@ -33,7 +35,7 @@ const App: React.FC = () => {
       dispatch(actionProductsRequest());
     }
     // return () => console.log('App unloaded...');
-  }, [isLoaded]);
+  }, [dispatch, isLoaded, navigation]);
 
   /** switches main page screen depending on product loading state  */
   useEffect(() => {
@@ -55,7 +57,7 @@ const App: React.FC = () => {
     if (productsSelector.count() > 0 && !isLoaded) {
       setIsLoaded(true);
     }
-  }, [productsSelector]);
+  }, [isLoaded, productsSelector]);
 
   return (
     <NavigationStack.Navigator headerMode="none">

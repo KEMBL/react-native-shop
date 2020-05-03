@@ -21,15 +21,15 @@ import {NavigationStackParamList} from '../../models/navigation';
 // };
 
 export const InitialLoadingScreen: React.FC = () =>
-  // <InitialLoadingScreenProps>
-  //   {
-  //   route,
-  //   navigation
-  // }
-  {
+// <InitialLoadingScreenProps>
+//   {
+//   route,
+//   navigation
+// }
+{
     type InitialLoadingScreenRouteProp = RouteProp<
-      NavigationStackParamList,
-      'Loading'
+    NavigationStackParamList,
+    'Loading'
     >;
 
     // const navigation1 = useNavigation<InitialLoadingScreenNavigationProp>();
@@ -47,4 +47,4 @@ export const InitialLoadingScreen: React.FC = () =>
         )}
       </View>
     );
-  };
+};

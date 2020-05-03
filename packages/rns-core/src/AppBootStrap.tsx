@@ -5,18 +5,12 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {Image, View} from 'react-native';
 
 import {StylableText} from 'components/src/trivial/text/StylableText';
+import { ImageCacherOptionsInterface } from 'components/src/trivial/CacheableImage/ImageCacherOptionsInterface';
 
 import App from './App';
 import {StoreService} from './app/services/store/Store.service';
 import {Platform} from 'rns-theme/src/theme/Platform';
 
-export interface ImageCacherOptionsInterface {
-  validProtocols: string[];
-  fileHostWhitelist: string[];
-  cachePruneTriggerLimit: number;
-  fileDirName: string | null;
-  defaultPlaceholder: string | null;
-}
 
 export interface AppBootStrapProps {
   imageCacherInterface: (
@@ -31,11 +25,25 @@ export interface AppBootStrapProps {
 export const AppContext = React.createContext<AppBootStrapProps>({
   imageCacherInterface: (_: Image, __: ImageCacherOptionsInterface) =>
     new React.Component(() => {
-      return <StylableText>No Image viewer assigned</StylableText>;
+      return (
+        <StylableText>
+          No Image viewer assigned: {!!_} {!!__}
+        </StylableText>
+      );
     })
 });
 
 const NavigationStack = createStackNavigator();
+const getNavigationContainer = (): JSX.Element => {
+  return (
+    <NavigationContainer>
+      <NavigationStack.Navigator headerMode="none">
+        <NavigationStack.Screen name="Application" component={App} />
+      </NavigationStack.Navigator>
+    </NavigationContainer>
+  );
+};
+
 const store = StoreService.getStore;
 export const AppBootStrap: React.FC<AppBootStrapProps> = (
   props: AppBootStrapProps
@@ -44,7 +52,7 @@ export const AppBootStrap: React.FC<AppBootStrapProps> = (
     <AppContext.Provider value={props}>
       <Provider store={store}>
         {Platform.isWeb ? (
-          // solves zero height in a web build
+        // solves zero height in a web build
           <View style={{height: Platform.deviceHeight}}>
             {getNavigationContainer()}
           </View>
@@ -54,12 +62,4 @@ export const AppBootStrap: React.FC<AppBootStrapProps> = (
       </Provider>
     </AppContext.Provider>
   );
-};
-
-const getNavigationContainer = (): JSX.Element => {
- return  <NavigationContainer>
-    <NavigationStack.Navigator headerMode="none">
-      <NavigationStack.Screen name="Application" component={App} />
-    </NavigationStack.Navigator>
-  </NavigationContainer>
 };

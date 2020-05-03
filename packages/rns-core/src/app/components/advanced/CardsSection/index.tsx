@@ -19,8 +19,8 @@ interface CardsSectionState {
 }
 
 export class CardsSection extends PureComponent<
-  CardsSectionProps,
-  CardsSectionState
+CardsSectionProps,
+CardsSectionState
 > {
   public state = {
     isHorisontal: true
@@ -33,7 +33,7 @@ export class CardsSection extends PureComponent<
     textDisabled: {}
   };
 
-  public render() {
+  public render(): JSX.Element {
     const {title, cards} = this.props;
     const {isHorisontal} = this.state;
 
@@ -65,7 +65,7 @@ export class CardsSection extends PureComponent<
     );
   }
 
-  private renderCard = ({item}: {item: ProductCardModel}) => {
+  private renderCard = ({item}: {item: ProductCardModel}): JSX.Element => {
     return (
       <ProductCard
         thumbnail={item.thumbnail}
@@ -76,11 +76,11 @@ export class CardsSection extends PureComponent<
     );
   };
 
-  private keyExtractor = (_item: ProductCardModel, index: number) => {
+  private keyExtractor = (_item: ProductCardModel, index: number): string => {
     return index.toString();
   };
 
-  private onLayoutChanged = () => {
+  private onLayoutChanged = (): void => {
     this.setState(prevState => ({isHorisontal: !prevState.isHorisontal}));
   };
 }

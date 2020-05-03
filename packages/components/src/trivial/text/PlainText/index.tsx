@@ -13,8 +13,8 @@ export class PlainText extends PureComponent<PlainTextProps> {
     style: { fontSize: 11 }
   };
 
-  public render() {
-    let { style, wrapLines, children } = this.props;
+  public render(): JSX.Element {
+    const { style, wrapLines, children } = this.props;
 
     return (
       <StylableText style={style} wrapLines={wrapLines}>

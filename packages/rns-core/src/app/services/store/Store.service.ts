@@ -8,7 +8,7 @@ import rootReducer from '../redux/ducks';
 import {ApplicationStateInterface} from '../../models/Application/ApplicationState';
 
 class StoreService {
-  get getStore() {
+  get getStore(): Store<ApplicationStateInterface, AnyAction> {
     return this.store;
   }
   private store: Store<ApplicationStateInterface, AnyAction>;

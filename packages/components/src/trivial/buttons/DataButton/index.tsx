@@ -14,7 +14,7 @@ interface MakeOnPressOptional<T> {
 type DataButtonProps<T> = Modify<ButtonProps, MakeOnPressOptional<T>>;
 
 export class DataButton<T> extends React.PureComponent<DataButtonProps<T>> {
-  public render() {
+  public render(): JSX.Element {
     const {accessibilityLabel, title, isDisabled, style} = this.props;
     return (
       <Button
@@ -26,7 +26,7 @@ export class DataButton<T> extends React.PureComponent<DataButtonProps<T>> {
       />
     );
   }
-  private onButtonPressed = (event: GestureResponderEvent) => {
+  private onButtonPressed = (event: GestureResponderEvent): void => {
     if (this.props.onPress) {
       this.props.onPress(event);
     }

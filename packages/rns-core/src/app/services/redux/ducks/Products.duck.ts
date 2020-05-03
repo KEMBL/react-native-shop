@@ -50,15 +50,17 @@ export interface ProductSelectorsHookResult {
 
 export type ProductSelectorsHook = () => ProductSelectorsHookResult;
 
-const loadingStateSelector = (state: ApplicationState) => {
+const loadingStateSelector = (state: ApplicationState): boolean => {
   return state.productsState.productsLoading;
 };
 
-const loadingErrorSelector = (state: ApplicationState) => {
+const loadingErrorSelector = (state: ApplicationState): boolean => {
   return state.productsState.productsLoadingError !== undefined;
 };
 
-const stateProductsSelector = (state: ApplicationState) => {
+const stateProductsSelector = (
+  state: ApplicationState
+): ImmSet<ProductModel> => {
   return state.productsState.products;
 };
 

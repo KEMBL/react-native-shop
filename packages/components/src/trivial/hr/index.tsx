@@ -17,7 +17,7 @@ export class Hr extends Component<HrProps> {
     }
   });
 
-  public render() {
+  public render(): JSX.Element {
     return <View style={this.styles.hrStyle} />;
   }
 }

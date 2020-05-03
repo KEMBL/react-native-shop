@@ -12,7 +12,7 @@ export interface CacheableImageProps {
   /** Max size of file cache in bytes before pruning occurs */
   cachePruneTriggerLimit?: number;
   resizeMode: ImageResizeMode;
-  // tslint:disable-next-line:no-any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   imageCacheHoc: any;
 }
 
@@ -30,7 +30,7 @@ export class CacheableImage extends PureComponent<CacheableImageProps> {
     cachePruneTriggerLimit: this.props.cachePruneTriggerLimit
   });
 
-  public render() {
+  public render(): JSX.Element {
     const {src, style, permanent, resizeMode} = this.props;
 
     return (

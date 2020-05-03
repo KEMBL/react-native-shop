@@ -18,10 +18,10 @@ export class StylableText extends PureComponent<StylableTextProps> {
     }
   };
 
-  public render() {
+  public render(): JSX.Element {
     const {style, wrapLines, children} = this.props;
 
-    let numberOfLines: number = 0;
+    let numberOfLines = 0;
     let ellipsizeMode: EllipsizeMode = 'clip';
     if (wrapLines) {
       ellipsizeMode = 'tail';

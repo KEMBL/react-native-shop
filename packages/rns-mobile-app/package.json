@@ -6,7 +6,9 @@
     "android": "react-native run-android",
     "android-gradle-clean": "cd ./android && ./gradlew clean && cd ../../..",
     "android-reset-metro-cache": "react-native start --reset-cache --verbose",
-    "android-release": "npx react-native run-android --variant release"
+    "android-release": "npx react-native run-android --variant release",
+    "lint": "eslint -c ../../.eslintrc.js --ext .ts,.tsx --ignore-pattern *.d.ts ./index.tsx",
+    "lint:fix": "eslint -c ../../.eslintrc.js --ext .ts,.tsx --ignore-pattern *.d.ts --fix ./index.tsx"
   },
   "dependencies": {
     "rns-core": "0.0.2",

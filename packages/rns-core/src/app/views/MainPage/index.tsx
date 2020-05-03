@@ -13,12 +13,12 @@ const card: ProductCardModel = {
   title:
     'One & Only (Ван & Онли) Sterilized Cat для стерилизованных кошек с индейкой и рисом,2 кг',
   weight: 1.2,
-  price: 200.0,
+  price: 200.0
 };
 
 const cards: ProductCardModel[] = [card, card, card, card];
 const category: ProductCategoryModel = {
-  title: 'Recomended for you',
+  title: 'Recomended for you'
 };
 
 const categories: ProductCategoryModel[] = [
@@ -26,18 +26,18 @@ const categories: ProductCategoryModel[] = [
   category,
   category,
   category,
-  category,
+  category
 ];
 
 export default class MainPage extends PureComponent {
   private mainStyle = StyleSheet.create({
     container: {
       backgroundColor: 'skyblue',
-      height: Theme.platform.deviceHeight,
-    },
+      height: Theme.platform.deviceHeight
+    }
   });
 
-  public render() {
+  public render(): JSX.Element {
     return (
       <View style={this.mainStyle.container}>
         <StatusBar backgroundColor="#016C4C" barStyle="light-content" />
@@ -45,14 +45,14 @@ export default class MainPage extends PureComponent {
         <View
           style={{
             height: 51,
-            backgroundColor: 'white',
+            backgroundColor: 'white'
           }}
         />
         <View
           style={{
             height: '100%',
             backgroundColor: '#EEEEEE',
-            flex: 1,
+            flex: 1
           }}>
           <TopDownGradient
             width={Theme.platform.deviceWidth}
@@ -72,11 +72,18 @@ export default class MainPage extends PureComponent {
     );
   }
 
-  private keyExtractor = (_item: ProductCategoryModel, index: number) => {
+  private keyExtractor = (
+    _item: ProductCategoryModel,
+    index: number
+  ): string => {
     return index.toString();
   };
 
-  private renderCategory = ({item}: {item: ProductCategoryModel}) => {
+  private renderCategory = ({
+    item
+  }: {
+    item: ProductCategoryModel;
+  }): JSX.Element => {
     const {title} = item;
     return <CardsSection title={title} cards={cards} />;
   };

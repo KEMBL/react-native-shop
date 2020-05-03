@@ -1,5 +1,6 @@
 {
   "extends": "./tsconfig.base.json",
+  "exclude": ["node_modules"],
   "references": [
     {"path": "packages/components"},
     {"path": "packages/rns-theme"},

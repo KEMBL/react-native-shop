@@ -29,15 +29,15 @@ interface ProductPageState {
 }
 
 export default class ProductPage extends PureComponent<
-  ProductPageProps,
-  ProductPageState
+ProductPageProps,
+ProductPageState
 > {
   public state = {
     selectedVariantIndex: -1,
     amount: 1
   };
 
-  public render() {
+  public render(): JSX.Element {
     const {selectedVariantIndex, amount} = this.state;
     const product = this.props.product;
     return (
@@ -49,7 +49,7 @@ export default class ProductPage extends PureComponent<
         <View style={ItemPageTheme.toolBar} />
         <ScrollView style={{height: 550}}>
           <AppContext.Consumer>
-            {({imageCacherInterface}) => (
+            {({imageCacherInterface}): JSX.Element => (
               <CacheableImage
                 style={ItemPageTheme.image}
                 src={product.image_url[0]}
@@ -109,13 +109,13 @@ export default class ProductPage extends PureComponent<
         <Button
           style={buyButton}
           title="ДОБАВИТЬ В КОРЗИНУ"
-          onPress={() => {}}
+          onPress={(): null => null}
         />
       </View>
     );
   }
 
-  private priceContainer = (priceModel: PriceModel) => {
+  private priceContainer = (priceModel: PriceModel): JSX.Element => {
     const buttons = priceModel.properties.map((p, index) =>
       this.priceButton(index, p.property)
     );
@@ -123,7 +123,7 @@ export default class ProductPage extends PureComponent<
     return <View style={ItemPageTheme.variantsContainer}>{buttons}</View>;
   };
 
-  private priceButton = (index: number, property: string) => {
+  private priceButton = (index: number, property: string): JSX.Element => {
     const isSelected = this.state.selectedVariantIndex === index;
     const currentStyle = isSelected ? variantsButtonSelected : variantsButton;
     return (
@@ -137,19 +137,19 @@ export default class ProductPage extends PureComponent<
     );
   };
 
-  private onPriceButtonClick = (data: number) => {
+  private onPriceButtonClick = (data: number): void => {
     const nextState = this.state.selectedVariantIndex === data ? -1 : data; // turn button on / off
     this.setState(() => ({
       selectedVariantIndex: nextState
     }));
   };
 
-  private onAmountIncrease = () => {
+  private onAmountIncrease = (): void => {
     const nextAmount = this.state.amount + 1;
     this.setState(() => ({amount: nextAmount}));
   };
 
-  private onAmountDecrease = () => {
+  private onAmountDecrease = (): void => {
     if (this.state.amount > 1) {
       this.setState(() => ({amount: this.state.amount - 1}));
     }

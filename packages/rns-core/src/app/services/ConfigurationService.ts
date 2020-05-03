@@ -1,4 +1,13 @@
-const ConfiguationService = () => {
+interface ConfiguationServiceInterface {
+  currency: string;
+  baseURL: string;
+  remoteDevServerHostname: string;
+  remoteDevServerPort: number;
+  getProductsUrl: string;
+  priceError: string;
+}
+
+const ConfiguationService = (): ConfiguationServiceInterface => {
   const currency = 'руб.';
   const baseURL = 'http://kembl.ru';
   const priceError = 'Ошибка цены';

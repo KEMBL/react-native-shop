@@ -23,7 +23,7 @@ export interface ButtonProps {
 }
 
 export class Button extends React.PureComponent<ButtonProps> {
-  public render() {
+  public render(): JSX.Element {
     const {accessibilityLabel, title, isDisabled, style} = this.props;
 
     const theme = style || ButtonTheme;
@@ -76,7 +76,7 @@ export class Button extends React.PureComponent<ButtonProps> {
     );
   }
 
-  protected onButtonPressed = (event: GestureResponderEvent) => {
+  protected onButtonPressed = (event: GestureResponderEvent): void => {
     this.props.onPress(event);
   };
 }

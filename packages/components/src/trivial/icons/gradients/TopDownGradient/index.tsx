@@ -9,7 +9,7 @@ interface TopDownGradientProps {
 }
 
 export class TopDownGradient extends PureComponent<TopDownGradientProps> {
-  public render() {
+  public render(): JSX.Element {
     const {topColor, bottomColor, width, height} = this.props;
     return (
       <Svg height={height} width={width}>
