@@ -5,10 +5,13 @@ import {Text} from 'react-native';
 import {NavigationStackParamList} from './models/navigation';
 import ProductPage from './views/ProductPage';
 
+/**
+ * This screen is just a temporary bridge to another view which is requred to test
+ */
 export const MainScreen: React.FC = () => {
   type InitialLoadingScreenRouteProp = RouteProp<
   NavigationStackParamList,
-  'MainScreen'
+  'ProductPage'
   >;
 
   const route = useRoute<InitialLoadingScreenRouteProp>();

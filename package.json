@@ -3,6 +3,10 @@
   "version": "0.2.3",
   "description": "React native shop monorepo",
   "private": true,
+  "author": {
+    "name": "KEMBL",
+    "url": "https://github.com/KEMBL"
+  },
   "workspaces": {
     "packages": [
       "packages/*"

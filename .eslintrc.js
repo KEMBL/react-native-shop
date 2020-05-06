@@ -53,20 +53,20 @@ module.exports = {
     'no-console': 'warn',
     semi: 'error',
     'react/jsx-uses-react': 'error', // Prevent React to be incorrectly marked as unused
-    'react/jsx-uses-vars': 'error', // Prevent variables used in JSX to be incorrectly marked as unused    
+    'react/jsx-uses-vars': 'error', // Prevent variables used in JSX to be incorrectly marked as unused
     '@typescript-eslint/indent': ['error', 2],
     '@typescript-eslint/explicit-function-return-type': [
       'warn',
       {
         allowTypedFunctionExpressions: true
       }
-    ],    
-    "prefer-arrow/prefer-arrow-functions": [
-      "warn",
+    ],
+    'prefer-arrow/prefer-arrow-functions': [
+      'warn',
       {
-        "disallowPrototype": true,
-        "singleReturnOnly": true,
-        "classPropertiesAllowed": true
+        disallowPrototype: true,
+        singleReturnOnly: true,
+        classPropertiesAllowed: true
       }
     ]
   }

@@ -10,7 +10,7 @@ import {
   actionProductsRequest,
   useProductSelectors
 } from './app/services/redux/ducks/Products.duck';
-import {MainScreen} from './app/Main';
+import { ProductsListScreen } from './app/views/ProductsListScreen';
 
 /**
  * Application logic starts here
@@ -70,17 +70,17 @@ const App: React.FC = (): JSX.Element => {
         />
       )}
       <NavigationStack.Screen
-        name="MainScreen"
-        component={MainScreen}
+        name="ProductsListScreen"
+        component={ProductsListScreen}
         options={{title: 'Main Screen'}}
         initialParams={{products: productsSelector.toArray()}}
       />
-      <NavigationStack.Screen
+      {/* <NavigationStack.Screen
         name="ProductPage"
         component={MainScreen}
         options={{title: 'Product Page'}}
         initialParams={{products: productsSelector.toArray()}}
-      />
+      /> */}
     </NavigationStack.Navigator>
   );
 };
