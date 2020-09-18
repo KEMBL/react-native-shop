@@ -23,7 +23,8 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:import/warnings',
-    'plugin:jsdoc/recommended'
+    'plugin:jsdoc/recommended',
+    'prettier' //  turns off all rules in ESLint that conflict with prettier
   ],
   settings: {
     react: {
@@ -39,13 +40,13 @@ module.exports = {
     propWrapperFunctions: [
       // The names of any function used to wrap propTypes, e.g. `forbidExtraProps`. If this isn't set, any propTypes wrapped in a function will be skipped.
       'forbidExtraProps',
-      {property: 'freeze', object: 'Object'},
-      {property: 'myFavoriteWrapper'}
+      { property: 'freeze', object: 'Object' },
+      { property: 'myFavoriteWrapper' }
     ],
     linkComponents: [
       // Components used as alternatives to <a> for linking, eg. <Link to={ url } />
       'Hyperlink',
-      {name: 'Link', linkAttribute: 'to'}
+      { name: 'Link', linkAttribute: 'to' }
     ]
   },
   rules: {

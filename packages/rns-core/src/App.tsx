@@ -1,11 +1,13 @@
-import React, {useState, useEffect} from 'react';
-import {useNavigation} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
-import {useDispatch} from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useNavigation } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { useDispatch } from 'react-redux';
+import { ApolloProvider } from '@apollo/client';
 
-import {NavigationStackParamList} from './app/models/navigation';
-import {ProductLoadingState} from './app/models/Product/ProductModels';
-import {InitialLoadingScreen} from './app/views/InitialLoadingScreen';
+import { GraphqlService } from './app/services';
+import { NavigationStackParamList } from './app/models/navigation';
+import { ProductLoadingState } from './app/models/Product/ProductModels';
+import { InitialLoadingScreen } from './app/views/InitialLoadingScreen';
 import {
   actionProductsRequest,
   useProductSelectors
@@ -21,7 +23,10 @@ import { ProductsListScreen } from './app/views/ProductsListScreen';
 const App: React.FC = (): JSX.Element => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isLoadingError, setLoadedingState] = useState(false);
-  const {productsSelector, productLoadingStateSelector} = useProductSelectors();
+  const {
+    productsSelector,
+    productLoadingStateSelector
+  } = useProductSelectors();
 
   const navigation = useNavigation();
   const dispatch = useDispatch();
@@ -60,28 +65,30 @@ const App: React.FC = (): JSX.Element => {
   }, [isLoaded, productsSelector]);
 
   return (
-    <NavigationStack.Navigator headerMode="none">
-      {!isLoaded && (
+    <ApolloProvider client={GraphqlService.client}>
+      <NavigationStack.Navigator headerMode="none">
+        {!isLoaded && (
+          <NavigationStack.Screen
+            name="Loading"
+            component={InitialLoadingScreen}
+            options={{ title: 'Loading...' }}
+            initialParams={{ isError: isLoadingError }}
+          />
+        )}
         <NavigationStack.Screen
-          name="Loading"
-          component={InitialLoadingScreen}
-          options={{title: 'Loading...'}}
-          initialParams={{isError: isLoadingError}}
+          name="ProductsListScreen"
+          component={ProductsListScreen}
+          options={{ title: 'Main Screen' }}
+          initialParams={{ products: productsSelector.toArray() }}
         />
-      )}
-      <NavigationStack.Screen
-        name="ProductsListScreen"
-        component={ProductsListScreen}
-        options={{title: 'Main Screen'}}
-        initialParams={{products: productsSelector.toArray()}}
-      />
-      {/* <NavigationStack.Screen
+        {/* <NavigationStack.Screen
         name="ProductPage"
         component={MainScreen}
         options={{title: 'Product Page'}}
         initialParams={{products: productsSelector.toArray()}}
       /> */}
-    </NavigationStack.Navigator>
+      </NavigationStack.Navigator>
+    </ApolloProvider>
   );
 };
 export default App;

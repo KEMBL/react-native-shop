@@ -8,13 +8,15 @@
     "lint:fix": "eslint -c ../../.eslintrc.js --ext .ts,.tsx --ignore-pattern *.d.ts --fix ./src"
   },
   "dependencies": {
-    "components": "0.0.1",
-    "rns-theme": "0.0.1",
+    "@apollo/client": "^3.2.0",
     "axios": "^0.19.0",
+    "components": "0.0.1",
+    "graphql": "^15.3.0",
     "immutable": "^4.0.0-rc.12",
     "redux-axios-middleware": "^4.0.1",
+    "remote-redux-devtools": "0.5.0",
     "reselect": "^4.0.0",
-    "remote-redux-devtools": "0.5.0"
+    "rns-theme": "0.0.1"
   },
   "devDependencies": {
     "@types/remote-redux-devtools": "0.5.3"

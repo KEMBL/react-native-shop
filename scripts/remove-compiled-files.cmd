@@ -1,5 +1,5 @@
+@echo off
 
-echo "asdasdasdasdas"
 SET ProjectDir=%~dp0..
 
 for %%x in (

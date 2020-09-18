@@ -3,7 +3,7 @@
 It is a monorepo based on yarn workspaces. It's used for the creation of Mobile React Native e-commerce application.
 The programming language is Typescript. Os Windows.
 
-(!) Some interfaces could be in Russian and have no translation yet.
+(!) Some application interfaces could be in Russian and have no translation yet.
 
 # What it uses already
 

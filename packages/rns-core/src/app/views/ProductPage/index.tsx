@@ -52,7 +52,7 @@ ProductPageState
             {({imageCacherInterface}): JSX.Element => (
               <CacheableImage
                 style={ItemPageTheme.image}
-                src={product.image_url[0]}
+                src={product.imageUrls[0]}
                 imageCacheHoc={imageCacherInterface}
               />
             )}

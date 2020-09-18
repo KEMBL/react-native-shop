@@ -18,6 +18,8 @@ const card: ProductCardModel = {
 
 const cards: ProductCardModel[] = [card, card, card, card];
 const category: ProductCategoryModel = {
+  id: 1,
+  parentId: 0,
   title: 'Recomended for you' // goods from the previous orders?
 };
 
