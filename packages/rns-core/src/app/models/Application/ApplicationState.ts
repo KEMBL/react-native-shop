@@ -1,6 +1,6 @@
-import {Record} from 'immutable';
+import { Record } from 'immutable';
 
-import {ProductsState} from '../Product/ProductsState';
+import { ProductsState } from '../Product/ProductsState';
 
 export interface ApplicationStateInterface {
   productsState: ProductsState;

@@ -1,15 +1,23 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "composite": true
+    "composite": true,
+    "resolveJsonModule": true,
+    "baseUrl": "src"
   },
   "include": ["src"],
+  "exclude": [
+    "node_modules"   
+  ],
   "references": [
     {
       "path": "../components"
     },
     {
       "path": "../rns-theme"
+    },
+    {
+      "path": "../rns-entities"
     }
   ]
 }

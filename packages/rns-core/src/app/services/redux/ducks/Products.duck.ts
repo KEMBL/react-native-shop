@@ -1,16 +1,13 @@
-import {AnyAction, Reducer} from 'redux';
-import {useSelector, shallowEqual} from 'react-redux';
-import {createSelector} from 'reselect';
-import {Set as ImmSet} from 'immutable';
-import {AxiosResponse} from 'axios';
+import { AnyAction, Reducer } from 'redux';
+import { useSelector, shallowEqual } from 'react-redux';
+import { createSelector } from 'reselect';
+import { Set as ImmSet } from 'immutable';
+import { AxiosResponse } from 'axios';
 
 import configuationService from '../../ConfigurationService';
-import {
-  ProductModel,
-  ProductLoadingState
-} from '../../../models/Product/ProductModels';
-import {ProductsState} from '../../../models/Product/ProductsState';
-import {ApplicationState} from '../../../models/Application/ApplicationState';
+import { ProductModel, ProductLoadingState } from '../../../models/Product/ProductModels';
+import { ProductsState } from '../../../models/Product/ProductsState';
+import { ApplicationState } from '../../../models/Application/ApplicationState';
 
 export const GET_PRODUCTS = 'app/products/LOAD';
 export const GET_PRODUCTS_SUCCESS = 'app/products/LOAD_SUCCESS';
@@ -38,10 +35,7 @@ interface GetProductsFailAction extends AnyAction {
   type: typeof GET_PRODUCTS_FAIL;
 }
 
-export type ProductsActionTypes =
-  | GetProductsAction
-  | GetProductsSuccessAction
-  | GetProductsFailAction;
+export type ProductsActionTypes = GetProductsAction | GetProductsSuccessAction | GetProductsFailAction;
 
 export interface ProductSelectorsHookResult {
   productsSelector: ImmSet<ProductModel>;
@@ -58,9 +52,7 @@ const loadingErrorSelector = (state: ApplicationState): boolean => {
   return state.productsState.productsLoadingError !== undefined;
 };
 
-const stateProductsSelector = (
-  state: ApplicationState
-): ImmSet<ProductModel> => {
+const stateProductsSelector = (state: ApplicationState): ImmSet<ProductModel> => {
   return state.productsState.products;
 };
 
@@ -86,7 +78,7 @@ const selectLoadingState = createSelector(
 export const useProductSelectors: ProductSelectorsHook = () => {
   const productLoadingStateSelector = useSelector(selectLoadingState);
   const productsSelector = useSelector(stateProductsSelector, shallowEqual);
-  return {productsSelector, productLoadingStateSelector};
+  return { productsSelector, productLoadingStateSelector };
 };
 
 export const reducer: Reducer<ProductsState, ProductsActionTypes> = (
@@ -95,9 +87,7 @@ export const reducer: Reducer<ProductsState, ProductsActionTypes> = (
 ) => {
   switch (action.type) {
     case GET_PRODUCTS:
-      return state
-        .set('productsLoading', true)
-        .set('productsLoadingError', undefined);
+      return state.set('productsLoading', true).set('productsLoadingError', undefined);
     case GET_PRODUCTS_SUCCESS:
       if (action.payload.data && Array.isArray(action.payload.data.products)) {
         return state.merge({
@@ -115,10 +105,7 @@ export const reducer: Reducer<ProductsState, ProductsActionTypes> = (
 
     case GET_PRODUCTS_FAIL:
       return state
-        .set(
-          'productsLoadingError',
-          'Error while fetching products, check connection!'
-        )
+        .set('productsLoadingError', 'Error while fetching products, check connection!')
         .set('productsLoading', false);
     default:
       return state;
@@ -137,4 +124,4 @@ export const actionProductsRequest = (): GetProductsAction => {
   };
 };
 
-export {reducer as ProductStateReducer};
+export { reducer as ProductStateReducer };

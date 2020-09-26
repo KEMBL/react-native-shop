@@ -1,1 +1,1 @@
-export * from "./Graphql.service";
+export * from './Graphql.service';

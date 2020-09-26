@@ -1,6 +1,6 @@
-/**
- * Price for different SKU of the same product
- */
+import { IdentifierId } from 'shared';
+
+export type ProductId = number;
 
 export enum ProprtyUnitType {
   gram = 1,
@@ -12,26 +12,22 @@ export enum ProprtyUnitType {
 }
 
 export interface PricePropertiesModel {
+  propertyUnitType: ProprtyUnitType; // mg, kg, etc. could be mixed for same product
   price: number; // 200, 300, 3000
-  property: string; // 100gr, 200gr, 2kg
+  property: number; // 100gr, 200gr, 2kg
 }
 
 export interface PriceModel {
-  title: string; // Weight
-  propertyUnitType: ProprtyUnitType;
   properties: PricePropertiesModel[];
 }
 
-export interface ProductModel {
-  id: number;
+/**
+ * Product model as it required for the frontend
+ */
+export interface ProductModel extends IdentifierId<ProductId> {
   name: string;
   price: PriceModel;
   categoryId: number;
   imageUrls: string[];
-}
-
-export enum ProductLoadingState {
-  success,
-  isLoading,
-  error
+  editDatetime: string;
 }

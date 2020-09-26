@@ -6,6 +6,7 @@
     {"path": "packages/rns-theme"},
     {"path": "packages/rns-core"},
     {"path": "packages/rns-mobile-app"},
-    {"path": "packages/rns-web-app"}
+    {"path": "packages/rns-web-app"},  
+    {"path": "packages/rns-entities"}
   ]
 }

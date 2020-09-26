@@ -1,7 +1,7 @@
-import {StyleSheet, ViewStyle, TextStyle, ImageStyle} from 'react-native';
+import { StyleSheet, ViewStyle, TextStyle, ImageStyle } from 'react-native';
 
-import {Theme} from '../../Theme';
-import {ButtonStyle} from '../../components/Button';
+import { Theme } from '../../Theme';
+import { ButtonStyle } from '../../components/Button';
 
 export const variantsButton: ButtonStyle = {
   button: {

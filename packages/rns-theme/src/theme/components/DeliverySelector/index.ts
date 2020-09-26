@@ -1,4 +1,4 @@
-import {StyleSheet, ViewStyle} from 'react-native';
+import { StyleSheet, ViewStyle } from 'react-native';
 
 export interface DeliverySelectorStyle {
   container: ViewStyle;
@@ -17,8 +17,8 @@ const steelSheetInstance = StyleSheet.create<DeliverySelectorStyle>({
     height: 70,
     marginRight: 10,
     padding: 10,
-    paddingLeft: 5,
-  },
+    paddingLeft: 5
+  }
 });
 
 export default steelSheetInstance;

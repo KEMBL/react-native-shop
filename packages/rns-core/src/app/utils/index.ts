@@ -1,13 +1,9 @@
-import {PricePropertiesModel} from '../models/Product/ProductModels';
+import { PricePropertiesModel } from '../models/Product/ProductModels';
 import configuationService from '../services/ConfigurationService';
 
 class PriceUtils {
-  public makePriceString = (
-    priceProperties: PricePropertiesModel[],
-    index = -1,
-    amount = 1
-  ): string => {
-    const {currency, priceError} = configuationService;
+  public makePriceString = (priceProperties: PricePropertiesModel[], index = -1, amount = 1): string => {
+    const { currency, priceError } = configuationService;
     if (priceProperties == null || priceProperties.length === 0) {
       return priceError;
     }
@@ -20,11 +16,9 @@ class PriceUtils {
       return `${priceProperties[index].price * amount} ${currency}`;
     }
 
-    return `${priceProperties[0].price} - ${
-      priceProperties[priceProperties.length - 1].price
-    } ${currency}`;
+    return `${priceProperties[0].price} - ${priceProperties[priceProperties.length - 1].price} ${currency}`;
   };
 }
 
 const priceUtils = new PriceUtils();
-export {priceUtils as PriceUtils};
+export { priceUtils as PriceUtils };

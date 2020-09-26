@@ -1,4 +1,4 @@
-import {Platform} from './Platform';
+import { Platform } from './Platform';
 
 class Theme {
   // Platform dependent variables
@@ -17,4 +17,4 @@ class Theme {
 }
 
 const appThemeInstance = new Theme();
-export {appThemeInstance as Theme};
+export { appThemeInstance as Theme };

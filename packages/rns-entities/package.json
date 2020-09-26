@@ -1,10 +1,15 @@
 {
-  "name": "rns-theme",
+  "name": "rns-entities",
   "version": "0.0.1",
   "private": true,
+  "description": "Application entities which can be reused by other packages",
   "scripts": {
     "lint": "eslint -c ../../.eslintrc.js --ext .ts,.tsx --ignore-pattern *.d.ts ./src",
     "lint:fix": "eslint -c ../../.eslintrc.js --ext .ts,.tsx --ignore-pattern *.d.ts --fix ./src",
     "format": "prettier --config ../../.prettierrc.js --ignore-path ../../.prettierignore --write src/**/*.ts"
-  }
+  },
+  "dependencies": {
+    "robodux": "^9.1.0"
+  },
+  "devDependencies": {}
 }

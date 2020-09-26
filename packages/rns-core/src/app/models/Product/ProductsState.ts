@@ -1,6 +1,6 @@
-import {Set as ImmSet, Record} from 'immutable';
+import { Set as ImmSet, Record } from 'immutable';
 
-import {ProductModel} from './ProductModels';
+import { ProductModel } from './ProductModels';
 
 export interface ProductsStateInterface {
   products: ImmSet<ProductModel>;

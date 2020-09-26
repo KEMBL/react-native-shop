@@ -8,7 +8,7 @@ import {StylableText} from 'components/src/trivial/text/StylableText';
 import { ImageCacherOptionsInterface } from 'components/src/trivial/CacheableImage/ImageCacherOptionsInterface';
 
 import App from './App';
-import {StoreService} from './app/services/store/Store.service';
+import {StoreService} from './app/services/redux/store/Store.service';
 import {Platform} from 'rns-theme/src/theme/Platform';
 
 

@@ -1,6 +1,6 @@
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
 
-import {ProductStateReducer} from './Products.duck';
+import { ProductStateReducer } from './Products.duck';
 
 const rootReducer = combineReducers({
   productsState: ProductStateReducer

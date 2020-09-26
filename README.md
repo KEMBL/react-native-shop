@@ -7,7 +7,7 @@ The programming language is Typescript. Os Windows.
 
 # What it uses already
 
-- React (with hooks), Rect-Navigation, Redux (controls the global store), Redux ducks, Immutable, Axios
+- React (with hooks), Rect-Navigation, Redux (local data state), Redux ducks, Immutable, Axios, GraphQL by Appolo Client (remote data state)
 - Java dependent modules are injected into the core package. Core package supposed not to know anything about platform-dependent things like Java modules (unless they work fine in both web and mobile platforms)
 - Metro for bundling the Android buld and Webpack for the Web build
 

@@ -1,4 +1,4 @@
-import {Platform as PlatformRN, Dimensions, PlatformOSType} from 'react-native';
+import { Platform as PlatformRN, Dimensions, PlatformOSType } from 'react-native';
 
 export interface PlatformInterface {
   deviceHeight: number;

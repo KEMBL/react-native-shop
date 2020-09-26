@@ -1,6 +1,6 @@
-import {StyleSheet, ViewStyle, TextStyle, ImageStyle} from 'react-native';
+import { StyleSheet, ViewStyle, TextStyle, ImageStyle } from 'react-native';
 
-import {Theme} from '../../Theme';
+import { Theme } from '../../Theme';
 
 export interface ProductCardStyle {
   container: ViewStyle;
