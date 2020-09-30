@@ -1,15 +1,21 @@
 {
-  "name": "rns-entities",
+  "name": "rns-packages",
   "version": "0.0.1",
   "private": true,
-  "description": "Application entities which can be reused by other packages",
+  "description": "Application redux packages grouped by entities for using with redux-package-loader",
   "scripts": {
     "lint": "eslint -c ../../.eslintrc.js --ext .ts,.tsx --ignore-pattern *.d.ts ./src",
     "lint:fix": "eslint -c ../../.eslintrc.js --ext .ts,.tsx --ignore-pattern *.d.ts --fix ./src",
     "format": "prettier --config ../../.prettierrc.js --ignore-path ../../.prettierignore --write src/**/*.ts"
   },
   "dependencies": {
+    "debug": "^4.2.0",
+    "redux-batched-actions": "^0.5.0",
+    "redux-package-loader": "^1.0.2",
+    "redux-saga-creator": "^2.0.1",
     "robodux": "^9.1.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/debug": "^4.1.5"
+  }
 }

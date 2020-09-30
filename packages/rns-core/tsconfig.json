@@ -17,7 +17,7 @@
       "path": "../rns-theme"
     },
     {
-      "path": "../rns-entities"
+      "path": "../rns-packages"
     }
   ]
 }

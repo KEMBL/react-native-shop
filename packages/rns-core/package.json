@@ -19,7 +19,7 @@
     "remote-redux-devtools": "0.5.0",
     "reselect": "^4.0.0",
     "rns-theme": "0.0.1",
-    "rns-entities": "0.0.1"
+    "rns-packages": "0.0.1"
   },
   "devDependencies": {
     "@types/remote-redux-devtools": "0.5.3"
