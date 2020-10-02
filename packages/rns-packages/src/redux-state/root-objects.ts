@@ -1,12 +1,10 @@
-// import { all } from 'redux-saga/effects';
-
 import { combineReducers, Reducer } from 'redux';
 import use from 'redux-package-loader';
 import sagaCreator from 'redux-saga-creator';
 import Debug from 'debug';
 
-import { ApplicationState } from '../types';
-import * as bootup from '../bootup';
+import * as bootup from 'bootup';
+import { ApplicationState } from './types';
 
 /**
  * Root redux objects configuration
@@ -28,10 +26,5 @@ const onError = (err: Error): void => {
 // works similar to  more https://redux-saga.js.org/docs/advanced/RootSaga.html
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const rootSaga = sagaCreator(packages.sagas as any, onError);
-
-// const rootSaga = function* rootSaga() {
-//   yield all(packages.sagas!);
-//   // code after all-effect
-// };
 
 export { packages, rootReducer, rootSaga };

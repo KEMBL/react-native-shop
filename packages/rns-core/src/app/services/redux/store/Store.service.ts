@@ -1,36 +1,32 @@
-import { createStore, Store, AnyAction, applyMiddleware } from 'redux';
+import { Middleware } from 'redux';
 import { composeWithDevTools } from 'remote-redux-devtools';
-import axios from 'axios';
-import axiosMiddleware from 'redux-axios-middleware';
 
-import configuationService from '../../ConfigurationService';
-import rootReducer from '../ducks';
-import { ApplicationStateInterface } from '../../../models/Application/ApplicationState';
+import { ApplicationState, ApplicationStore, StoreBuilder } from 'rns-packages';
+
+import { ConfiguationService } from 'app/services';
 
 class StoreService {
-  get getStore(): Store<ApplicationStateInterface, AnyAction> {
+  get getStore(): ApplicationStore {
     return this.store;
   }
-  private store: Store<ApplicationStateInterface, AnyAction>;
+  private store: ApplicationStore;
 
   constructor() {
-    const { baseApiURL, remoteDevServerHostname, remoteDevServerPort, remoteDevServerActive } = configuationService;
-    const client = axios.create({
-      baseURL: baseApiURL,
-      responseType: 'json'
-    });
+    const { remoteDevServerHostname, remoteDevServerPort, remoteDevServerActive } = ConfiguationService;
 
-    const middleware = [axiosMiddleware(client)];
+    const middleware: Middleware[] = [];
 
-    const composeEnhancers = composeWithDevTools({
-      realtime: true,
-      hostname: remoteDevServerHostname,
-      port: remoteDevServerPort
-    });
-    this.store = createStore(
-      rootReducer,
-      remoteDevServerActive ? composeEnhancers(applyMiddleware(...middleware)) : applyMiddleware(...middleware)
-    );
+    const composeEnhancers = !remoteDevServerActive
+      ? undefined
+      : composeWithDevTools({
+          realtime: true,
+          hostname: remoteDevServerHostname,
+          port: remoteDevServerPort
+        });
+
+    const defaultState = new ApplicationState();
+    const builder = new StoreBuilder(defaultState, middleware, composeEnhancers);
+    this.store = builder.getStore;
   }
 }
 

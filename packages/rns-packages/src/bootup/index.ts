@@ -5,8 +5,9 @@ import * as actions from './actions';
 import * as sagas from './sagas';
 import * as selectors from './selectors';
 import reducers from './reducers';
-export * from './types';
 
+export * from './types';
+export * from './actions';
 export const module: Module = {
   actions,
   effects,

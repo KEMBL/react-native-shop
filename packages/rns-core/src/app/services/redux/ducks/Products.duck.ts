@@ -4,7 +4,7 @@ import { createSelector } from 'reselect';
 import { Set as ImmSet } from 'immutable';
 import { AxiosResponse } from 'axios';
 
-import configuationService from '../../ConfigurationService';
+import { ConfiguationService } from '../..';
 import { ProductModel, ProductLoadingState } from '../../../models/Product/ProductModels';
 import { ProductsState } from '../../../models/Product/ProductsState';
 import { ApplicationState } from '../../../models/Application/ApplicationState';
@@ -118,7 +118,7 @@ export const actionProductsRequest = (): GetProductsAction => {
     payload: {
       // axios-middleware takes all actions with payload formatted as below and return <ActionName>_SUCCESS or _FAIL actions
       request: {
-        url: configuationService.getProductsUrl
+        url: ConfiguationService.getProductsUrl
       }
     }
   };

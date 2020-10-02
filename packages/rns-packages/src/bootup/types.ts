@@ -3,7 +3,8 @@
 export enum BootUpProgressEnum {
   Success = 0,
   Pending = 1,
-  Fail = 2
+  Fail = 2,
+  NoStarted = 3
 }
 
 export interface BootUpStatus {

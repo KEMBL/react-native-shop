@@ -1,5 +1,6 @@
 import { ActionWithPayload, createAction } from 'robodux';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 declare type ActionCreator<P = any, T extends string = string> = (p: P) => ActionWithPayload<P, T>;
 declare type ActionCreatorNoPayload<T extends string = string> = () => ActionWithPayload<undefined, T>;
 

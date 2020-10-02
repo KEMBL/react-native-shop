@@ -1,9 +1,9 @@
 import { PricePropertiesModel } from '../models/Product/ProductModels';
-import configuationService from '../services/ConfigurationService';
+import { ConfiguationService } from '../services';
 
 class PriceUtils {
   public makePriceString = (priceProperties: PricePropertiesModel[], index = -1, amount = 1): string => {
-    const { currency, priceError } = configuationService;
+    const { currency, priceError } = ConfiguationService;
     if (priceProperties == null || priceProperties.length === 0) {
       return priceError;
     }

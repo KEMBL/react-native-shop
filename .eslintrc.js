@@ -55,7 +55,7 @@ module.exports = {
     semi: 'error',
     'react/jsx-uses-react': 'error', // Prevent React to be incorrectly marked as unused
     'react/jsx-uses-vars': 'error', // Prevent variables used in JSX to be incorrectly marked as unused
-    '@typescript-eslint/indent': ['error', 2],
+    '@typescript-eslint/indent': 'off',
     '@typescript-eslint/explicit-function-return-type': [
       'warn',
       {

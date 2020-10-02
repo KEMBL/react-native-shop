@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/indent */
 import { ApolloClient, InMemoryCache, NormalizedCacheObject } from '@apollo/client';
 
-import configuationService from '../ConfigurationService';
+import { ConfiguationService } from 'app/services';
 
 class ApolloClientService {
   public GetApolloClient: ApolloClient<NormalizedCacheObject> = new ApolloClient({
     cache: new InMemoryCache(),
-    uri: configuationService.baseApiURL,
+    uri: ConfiguationService.baseApiURL,
     // Provide some optional constructor fields
     name: 'rns-gql-client',
     version: '1.0',

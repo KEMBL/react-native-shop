@@ -42,4 +42,4 @@ const ConfiguationService = (): ConfiguationServiceInterface => {
 };
 
 const configuationService = ConfiguationService();
-export default configuationService;
+export { configuationService as ConfiguationService };
