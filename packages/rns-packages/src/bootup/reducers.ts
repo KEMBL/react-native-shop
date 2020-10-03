@@ -1,3 +1,5 @@
+import { ApplicationState } from 'initialization';
+import { nameofFactory } from 'shared';
 import { appBootup, appBootupComplete, appBootupCompleteFail } from './actions';
 import { BootUpProgressEnum, BootUpStatus } from './types';
 
@@ -34,6 +36,8 @@ const bootUpReducer = (state: BootUpStatus, action: BootUpActionTypes): BootUpSt
   }
 };
 
+const nameof = nameofFactory<ApplicationState>();
+
 export default {
-  ['bootUpStatus']: bootUpReducer
+  [nameof('bootUpStatus')]: bootUpReducer
 };

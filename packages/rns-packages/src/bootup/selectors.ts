@@ -1,4 +1,4 @@
-import { ApplicationState } from '../redux-state';
+import { ApplicationState } from '../initialization/redux-state';
 import { BootUpProgressEnum, BootUpStatus } from './types';
 
 export const getBootUpState = (state: ApplicationState): BootUpStatus => state.bootUpStatus;

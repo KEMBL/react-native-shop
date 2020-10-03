@@ -1,9 +1,13 @@
+import { ApolloClient, NormalizedCacheObject } from '@apollo/client';
+
 import { ApolloClientService } from './ApolloClient.service';
 
 class GraphqlService {
-  public client = ApolloClientService.GetApolloClient;
+  private client = ApolloClientService.GetApolloClient;
 
-  // PRODUCT_QUERY =
+  get apolloClient(): ApolloClient<NormalizedCacheObject> {
+    return this.client;
+  }
 }
 
 const graphqlService = new GraphqlService();

@@ -1,1 +1,1 @@
-export * from './src/redux-state';
+export * from './src/initialization';

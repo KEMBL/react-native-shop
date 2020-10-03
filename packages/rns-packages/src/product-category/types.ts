@@ -12,3 +12,12 @@ export interface ProductCategoryModel extends IdentifierId<CategoryId> {
 export interface ProductCategoryModelWithProducts extends ProductCategoryModel {
   products?: ProductModel[];
 }
+
+export interface ProductCategoryCollection {
+  categories: ProductCategoryModelWithProducts[];
+}
+
+export class ExternalData {
+  categories = '';
+  products = '';
+}

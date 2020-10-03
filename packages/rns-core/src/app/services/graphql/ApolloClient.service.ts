@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/indent */
+// import { ApolloClient, InMemoryCache, NormalizedCacheObject } from 'react-apollo';
 import { ApolloClient, InMemoryCache, NormalizedCacheObject } from '@apollo/client';
 
 import { ConfiguationService } from 'app/services';
