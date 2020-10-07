@@ -37,6 +37,16 @@ export function createActionSet<P>(
   failSuffix?: string,
   typed?: true
 ): ActionSet<P>;
+/**
+ * Created set of actions
+ *
+ * @param {string} actionName shared action name prefix
+ * @param {string} successSuffix successSuffix
+ * @param {string} failSuffix failSuffix
+ * @param {boolean} typed typed
+ *
+ * @returns {object} object with prepared Start, Success, Progress actions inside
+ */
 export function createActionSet<P>(
   actionName: string,
   successSuffix?: string,

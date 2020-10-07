@@ -18,6 +18,6 @@ export interface ProductCategoryCollection {
 }
 
 export class ExternalData {
-  categories = '';
-  products = '';
+  categories: ProductCategoryModel[] = [];
+  products: ProductModel[] = [];
 }

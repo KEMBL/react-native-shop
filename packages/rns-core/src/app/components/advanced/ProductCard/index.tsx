@@ -10,7 +10,7 @@ interface ProductCardProps {
   thumbnail: string;
   title: string;
   weight: number;
-  price: number;
+  price: string;
 }
 
 export class ProductCard extends PureComponent<ProductCardProps> {

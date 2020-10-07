@@ -6,6 +6,7 @@ import { fetchCategoriesWithProducts } from './actions';
 import { setLoaderStart, setLoaderSuccess, setLoaderFail } from 'loading';
 import { ActionWithPayload } from 'robodux';
 import { gqlFetchCategoryWithProductsAsync } from './gqlFetch';
+import { actionSetCurrentCategory } from 'ui';
 
 const debug = Debug('app:action:fetchCategory');
 
@@ -22,10 +23,9 @@ function* onFetchCategoriesWithProducts(action: ActionWithPayload<CategoryId>) {
   try {
     const categories = yield call(gqlFetchCategoryWithProductsAsync, categoryId);
 
-    // update sotre
-    //yield put(batchActions([updateCategories(categories), updateProducts(products)]));
-    yield put(setLoaderSuccess());
     yield put(fetchCategoriesWithProducts.done(categories));
+    yield put(actionSetCurrentCategory(categoryId));
+    yield put(setLoaderSuccess());
   } catch (error) {
     yield put(fetchCategoriesWithProducts.fail({ payload: categoryId, error }));
     yield put(setLoaderFail());

@@ -11,11 +11,6 @@ import { appBootupComplete, appBootupCompleteFail } from './actions';
 
 const debug = Debug('app:action:bootup');
 
-/**
- * Action performs boot activities
- *
- * @param action inital category where user was last time
- */
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export function* onBootup(action: ActionWithPayload<CategoryId>) {
   debug('Perform action', action);

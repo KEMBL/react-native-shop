@@ -3,7 +3,7 @@ import { composeWithDevTools } from 'remote-redux-devtools';
 
 import { ApplicationState, ApplicationStore, StoreBuilder } from 'rns-packages';
 
-import { ConfiguationService } from 'app/services';
+import { ConfiguationService } from '../../../services';
 
 class StoreService {
   get getStore(): ApplicationStore {

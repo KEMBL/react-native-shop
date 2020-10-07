@@ -1,6 +1,5 @@
-import { ProductModel } from '../';
+import { ProductModel } from 'rns-packages';
 
-// tslint:disable-next-line:interface-over-type-literal
 export type NavigationStackParamList = {
   Loading: { isError: boolean };
   ProductsListScreen: { products: ProductModel[] };

@@ -18,6 +18,9 @@
     },
     {
       "path": "../rns-theme"
+    },
+    {
+      "path": "../rns-packages"
     }
   ]
 }

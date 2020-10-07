@@ -10,7 +10,7 @@ import { ImageCacherOptionsInterface } from 'components/src/trivial/CacheableIma
 import App from './App';
 import { StoreService } from './app/services/redux/store/Store.service';
 import { Platform } from 'rns-theme/src/theme/Platform';
-import { GraphqlService } from 'app/services';
+import { GraphqlService } from './app/services';
 
 export interface AppBootStrapProps {
   imageCacherInterface: (image: Image, options: ImageCacherOptionsInterface) => React.Component;

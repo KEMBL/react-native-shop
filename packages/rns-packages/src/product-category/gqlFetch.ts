@@ -6,7 +6,7 @@ import { CategoryId, ProductCategoryCollection } from './types';
 
 const debug = Debug('app:fetch:fetchCategoryWithProducts');
 
-const FIND_ADDRESS = gql`
+const FETCH_CATEGORIES_WITH_PRODUCTS = gql`
   fragment CategoryFields on Category {
     id
     parentId
@@ -31,7 +31,7 @@ export const gqlFetchCategoryWithProductsAsync = async (
   deep = false
 ): Promise<ProductCategoryCollection> => {
   const result = await GqlClientService.apolloClient.query({
-    query: FIND_ADDRESS,
+    query: FETCH_CATEGORIES_WITH_PRODUCTS,
     variables: { rootId, withProducts, deep }
   });
 

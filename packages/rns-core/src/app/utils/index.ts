@@ -1,8 +1,8 @@
-import { PricePropertiesModel } from '../models/Product/ProductModels';
+import { PricePropertiesModel, ProprtyUnitType } from 'rns-packages';
 import { ConfiguationService } from '../services';
 
-class PriceUtils {
-  public makePriceString = (priceProperties: PricePropertiesModel[], index = -1, amount = 1): string => {
+export class PriceUtils {
+  public static makePriceString = (priceProperties: PricePropertiesModel[], index = -1, amount = 1): string => {
     const { currency, priceError } = ConfiguationService;
     if (priceProperties == null || priceProperties.length === 0) {
       return priceError;
@@ -18,7 +18,37 @@ class PriceUtils {
 
     return `${priceProperties[0].price} - ${priceProperties[priceProperties.length - 1].price} ${currency}`;
   };
-}
 
-const priceUtils = new PriceUtils();
-export { priceUtils as PriceUtils };
+  public static makePropertyUnit = (propertyUnitType: ProprtyUnitType): string => {
+    let unit = '';
+    switch (propertyUnitType) {
+      case ProprtyUnitType.gram:
+        unit = 'гр';
+        break;
+      case ProprtyUnitType.kilogramm:
+        unit = 'кг';
+        break;
+      case ProprtyUnitType.millilitre:
+        unit = 'мл';
+        break;
+      case ProprtyUnitType.litre:
+        unit = 'л';
+        break;
+      case ProprtyUnitType.centimetre:
+        unit = 'см';
+        break;
+      case ProprtyUnitType.item:
+        unit = 'шт';
+        break;
+      default:
+        console.warn('Unknown unit type', propertyUnitType);
+        break;
+    }
+    return `${unit}.`;
+  };
+
+  public static makeButtonTitle = (priceProperty: PricePropertiesModel): string => {
+    const unit = PriceUtils.makePropertyUnit(priceProperty.propertyUnitType);
+    return `${priceProperty.property}${unit}`;
+  };
+}
