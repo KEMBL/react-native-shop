@@ -1,8 +1,8 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import { appBootup } from 'bootup';
-import { RootCategoryId } from 'product-category';
+import { appBootup } from '../../bootup';
+import { RootCategoryId } from '../../product-category';
 import { ApplicationStore } from './types';
 
 interface ApplicationStateProps {

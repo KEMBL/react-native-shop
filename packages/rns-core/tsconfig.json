@@ -3,7 +3,6 @@
   "compilerOptions": {
     "composite": true,
     "resolveJsonModule": true,
-    "baseUrl": "src"
   },
   "include": ["src"],
   "exclude": [

@@ -5,10 +5,7 @@ export interface IdentifierId<T> {
   id: T;
 }
 
-export interface FailedAction {
-  error: string;
-}
-
-export interface FailedActionWithPayload<P> extends FailedAction {
+export interface FailedPayload<P> {
   payload: P;
+  error: string;
 }

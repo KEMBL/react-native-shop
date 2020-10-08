@@ -26,7 +26,5 @@
     "react-native-safe-area-context": "^0.7.3",
     "react-native-screens": "^2.4.0"
   },
-  "devDependencies": {
-    
-  }
+  "devDependencies": {}
 }

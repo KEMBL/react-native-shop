@@ -1,11 +1,13 @@
 import { createStore, applyMiddleware, Middleware, StoreEnhancer } from 'redux';
+//import Immutable from 'immutable';
 import createSagaMiddleware from 'redux-saga';
-import Debug from 'debug';
 
+import { debug as Debug } from '../../debug';
 import { ApplicationState, ApplicationStore } from './types';
 import { rootReducer } from './root-objects';
 
 const debug = Debug('app:store:error');
+//const { Map } = Immutable;
 
 /**
  * Build redux store
@@ -17,9 +19,9 @@ export class StoreBuilder {
   private store: ApplicationStore;
 
   constructor(
-    initState: ApplicationState,
     middleware?: Middleware[],
-    enhancer?: (...funcs: StoreEnhancer[]) => StoreEnhancer
+    enhancer?: (...funcs: StoreEnhancer[]) => StoreEnhancer,
+    initState?: ApplicationState
   ) {
     if (!middleware) {
       middleware = [];

@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
-import { ApplicationState } from '.';
+import { ApplicationState } from './';
 
 // more https://stackoverflow.com/questions/57464286/how-to-correctly-use-a-curried-selector-function-with-react-reduxs-useselector
 // more: https://react-redux.js.org/api/hooks#using-memoizing-selectors

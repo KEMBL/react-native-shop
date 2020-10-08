@@ -1,6 +1,6 @@
 import { takeEvery } from 'redux-saga/effects';
-import Debug from 'debug';
 
+import { debug as Debug } from '../debug';
 import { fetchCategoriesWithProducts } from './actions';
 import { onFetchCategoriesWithProducts } from './effects';
 

@@ -1,10 +1,10 @@
 import { createSelector } from 'reselect';
 
-import { ApplicationState } from 'initialization';
-import { nameofFactory } from 'shared';
-import { selectors as uiSelectors } from 'ui';
+import { ApplicationState } from '../initialization';
+import { nameofFactory } from '../shared';
+import { selectors as uiSelectors } from '../ui';
+import { selectors as productSelectors } from '../product';
 import { CategoryId, ProductCategoryModel, ProductCategoryModelWithProducts } from './types';
-import { selectors as productSelectors } from 'product';
 
 export const externalDataBranchName = 'externalData';
 nameofFactory<ApplicationState>()(externalDataBranchName); // name guard

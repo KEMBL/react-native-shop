@@ -1,5 +1,5 @@
-import { ProductModel } from 'product';
-import { IdentifierId } from 'shared';
+import { ProductModel } from '../product';
+import { IdentifierId } from '../shared';
 
 export type CategoryId = number;
 export const RootCategoryId: CategoryId = 0;

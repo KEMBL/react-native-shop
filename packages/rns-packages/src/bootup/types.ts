@@ -7,7 +7,7 @@ export enum BootUpProgressEnum {
   NoStarted = 3
 }
 
-export interface BootUpStatus {
-  progress: BootUpProgressEnum;
+export class BootUpStatus {
+  progress = BootUpProgressEnum.Pending;
   error?: string;
 }

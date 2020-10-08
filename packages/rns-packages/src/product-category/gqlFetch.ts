@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
-import Debug from 'debug';
 
-import { GqlClientService } from 'shared';
+import { debug as Debug } from '../debug';
+import { GqlClientService } from '../shared';
 import { CategoryId, ProductCategoryCollection } from './types';
 
 const debug = Debug('app:fetch:fetchCategoryWithProducts');

@@ -1,10 +1,10 @@
-import Debug from 'debug';
 import isEqual from 'lodash.isequal';
 import clonedeep from 'lodash.clonedeep';
 
+import { debug as Debug } from '../debug';
 import { fetchCategoriesWithProducts } from './actions';
 import { externalDataBranchName } from './selectors';
-import { ExternalData, ProductCategoryCollection, ProductCategoryModel } from './types';
+import { CategoryId, ExternalData, ProductCategoryCollection, ProductCategoryModel } from './types';
 
 const debug = Debug('app:reducers:fetchCategory');
 
@@ -15,7 +15,7 @@ interface FetchCategoriesWithProductsDoneAction {
 
 interface FetchCategoriesWithProductsFailAction {
   type: string;
-  payload?: string;
+  payload: CategoryId;
 }
 
 // const compareCategory = (source: ProductCategoryModel, dest: ProductCategoryModelWithProducts): boolean => {
@@ -34,7 +34,10 @@ interface FetchCategoriesWithProductsFailAction {
  *
  * @returns {object} state
  */
-const updateCategoriesAndProducts = (state: ExternalData, collection: ProductCategoryCollection): ExternalData => {
+const updateCategoriesAndProducts = (
+  state: ExternalData = new ExternalData(),
+  collection: ProductCategoryCollection
+): ExternalData => {
   debug('Got categories', collection?.categories.length);
 
   if (!collection) {
@@ -76,8 +79,9 @@ const updateCategoriesAndProducts = (state: ExternalData, collection: ProductCat
 
 type ActionTypes = FetchCategoriesWithProductsDoneAction | FetchCategoriesWithProductsFailAction;
 
-const dataReducer = (state: ExternalData, action: ActionTypes): ExternalData => {
-  debug('Reducer after fetching categories with products', action);
+const dataReducer = (state: ExternalData = new ExternalData(), action: ActionTypes): ExternalData => {
+  debug('Reducer after fetching categories with products:', action, state);
+
   switch (action.type) {
     case `${fetchCategoriesWithProducts.done}`: {
       return updateCategoriesAndProducts(state, action.payload as ProductCategoryCollection);

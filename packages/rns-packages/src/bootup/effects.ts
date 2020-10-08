@@ -1,8 +1,8 @@
 import { put, call } from 'redux-saga/effects';
 import { ActionWithPayload } from 'robodux';
-import Debug from 'debug';
 
-import { CategoryId, fetchCategoriesWithProducts } from 'product-category';
+import { debug as Debug } from '../debug';
+import { CategoryId, fetchCategoriesWithProducts } from '../product-category';
 import { appBootupComplete, appBootupCompleteFail } from './actions';
 
 /**
@@ -11,7 +11,6 @@ import { appBootupComplete, appBootupCompleteFail } from './actions';
 
 const debug = Debug('app:action:bootup');
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export function* onBootup(action: ActionWithPayload<CategoryId>) {
   debug('Perform action', action);
   const categoryId = action.payload;

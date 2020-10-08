@@ -2,7 +2,7 @@
 // import { ApolloClient, InMemoryCache, NormalizedCacheObject } from 'react-apollo';
 import { ApolloClient, InMemoryCache, NormalizedCacheObject } from '@apollo/client';
 
-import { ConfiguationService } from 'app/services';
+import { ConfiguationService } from '../../../app/services';
 
 class ApolloClientService {
   public GetApolloClient: ApolloClient<NormalizedCacheObject> = new ApolloClient({

@@ -1,4 +1,4 @@
-import { creator, FailedActionWithPayload } from 'shared';
+import { creator, FailedPayload } from '../shared';
 import { CategoryId, ProductCategoryCollection } from './types';
 
 const actionName = 'FETCH_CATEGORIES_WITH_PRODUCTS';
@@ -10,10 +10,10 @@ const actionName = 'FETCH_CATEGORIES_WITH_PRODUCTS';
 //   actionSuccess: fetchCategoriesWithProductsSuccess
 // } = createActionSet<CategoryId>(actionName);
 
-//export const fetchCategoriesWithProductsFail = creator<FailedActionWithPayload<CategoryId>>(actionName);
+//export const fetchCategoriesWithProductsFail = creator<FailedPayload<CategoryId>>(actionName);
 
 const start = creator<CategoryId>(actionName);
 const done = creator<ProductCategoryCollection>(actionName);
-const fail = creator<FailedActionWithPayload<CategoryId>>(actionName);
+const fail = creator<FailedPayload<CategoryId>>(actionName);
 
 export const fetchCategoriesWithProducts = { start, done, fail };

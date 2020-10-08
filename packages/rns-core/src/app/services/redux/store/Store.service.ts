@@ -1,7 +1,7 @@
 import { Middleware } from 'redux';
 import { composeWithDevTools } from 'remote-redux-devtools';
 
-import { ApplicationState, ApplicationStore, StoreBuilder } from 'rns-packages';
+import { ApplicationStore, StoreBuilder } from 'rns-packages';
 
 import { ConfiguationService } from '../../../services';
 
@@ -24,8 +24,7 @@ class StoreService {
           port: remoteDevServerPort
         });
 
-    const defaultState = new ApplicationState();
-    const builder = new StoreBuilder(defaultState, middleware, composeEnhancers);
+    const builder = new StoreBuilder(middleware, composeEnhancers);
     this.store = builder.getStore;
   }
 }

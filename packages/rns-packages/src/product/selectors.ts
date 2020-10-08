@@ -1,9 +1,9 @@
 import { createSelector } from 'reselect';
 
-import { ApplicationState, ParametrizedSelector, proxyParam } from 'initialization';
-import { nameofFactory } from 'shared';
-import { CategoryId } from 'product-category';
-import { selectors as uiSelectors } from 'ui';
+import { ApplicationState, ParametrizedSelector, proxyParam } from '../initialization';
+import { nameofFactory } from '../shared';
+import { CategoryId } from '../product-category';
+import { selectors as uiSelectors } from '../ui';
 import { ProductId, ProductModel } from './types';
 
 export const externalDataBranchName = 'externalData';

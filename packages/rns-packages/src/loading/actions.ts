@@ -1,4 +1,4 @@
-import { createActionSet } from 'shared';
+import { createActionSet } from '../shared';
 
 export const {
   actionStart: setLoaderStart,

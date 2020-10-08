@@ -1,12 +1,12 @@
 import { put, call } from 'redux-saga/effects';
-import Debug from 'debug';
-
-import { CategoryId } from 'product-category';
-import { fetchCategoriesWithProducts } from './actions';
-import { setLoaderStart, setLoaderSuccess, setLoaderFail } from 'loading';
 import { ActionWithPayload } from 'robodux';
+
+import { debug as Debug } from '../debug';
+import { CategoryId } from '../product-category';
+import { actionSetCurrentCategory } from '../ui';
+import { setLoaderStart, setLoaderSuccess, setLoaderFail } from '../loading';
+import { fetchCategoriesWithProducts } from './actions';
 import { gqlFetchCategoryWithProductsAsync } from './gqlFetch';
-import { actionSetCurrentCategory } from 'ui';
 
 const debug = Debug('app:action:fetchCategory');
 

@@ -6,7 +6,10 @@
   ],
   "settings": {
     "files.exclude": {
-      "node_modules": true
+      "**/node_modules": true,
+      "**/*.d.ts": true,
+      "**/*.d.ts.map": true,
+      "**/*.tsbuildinfo": true
     }
   }
 }

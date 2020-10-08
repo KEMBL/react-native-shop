@@ -12,6 +12,7 @@ Mostly inspired by these articles:
 
 ## Each entity folder can contain:
 	    
+	* export - exports what is required tomake root redux objects
 	* actions - Redux actions' handlers
 	* default - file with default storage entity description
 	* effects - actions' functions' bodies
@@ -22,5 +23,3 @@ Mostly inspired by these articles:
 	* style - style related to entity, only for UI entities
 	* types - entity type description
 	* utils - entity related utilities
-
-
