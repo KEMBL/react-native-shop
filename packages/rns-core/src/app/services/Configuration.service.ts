@@ -1,45 +1,29 @@
-interface ConfiguationServiceInterface {
-  currency: string;
-  baseApiURL: string;
-  remoteDevServerHostname: string;
-  remoteDevServerPort: number;
-  remoteDevServerActive: boolean;
-  getProductsUrl: string;
-  priceError: string;
-}
-
-const ConfiguationService = (): ConfiguationServiceInterface => {
-  const currency = 'руб.';
-  const baseApiURL = 'http://api.termokot.ru/graphql';
-  const priceError = 'Ошибка цены';
+/**
+ * MAin application configuration
+ */
+export class ConfiguationService {
+  public static currency = 'руб.';
+  public static baseApiURL = 'http://api.termokot.ru/graphql';
+  public static priceError = 'Ошибка цены';
   /**
    * Should be the same as hostname remotedev script of package.json
    * !!! Do not forget to start remotedev-server
    */
-  const remoteDevServerHostname = 'localhost';
+  public static remoteDevServerHostname = 'localhost';
   /**
    * Should be the same as port remotedev script of package.json
    */
-  const remoteDevServerPort = 8888;
+  public static remoteDevServerPort = 8081;
+  /**
+   * Boolean specifies whether to allow remote monitoring
+   */
+  public static allowRealtimeDebug = true;
   /**
    * Use DevTools server
    */
-  const remoteDevServerActive = false;
+  public static remoteDevServerActive = true;
   /**
    * API endpoint fro getting products
    */
-  const getProductsUrl = `${baseApiURL}/rns/api/products.json`;
-
-  return {
-    currency,
-    baseApiURL: baseApiURL,
-    remoteDevServerHostname,
-    remoteDevServerPort,
-    remoteDevServerActive,
-    getProductsUrl,
-    priceError
-  };
-};
-
-const configuationService = ConfiguationService();
-export { configuationService as ConfiguationService };
+  public static getProductsUrl = `${ConfiguationService.baseApiURL}/rns/api/products.json`;
+}
