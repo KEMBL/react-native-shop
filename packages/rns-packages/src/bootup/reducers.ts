@@ -8,7 +8,6 @@ const debug = Debug('app:reducer:bootup');
 
 interface AppBootupAction {
   type: string;
-  payload: undefined;
 }
 
 type AppBootupSucessAction = AppBootupAction;
@@ -23,20 +22,20 @@ const bootUpReducer = (state: BootUpStatus = new BootUpStatus(), action: BootUpA
   debug('Perform reducer', state, action);
   switch (action.type) {
     case `${appBootup.start}`:
-      return { ...state, progress: BootUpProgressEnum.Pending, error: undefined };
+      return state.progress !== BootUpProgressEnum.Pending
+        ? { ...state, progress: BootUpProgressEnum.Pending, error: undefined }
+        : state;
 
     case `${appBootup.done}`:
-      return { ...state, progress: BootUpProgressEnum.Success, error: undefined };
+      return state.progress !== BootUpProgressEnum.Done
+        ? { ...state, progress: BootUpProgressEnum.Done, error: undefined }
+        : state;
 
     case `${appBootup.fail}`:
-      return { ...state, progress: BootUpProgressEnum.Fail, error: action.payload };
+      return { ...state, progress: BootUpProgressEnum.Fail, error: (action as AppBootupFailAction).payload };
 
     default:
-      return {
-        ...state,
-        progress: BootUpProgressEnum.Fail,
-        error: `Unknown action type: ${action.type}, payload: ${action.payload}`
-      };
+      return state;
   }
 };
 

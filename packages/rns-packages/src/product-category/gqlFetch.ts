@@ -7,6 +7,20 @@ import { CategoryId, ProductCategoryCollection } from './types';
 const debug = Debug('app:fetch:fetchCategoryWithProducts');
 
 const FETCH_CATEGORIES_WITH_PRODUCTS = gql`
+  fragment ProductFields on Product {
+    id
+    name
+    categoryId
+    editDatetime
+    price {
+      properties {
+        propertyUnitType
+        price
+        property
+      }
+    }
+  }
+
   fragment CategoryFields on Category {
     id
     parentId
@@ -35,6 +49,6 @@ export const gqlFetchCategoryWithProductsAsync = async (
     variables: { rootId, withProducts, deep }
   });
 
-  debug('result.data', result.data);
-  return result.data;
+  // debug('result.data', !!result.data);
+  return result.data?.categories;
 };

@@ -17,18 +17,18 @@ const debug = Debug('app:action:fetchCategory');
  */
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 function* onFetchCategoriesWithProducts(action: ActionWithPayload<CategoryId>) {
-  debug('Perform action', action);
+  debug('Perform fetch action', action);
   const categoryId = action.payload;
   yield put(setLoaderStatus.start());
   try {
-    const categories = yield call(gqlFetchCategoryWithProductsAsync, categoryId);
-
+    const categories = yield call(gqlFetchCategoryWithProductsAsync, categoryId, true);
     yield put(fetchCategoriesWithProducts.done(categories));
     yield put(actionSetCurrentCategory.start(categoryId));
     yield put(setLoaderStatus.done());
   } catch (error) {
     yield put(fetchCategoriesWithProducts.fail({ payload: categoryId, error }));
     yield put(setLoaderStatus.fail());
+    throw error;
   }
 }
 

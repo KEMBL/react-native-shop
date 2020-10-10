@@ -12,6 +12,6 @@ const debug = Debug('app:saga:bootup');
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export function* bootupSaga() {
-  debug('Perform saga');
-  yield takeEvery(`${appBootup}`, onBootup);
+  debug('Perform saga for appBootup.start');
+  yield takeEvery(`${appBootup.start}`, onBootup);
 }

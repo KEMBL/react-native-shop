@@ -20,7 +20,7 @@ export class StoreBuilder {
 
   constructor(
     middleware?: Middleware[],
-    enhancer?: (...funcs: StoreEnhancer[]) => StoreEnhancer,    
+    enhancer?: (...funcs: StoreEnhancer[]) => StoreEnhancer,
     initState?: ApplicationState
   ) {
     if (!middleware) {
@@ -33,7 +33,9 @@ export class StoreBuilder {
 
     middleware.push(sagaMiddleware);
     if (process.env.NODE_ENV === 'development') {
-      const logger = require('redux-logger').default;
+      const logger = require('redux-logger').createLogger({
+        colors: false // does not work well in console
+      });
       middleware.push(logger);
     }
 

@@ -1,7 +1,7 @@
 import { ApolloClient, NormalizedCacheObject } from '@apollo/client';
 
 /**
- * Build redux store
+ * Delivers GQL client
  */
 class GqlClientService {
   private client!: ApolloClient<NormalizedCacheObject>;

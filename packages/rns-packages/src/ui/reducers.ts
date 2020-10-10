@@ -1,3 +1,4 @@
+import { actionSetCurrentCategory } from '.';
 import { debug as Debug } from '../debug';
 import { CategoryId } from '../product-category';
 import { uiStateBranchName } from './selectors';
@@ -14,8 +15,17 @@ type ActionTypes = SetCurrentCategory;
 
 const dataReducer = (state: UiState = new UiState(), action: ActionTypes): UiState => {
   debug('Reducer after fetching categories with products', action);
+  switch (action.type) {
+    case `${actionSetCurrentCategory.start}`: {
+      if (state.currentCategoryId !== action.payload) {
+        return { ...state, currentCategoryId: action.payload };
+      }
+      return state;
+    }
 
-  return { ...state, currentCategoryId: action.payload };
+    default:
+      return state;
+  }
 };
 
 export default {

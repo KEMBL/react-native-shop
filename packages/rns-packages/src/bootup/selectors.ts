@@ -5,5 +5,5 @@ const getBootUpState = (state: ApplicationState): BootUpStatus => state.bootUpSt
 export const isBootUpFailed = (state: ApplicationState): boolean => getBootUpState(state).error !== undefined;
 export const isBootUpCompleted = (state: ApplicationState): boolean => {
   const progress = getBootUpState(state).progress;
-  return progress === BootUpProgressEnum.Success || progress === BootUpProgressEnum.Fail;
+  return progress === BootUpProgressEnum.Done || progress === BootUpProgressEnum.Fail;
 };

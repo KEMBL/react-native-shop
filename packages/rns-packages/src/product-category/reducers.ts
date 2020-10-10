@@ -38,24 +38,26 @@ const updateCategoriesAndProducts = (
   state: ExternalData = new ExternalData(),
   collection: ProductCategoryCollection
 ): ExternalData => {
-  debug('Got categories', collection?.categories.length);
+  // debug('Got collection', collection);
+  // debug('Got categories', collection.categories.length);
 
   if (!collection) {
     debug('Warning: undefined categories collection');
     return state;
   }
 
-  if (!collection.categories) {
+  const categories = collection.categories;
+  if (!categories) {
     debug('Warning: undefined categories list');
     return state;
   }
 
-  if (collection.categories.length === 0) {
+  if (categories.length === 0) {
     debug('Information: empty categories list');
     return state;
   }
 
-  for (const category of collection.categories) {
+  for (const category of categories) {
     const source = state.categories[category.id];
     if (!source || !isEqual(source, category)) {
       const newCategory: ProductCategoryModel = { id: category.id, parentId: category.parentId, title: category.title };
