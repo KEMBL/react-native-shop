@@ -1,102 +1,62 @@
 import { ActionWithPayload, createAction } from 'robodux';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-declare type ActionCreator<P = any, T extends string = string> = (p: P) => ActionWithPayload<P, T>;
-declare type ActionCreatorNoPayload<T extends string = string> = () => ActionWithPayload<undefined, T>;
+// these types are required because `robodux` does not export Creator types
+declare type ActionCreator<P = unknown, T extends string = string> = (p: P) => ActionWithPayload<P, string>;
+declare type ActionCreatorNoPayload<T extends string = string> = () => ActionWithPayload<undefined, string>;
 
-// default way to make actions
-export { createAction as creator };
-export const actionSuccessSuffix = 'SUCCESS';
-export const actionFailSuffix = 'FAIL';
+const actionDoneSuffix = 'DONE';
+const actionFailSuffix = 'FAIL';
 
-export interface ActionNoPayloadSet {
-  actionStart: ActionCreatorNoPayload<string>;
-  actionSuccess: ActionCreatorNoPayload<string>;
-  actionFail: ActionCreatorNoPayload<string>;
-}
-
-export interface ActionSet<P> {
-  actionStart: ActionCreator<P, string>;
-  actionSuccess: ActionCreator<P, string>;
-  actionFail: ActionCreator<P, string>;
-}
-
-/**
- * Makes Success and Fail actions for given base action name
- * Might be convenient if all actions require the same payload
- */
-export function createActionSet(
-  actionName: string,
-  successSuffix?: string,
-  failSuffix?: string,
-  typed?: false
-): ActionNoPayloadSet;
-export function createActionSet<P>(
-  actionName: string,
-  successSuffix?: string,
-  failSuffix?: string,
-  typed?: true
-): ActionSet<P>;
-/**
- * Created set of actions
- *
- * @param {string} actionName shared action name prefix
- * @param {string} successSuffix successSuffix
- * @param {string} failSuffix failSuffix
- * @param {boolean} typed typed
- *
- * @returns {object} object with prepared Start, Success, Progress actions inside
- */
-export function createActionSet<P>(
-  actionName: string,
-  successSuffix?: string,
-  failSuffix?: string,
+//export function actionCreator<T extends string = string>(type: T, actionSuffix: string, typed?: false): ActionCreatorNoPayload<T>;
+//export function actionCreator<T extends string = string, P= unknown>(type: T, actionSuffix: string, typed?: true): ActionCreator<P, T>;
+const actionCreatorUnified = <T extends string = string, P = unknown>(
+  type: T,
+  actionSuffix: string,
   typed?: boolean
-): ActionSet<P> | ActionNoPayloadSet {
-  successSuffix = successSuffix ?? actionSuccessSuffix;
-  failSuffix = failSuffix ?? actionFailSuffix;
-  const actionSuccessName = `${actionName}_${successSuffix}`;
-  const actionFailName = `${actionName}_${failSuffix}`;
+): ActionCreatorNoPayload<T> | ActionCreator<P, T> => {
+  const actionName = `${type}_${actionSuffix}`;
   if (typed) {
-    //const payloadInstance: P = typeInstancer<P>('' as never);
-    const actionStart = createAction<P>(actionName);
-    const actionSuccess = createAction<P>(actionSuccessName);
-    const actionFail = createAction<P>(actionFailName);
-    return { actionStart, actionSuccess, actionFail };
+    return createAction<P>(actionName);
   }
+  return createAction(actionName);
+};
 
-  const actionStart = createAction(actionName);
-  const actionSuccess = createAction(actionSuccessName);
-  const actionFail = createAction(actionFailName);
-  return { actionStart, actionSuccess, actionFail };
+function actionCreatorDone(type: string): ActionCreatorNoPayload<string>;
+function actionCreatorDone<P = unknown>(type: string): ActionCreator<P, string>;
+// eslint-disable-next-line prefer-arrow/prefer-arrow-functions
+function actionCreatorDone<P = unknown>(type: string): ActionCreatorNoPayload<string> | ActionCreator<P, string> {
+  return actionCreatorUnified<string, P>(type, actionDoneSuffix);
 }
 
-// TODO: try to revrite in arrow function style
-//type NoPayloadType = unknown | undefined;
+function actionCreatorFail(type: string): ActionCreatorNoPayload<string>;
+function actionCreatorFail<P = unknown>(type: string): ActionCreator<P, string>;
+// eslint-disable-next-line prefer-arrow/prefer-arrow-functions
+function actionCreatorFail<P = unknown>(type: string): ActionCreatorNoPayload<string> | ActionCreator<P, string> {
+  return actionCreatorUnified<string, P>(type, actionFailSuffix);
+}
+
+export const actionCreator = { start: createAction, done: actionCreatorDone, fail: actionCreatorFail };
+
 //
-// type ActionOverload = {
-//     (actionName: string, successSuffix?: string, failSuffix?: string, typed?: boolean): ActionNoPayloadSet;
-//     <P>(actionName: string, successSuffix?: string, failSuffix?: string, typed?: boolean): ActionSet<P>;
+// export interface ActionsFromFactory<TPayload, TSuccesPayload, TFailPayload> {
+//   start: ActionCreatorNoPayload<string> | ActionCreator<TPayload, string>;
+//   done: ActionCreatorNoPayload<string> | ActionCreator<TSuccesPayload, string>;
+//   fail: ActionCreatorNoPayload<string> | ActionCreator<TFailPayload, string>;
+// }
+// /**
+//  * Makes all actons at one step
+//  *
+//  * !!! Not possible as isPayloadTypeDefined is not possible to write in JS (not types at runtime)
+//  * @param {string} name of action
+//  *
+//  * @returns {object} object with three actions for popular action states
+//  */
+// export const actionsFactory = <TPayload = undefined, TSuccesPayload = undefined, TFailPayload = undefined>(
+//   name: string
+// ): ActionsFromFactory<TPayload, TSuccesPayload, TFailPayload> => {
+//   return {
+//     start: isPayloadTypeDefined<TPayload>() ? createAction<TPayload>(name) : createAction(name),
+//     done: isPayloadTypeDefined<TSuccesPayload>() ? creatorDone<TSuccesPayload>(name) : creatorDone(name),
+//     fail: isPayloadTypeDefined<TFailPayload>() ? creatorFail<TFailPayload>(name) : creatorFail(name)
 //   };
-
-// export const createActionSet: ActionOverload = <P>(
-//   actionName: string,
-//   successSuffix?: string,
-//   failSuffix?: string,
-//   typed?: boolean
-// ): ActionNoPayloadSet | ActionSet<P>  => {
-//   const actionSuccessName = `${actionName}_${successSuffix}`;
-//   const actionFailName = `${actionName}_${failSuffix}`;
-//   if (typed) {
-//     //const payloadInstance: P = typeInstancer<P>('' as never);
-//     const actionStart = createAction<P>(actionName);
-//     const actionSuccess = createAction<P>(actionSuccessName);
-//     const actionFail = createAction<P>(actionFailName);
-//     return { actionStart, actionSuccess, actionFail };
-//   }
-
-//   const actionStart = createAction(actionName);
-//   const actionSuccess = createAction(actionSuccessName);
-//   const actionFail = createAction(actionFailName);
-//   return { actionStart, actionSuccess, actionFail };
 // };

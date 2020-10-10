@@ -1,6 +1,6 @@
 import { ApplicationState } from '../initialization';
 import { nameofFactory } from '../shared';
-import { appBootup, appBootupComplete, appBootupCompleteFail } from './actions';
+import { appBootup } from './actions';
 import { BootUpProgressEnum, BootUpStatus } from './types';
 
 interface AppBootupAction {
@@ -18,13 +18,13 @@ type BootUpActionTypes = AppBootupAction | AppBootupSucessAction | AppBootupFail
 
 const bootUpReducer = (state: BootUpStatus = new BootUpStatus(), action: BootUpActionTypes): BootUpStatus => {
   switch (action.type) {
-    case `${appBootup}`:
+    case `${appBootup.start}`:
       return { ...state, progress: BootUpProgressEnum.Pending, error: undefined };
 
-    case `${appBootupComplete}`:
+    case `${appBootup.done}`:
       return { ...state, progress: BootUpProgressEnum.Success, error: undefined };
 
-    case `${appBootupCompleteFail}`:
+    case `${appBootup.fail}`:
       return { ...state, progress: BootUpProgressEnum.Fail, error: action.payload };
 
     default:

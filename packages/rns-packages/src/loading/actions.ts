@@ -1,7 +1,11 @@
-import { createActionSet } from '../shared';
+import { actionCreator } from '../shared';
 
-export const {
-  actionStart: setLoaderStart,
-  actionSuccess: setLoaderSuccess,
-  actionFail: setLoaderFail
-} = createActionSet('LOADER_IN_PROGRESS');
+/**
+ * Set global status of loading something from API
+ */
+const actionName = 'LOADER_IN_PROGRESS';
+const start = actionCreator.start(actionName);
+const done = actionCreator.done(actionName);
+const fail = actionCreator.fail(actionName);
+
+export const setLoaderStatus = { start, done, fail };

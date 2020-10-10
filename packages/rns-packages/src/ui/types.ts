@@ -1,5 +1,5 @@
 import { CategoryId } from '../product-category';
 
 export class UiState {
-  currentCategory: CategoryId = 0;
+  currentCategoryId: CategoryId = 0;
 }

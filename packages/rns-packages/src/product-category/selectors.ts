@@ -2,9 +2,9 @@ import { createSelector } from 'reselect';
 
 import { ApplicationState } from '../initialization';
 import { nameofFactory } from '../shared';
-import { selectors as uiSelectors } from '../ui';
 import { selectors as productSelectors } from '../product';
 import { CategoryId, ProductCategoryModel, ProductCategoryModelWithProducts } from './types';
+import { selectCurrentCategoryId } from '../ui';
 
 export const externalDataBranchName = 'externalData';
 nameofFactory<ApplicationState>()(externalDataBranchName); // name guard
@@ -39,7 +39,7 @@ const selectCategoryById = (state: ApplicationState, { id = 0 }: { id: CategoryI
 // );
 
 export const selectCurrentCategoryCategories = createSelector(
-  uiSelectors.selectCurrentCategory,
+  selectCurrentCategoryId,
   getAllCategories,
   productSelectors.getAllProducts,
   (currentCategoryId, categories, products) => {

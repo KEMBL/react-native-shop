@@ -1,5 +1,10 @@
 import { CategoryId } from '../product-category';
-import { creator } from '../shared';
+import { actionCreator } from '../shared';
 
+/**
+ * Sets selected in UI category
+ */
 const actionName = 'SET_CURRENT_CATEGORY';
-export const actionSetCurrentCategory = creator<CategoryId>(actionName);
+const start = actionCreator.start<CategoryId>(actionName);
+
+export const actionSetCurrentCategory = { start };

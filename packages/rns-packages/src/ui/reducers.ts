@@ -15,7 +15,7 @@ type ActionTypes = SetCurrentCategory;
 const dataReducer = (state: UiState = new UiState(), action: ActionTypes): UiState => {
   debug('Reducer after fetching categories with products', action);
 
-  return { ...state, currentCategory: action.payload };
+  return { ...state, currentCategoryId: action.payload };
 };
 
 export default {

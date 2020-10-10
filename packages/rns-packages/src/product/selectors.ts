@@ -3,7 +3,7 @@ import { createSelector } from 'reselect';
 import { ApplicationState, ParametrizedSelector, proxyParam } from '../initialization';
 import { nameofFactory } from '../shared';
 import { CategoryId } from '../product-category';
-import { selectors as uiSelectors } from '../ui';
+import { selectCurrentCategoryId } from '../ui';
 import { ProductId, ProductModel } from './types';
 
 export const externalDataBranchName = 'externalData';
@@ -30,7 +30,7 @@ export const selectProductsByCategoryId = (): ParametrizedSelector<ProductId, Pr
  * @returns {Array} products
  */
 export const selectCurrentCategoryProducts = (): ParametrizedSelector<ProductId, ProductModel[]> =>
-  createSelector(uiSelectors.selectCurrentCategory, getAllProducts, (currentCategoryId: CategoryId, products) =>
+  createSelector(selectCurrentCategoryId, getAllProducts, (currentCategoryId: CategoryId, products) =>
     products.filter((p) => p.categoryId === currentCategoryId)
   );
 

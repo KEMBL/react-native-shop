@@ -5,6 +5,4 @@ import { nameofFactory } from '../shared';
 export const uiStateBranchName = 'uiState';
 nameofFactory<ApplicationState>()(uiStateBranchName); // name guard
 
-const selectCurrentCategory = (state: ApplicationState): CategoryId => state.uiState.currentCategory;
-
-export const selectors = { selectCurrentCategory };
+export const selectCurrentCategoryId = (state: ApplicationState): CategoryId => state.uiState.currentCategoryId;

@@ -2,7 +2,6 @@ import React from 'react';
 import { Provider } from 'react-redux';
 
 import { appBootup } from '../../bootup';
-import { RootCategoryId } from '../../product-category';
 import { ApplicationStore } from './types';
 
 interface ApplicationStateProps {
@@ -19,7 +18,8 @@ interface ApplicationStateProps {
  */
 export const ApplicationStateComponent: React.FC<ApplicationStateProps> = (props: ApplicationStateProps) => {
   const { store, children } = props;
-  store.dispatch(appBootup(RootCategoryId));
+
+  store.dispatch(appBootup.start());
 
   return <Provider store={store}>{children}</Provider>;
 };

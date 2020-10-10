@@ -4,7 +4,7 @@ import { ActionWithPayload } from 'robodux';
 import { debug as Debug } from '../debug';
 import { CategoryId } from '../product-category';
 import { actionSetCurrentCategory } from '../ui';
-import { setLoaderStart, setLoaderSuccess, setLoaderFail } from '../loading';
+import { setLoaderStatus } from '../loading';
 import { fetchCategoriesWithProducts } from './actions';
 import { gqlFetchCategoryWithProductsAsync } from './gqlFetch';
 
@@ -19,16 +19,16 @@ const debug = Debug('app:action:fetchCategory');
 function* onFetchCategoriesWithProducts(action: ActionWithPayload<CategoryId>) {
   debug('Perform action', action);
   const categoryId = action.payload;
-  yield put(setLoaderStart());
+  yield put(setLoaderStatus.start());
   try {
     const categories = yield call(gqlFetchCategoryWithProductsAsync, categoryId);
 
     yield put(fetchCategoriesWithProducts.done(categories));
-    yield put(actionSetCurrentCategory(categoryId));
-    yield put(setLoaderSuccess());
+    yield put(actionSetCurrentCategory.start(categoryId));
+    yield put(setLoaderStatus.done());
   } catch (error) {
     yield put(fetchCategoriesWithProducts.fail({ payload: categoryId, error }));
-    yield put(setLoaderFail());
+    yield put(setLoaderStatus.fail());
   }
 }
 
