@@ -4,7 +4,7 @@ import createSagaMiddleware from 'redux-saga';
 
 import { debug as Debug } from '../../debug';
 import { ApplicationState, ApplicationStore } from './types';
-import { rootReducer } from './root-objects';
+import { rootReducer, rootSaga } from './root-objects';
 
 const debug = Debug('app:store:error');
 //const { Map } = Immutable;
@@ -20,7 +20,7 @@ export class StoreBuilder {
 
   constructor(
     middleware?: Middleware[],
-    enhancer?: (...funcs: StoreEnhancer[]) => StoreEnhancer,
+    enhancer?: (...funcs: StoreEnhancer[]) => StoreEnhancer,    
     initState?: ApplicationState
   ) {
     if (!middleware) {
@@ -31,10 +31,17 @@ export class StoreBuilder {
       onError: debug
     });
 
+    middleware.push(sagaMiddleware);
+    if (process.env.NODE_ENV === 'development') {
+      const logger = require('redux-logger').default;
+      middleware.push(logger);
+    }
+
     const appledMiddleware = applyMiddleware(...middleware);
     const enhancedMiddleware = enhancer ? enhancer(appledMiddleware) : appledMiddleware;
 
     middleware = [...middleware, sagaMiddleware];
     this.store = createStore(rootReducer, initState, enhancedMiddleware);
+    sagaMiddleware.run(rootSaga);
   }
 }

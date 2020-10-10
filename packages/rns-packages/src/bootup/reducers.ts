@@ -1,7 +1,10 @@
+import { debug as Debug } from '../debug';
 import { ApplicationState } from '../initialization';
 import { nameofFactory } from '../shared';
 import { appBootup } from './actions';
 import { BootUpProgressEnum, BootUpStatus } from './types';
+
+const debug = Debug('app:reducer:bootup');
 
 interface AppBootupAction {
   type: string;
@@ -17,6 +20,7 @@ interface AppBootupFailAction {
 type BootUpActionTypes = AppBootupAction | AppBootupSucessAction | AppBootupFailAction;
 
 const bootUpReducer = (state: BootUpStatus = new BootUpStatus(), action: BootUpActionTypes): BootUpStatus => {
+  debug('Perform reducer', state, action);
   switch (action.type) {
     case `${appBootup.start}`:
       return { ...state, progress: BootUpProgressEnum.Pending, error: undefined };
