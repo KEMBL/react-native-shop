@@ -11,10 +11,10 @@
     "format": "prettier --config ../../.prettierrc.js --ignore-path ../../.prettierignore --write src/**/*.ts"
   },
   "dependencies": {
-    "react-dom": "^16.10.2",
+    "react-dom": "^16.13.1",
     "react-native-image-cache-hoc": "^2.0.0",
-    "react-native-svg-web": "1.0.1",
-    "react-native-web": "0.12.2",
+    "react-native-svg-web": "1.0.9",
+    "react-native-web": "0.14.1",
     "rns-core": "0.0.2"
   },
   "devDependencies": {
@@ -23,7 +23,7 @@
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-flow": "^7.9.0",
     "@babel/preset-react": "^7.9.4",
-    "@types/react-dom": "^16.9.4",
+    "@types/react-dom": "^16.9.8",
     "babel-loader": "^8.1.0",
     "file-loader": "^6.0.0",
     "ts-loader": "6.2.1",
