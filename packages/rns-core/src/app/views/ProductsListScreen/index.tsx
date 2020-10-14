@@ -17,8 +17,26 @@ const renderCategory = ({ item }: { item: ProductCategoryModelWithProducts }): J
   const { title, products } = item;
   const cards: ProductCardModel[] = products
     ? products.map<ProductCardModel>((value) => {
+        if (!value) {
+          console.error('undefined product cart value!');
+          return {
+            thumbnail: '',
+            title: 'Error cart',
+            weight: 0,
+            price: 'error proce'
+          };
+        }
+
+        let imageUrl = '';
+        if(!value.imageUrls){
+          console.error('undefined imageUrls', value);          
+          imageUrl = '';
+        } else {
+          imageUrl = value.imageUrls[0];
+        }
+
         return {
-          thumbnail: value.imageUrls[0],
+          thumbnail: imageUrl,
           title: value.name,
           weight: 1.2,
           price: PriceUtils.makePriceString(value.price.properties)
@@ -35,7 +53,7 @@ const renderCategory = ({ item }: { item: ProductCategoryModelWithProducts }): J
  */
 export const ProductsListScreen: React.FC = () => {
   const categories = useSelector(selectCurrentCategoryCategories, shallowEqual);
-
+  console.log('categories', categories);
   const mainStyle = StyleSheet.create({
     container: {
       backgroundColor: 'skyblue',

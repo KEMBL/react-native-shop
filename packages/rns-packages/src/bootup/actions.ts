@@ -1,12 +1,12 @@
 import { CategoryId } from '../product-category';
-import { actionCreator, FailedPayload } from '../shared';
+import { actionCreator, FailedActionResultWithPayload } from '../shared';
 
 /**
  * Action handlers
  */
 const actionName = 'APP_BOOTUP';
 const start = actionCreator.start(actionName);
-const done = actionCreator.done(actionName);
-const fail = actionCreator.fail<FailedPayload<CategoryId>>(actionName);
+//const done = actionCreator.done(actionName);
+const fail = actionCreator.fail<FailedActionResultWithPayload<CategoryId>>(actionName);
 
-export const appBootup = { start, done, fail };
+export const appBootup = { start, fail };

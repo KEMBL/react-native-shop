@@ -17,7 +17,6 @@ export interface ProductCategoryCollection {
   categories: ProductCategoryModelWithProducts[];
 }
 
-export class ExternalData {
-  categories: ProductCategoryModel[] = [];
-  products: ProductModel[] = [];
+export interface CategoriesCollection {
+  categories: ProductCategoryModel[];
 }

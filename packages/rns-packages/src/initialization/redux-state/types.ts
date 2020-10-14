@@ -1,7 +1,8 @@
 import { Store, AnyAction } from 'redux';
 
 import { BootUpStatus } from '../../bootup';
-import { ExternalData } from '../../product-category';
+import { ProductModel } from '../../product';
+import { ProductCategoryModel } from '../../product-category';
 import { UiState } from '../../ui';
 
 /**
@@ -9,11 +10,18 @@ import { UiState } from '../../ui';
  */
 export type ApplicationStore = Store<ApplicationState, AnyAction>;
 
+export interface ExternalData {
+  categories: ProductCategoryModel[];
+  products: ProductModel[];
+}
+
 /**
  * Main application state class
  */
 export interface ApplicationState {
   bootUpStatus: BootUpStatus;
   uiState: UiState;
-  externalData: ExternalData;
+  // externalData: ExternalData;
+  categories: ProductCategoryModel[];
+  products: ProductModel[];
 }

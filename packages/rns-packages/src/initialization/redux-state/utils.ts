@@ -17,7 +17,7 @@ export type ParametrizedSelector<A, R> = (state: ApplicationState, arg: A) => R;
  * @returns {object} selector given in param
  */
 export const proxyParam: <T>(_: ApplicationState, param: T) => T = (_, param) => param;
-
+export const selectState = (state: ApplicationState): ApplicationState => state;
 /**
  * Helper to make memoized selector with parameter
  *

@@ -1,21 +1,29 @@
-import isEqual from 'lodash.isequal';
-import clonedeep from 'lodash.clonedeep';
-
 import { debug as Debug } from '../debug';
-import { fetchCategoriesWithProducts } from './actions';
-import { externalDataBranchName } from './selectors';
-import { CategoryId, ExternalData, ProductCategoryCollection, ProductCategoryModel } from './types';
+import { fetchCategories } from './actions';
+import { CategoriesCollection, CategoryId, ProductCategoryCollection, ProductCategoryModel } from './types';
+import { FailedActionResult, FailedActionResultWithPayload, nameofFactory } from '../shared';
+import { ApplicationState } from '../..';
 
 const debug = Debug('app:reducers:fetchCategory');
 
-interface FetchCategoriesWithProductsDoneAction {
+export interface FetchCategoriesWithProductsDoneAction {
   type: string;
   payload: ProductCategoryCollection;
 }
 
 interface FetchCategoriesWithProductsFailAction {
   type: string;
-  payload: CategoryId;
+  payload: FailedActionResultWithPayload<CategoryId>;
+}
+
+export interface FetchCategoriesDoneAction {
+  type: string;
+  payload: CategoriesCollection;
+}
+
+interface FetchCategoriesFailAction {
+  type: string;
+  payload: FailedActionResult;
 }
 
 // const compareCategory = (source: ProductCategoryModel, dest: ProductCategoryModelWithProducts): boolean => {
@@ -27,77 +35,110 @@ interface FetchCategoriesWithProductsFailAction {
 //   && isEqual(source.imageUrls, dest.imageUrls) && isEqual(source.price, dest.price);
 // };
 
-/** Updates state categories and products
- *
- * @param {object} state current state
- * @param {object} collection collection of categories with products
- *
- * @returns {object} state
- */
-const updateCategoriesAndProducts = (
-  state: ExternalData = new ExternalData(),
-  collection: ProductCategoryCollection
-): ExternalData => {
-  // debug('Got collection', collection);
-  // debug('Got categories', collection.categories.length);
+// /** Updates state categories and products
+//  *
+//  * @param {object} state current state
+//  * @param {object} collection collection of categories with products
+//  *
+//  * @returns {object} state
+//  */
+// const updateCategoriesAndProducts = (
+//   state: ExternalData = {} as any,
+//   collection: ProductCategoryCollection
+// ): ExternalData => {
+//   // debug('Got collection', collection);
+//   // debug('Got categories', collection.categories.length);
 
-  if (!collection) {
-    debug('Warning: undefined categories collection');
-    return state;
-  }
+//   if (!collection) {
+//     debug('Warning: undefined categories collection');
+//     return state;
+//   }
 
-  const categories = collection.categories;
-  if (!categories) {
-    debug('Warning: undefined categories list');
-    return state;
-  }
+//   const categories = collection.categories;
+//   if (!categories) {
+//     debug('Warning: undefined categories list');
+//     return state;
+//   }
 
-  if (categories.length === 0) {
-    debug('Information: empty categories list');
-    return state;
-  }
+//   if (categories.length === 0) {
+//     debug('Information: empty categories list');
+//     return state;
+//   }
 
-  for (const category of categories) {
-    const source = state.categories[category.id];
-    if (!source || !isEqual(source, category)) {
-      const newCategory: ProductCategoryModel = { id: category.id, parentId: category.parentId, title: category.title };
-      state.categories[category.id] = newCategory; // at this place we make id -> category relation in our state
-    }
+//   // console.log('Reducer', typeof categories, Object.keys(categories).length, categories.length, categories);
 
-    if (!category.products) {
-      continue;
-    }
+//   for (const category of categories) {
+//     const source = state.categories[category.id];
+//     if (!source || !isEqual(source, category)) {
+//       const newCategory: ProductCategoryModel = { id: category.id, parentId: category.parentId, title: category.title };
+//       state.categories[category.id] = newCategory; // at this place we make id -> category relation in our state
+//     }
 
-    for (const product of category.products) {
-      const source = state.products[product.id];
-      if (!source || !isEqual(source, product)) {
-        state.products[product.id] = clonedeep(product); // at this place we make id -> product relation in our state
-      }
-    }
-  }
+//     if (!category.products) {
+//       continue;
+//     }
 
-  return state;
-};
+//     for (const product of category.products) {
+//       const source = state.products[product.id];
+//       if (!source || !isEqual(source, product)) {
+//         state.products[product.id] = clonedeep(product); // at this place we make id -> product relation in our state
+//       }
+//     }
+//   }
 
-type ActionTypes = FetchCategoriesWithProductsDoneAction | FetchCategoriesWithProductsFailAction;
+//   return state;
+// };
 
-const dataReducer = (state: ExternalData = new ExternalData(), action: ActionTypes): ExternalData => {
-  debug('Reducer after fetching categories with products:', action, state);
+// const defaultExternalData: ExternalData =
+// {
+//   categories: [],
+//   products: []
+// };
+
+type ActionTypes =
+  // | FetchCategoriesWithProductsDoneAction
+  // | FetchCategoriesWithProductsFailAction
+  FetchCategoriesDoneAction | FetchCategoriesFailAction;
+
+const dataReducer = (state: ProductCategoryModel[] = [], action: ActionTypes): ProductCategoryModel[] => {
+  debug(
+    'Reducer after fetching categories:',
+    action.type,
+    `${fetchCategories.done}`,
+    action.type === `${fetchCategories.done}`,
+    state
+  );
 
   switch (action.type) {
-    case `${fetchCategoriesWithProducts.done}`: {
-      return updateCategoriesAndProducts(state, action.payload as ProductCategoryCollection);
+    case `${fetchCategories.done}`: {
+      return (action.payload as CategoriesCollection).categories;
+      // console.log('categories---------------------------', categories);
+      // return { ...state, categories };
     }
 
-    case `${fetchCategoriesWithProducts.fail}`:
-      debug('Problem with fetching categories with products', action.payload);
+    case `${fetchCategories.fail}`: {
+      debug('Problem with fetching all categories', (action.payload as FailedActionResult).error);
       return state;
+    }
+
+    // case `${fetchCategoriesWithProducts.done}`: {
+    //   return updateCategoriesAndProducts(state, action.payload as ProductCategoryCollection);
+    // }
+
+    // case `${fetchCategoriesWithProducts.fail}`: {
+    //   const payload = action.payload as FailedActionResultWithPayload<CategoryId>;
+    //   debug('Problem with fetching categories with products', payload.payload, payload.error);
+    //   return state;
+    // }
 
     default:
       return state;
   }
 };
 
+const externalDataBranchName = 'categories';
+nameofFactory<ApplicationState>()(externalDataBranchName);
+
 export default {
-  [externalDataBranchName]: dataReducer
+  [externalDataBranchName]: dataReducer // TODO: use slice here
 };

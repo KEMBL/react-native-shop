@@ -1,6 +1,8 @@
 import { debug as Debug } from '../debug';
 import { ApplicationState } from '../initialization';
-import { nameofFactory } from '../shared';
+import { fetchProducts, FetchProductsDoneAction } from '../product';
+import { fetchCategories, FetchCategoriesDoneAction } from '../product-category';
+import { FailedActionResult, nameofFactory } from '../shared';
 import { appBootup } from './actions';
 import { BootUpProgressEnum, BootUpStatus } from './types';
 
@@ -13,10 +15,15 @@ interface AppBootupAction {
 type AppBootupSucessAction = AppBootupAction;
 interface AppBootupFailAction {
   type: string;
-  payload?: string;
+  payload: FailedActionResult;
 }
 
-type BootUpActionTypes = AppBootupAction | AppBootupSucessAction | AppBootupFailAction;
+type BootUpActionTypes =
+  | AppBootupAction
+  | AppBootupSucessAction
+  | AppBootupFailAction
+  | FetchCategoriesDoneAction
+  | FetchProductsDoneAction;
 
 const bootUpReducer = (state: BootUpStatus = new BootUpStatus(), action: BootUpActionTypes): BootUpStatus => {
   debug('Perform reducer', state, action);
@@ -26,13 +33,36 @@ const bootUpReducer = (state: BootUpStatus = new BootUpStatus(), action: BootUpA
         ? { ...state, progress: BootUpProgressEnum.Pending, error: undefined }
         : state;
 
-    case `${appBootup.done}`:
-      return state.progress !== BootUpProgressEnum.Done
+    case `${fetchCategories.done}`: {
+      if (state.progress === BootUpProgressEnum.Done) {
+        return state;
+      }
+
+      if (state.categoriesProgress !== BootUpProgressEnum.Done) {
+        state = { ...state, categoriesProgress: BootUpProgressEnum.Done };
+      }
+
+      return state.categoriesProgress === BootUpProgressEnum.Done && state.productsProgress === BootUpProgressEnum.Done
         ? { ...state, progress: BootUpProgressEnum.Done, error: undefined }
         : state;
+    }
+
+    case `${fetchProducts.done}`: {
+      if (state.progress === BootUpProgressEnum.Done) {
+        return state;
+      }
+
+      if (state.productsProgress !== BootUpProgressEnum.Done) {
+        state = { ...state, productsProgress: BootUpProgressEnum.Done };
+      }
+
+      return state.categoriesProgress === BootUpProgressEnum.Done && state.productsProgress === BootUpProgressEnum.Done
+        ? { ...state, progress: BootUpProgressEnum.Done, error: undefined }
+        : state;
+    }
 
     case `${appBootup.fail}`:
-      return { ...state, progress: BootUpProgressEnum.Fail, error: (action as AppBootupFailAction).payload };
+      return { ...state, progress: BootUpProgressEnum.Fail, error: (action as AppBootupFailAction).payload.error };
 
     default:
       return state;

@@ -14,7 +14,7 @@ interface SetCurrentCategory {
 type ActionTypes = SetCurrentCategory;
 
 const dataReducer = (state: UiState = new UiState(), action: ActionTypes): UiState => {
-  debug('Reducer after fetching categories with products', action);
+  debug('UI Reducer after current category is set', action);
   switch (action.type) {
     case `${actionSetCurrentCategory.start}`: {
       if (state.currentCategoryId !== action.payload) {

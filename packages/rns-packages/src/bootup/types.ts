@@ -8,6 +8,8 @@ export enum BootUpProgressEnum {
 }
 
 export class BootUpStatus {
+  categoriesProgress = BootUpProgressEnum.Pending;
+  productsProgress = BootUpProgressEnum.Pending;
   progress = BootUpProgressEnum.Pending;
   error?: string;
 }

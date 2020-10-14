@@ -14,6 +14,10 @@ module.exports = {
   output: {
     filename: 'bundle.js'
   },
+  watch: !isProduction,
+  watchOptions: {
+    aggregateTimeout: 600   
+  },
   optimization: {
     minimize: isProduction
   },

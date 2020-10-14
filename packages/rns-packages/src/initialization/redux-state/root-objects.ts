@@ -11,6 +11,7 @@ import { ApplicationState } from './types';
 const debug = Debug('app:state');
 const corePackages = [
   require('../../bootup/export'),
+  require('../../product/export'),
   require('../../product-category/export'),
   require('../../ui/export')
 ];

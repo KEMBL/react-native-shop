@@ -21,6 +21,10 @@ export interface PriceModel {
   properties: PricePropertiesModel[];
 }
 
+export interface ProductsCollection {
+  products: ProductModel[];
+}
+
 /**
  * Product model as it required for the frontend
  */
