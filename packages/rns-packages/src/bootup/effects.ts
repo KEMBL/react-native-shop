@@ -3,7 +3,7 @@ import { ActionWithPayload } from 'robodux';
 
 import { debug as Debug } from '../debug';
 import { fetchProducts } from '../product';
-import { CategoryId, fetchCategories } from '../product-category';
+import { CategoryId, fetchCategories } from '../category';
 import { selectCurrentCategoryId } from '../ui';
 import { appBootup } from './actions';
 

@@ -1,5 +1,5 @@
 import { ApplicationState } from '../initialization';
-import { CategoryId } from '../product-category';
+import { CategoryId } from '../category';
 import { nameofFactory } from '../shared';
 
 export const uiStateBranchName = 'uiState';

@@ -24,5 +24,4 @@ function* fetchCategoriesWithProductSaga() {
   yield takeEvery(`${fetchCategoriesWithProducts.start}`, onFetchCategoriesWithProducts);
 }
 
-//export { fetchCategoriesWithProductSaga };
 export { fetchAllCategoriesSaga, fetchCategoriesWithProductSaga };

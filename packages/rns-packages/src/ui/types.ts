@@ -1,4 +1,4 @@
-import { CategoryId } from '../product-category';
+import { CategoryId } from '../category';
 
 export class UiState {
   currentCategoryId: CategoryId = 0;

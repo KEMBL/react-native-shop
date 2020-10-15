@@ -1,6 +1,6 @@
 import { actionSetCurrentCategory } from '.';
 import { debug as Debug } from '../debug';
-import { CategoryId } from '../product-category';
+import { CategoryId } from '../category';
 import { uiStateBranchName } from './selectors';
 import { UiState } from './types';
 

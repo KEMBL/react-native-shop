@@ -8,9 +8,9 @@ import { selectCurrentCategoryId } from '../ui';
 
 // name guard
 
-const getAllCategories = (state: ApplicationState): ProductCategoryModel[] => state.categories;
+const getAllCategories = (state: ApplicationState): ProductCategoryModel[] => state.externalData.categories;
 const selectCategoryById = (state: ApplicationState, { id = 0 }: { id: CategoryId }): ProductCategoryModel =>
-  state.categories[id];
+  state.externalData.categories[id];
 
 /**
  * Returns sub categories in the current category

@@ -2,7 +2,7 @@ import { Store, AnyAction } from 'redux';
 
 import { BootUpStatus } from '../../bootup';
 import { ProductModel } from '../../product';
-import { ProductCategoryModel } from '../../product-category';
+import { ProductCategoryModel } from '../../category';
 import { UiState } from '../../ui';
 
 /**
@@ -21,7 +21,5 @@ export interface ExternalData {
 export interface ApplicationState {
   bootUpStatus: BootUpStatus;
   uiState: UiState;
-  // externalData: ExternalData;
-  categories: ProductCategoryModel[];
-  products: ProductModel[];
+  externalData: ExternalData;
 }

@@ -12,7 +12,8 @@ const debug = Debug('app:state');
 const corePackages = [
   require('../../bootup/export'),
   require('../../product/export'),
-  require('../../product-category/export'),
+  require('../../category/export'),
+  require('../../external-data/export'),
   require('../../ui/export')
 ];
 

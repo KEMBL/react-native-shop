@@ -11,7 +11,7 @@ const debug = Debug('app:fetch:fetchCategoryWithProducts');
 const CATEGORY_WITH_PRODUCT_FRAGMENT = gql`
   ${PRODUCTS_FRAGMENT}
 
-  fragment CategoryFields on Category {
+  fragment CategoryFieldsWithProduct on Category {
     id
     parentId
     title
@@ -27,7 +27,7 @@ const FETCH_CATEGORIES_WITH_PRODUCTS = gql`
   query CategoriesQuery($rootId: Int = 0, $withProducts: Boolean = true, $deep: Boolean = true) {
     categories(rootId: $rootId, withProducts: $withProducts, deep: $deep) {
       categories {
-        ...CategoryFields
+        ...CategoryFieldsWithProduct
       }
     }
   }
@@ -48,12 +48,16 @@ export const gqlFetchCategoryWithProductsAsync = async (
   return result.data?.categories;
 };
 
-const FETCH_ALL_CATEGORIES = gql`
+const CATEGORY_FRAGMENT = gql`
   fragment CategoryFields on Category {
     id
     parentId
     title
   }
+`;
+
+const FETCH_ALL_CATEGORIES = gql`
+  ${CATEGORY_FRAGMENT}
 
   query CategoriesQuery {
     allCategories {

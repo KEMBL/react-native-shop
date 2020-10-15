@@ -1,10 +1,10 @@
 import { createSelector } from 'reselect';
 
 import { ApplicationState, ParametrizedSelector, proxyParam } from '../initialization';
-import { CategoryId } from '../product-category';
+import { CategoryId } from '../category';
 import { ProductId, ProductModel } from './types';
 
-const getAllProducts = (state: ApplicationState): ProductModel[] => state.products;
+const getAllProducts = (state: ApplicationState): ProductModel[] => state.externalData.products;
 //const getProductById = (state: ApplicationState, id: ProductId): ProductModel => getAllProducts(state)[id];
 // const getProductsByCategoryId = (state: ApplicationState, id: ProductId): ProductModel[] =>
 //   getAllProducts(state).filter((p) => p.categoryId === id);

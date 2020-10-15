@@ -2,7 +2,7 @@ import { put, call } from 'redux-saga/effects';
 import { Action, ActionWithPayload } from 'robodux';
 
 import { debug as Debug } from '../debug';
-import { CategoryId } from '../product-category';
+import { CategoryId } from '../category';
 import { actionSetCurrentCategory } from '../ui';
 import { setLoaderStatus } from '../loading';
 import { fetchCategories, fetchCategoriesWithProducts } from './actions';

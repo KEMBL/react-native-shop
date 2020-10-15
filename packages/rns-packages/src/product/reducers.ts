@@ -2,7 +2,7 @@ import { debug as Debug } from '../debug';
 import { fetchProducts } from './actions';
 import { ProductModel, ProductsCollection } from './types';
 import { FailedActionResult, nameofFactory } from '../shared';
-import { ApplicationState } from '../..';
+import { ExternalData } from '../initialization';
 
 const debug = Debug('app:reducers:fetchCategory');
 
@@ -11,18 +11,12 @@ export interface FetchProductsDoneAction {
   payload: ProductsCollection;
 }
 
-interface FetchProductsFailAction {
+export interface FetchProductsFailAction {
   type: string;
   payload: FailedActionResult;
 }
 
 type ActionTypes = FetchProductsDoneAction | FetchProductsFailAction;
-
-// const defaultExternalData: ExternalData =
-// {
-//   categories: [],
-//   products: []
-// };
 
 const dataReducer = (state: ProductModel[] = [], action: ActionTypes): ProductModel[] => {
   debug('Reducer after fetching products:', action, state);
@@ -30,7 +24,6 @@ const dataReducer = (state: ProductModel[] = [], action: ActionTypes): ProductMo
   switch (action.type) {
     case `${fetchProducts.done}`: {
       return (action.payload as ProductsCollection).products;
-      // return { ...state, products };
     }
 
     case `${fetchProducts.fail}`: {
@@ -43,10 +36,9 @@ const dataReducer = (state: ProductModel[] = [], action: ActionTypes): ProductMo
   }
 };
 
-const externalDataBranchName = 'products';
-nameofFactory<ApplicationState>()(externalDataBranchName);
+const branchName = 'products';
+nameofFactory<ExternalData>()(branchName);
 
 export default {
-  // [externalDataBranchName]: dataReducer // TODO: use slice here
-  [externalDataBranchName]: dataReducer // TODO: use slice here
+  [branchName]: dataReducer // TODO: use slice here
 };

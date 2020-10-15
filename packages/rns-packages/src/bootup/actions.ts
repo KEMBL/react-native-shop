@@ -1,4 +1,4 @@
-import { CategoryId } from '../product-category';
+import { CategoryId } from '../category';
 import { actionCreator, FailedActionResultWithPayload } from '../shared';
 
 /**
