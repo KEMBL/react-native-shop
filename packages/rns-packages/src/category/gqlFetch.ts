@@ -1,12 +1,10 @@
 import { gql } from '@apollo/client';
-import clonedeep from 'lodash.clonedeep';
 
-import { debug as Debug } from '../debug';
 import { PRODUCTS_FRAGMENT } from '../product';
 import { GqlClientService } from '../shared';
 import { CategoriesCollection, CategoryId, ProductCategoryCollection } from './types';
 
-const debug = Debug('app:fetch:fetchCategoryWithProducts');
+// const debug = Debug('app:fetch:fetchCategoryWithProducts');
 
 const CATEGORY_WITH_PRODUCT_FRAGMENT = gql`
   ${PRODUCTS_FRAGMENT}
@@ -43,8 +41,7 @@ export const gqlFetchCategoryWithProductsAsync = async (
     variables: { rootId, withProducts, deep }
   });
 
-  const ss = clonedeep(result.data);
-  debug('result.data', ss, result.data);
+  // debug('result.data', result.data);
   return result.data?.categories;
 };
 
@@ -73,6 +70,6 @@ export const gqlFetchAllCategorisAsync = async (): Promise<CategoriesCollection>
     query: FETCH_ALL_CATEGORIES
   });
 
-  debug('result.data.categories', result.data);
+  // debug('result.data.categories', result.data);
   return result.data?.allCategories;
 };

@@ -4,7 +4,7 @@ import { ProductModel, ProductsCollection } from './types';
 import { FailedActionResult, nameofFactory } from '../shared';
 import { ExternalData } from '../initialization';
 
-const debug = Debug('app:reducers:fetchCategory');
+const debug = Debug('app:reducers:fetchProduct');
 
 export interface FetchProductsDoneAction {
   type: string;
@@ -19,7 +19,7 @@ export interface FetchProductsFailAction {
 type ActionTypes = FetchProductsDoneAction | FetchProductsFailAction;
 
 const dataReducer = (state: ProductModel[] = [], action: ActionTypes): ProductModel[] => {
-  debug('Reducer after fetching products:', action, state);
+  // debug('Reducer after fetching products:', action, state);
 
   switch (action.type) {
     case `${fetchProducts.done}`: {

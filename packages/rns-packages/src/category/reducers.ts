@@ -95,13 +95,13 @@ type ActionTypes =
   FetchCategoriesDoneAction | FetchCategoriesFailAction;
 
 const dataReducer = (state: ProductCategoryModel[] = [], action: ActionTypes): ProductCategoryModel[] => {
-  debug(
-    'Reducer after fetching categories:',
-    action.type,
-    `${fetchCategories.done}`,
-    action.type === `${fetchCategories.done}`,
-    state
-  );
+  // debug(
+  //   'Reducer after fetching categories:',
+  //   action.type,
+  //   `${fetchCategories.done}`,
+  //   action.type === `${fetchCategories.done}`,
+  //   state
+  // );
 
   switch (action.type) {
     case `${fetchCategories.done}`: {

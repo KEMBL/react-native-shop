@@ -14,16 +14,16 @@ const keyExtractor = (_item: ProductCategoryModel, index: number): string => {
 };
 
 const renderCategory = ({ item }: { item: ProductCategoryModelWithProducts }): JSX.Element => {
-  const { title, products } = item;
+  const { title, products } = item;  
   const cards: ProductCardModel[] = products
     ? products.map<ProductCardModel>((value) => {
         if (!value) {
-          console.error('undefined product cart value!');
+          console.error('undefined product cart value!', item);
           return {
             thumbnail: '',
             title: 'Error cart',
             weight: 0,
-            price: 'error proce'
+            price: 'error price'
           };
         }
 
@@ -53,7 +53,7 @@ const renderCategory = ({ item }: { item: ProductCategoryModelWithProducts }): J
  */
 export const ProductsListScreen: React.FC = () => {
   const categories = useSelector(selectCurrentCategoryCategories, shallowEqual);
-  console.log('categories', categories);
+  // console.log('categories', categories);
   const mainStyle = StyleSheet.create({
     container: {
       backgroundColor: 'skyblue',

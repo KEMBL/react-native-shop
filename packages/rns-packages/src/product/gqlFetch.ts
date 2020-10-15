@@ -1,10 +1,9 @@
 import { gql } from '@apollo/client';
 
-import { debug as Debug } from '../debug';
 import { GqlClientService } from '../shared';
 import { ProductsCollection } from './types';
 
-const debug = Debug('app:fetch:fetchProducts');
+// const debug = Debug('app:fetch:fetchProducts');
 
 export const PRODUCTS_FRAGMENT = gql`
   fragment ProductFields on Product {
@@ -12,6 +11,7 @@ export const PRODUCTS_FRAGMENT = gql`
     name
     categoryId
     editDatetime
+    imageUrls
     price {
       properties {
         propertyUnitType
@@ -39,6 +39,6 @@ export const gqlFetchAllProductsAsync = async (): Promise<ProductsCollection> =>
     query: FETCH_ALL_PRODUCTS
   });
 
-  debug('result.data.products', result.data);
+  //debug('result.data.products', result.data);
   return result.data?.allProducts;
 };

@@ -8,7 +8,7 @@ import { selectCurrentCategoryId } from '../ui';
 
 // name guard
 
-const getAllCategories = (state: ApplicationState): ProductCategoryModel[] => state.externalData.categories;
+const selectAllCategories = (state: ApplicationState): ProductCategoryModel[] => state.externalData.categories;
 const selectCategoryById = (state: ApplicationState, { id = 0 }: { id: CategoryId }): ProductCategoryModel =>
   state.externalData.categories[id];
 
@@ -39,8 +39,8 @@ const selectCategoryById = (state: ApplicationState, { id = 0 }: { id: CategoryI
 
 export const selectCurrentCategoryCategoriesOld = createSelector(
   selectCurrentCategoryId,
-  getAllCategories,
-  productSelectors.getAllProducts,
+  selectAllCategories,
+  productSelectors.selectAllProducts,
   (currentCategoryId, categories, products) => {
     const subCategories: ProductCategoryModelWithProducts[] = [];
     for (const category of categories) {
@@ -74,9 +74,9 @@ export const selectCurrentCategoryCategoriesOld = createSelector(
  * @returns {Array} all subb categories deep
  */
 const selectSubCategoriesFlatTree = (): ParametrizedSelector<CategoryId, number[]> =>
-  createSelector(proxyParam, getAllCategories, selectState, (categoryId, categories, state) => {
+  createSelector(proxyParam, selectAllCategories, selectState, (categoryId, categories, state) => {
     const subCategories: number[] = [];
-    console.log('selectSubCategoriesFlatTree1', categoryId, categories.length, state);
+    // console.log('selectSubCategoriesFlatTree1', categoryId, categories.length, state);
     for (const category of categories) {
       if (!category || category.parentId !== categoryId) {
         continue;
@@ -85,7 +85,7 @@ const selectSubCategoriesFlatTree = (): ParametrizedSelector<CategoryId, number[
       subCategories.push(category.id);
       subCategories.push(...selectSubCategoriesFlatTree()(state, category.id)); // RECURSION!go deeper
     }
-    console.log('selectSubCategoriesFlatTree2', categoryId, subCategories);
+    // console.log('selectSubCategoriesFlatTree2', categoryId, subCategories);
     return subCategories;
   });
 
@@ -103,13 +103,13 @@ const selectCategoryProductsDeep = (): ParametrizedSelector<DeepProductsRequest,
   createSelector(
     proxyParam,
     selectState,
-    productSelectors.getAllProducts,
+    productSelectors.selectAllProducts,
     (parameters: DeepProductsRequest, state, productsSelector) => {
       const { categoryId, amount } = parameters;
 
       // 1. select all sub products: build category flat tree, select sub products
       const categoriesFlatTree = selectSubCategoriesFlatTree()(state, categoryId);
-      console.log('selectCategoryProductsDeep', categoryId, amount, categoriesFlatTree);
+      // console.log('selectCategoryProductsDeep', categoryId, amount, categoriesFlatTree);
       // 2. get all products with category from the categories flat tree
       const products: ProductModel[] = productsSelector.filter((p) => categoriesFlatTree.includes(p.categoryId));
 
@@ -117,13 +117,16 @@ const selectCategoryProductsDeep = (): ParametrizedSelector<DeepProductsRequest,
       // random seed should be linked somehow to user / time othervice products will change to often
       // lets say random products should not be canged during last 5 minutes, but this better to perfrom through that selector memoization
 
-      return products
-        .map<Probability<ProductId>>((p) => {
-          return { itemId: p.id, probability: Math.random() };
-        }) // add random num to each product
-        .sort((p1, p2) => p1.probability - p2.probability) // sort products by random param (order does not matter here)
-        .slice(0, amount) // select first X elemets
-        .map((p) => productsSelector[p.itemId]); // convert bacj po rpoducts
+      return (
+        products
+          .map<Probability<ProductId>>((p) => {
+            return { id: p.id, probability: Math.random() };
+          }) // add random num to each product
+          .sort((p1, p2) => p1.probability - p2.probability) // sort products by random param (order does not matter here)
+          .slice(0, amount) // select first X elemets
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+          .map((p) => productSelectors.selectProductById(state, p.id)!)
+      ); // convert bacj po rpoducts
 
       // // select rated or random with rated first
       // const products1: ProductModel[] = productSelectors.filter((p) => categoriesFlatTree.includes(p.categoryId));
@@ -166,7 +169,7 @@ const MIN_PRODUCTS_TO_RETURN = 10;
 export const selectCategoryCategories = (): ParametrizedSelector<CategoryId, ProductCategoryModelWithProducts[]> =>
   createSelector(
     proxyParam,
-    getAllCategories,
+    selectAllCategories,
     selectState,
     (categoryId, categories, state) => {
       const subCategories: ProductCategoryModelWithProducts[] = [];
@@ -184,6 +187,7 @@ export const selectCategoryCategories = (): ParametrizedSelector<CategoryId, Pro
         subCategory.products = productSelectors.selectProductsByCategoryId()(state, category.id);
         const productsCount = subCategory.products.length;
         if (productsCount < MIN_PRODUCTS_TO_RETURN) {
+          // console.log('category.id', category, productsCount, MIN_PRODUCTS_TO_RETURN - productsCount);
           subCategory.products.push(
             ...selectCategoryProductsDeep()(state, {
               categoryId: category.id,

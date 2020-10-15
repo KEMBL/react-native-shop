@@ -10,6 +10,9 @@ import { onBootup } from './effects';
 
 const debug = Debug('app:saga:bootup');
 
+/**
+ * Saga takes starts application
+ */
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export function* bootupSaga() {
   debug('Perform saga for appBootup.start');

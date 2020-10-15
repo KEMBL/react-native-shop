@@ -1,6 +1,6 @@
 import { debug as Debug } from '../debug';
 import { ApplicationState } from '../initialization';
-import { fetchProducts, reducers as productReducers } from '../product';
+import { fetchProducts, reducers } from '../product';
 import { fetchCategories, reducers as categoryReducers } from '../category';
 import { FailedActionResult, nameofFactory } from '../shared';
 import { appBootup } from './actions';
@@ -23,7 +23,7 @@ type BootUpActionTypes =
   | AppBootupSucessAction
   | AppBootupFailAction
   | categoryReducers.FetchCategoriesDoneAction
-  | productReducers.FetchProductsDoneAction;
+  | reducers.FetchProductsDoneAction;
 
 const bootUpReducer = (state: BootUpStatus = new BootUpStatus(), action: BootUpActionTypes): BootUpStatus => {
   debug('Perform reducer', state, action);

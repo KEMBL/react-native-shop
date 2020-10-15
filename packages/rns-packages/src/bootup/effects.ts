@@ -13,6 +13,12 @@ import { appBootup } from './actions';
 
 const debug = Debug('app:action:bootup');
 
+/**
+ * Action effect for application start
+ *
+ * @param {object} action action without payload
+ */
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export function* onBootup(action: ActionWithPayload<CategoryId>) {
   debug('Perform action', action);
   const categoryId: CategoryId = yield select(selectCurrentCategoryId); // tODO: remove noneeed!

@@ -13,7 +13,6 @@ export interface FailedActionResultWithPayload<P> extends FailedActionResult {
   payload: P;
 }
 
-export interface Probability<TItem> {
-  itemId: TItem;
+export interface Probability<TItem> extends IdentifierId<TItem> {
   probability: number;
 }

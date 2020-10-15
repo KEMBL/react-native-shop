@@ -4,8 +4,9 @@ import { ApplicationState, ParametrizedSelector, proxyParam } from '../initializ
 import { CategoryId } from '../category';
 import { ProductId, ProductModel } from './types';
 
-const getAllProducts = (state: ApplicationState): ProductModel[] => state.externalData.products;
-//const getProductById = (state: ApplicationState, id: ProductId): ProductModel => getAllProducts(state)[id];
+const selectAllProducts = (state: ApplicationState): ProductModel[] => state.externalData.products;
+const selectProductById = (state: ApplicationState, id: ProductId): ProductModel | undefined =>
+  selectAllProducts(state).find((p) => p.id === id);
 // const getProductsByCategoryId = (state: ApplicationState, id: ProductId): ProductModel[] =>
 //   getAllProducts(state).filter((p) => p.categoryId === id);
 
@@ -15,7 +16,7 @@ const getAllProducts = (state: ApplicationState): ProductModel[] => state.extern
 //   );
 
 const selectProductsByCategoryId = (): ParametrizedSelector<ProductId, ProductModel[]> =>
-  createSelector(proxyParam, getAllProducts, (categoryId: CategoryId, products) =>
+  createSelector(proxyParam, selectAllProducts, (categoryId: CategoryId, products) =>
     products.filter((p) => p && p.categoryId === categoryId)
   );
 
@@ -30,6 +31,7 @@ const selectProductsByCategoryId = (): ParametrizedSelector<ProductId, ProductMo
 //   );
 
 export const selectors = {
-  getAllProducts,
+  selectProductById,
+  selectAllProducts,
   selectProductsByCategoryId
 };
