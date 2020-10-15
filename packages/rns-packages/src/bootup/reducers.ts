@@ -1,7 +1,7 @@
 import { debug as Debug } from '../debug';
 import { ApplicationState } from '../initialization';
-import { fetchProducts, reducers } from '../product';
-import { fetchCategories, reducers as categoryReducers } from '../category';
+import { fetchProducts, FetchProductsDoneAction } from '../product';
+import { fetchCategories, FetchCategoriesDoneAction } from '../category';
 import { FailedActionResult, nameofFactory } from '../shared';
 import { appBootup } from './actions';
 import { BootUpProgressEnum, BootUpStatus } from './types';
@@ -22,8 +22,8 @@ type BootUpActionTypes =
   | AppBootupAction
   | AppBootupSucessAction
   | AppBootupFailAction
-  | categoryReducers.FetchCategoriesDoneAction
-  | reducers.FetchProductsDoneAction;
+  | FetchCategoriesDoneAction
+  | FetchProductsDoneAction;
 
 const bootUpReducer = (state: BootUpStatus = new BootUpStatus(), action: BootUpActionTypes): BootUpStatus => {
   debug('Perform reducer', state, action);

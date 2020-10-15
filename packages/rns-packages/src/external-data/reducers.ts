@@ -10,7 +10,7 @@ import { nameofFactory } from '../shared';
  * Combines reducers for external data
  */
 
-const externalDataReducer = combineReducers(merge({}, productReducers.default, categoryReducers.default));
+const externalDataReducer = combineReducers(merge({}, productReducers, categoryReducers));
 
 const externalDataBranchName = 'externalData';
 nameofFactory<ApplicationState>()(externalDataBranchName);
