@@ -15,7 +15,7 @@
     "react-native-image-cache-hoc": "^2.0.0",
     "react-native-svg-web": "1.0.9",
     "react-native-web": "0.14.1",
-    "rns-core": "0.0.2"
+    "rns-core": "0.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",

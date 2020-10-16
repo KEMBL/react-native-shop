@@ -1,7 +1,8 @@
 {
   "name": "components",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
+  "description": "React components package",
   "scripts": {
     "lint": "eslint -c ../../.eslintrc.js --ext .ts,.tsx --ignore-pattern *.d.ts ./src",
     "lint:fix": "eslint -c ../../.eslintrc.js --ext .ts,.tsx --ignore-pattern *.d.ts --fix ./src",
@@ -14,8 +15,5 @@
   },
   "devDependencies": {
     "prop-types": "^15.7.2"
-  },
-  "include": [
-    "src"
-  ]
+  }
 }

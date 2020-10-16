@@ -1,5 +1,4 @@
 import { createStore, applyMiddleware, Middleware, StoreEnhancer } from 'redux';
-//import Immutable from 'immutable';
 import createSagaMiddleware from 'redux-saga';
 
 import { debug as Debug } from '../../debug';
@@ -7,7 +6,6 @@ import { ApplicationState, ApplicationStore } from './types';
 import { rootReducer, rootSaga } from './root-objects';
 
 const debug = Debug('app:store:error');
-//const { Map } = Immutable;
 
 /**
  * Build redux store

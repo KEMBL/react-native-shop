@@ -6,14 +6,13 @@ import { NavigationStackParamList } from 'rns-types';
 import { isBootUpCompleted, isBootUpFailed } from 'rns-packages';
 import { InitialLoadingScreen, ProductsListScreen } from 'components';
 
-
 /**
  * Application logic starts here
  * Here we make initial loading of necessary data right before start business logic
  *
  * @returns {React.FC} Component with the main application logic
  */
-const App: React.FC = (): JSX.Element => {
+export const Application: React.FC = (): JSX.Element => {
   const isLoaded = useSelector(isBootUpCompleted);
   const isLoadingError = useSelector(isBootUpFailed);
   const NavigationStack = createStackNavigator<NavigationStackParamList>();
@@ -43,4 +42,3 @@ const App: React.FC = (): JSX.Element => {
     </NavigationStack.Navigator>
   );
 };
-export default App;

@@ -12,7 +12,7 @@
     "format": "yarn --version"
   },
   "dependencies": {
-    "rns-core": "0.0.2",
+    "rns-core": "0.0.3",
     "react-native": "0.62.2",
     "react-native-image-cache-hoc": "^2.0.0",
     "react-native-svg": "^9.4.0",

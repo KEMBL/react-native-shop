@@ -3,13 +3,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { View } from 'react-native';
 
-import { AppContext, AppContextProps } from 'components';
+import { AppContext, AppContextProps, Application } from 'components';
 import { ApplicationStateComponent, setApolloClient } from 'rns-packages';
 import { Platform } from 'rns-theme/src/theme/Platform';
-
-import App from './App';
-import { StoreService } from './app/services/redux/store/Store.service';
-import { GraphqlService } from './app/services';
+import { StoreService, GraphqlService } from './services';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface AppBootStrapProps extends AppContextProps {}
@@ -23,7 +20,7 @@ const getNavigationContainer = (): JSX.Element => {
   return (
     <NavigationContainer>
       <NavigationStack.Navigator headerMode="none">
-        <NavigationStack.Screen name="Application" component={App} />
+        <NavigationStack.Screen name="Application" component={Application} />
       </NavigationStack.Navigator>
     </NavigationContainer>
   );

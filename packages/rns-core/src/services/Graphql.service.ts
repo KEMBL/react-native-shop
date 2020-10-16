@@ -1,12 +1,14 @@
-/* eslint-disable @typescript-eslint/indent */
-// import { ApolloClient, InMemoryCache, NormalizedCacheObject } from 'react-apollo';
 import { ApolloClient, InMemoryCache, NormalizedCacheObject } from '@apollo/client';
+import { ConfiguationService } from './Configuration.service';
 
-import { ConfiguationService } from '../../../app/services';
+class GraphqlService {
+  private _client!: ApolloClient<NormalizedCacheObject>;
 
-class ApolloClientService {
   public get apolloClient(): ApolloClient<NormalizedCacheObject> {
-    return new ApolloClient({
+    if (this._client) {
+      return this._client;
+    }
+    this._client = new ApolloClient({
       cache: new InMemoryCache(),
       uri: ConfiguationService.baseApiURL,
       // Provide some optional constructor fields
@@ -19,8 +21,10 @@ class ApolloClientService {
         }
       }
     });
+
+    return this._client;
   }
 }
 
-const apolloClientService = new ApolloClientService();
-export { apolloClientService as ApolloClientService };
+const graphqlService = new GraphqlService();
+export { graphqlService as GraphqlService };

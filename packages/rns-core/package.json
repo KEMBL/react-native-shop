@@ -1,8 +1,8 @@
 {
   "name": "rns-core",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": true,
-  "description": "React native shop application core",
+  "description": "React native shop application platform independent logic entry point",
   "scripts": {
     "lint": "eslint -c ../../.eslintrc.js --ext .ts,.tsx --ignore-pattern *.d.ts ./src",
     "lint:fix": "eslint -c ../../.eslintrc.js --ext .ts,.tsx --ignore-pattern *.d.ts --fix ./src",
@@ -10,15 +10,10 @@
   },
   "dependencies": {
     "@apollo/client": "^3.2.2",
-    "components": "0.0.1",
-    "immutable": "^4.0.0-rc.12",
-    "redux-devtools-extension": "^2.13.8",
-    "redux-saga": "^1.1.3",
-    "reselect": "^4.0.0",
+    "components": "0.0.2",
+    "redux-devtools-extension": "^2.13.8",    
     "rns-packages": "0.0.1",
     "rns-theme": "0.0.1",
     "rns-types": "0.0.1"
-  },
-  "devDependencies": {
   }
 }
