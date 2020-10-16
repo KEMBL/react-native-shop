@@ -1,34 +1,22 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Image, View } from 'react-native';
+import { View } from 'react-native';
 
+import { AppContext, AppContextProps } from 'components';
 import { ApplicationStateComponent, setApolloClient } from 'rns-packages';
-import { StylableText } from 'components/src/trivial/text/StylableText';
-import { ImageCacherOptionsInterface } from 'components/src/trivial/CacheableImage/ImageCacherOptionsInterface';
+import { Platform } from 'rns-theme/src/theme/Platform';
 
 import App from './App';
 import { StoreService } from './app/services/redux/store/Store.service';
-import { Platform } from 'rns-theme/src/theme/Platform';
 import { GraphqlService } from './app/services';
 
-export interface AppBootStrapProps {
-  imageCacherInterface: (image: Image, options: ImageCacherOptionsInterface) => React.Component;
-}
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface AppBootStrapProps extends AppContextProps {}
 
 /**
  * Platform independent logic starts here
  */
-export const AppContext = React.createContext<AppBootStrapProps>({
-  imageCacherInterface: (_: Image, __: ImageCacherOptionsInterface) =>
-    new React.Component(() => {
-      return (
-        <StylableText>
-          No Image viewer assigned: {!!_} {!!__}
-        </StylableText>
-      );
-    })
-});
 
 const NavigationStack = createStackNavigator();
 const getNavigationContainer = (): JSX.Element => {
@@ -42,7 +30,7 @@ const getNavigationContainer = (): JSX.Element => {
 };
 
 export const AppBootStrap: React.FC<AppBootStrapProps> = (props: AppBootStrapProps) => {
-  const store = StoreService.getStore;  
+  const store = StoreService.getStore;
   setApolloClient(GraphqlService.apolloClient);
   return (
     <AppContext.Provider value={props}>

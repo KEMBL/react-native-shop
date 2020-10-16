@@ -20,7 +20,8 @@
     "redux-package-loader": "^1.0.2",
     "redux-saga-creator": "^2.0.1",
     "reselect": "^4.0.0",
-    "robodux": "^9.1.0"
+    "robodux": "^9.1.0",
+    "rns-types": "0.0.1"
   },
   "devDependencies": {
     "@types/debug": "^4.1.5",

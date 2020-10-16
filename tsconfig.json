@@ -2,6 +2,7 @@
   "extends": "./tsconfig.base.json",
   "exclude": ["node_modules"],
   "references": [
+    {"path": "packages/rns-types"},
     {"path": "packages/components"},
     {"path": "packages/rns-theme"},
     {"path": "packages/rns-core"},

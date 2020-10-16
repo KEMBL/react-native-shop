@@ -1,9 +1,4 @@
-/**
- * Every enumarated object in store should follow that interface
- */
-export interface IdentifierId<T> {
-  id: T;
-}
+import { IdentifierId } from 'rns-types';
 
 export interface FailedActionResult {
   error: string;

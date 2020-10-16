@@ -1,4 +1,4 @@
-import { ProductModel } from 'rns-packages';
+import { ProductModel } from './product';
 
 export type NavigationStackParamList = {
   Loading: { isError: boolean };

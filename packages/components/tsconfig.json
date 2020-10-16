@@ -3,7 +3,12 @@
   "compilerOptions": {
     "composite": true
   },
+  "files": ["index.ts"],
+  "include": ["src/**/*"],
   "references": [
+    {
+      "path": "../rns-types"
+    },
     {
       "path": "../rns-theme"
     }

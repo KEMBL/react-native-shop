@@ -6,8 +6,8 @@ import {ButtonStyle} from 'rns-theme/src/theme/components/Button';
 import {Header3Text} from 'components/src/trivial/text/Header3Text';
 import {Button} from 'components/src/trivial/buttons/Button';
 
-import {ProductCard} from '../ProductCard';
-import {ProductCardModel} from '../../../models/Product/ProductCardModel';
+import {ProductCard} from 'components/src/advanced/ProductCard';
+import {ProductCardModel} from './types';
 
 interface CardsSectionProps {
   title: string;

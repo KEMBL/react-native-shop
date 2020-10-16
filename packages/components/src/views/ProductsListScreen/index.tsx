@@ -1,20 +1,25 @@
 import React from 'react';
+import { shallowEqual, useSelector } from 'react-redux';
 import { StyleSheet, View, StatusBar, FlatList } from 'react-native';
 
-import { ProductCategoryModel, ProductCategoryModelWithProducts, selectCurrentCategoryCategories } from 'rns-packages';
+import { CardsSection, ProductCardModel } from 'components';
+import {
+  Configuration,
+  ProductCategoryModel,
+  ProductCategoryModelWithProducts,
+  selectConfiguration,
+  selectCurrentCategoryCategories
+} from 'rns-packages';
 import { TopDownGradient } from 'components/src/trivial/icons/gradients/TopDownGradient';
 import { Theme } from 'rns-theme/src/theme/Theme';
-import { CardsSection } from '../../components/advanced/CardsSection';
-import { ProductCardModel } from '../../models/Product/ProductCardModel';
-import { shallowEqual, useSelector } from 'react-redux';
-import { PriceUtils } from '../../../app/utils';
+import { PriceUtils } from 'components/src/utils';
 
 const keyExtractor = (_item: ProductCategoryModel, index: number): string => {
   return index.toString();
 };
 
-const renderCategory = ({ item }: { item: ProductCategoryModelWithProducts }): JSX.Element => {
-  const { title, products } = item;  
+const renderCategory = (item: ProductCategoryModelWithProducts, configuration: Configuration): JSX.Element => {
+  const { title, products } = item;
   const cards: ProductCardModel[] = products
     ? products.map<ProductCardModel>((value) => {
         if (!value) {
@@ -28,8 +33,8 @@ const renderCategory = ({ item }: { item: ProductCategoryModelWithProducts }): J
         }
 
         let imageUrl = '';
-        if(!value.imageUrls){
-          console.error('undefined imageUrls', value);          
+        if (!value.imageUrls) {
+          console.error('undefined imageUrls', value);
           imageUrl = '';
         } else {
           imageUrl = value.imageUrls[0];
@@ -39,7 +44,7 @@ const renderCategory = ({ item }: { item: ProductCategoryModelWithProducts }): J
           thumbnail: imageUrl,
           title: value.name,
           weight: 1.2,
-          price: PriceUtils.makePriceString(value.price.properties)
+          price: PriceUtils.makePriceString(value.price.properties, configuration.currency, configuration.priceError)
         };
       })
     : [];
@@ -52,6 +57,7 @@ const renderCategory = ({ item }: { item: ProductCategoryModelWithProducts }): J
  * @returns {object} see description
  */
 export const ProductsListScreen: React.FC = () => {
+  const configuration = useSelector(selectConfiguration, shallowEqual);
   const categories = useSelector(selectCurrentCategoryCategories, shallowEqual);
   // console.log('categories', categories);
   const mainStyle = StyleSheet.create({
@@ -83,7 +89,7 @@ export const ProductsListScreen: React.FC = () => {
           pagingEnabled={true}
           showsVerticalScrollIndicator={false}
           keyExtractor={keyExtractor}
-          renderItem={renderCategory}
+          renderItem={({ item }): JSX.Element => renderCategory(item, configuration)}
         />
       </View>
     </View>

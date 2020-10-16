@@ -1,5 +1,4 @@
-import { ProductModel } from '../product';
-import { IdentifierId } from '../shared';
+import { IdentifierId, ProductModel } from 'rns-types';
 
 export type CategoryId = number;
 export const RootCategoryId: CategoryId = 0;

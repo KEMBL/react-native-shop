@@ -2,10 +2,10 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useSelector } from 'react-redux';
 
-import { NavigationStackParamList } from './app/models/navigation';
-import { InitialLoadingScreen } from './app/views/InitialLoadingScreen';
+import { NavigationStackParamList } from 'rns-types';
 import { isBootUpCompleted, isBootUpFailed } from 'rns-packages';
-import { ProductsListScreen } from './app/views/ProductsListScreen';
+import { InitialLoadingScreen, ProductsListScreen } from 'components';
+
 
 /**
  * Application logic starts here

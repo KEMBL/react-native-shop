@@ -1,10 +1,11 @@
 /**
- * MAin application configuration
+ * Main application configuration
  */
 export class ConfiguationService {
-  public static currency = 'руб.';
+  /**
+   * Source of application external data
+   */
   public static baseApiURL = 'http://api.termokot.ru/graphql';
-  public static priceError = 'Ошибка цены';
   /**
    * Should be the same as hostname remotedev script of package.json
    * !!! Do not forget to start remotedev-server
@@ -22,8 +23,4 @@ export class ConfiguationService {
    * Use DevTools server
    */
   public static remoteDevServerActive = true;
-  /**
-   * API endpoint fro getting products
-   */
-  public static getProductsUrl = `${ConfiguationService.baseApiURL}/rns/api/products.json`;
 }

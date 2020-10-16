@@ -1,4 +1,4 @@
-import { IdentifierId } from '../shared';
+import { IdentifierId } from './shared';
 
 export type ProductId = number;
 

@@ -1,8 +1,9 @@
 import { createSelector } from 'reselect';
 
+import { ProductId, ProductModel } from 'rns-types';
 import { ApplicationState, selectState, ParametrizedSelector, proxyParam } from '../initialization';
 import { Probability } from '../shared';
-import { ProductId, ProductModel, selectors as productSelectors } from '../product';
+import { selectors as productSelectors } from '../product';
 import { CategoryId, ProductCategoryModel, ProductCategoryModelWithProducts } from './types';
 import { selectCurrentCategoryId } from '../ui';
 

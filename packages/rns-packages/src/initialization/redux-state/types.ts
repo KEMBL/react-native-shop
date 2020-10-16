@@ -1,9 +1,10 @@
 import { Store, AnyAction } from 'redux';
 
+import { ProductModel } from 'rns-types';
 import { BootUpStatus } from '../../bootup';
-import { ProductModel } from '../../product';
 import { ProductCategoryModel } from '../../category';
 import { UiState } from '../../ui';
+import { Configuration } from '../../configuration';
 
 /**
  * Application store type
@@ -19,6 +20,7 @@ export interface ExternalData {
  * Main application state class
  */
 export interface ApplicationState {
+  configuration: Configuration;
   bootUpStatus: BootUpStatus;
   uiState: UiState;
   externalData: ExternalData;

@@ -1,10 +1,10 @@
 import React, {PureComponent} from 'react';
 import {View} from 'react-native';
 
+import { AppContext } from 'components';
 import {default as ProductCardTheme} from 'rns-theme/src/theme/components/ProductCard';
 import {CacheableImage} from 'components/src/trivial/CacheableImage';
 import {PlainText} from 'components/src/trivial/text/PlainText';
-import {AppContext} from '../../../../AppBootStrap';
 
 interface ProductCardProps {
   thumbnail: string;

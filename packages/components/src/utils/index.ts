@@ -1,9 +1,13 @@
-import { PricePropertiesModel, ProprtyUnitType } from 'rns-packages';
-import { ConfiguationService } from '../services';
+import { PricePropertiesModel, ProprtyUnitType } from 'rns-types';
 
 export class PriceUtils {
-  public static makePriceString = (priceProperties: PricePropertiesModel[], index = -1, amount = 1): string => {
-    const { currency, priceError } = ConfiguationService;
+  public static makePriceString = (
+    priceProperties: PricePropertiesModel[],
+    currency: string,
+    priceError: string,
+    index = -1,
+    amount = 1
+  ): string => {
     if (priceProperties == null || priceProperties.length === 0) {
       return priceError;
     }

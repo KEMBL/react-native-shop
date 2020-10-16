@@ -1,21 +1,13 @@
 {
-  "name": "components",
+  "name": "rns-types",
   "version": "0.0.1",
   "private": true,
+  "description": "Shared types are put here to avoid packages coupling",
   "scripts": {
     "lint": "eslint -c ../../.eslintrc.js --ext .ts,.tsx --ignore-pattern *.d.ts ./src",
     "lint:fix": "eslint -c ../../.eslintrc.js --ext .ts,.tsx --ignore-pattern *.d.ts --fix ./src",
     "format": "prettier --config ../../.prettierrc.js --ignore-path ../../.prettierignore --write src/**/*.ts"
   },
-  "dependencies": {
-    "rns-theme": "0.0.1",    
-    "rns-types": "0.0.1",
-    "react-native-svg": "^9.4.0"
-  },
-  "devDependencies": {
-    "prop-types": "^15.7.2"
-  },
-  "include": [
-    "src"
-  ]
+  "dependencies": {},
+  "devDependencies": {}
 }
