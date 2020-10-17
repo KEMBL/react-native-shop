@@ -13,7 +13,7 @@
   "dependencies": {
     "react-dom": "^16.13.1",
     "react-native-image-cache-hoc": "^2.0.0",
-    "react-native-svg-web": "1.0.9",
+    "react-native-svg": "^12.1.0",
     "react-native-web": "0.14.1",
     "rns-core": "0.0.3"
   },

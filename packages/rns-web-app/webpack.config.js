@@ -2,8 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const join = path.join;
 
-const aliasPathJoin = moduleFolders =>
-  join(process.cwd(), '..', '..', 'node_modules', join(...moduleFolders));
+const aliasPathJoin = (moduleFolders) => join(process.cwd(), '..', '..', 'node_modules', join(...moduleFolders));
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -16,7 +15,7 @@ module.exports = {
   },
   watch: !isProduction,
   watchOptions: {
-    aggregateTimeout: 600   
+    aggregateTimeout: 600
   },
   optimization: {
     minimize: isProduction
@@ -25,23 +24,11 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js', '.web.js'],
     alias: {
       'react-native$': 'react-native-web',
-      'react-native-svg': 'react-native-svg-web',
-      './RNGestureHandlerModule': aliasPathJoin([
-        'react-native-gesture-handler',
-        'RNGestureHandlerModule.web.js'
-      ]),
-      './GestureHandlerButton': aliasPathJoin([
-        'react-native-gesture-handler',
-        'GestureHandlerButton.web.js'
-      ]),
-      './GestureComponents': aliasPathJoin([
-        'react-native-gesture-handler',
-        'GestureComponents.web.js'
-      ]),
-      './PlatformConstants': aliasPathJoin([
-        'react-native-gesture-handler',
-        'PlatformConstants.web.js'
-      ]),
+      './ReactNativeSVG': aliasPathJoin(['react-native-svg', 'lib', 'module', 'ReactNativeSVG.web.js']),
+      './RNGestureHandlerModule': aliasPathJoin(['react-native-gesture-handler', 'RNGestureHandlerModule.web.js']),
+      './GestureHandlerButton': aliasPathJoin(['react-native-gesture-handler', 'GestureHandlerButton.web.js']),
+      './GestureComponents': aliasPathJoin(['react-native-gesture-handler', 'GestureComponents.web.js']),
+      './PlatformConstants': aliasPathJoin(['react-native-gesture-handler', 'PlatformConstants.web.js']),
       './InitialWindowSafeAreaInsets': aliasPathJoin([
         'react-native-safe-area-context',
         'lib',
@@ -72,11 +59,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: [
-              ['@babel/preset-env', {debug: !isProduction}],
-              '@babel/preset-react',
-              '@babel/preset-flow'
-            ],
+            presets: [['@babel/preset-env', { debug: !isProduction }], '@babel/preset-react', '@babel/preset-flow'],
             plugins: ['@babel/plugin-proposal-class-properties']
           }
         }
