@@ -8,7 +8,7 @@
     "remotedev": "remotedev --hostname=localhost --port=8888",
     "lint": "eslint -c ../../.eslintrc.js --ext .ts,.tsx --ignore-pattern *.d.ts ./src",
     "lint:fix": "eslint -c ../../.eslintrc.js --ext .ts,.tsx --ignore-pattern *.d.ts --fix ./src",
-    "format": "prettier --config ../../.prettierrc.js --ignore-path ../../.prettierignore --write src/**/*.ts"
+    "format": "prettier --config ../../.prettierrc.js --ignore-path ../../.prettierignore --write \"src/**/*.{ts,tsx}\""
   },
   "dependencies": {
     "react-dom": "^16.13.1",
