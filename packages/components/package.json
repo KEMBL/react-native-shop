@@ -10,8 +10,7 @@
   },
   "dependencies": {
     "rns-theme": "0.0.1",
-    "rns-types": "0.0.1",
-    "react-native-svg": "^12.1.0"
+    "rns-types": "0.0.1"
   },
   "devDependencies": {
     "prop-types": "^15.7.2"

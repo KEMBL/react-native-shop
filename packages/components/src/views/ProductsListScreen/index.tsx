@@ -32,6 +32,7 @@ const renderCategory = (item: ProductCategoryModelWithProducts, configuration: C
   const cards: ProductCardModel[] = products
     ? products.map<ProductCardModel>((value) => {
         if (!value) {
+          // eslint-disable-next-line no-console
           console.error('undefined product cart value!', item);
           return {
             thumbnail: '',
@@ -43,6 +44,7 @@ const renderCategory = (item: ProductCategoryModelWithProducts, configuration: C
 
         let imageUrl = '';
         if (!value.imageUrls) {
+          // eslint-disable-next-line no-console
           console.error('undefined imageUrls', value);
           imageUrl = '';
         } else {
