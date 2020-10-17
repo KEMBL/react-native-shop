@@ -1,7 +1,7 @@
-import React, { PureComponent } from "react";
-import { TextStyle } from "react-native";
+import React, { PureComponent } from 'react';
+import { TextStyle } from 'react-native';
 
-import { StylableText } from "../StylableText";
+import { StylableText } from '../StylableText';
 
 export interface PlainTextProps {
   style?: TextStyle;

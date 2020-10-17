@@ -8,11 +8,8 @@ import {
   GestureResponderEvent
 } from 'react-native';
 
-import {Theme} from 'rns-theme/src/theme/Theme';
-import {
-  default as ButtonTheme,
-  ButtonStyle
-} from 'rns-theme/src/theme/components/Button';
+import { Theme } from 'rns-theme/src/theme/Theme';
+import { default as ButtonTheme, ButtonStyle } from 'rns-theme/src/theme/components/Button';
 
 export interface ButtonProps {
   title: string;
@@ -24,7 +21,7 @@ export interface ButtonProps {
 
 export class Button extends React.PureComponent<ButtonProps> {
   public render(): JSX.Element {
-    const {accessibilityLabel, title, isDisabled, style} = this.props;
+    const { accessibilityLabel, title, isDisabled, style } = this.props;
 
     const theme = style || ButtonTheme;
 

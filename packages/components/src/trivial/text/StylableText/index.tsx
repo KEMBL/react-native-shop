@@ -1,7 +1,7 @@
-import React, {PureComponent} from 'react';
-import {Text, TextStyle} from 'react-native';
+import React, { PureComponent } from 'react';
+import { Text, TextStyle } from 'react-native';
 
-import {Theme} from 'rns-theme/src/theme/Theme';
+import { Theme } from 'rns-theme/src/theme/Theme';
 
 type EllipsizeMode = 'head' | 'middle' | 'tail' | 'clip';
 
@@ -19,7 +19,7 @@ export class StylableText extends PureComponent<StylableTextProps> {
   };
 
   public render(): JSX.Element {
-    const {style, wrapLines, children} = this.props;
+    const { style, wrapLines, children } = this.props;
 
     let numberOfLines = 0;
     let ellipsizeMode: EllipsizeMode = 'clip';
@@ -29,10 +29,7 @@ export class StylableText extends PureComponent<StylableTextProps> {
     }
 
     return (
-      <Text
-        style={style}
-        ellipsizeMode={ellipsizeMode}
-        numberOfLines={numberOfLines || undefined}>
+      <Text style={style} ellipsizeMode={ellipsizeMode} numberOfLines={numberOfLines || undefined}>
         {children}
       </Text>
     );

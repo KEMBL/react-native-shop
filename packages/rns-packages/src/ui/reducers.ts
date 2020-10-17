@@ -1,10 +1,7 @@
-import { actionSetCurrentCategory } from '.';
-import { debug as Debug } from '../debug';
-import { CategoryId } from '../category';
+import { CategoryId } from 'rns-packages/src/shared/types';
+import { actionSetCurrentCategory } from './actions';
 import { uiStateBranchName } from './selectors';
 import { UiState } from './types';
-
-const debug = Debug('app:reducers:setCurrentCategory');
 
 interface SetCurrentCategory {
   type: string;
@@ -14,7 +11,6 @@ interface SetCurrentCategory {
 type ActionTypes = SetCurrentCategory;
 
 const dataReducer = (state: UiState = new UiState(), action: ActionTypes): UiState => {
-  debug('UI Reducer after current category is set', action);
   switch (action.type) {
     case `${actionSetCurrentCategory.start}`: {
       if (state.currentCategoryId !== action.payload) {

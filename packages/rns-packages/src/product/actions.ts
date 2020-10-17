@@ -1,5 +1,7 @@
-import { actionCreator, FailedActionResult } from '../shared';
-import { ProductsCollection } from './types';
+import { ProductsCollection } from 'rns-types';
+
+import { FailedActionResult } from 'rns-packages/src/shared/types';
+import { actionCreator } from 'rns-packages/src/shared';
 
 /**
  * Requests all products

@@ -1,6 +1,5 @@
-import { ApplicationState } from '../initialization';
-import { CategoryId } from '../category';
-import { nameofFactory } from '../shared';
+import { CategoryId, ApplicationState } from 'rns-packages/src/shared/types';
+import { nameofFactory } from 'rns-packages/src/shared';
 
 export const uiStateBranchName = 'uiState';
 nameofFactory<ApplicationState>()(uiStateBranchName); // name guard

@@ -1,18 +1,18 @@
-import React, {PureComponent} from 'react';
+import React, { PureComponent } from 'react';
 import * as rnSvg from 'react-native-svg';
 
 interface TopDownGradientProps {
   topColor: string;
   bottomColor: string;
-  width: number;
-  height: number;
+  width: string | number; // 10 | 40%
+  height: string | number;
 }
 
 export class TopDownGradient extends PureComponent<TopDownGradientProps> {
   public render(): JSX.Element {
-    const {topColor, bottomColor, width, height} = this.props;
-    const {Svg, Defs, LinearGradient, Stop, Rect} = rnSvg;
-    
+    const { topColor, bottomColor, width, height } = this.props;
+    const { Svg, Defs, LinearGradient, Stop, Rect } = rnSvg;
+
     return (
       <Svg height={height} width={width}>
         <Defs>

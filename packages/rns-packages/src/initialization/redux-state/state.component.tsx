@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import { appBootup } from '../../bootup';
+import { appBootup } from 'rns-packages/src/bootup';
 import { ApplicationStore } from './types';
 
 interface ApplicationStateProps {

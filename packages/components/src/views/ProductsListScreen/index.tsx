@@ -2,7 +2,6 @@ import React from 'react';
 import { shallowEqual, useSelector } from 'react-redux';
 import { StyleSheet, View, StatusBar, FlatList } from 'react-native';
 
-import { CardsSection, ProductCardModel } from 'components';
 import {
   Configuration,
   ProductCategoryModel,
@@ -10,14 +9,24 @@ import {
   selectConfiguration,
   selectCurrentCategoryCategories
 } from 'rns-packages';
+
 import { TopDownGradient } from 'components/src/trivial/icons/gradients/TopDownGradient';
 import { Theme } from 'rns-theme/src/theme/Theme';
 import { PriceUtils } from 'components/src/utils';
+import { CardsSection, ProductCardModel } from 'components/src/advanced/CardsSection';
 
 const keyExtractor = (_item: ProductCategoryModel, index: number): string => {
   return index.toString();
 };
 
+/**
+ * Draw one category areas
+ *
+ * @param item category with products
+ * @param configuration additional params
+ *
+ * @returns block which contains items from one category
+ */
 const renderCategory = (item: ProductCategoryModelWithProducts, configuration: Configuration): JSX.Element => {
   const { title, products } = item;
   const cards: ProductCardModel[] = products
@@ -83,7 +92,7 @@ export const ProductsListScreen: React.FC = () => {
           backgroundColor: '#EEEEEE',
           flex: 1
         }}>
-        <TopDownGradient width={Theme.platform.deviceWidth} height={7} topColor="#BFBFBF" bottomColor="#EEEEEE" />
+        <TopDownGradient width="100%" height={7} topColor="#BFBFBF" bottomColor="#EEEEEE" />
         <FlatList<ProductCategoryModelWithProducts>
           data={categories}
           pagingEnabled={true}

@@ -1,15 +1,15 @@
 import React from 'react';
-import {View} from 'react-native';
+import { View } from 'react-native';
 
-import {default as DeliverySelectorTheme} from 'rns-theme/src/theme/components/DeliverySelector';
-import {StylableText} from 'components/src/trivial/text/StylableText';
-import {LocationIcon} from 'components/src/trivial/icons/Location';
+import { default as DeliverySelectorTheme } from 'rns-theme/src/theme/components/DeliverySelector';
+import { StylableText } from 'components/src/trivial/text/StylableText';
+import { LocationIcon } from 'components/src/trivial/icons/Location';
 
 export const DeliverySelector: React.FC = (): JSX.Element => {
   return (
     <View style={DeliverySelectorTheme.container}>
       <LocationIcon />
-      <View style={{flexDirection: 'column'}}>
+      <View style={{ flexDirection: 'column' }}>
         <StylableText
           style={{
             fontFamily: 'sans-serif-condensed',

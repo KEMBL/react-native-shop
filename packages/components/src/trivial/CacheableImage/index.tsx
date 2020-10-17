@@ -1,5 +1,5 @@
-import React, {PureComponent} from 'react';
-import {Image, ImageResizeMode, ImageStyle} from 'react-native';
+import React, { PureComponent } from 'react';
+import { Image, ImageResizeMode, ImageStyle } from 'react-native';
 
 export interface CacheableImageProps {
   style: ImageStyle;
@@ -31,15 +31,8 @@ export class CacheableImage extends PureComponent<CacheableImageProps> {
   });
 
   public render(): JSX.Element {
-    const {src, style, permanent, resizeMode} = this.props;
+    const { src, style, permanent, resizeMode } = this.props;
 
-    return (
-      <this.cacheableImage
-        style={style}
-        source={{uri: src}}
-        permanent={permanent}
-        resizeMode={resizeMode}
-      />
-    );
+    return <this.cacheableImage style={style} source={{ uri: src }} permanent={permanent} resizeMode={resizeMode} />;
   }
 }

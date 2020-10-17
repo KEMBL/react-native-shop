@@ -1,10 +1,7 @@
 import { Store, AnyAction } from 'redux';
-
 import { ProductModel } from 'rns-types';
-import { BootUpStatus } from '../../bootup';
-import { ProductCategoryModel } from '../../category';
-import { UiState } from '../../ui';
-import { Configuration } from '../../configuration';
+
+import { BootUpStatus, UiState, Configuration, ProductCategoryModel } from 'rns-packages/src/shared/types';
 
 /**
  * Application store type

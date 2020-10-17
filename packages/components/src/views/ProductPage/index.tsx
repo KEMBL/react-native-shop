@@ -4,7 +4,6 @@ import { View, StatusBar, ScrollView } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { PriceModel, ProductModel } from 'rns-types';
-import { DeliverySelector, AppContext } from 'components';
 import { selectConfiguration } from 'rns-packages';
 import {
   steelSheetInstance as ItemPageTheme,
@@ -19,6 +18,8 @@ import { Button } from 'components/src/trivial/buttons/Button';
 import { DataButton } from 'components/src/trivial/buttons/DataButton';
 import { Hr } from 'components/src/trivial/hr';
 import { PriceUtils } from 'components/src/utils';
+import { AppContext } from 'components/src/context';
+import { DeliverySelector } from 'components/src/advanced/DeliverySelector';
 
 interface ProductPageProps {
   product: ProductModel;

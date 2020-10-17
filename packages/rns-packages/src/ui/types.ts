@@ -1,5 +1,5 @@
 import { ProductId } from 'rns-types';
-import { CategoryId } from '../category';
+import { CategoryId } from 'rns-packages/src/shared/types';
 
 export class UiState {
   currentCategoryId: CategoryId = 0;

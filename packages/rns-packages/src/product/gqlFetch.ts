@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
+import { ProductsCollection } from 'rns-types';
 
-import { GqlClientService } from '../shared';
-import { ProductsCollection } from './types';
+import { GqlClientService } from 'rns-packages/src/shared';
 
 // const debug = Debug('app:fetch:fetchProducts');
 

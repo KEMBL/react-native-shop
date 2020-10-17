@@ -1,9 +1,9 @@
 import React from 'react';
-import {AppRegistry} from 'react-native';
+import { AppRegistry } from 'react-native';
 import ReactDOM from 'react-dom';
 
-import {AppBootStrap} from 'rns-core/src/AppBootStrap';
-import {mokedImage} from './components/MockedImage';
+import { AppBootStrap } from 'rns-core/src/AppBootStrap';
+import { mokedImage } from './components/MockedImage';
 
 const AddedContext: React.FC = () => {
   // Problem: Core package should not wotk with platform dependent modules but in Mobile env

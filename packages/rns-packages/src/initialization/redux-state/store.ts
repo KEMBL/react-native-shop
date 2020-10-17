@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, Middleware, StoreEnhancer } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
-import { debug as Debug } from '../../debug';
+import { debug as Debug } from 'rns-packages/src/shared';
 import { ApplicationState, ApplicationStore } from './types';
 import { rootReducer, rootSaga } from './root-objects';
 
@@ -30,12 +30,14 @@ export class StoreBuilder {
     });
 
     middleware.push(sagaMiddleware);
-    if (process.env.NODE_ENV === 'development') {
-      const logger = require('redux-logger').createLogger({
-        colors: false // does not work well in console
-      });
-      middleware.push(logger);
-    }
+
+    // logger
+    // if (process.env.NODE_ENV === 'development') {
+    //   const logger = require('redux-logger').createLogger({
+    //     colors: false // does not work well in console
+    //   });
+    //   middleware.push(logger);
+    // }
 
     const appledMiddleware = applyMiddleware(...middleware);
     const enhancedMiddleware = enhancer ? enhancer(appledMiddleware) : appledMiddleware;

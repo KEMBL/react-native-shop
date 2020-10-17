@@ -1,11 +1,11 @@
 import { createSelector } from 'reselect';
-
 import { ProductId, ProductModel } from 'rns-types';
-import { ApplicationState, selectState, ParametrizedSelector, proxyParam } from '../initialization';
-import { Probability } from '../shared';
-import { selectors as productSelectors } from '../product';
+
+import { selectState, ParametrizedSelector, proxyParam } from 'rns-packages/src/shared';
+import { Probability, ApplicationState } from 'rns-packages/src/shared/types';
+import { selectors as productSelectors } from 'rns-packages/src/product';
+import { selectCurrentCategoryId } from 'rns-packages/src/ui';
 import { CategoryId, ProductCategoryModel, ProductCategoryModelWithProducts } from './types';
-import { selectCurrentCategoryId } from '../ui';
 
 // name guard
 

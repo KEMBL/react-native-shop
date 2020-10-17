@@ -4,7 +4,8 @@ import { useSelector } from 'react-redux';
 
 import { NavigationStackParamList } from 'rns-types';
 import { isBootUpCompleted, isBootUpFailed } from 'rns-packages';
-import { InitialLoadingScreen, ProductsListScreen } from 'components';
+import { ProductsListScreen } from 'components/src/views/ProductsListScreen';
+import { InitialLoadingScreen } from 'components/src/views/InitialLoadingScreen';
 
 /**
  * Application logic starts here

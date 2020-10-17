@@ -2,7 +2,7 @@ import { Reducer, combineReducers } from 'redux';
 import use from 'redux-package-loader';
 import sagaCreator from 'redux-saga-creator';
 
-import { debug as Debug } from '../../debug';
+import { debug as Debug } from 'rns-packages/src/shared';
 import { ApplicationState } from './types';
 
 /**

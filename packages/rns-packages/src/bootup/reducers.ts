@@ -1,8 +1,8 @@
-import { debug as Debug } from '../debug';
-import { ApplicationState } from '../initialization';
-import { fetchProducts, FetchProductsDoneAction } from '../product';
-import { fetchCategories, FetchCategoriesDoneAction } from '../category';
-import { FailedActionResult, nameofFactory } from '../shared';
+import { debug as Debug, nameofFactory } from 'rns-packages/src/shared';
+import { FailedActionResult } from 'rns-packages/src/shared/types';
+import { ApplicationState } from 'rns-packages/src/initialization';
+import { fetchProducts, FetchProductsDoneAction } from 'rns-packages/src/product';
+import { fetchCategories, FetchCategoriesDoneAction } from 'rns-packages/src/category';
 import { appBootup } from './actions';
 import { BootUpProgressEnum, BootUpStatus } from './types';
 
@@ -26,7 +26,6 @@ type BootUpActionTypes =
   | FetchProductsDoneAction;
 
 const bootUpReducer = (state: BootUpStatus = new BootUpStatus(), action: BootUpActionTypes): BootUpStatus => {
-  debug('Perform reducer', state, action);
   switch (action.type) {
     case `${appBootup.start}`:
       return state.progress !== BootUpProgressEnum.Pending
@@ -62,6 +61,7 @@ const bootUpReducer = (state: BootUpStatus = new BootUpStatus(), action: BootUpA
     }
 
     case `${appBootup.fail}`:
+      debug('Failed action', action);
       return { ...state, progress: BootUpProgressEnum.Fail, error: (action as AppBootupFailAction).payload.error };
 
     default:

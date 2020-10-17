@@ -1,8 +1,8 @@
 import { createSelector } from 'reselect';
 
 import { ProductId, ProductModel } from 'rns-types';
-import { ApplicationState, ParametrizedSelector, proxyParam } from '../initialization';
-import { CategoryId } from '../category';
+import { CategoryId, ApplicationState } from 'rns-packages/src/shared/types';
+import { ParametrizedSelector, proxyParam } from 'rns-packages/src/shared';
 
 const selectAllProducts = (state: ApplicationState): ProductModel[] => state.externalData.products;
 const selectProductById = (state: ApplicationState, id: ProductId): ProductModel | undefined =>

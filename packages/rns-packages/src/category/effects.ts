@@ -1,10 +1,10 @@
 import { put, call } from 'redux-saga/effects';
 import { Action, ActionWithPayload } from 'robodux';
 
-import { debug as Debug } from '../debug';
-import { CategoryId } from '../category';
-import { actionSetCurrentCategory } from '../ui';
-import { setLoaderStatus } from '../loading';
+import { debug as Debug } from 'rns-packages/src/shared';
+import { CategoryId } from 'rns-packages/src/shared/types';
+import { actionSetCurrentCategory } from 'rns-packages/src/ui';
+import { setLoaderStatus } from 'rns-packages/src/loading';
 import { fetchCategories, fetchCategoriesWithProducts } from './actions';
 import { gqlFetchAllCategorisAsync, gqlFetchCategoryWithProductsAsync } from './gqlFetch';
 
@@ -17,13 +17,13 @@ const debug = Debug('app:action:fetchCategories');
  */
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 function* onFetchAllCategories(action: Action) {
-  debug('Perform all categories fetch action', action);
   yield put(setLoaderStatus.start());
   try {
     const categories = yield call(gqlFetchAllCategorisAsync);
     yield put(fetchCategories.done(categories));
     yield put(setLoaderStatus.done()); // TODO: might be to early to call
   } catch (error) {
+    yield call(debug, `Exception: All categories fetch action`, error, action);
     yield put(fetchCategories.fail({ error }));
     yield put(setLoaderStatus.fail());
     throw error;
@@ -37,7 +37,6 @@ function* onFetchAllCategories(action: Action) {
  */
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 function* onFetchCategoriesWithProducts(action: ActionWithPayload<CategoryId>) {
-  debug('Perform fetch action', action);
   const categoryId = action.payload;
   yield put(setLoaderStatus.start());
   try {
@@ -46,6 +45,7 @@ function* onFetchCategoriesWithProducts(action: ActionWithPayload<CategoryId>) {
     yield put(actionSetCurrentCategory.start(categoryId));
     yield put(setLoaderStatus.done()); // TODO: might be to early to call
   } catch (error) {
+    yield call(debug, `Exception: Categories fetch action`, error, action);
     yield put(fetchCategoriesWithProducts.fail({ payload: categoryId, error }));
     yield put(setLoaderStatus.fail());
     throw error;

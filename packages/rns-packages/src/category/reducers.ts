@@ -1,7 +1,8 @@
-import { debug as Debug } from '../debug';
+import { debug as Debug } from 'rns-packages/src/shared';
+import { FailedActionResult, FailedActionResultWithPayload } from 'rns-packages/src/shared/types';
 import { fetchCategories } from './actions';
 import { CategoriesCollection, CategoryId, ProductCategoryCollection, ProductCategoryModel } from './types';
-import { FailedActionResult, FailedActionResultWithPayload, nameofFactory } from '../shared';
+import { nameofFactory } from '../shared';
 import { ExternalData } from '../initialization';
 
 const debug = Debug('app:reducers:fetchCategory');

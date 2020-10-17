@@ -1,5 +1,5 @@
-import { CategoryId } from '../category';
-import { actionCreator } from '../shared';
+import { CategoryId } from 'rns-packages/src/shared/types';
+import { actionCreator } from 'rns-packages/src/shared';
 
 /**
  * Sets selected in UI category

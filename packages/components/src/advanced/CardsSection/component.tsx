@@ -1,13 +1,13 @@
-import React, {PureComponent} from 'react';
-import {View, FlatList} from 'react-native';
+import React, { PureComponent } from 'react';
+import { View, FlatList } from 'react-native';
 
-import {default as CardsSectionTheme} from 'rns-theme/src/theme/components/CardsSection';
-import {ButtonStyle} from 'rns-theme/src/theme/components/Button';
-import {Header3Text} from 'components/src/trivial/text/Header3Text';
-import {Button} from 'components/src/trivial/buttons/Button';
+import { default as CardsSectionTheme } from 'rns-theme/src/theme/components/CardsSection';
+import { ButtonStyle } from 'rns-theme/src/theme/components/Button';
+import { Header3Text } from 'components/src/trivial/text/Header3Text';
+import { Button } from 'components/src/trivial/buttons/Button';
 
-import {ProductCard} from 'components/src/advanced/ProductCard';
-import {ProductCardModel} from './types';
+import { ProductCard } from 'components/src/advanced/ProductCard';
+import { ProductCardModel } from './types';
 
 interface CardsSectionProps {
   title: string;
@@ -18,10 +18,7 @@ interface CardsSectionState {
   isHorisontal: boolean;
 }
 
-export class CardsSection extends PureComponent<
-CardsSectionProps,
-CardsSectionState
-> {
+export class CardsSection extends PureComponent<CardsSectionProps, CardsSectionState> {
   public state = {
     isHorisontal: true
   };
@@ -34,8 +31,8 @@ CardsSectionState
   };
 
   public render(): JSX.Element {
-    const {title, cards} = this.props;
-    const {isHorisontal} = this.state;
+    const { title, cards } = this.props;
+    const { isHorisontal } = this.state;
 
     return (
       <View style={CardsSectionTheme.container}>
@@ -44,11 +41,7 @@ CardsSectionState
             <View>
               <Header3Text style={CardsSectionTheme.title}>{title}</Header3Text>
             </View>
-            <Button
-              onPress={this.onLayoutChanged}
-              title="MORE"
-              style={this.buttonStyle}
-            />
+            <Button onPress={this.onLayoutChanged} title="MORE" style={this.buttonStyle} />
           </View>
         </View>
         <View style={CardsSectionTheme.cardsRowContainer}>
@@ -65,15 +58,8 @@ CardsSectionState
     );
   }
 
-  private renderCard = ({item}: {item: ProductCardModel}): JSX.Element => {
-    return (
-      <ProductCard
-        thumbnail={item.thumbnail}
-        title={item.title}
-        price={item.price}
-        weight={item.weight}
-      />
-    );
+  private renderCard = ({ item }: { item: ProductCardModel }): JSX.Element => {
+    return <ProductCard thumbnail={item.thumbnail} title={item.title} price={item.price} weight={item.weight} />;
   };
 
   private keyExtractor = (_item: ProductCardModel, index: number): string => {
@@ -81,6 +67,6 @@ CardsSectionState
   };
 
   private onLayoutChanged = (): void => {
-    this.setState(prevState => ({isHorisontal: !prevState.isHorisontal}));
+    this.setState((prevState) => ({ isHorisontal: !prevState.isHorisontal }));
   };
 }

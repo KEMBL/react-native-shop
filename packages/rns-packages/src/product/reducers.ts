@@ -1,8 +1,9 @@
-import { debug as Debug } from '../debug';
+import { ProductModel, ProductsCollection } from 'rns-types';
+
+import { debug as Debug } from 'rns-packages/src/shared';
+import { ExternalData, FailedActionResult } from 'rns-packages/src/shared/types';
 import { fetchProducts } from './actions';
-import { ProductModel, ProductsCollection } from './types';
-import { FailedActionResult, nameofFactory } from '../shared';
-import { ExternalData } from '../initialization';
+import { nameofFactory } from '../shared';
 
 const debug = Debug('app:reducers:fetchProduct');
 
@@ -27,7 +28,7 @@ const dataReducer = (state: ProductModel[] = [], action: ActionTypes): ProductMo
     }
 
     case `${fetchProducts.fail}`: {
-      debug('Problem with fetching products', action.payload);
+      debug('Problem with fetching products', action);
       return state;
     }
 

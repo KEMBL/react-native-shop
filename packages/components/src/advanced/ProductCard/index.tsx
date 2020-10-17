@@ -1,10 +1,10 @@
-import React, {PureComponent} from 'react';
-import {View} from 'react-native';
+import React, { PureComponent } from 'react';
+import { View } from 'react-native';
 
-import { AppContext } from 'components';
-import {default as ProductCardTheme} from 'rns-theme/src/theme/components/ProductCard';
-import {CacheableImage} from 'components/src/trivial/CacheableImage';
-import {PlainText} from 'components/src/trivial/text/PlainText';
+import { default as ProductCardTheme } from 'rns-theme/src/theme/components/ProductCard';
+import { CacheableImage } from 'components/src/trivial/CacheableImage';
+import { PlainText } from 'components/src/trivial/text/PlainText';
+import { AppContext } from 'components/src/context';
 
 interface ProductCardProps {
   thumbnail: string;
@@ -15,26 +15,22 @@ interface ProductCardProps {
 
 export class ProductCard extends PureComponent<ProductCardProps> {
   public render(): JSX.Element {
-    const {thumbnail, title, weight, price} = this.props;
+    const { thumbnail, title, weight, price } = this.props;
     return (
       <View style={ProductCardTheme.container}>
         <AppContext.Consumer>
-          {({imageCacherInterface}): JSX.Element => (
-            <CacheableImage
-              style={ProductCardTheme.image}
-              src={thumbnail}
-              imageCacheHoc={imageCacherInterface}
-            />
+          {({ imageCacherInterface }): JSX.Element => (
+            <CacheableImage style={ProductCardTheme.image} src={thumbnail} imageCacheHoc={imageCacherInterface} />
           )}
         </AppContext.Consumer>
-        <View style={{height: 50, flex: 1, flexDirection: 'column'}}>
+        <View style={{ height: 50, flex: 1, flexDirection: 'column' }}>
           <View>
             <PlainText style={ProductCardTheme.title} wrapLines={2}>
               {title}
             </PlainText>
           </View>
           <View>
-            <View style={{flex: 1, marginTop: 3}}>
+            <View style={{ flex: 1, marginTop: 3 }}>
               <PlainText style={ProductCardTheme.weight}>{weight} КГ</PlainText>
             </View>
             <View>

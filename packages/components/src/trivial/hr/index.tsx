@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import {StyleSheet, View} from 'react-native';
-import {Color} from 'csstype';
+import React, { Component } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { Color } from 'csstype';
 
 export interface HrProps {
   color?: Color;

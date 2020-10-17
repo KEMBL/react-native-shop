@@ -1,4 +1,5 @@
-import { actionCreator, FailedActionResult, FailedActionResultWithPayload } from '../shared';
+import { FailedActionResult, FailedActionResultWithPayload } from 'rns-packages/src/shared/types';
+import { actionCreator } from 'rns-packages/src/shared';
 import { CategoriesCollection, CategoryId, ProductCategoryCollection } from './types';
 
 /**

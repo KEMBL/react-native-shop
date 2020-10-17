@@ -1,9 +1,9 @@
 import 'react-native-gesture-handler';
 
 import React from 'react';
-import {Image, ImageProps} from 'react-native';
+import { Image, ImageProps } from 'react-native';
 
-import {ImageCacherOptionsInterface} from 'components/src/trivial/CacheableImage/ImageCacherOptionsInterface';
+import { ImageCacherOptionsInterface } from 'components/src/trivial/CacheableImage/ImageCacherOptionsInterface';
 
 /**
  * That modele is requred to substitute used in mobele app native image module with caching
