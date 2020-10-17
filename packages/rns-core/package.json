@@ -9,7 +9,7 @@
     "format": "prettier --config ../../.prettierrc.js --ignore-path ../../.prettierignore --write \"src/**/*.{ts,tsx}\""
   },
   "dependencies": {
-    "@apollo/client": "^3.2.2",
+    "@apollo/client": "^3.2.4",
     "components": "0.0.2",
     "redux-devtools-extension": "^2.13.8",    
     "rns-packages": "0.0.1",

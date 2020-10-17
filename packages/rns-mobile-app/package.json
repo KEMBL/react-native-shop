@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "rns-core": "0.0.3",
-    "react-native": "0.62.2",
+    "react-native": "0.63.3",
     "react-native-image-cache-hoc": "^2.0.0",
     "react-native-typescript-transformer": "1.2.13",
     "rn-fetch-blob": "^0.12.0",
