@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "rns-theme": "0.0.1",
-    "rns-types": "0.0.1"
+    "rns-types": "0.0.1",
+    "rn-css": "^0.6.12"
   },
   "devDependencies": {
     "prop-types": "^15.7.2"

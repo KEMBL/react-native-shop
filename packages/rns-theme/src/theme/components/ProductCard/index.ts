@@ -1,20 +1,17 @@
-import { StyleSheet, ViewStyle, TextStyle, ImageStyle } from 'react-native';
+import { StyleSheet, TextStyle, ImageStyle } from 'react-native';
 
-import { Theme } from '../../Theme';
+import { Theme } from 'rns-theme/src/theme/Theme';
 
 export interface ProductCardStyle {
-  container: ViewStyle;
   image: ImageStyle;
   weight: TextStyle;
   price: TextStyle;
   title: TextStyle;
 }
 
+export const containerStyle = 'flex: 1; width: 100; cursor: pointer;';
+
 const steelSheetInstance = StyleSheet.create<ProductCardStyle>({
-  container: {
-    flex: 1,
-    width: 100
-  },
   image: {
     height: 100,
     width: 100

@@ -1,10 +1,11 @@
 import React, { PureComponent } from 'react';
 import { View } from 'react-native';
 
-import { default as ProductCardTheme } from 'rns-theme/src/theme/components/ProductCard';
+import { containerStyle, default as ProductCardTheme } from 'rns-theme/src/theme/components/ProductCard';
 import { CacheableImage } from 'components/src/trivial/CacheableImage';
 import { PlainText } from 'components/src/trivial/text/PlainText';
 import { AppContext } from 'components/src/context';
+import { SView } from 'components/src/shared';
 
 interface ProductCardProps {
   thumbnail: string;
@@ -17,7 +18,7 @@ export class ProductCard extends PureComponent<ProductCardProps> {
   public render(): JSX.Element {
     const { thumbnail, title, weight, price } = this.props;
     return (
-      <View style={ProductCardTheme.container}>
+      <SView rnCSS={containerStyle}>
         <AppContext.Consumer>
           {({ imageCacherInterface }): JSX.Element => (
             <CacheableImage style={ProductCardTheme.image} src={thumbnail} imageCacheHoc={imageCacherInterface} />
@@ -38,7 +39,7 @@ export class ProductCard extends PureComponent<ProductCardProps> {
             </View>
           </View>
         </View>
-      </View>
+      </SView>
     );
   }
 }

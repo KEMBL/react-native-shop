@@ -18,6 +18,9 @@ interface CardsSectionState {
   isHorisontal: boolean;
 }
 
+/**
+ * Renders a set of product cards
+ */
 export class CardsSection extends PureComponent<CardsSectionProps, CardsSectionState> {
   public state = {
     isHorisontal: true
@@ -58,6 +61,14 @@ export class CardsSection extends PureComponent<CardsSectionProps, CardsSectionS
     );
   }
 
+  /**
+   * Renders one card
+   *
+   * @param item product info
+   * @param item.item product type definition
+   *
+   * @returns elemet
+   */
   private renderCard = ({ item }: { item: ProductCardModel }): JSX.Element => {
     return <ProductCard thumbnail={item.thumbnail} title={item.title} price={item.price} weight={item.weight} />;
   };

@@ -20,7 +20,7 @@ const keyExtractor = (_item: ProductCategoryModel, index: number): string => {
 };
 
 /**
- * Draw one category areas
+ * Prepares inforrmation about each product card before send it cards renderer for a given category
  *
  * @param item category with products
  * @param configuration additional params
