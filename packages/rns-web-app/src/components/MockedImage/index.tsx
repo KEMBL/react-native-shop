@@ -9,9 +9,7 @@ import { ImageCacherOptionsInterface } from 'components/src/trivial/CacheableIma
  * That modele is requred to substitute used in mobele app native image module with caching
  */
 export class MokedImage extends React.Component<ImageProps> {
-  public render(): JSX.Element {
-    return <Image {...this.props} />;
-  }
+  public render = (): JSX.Element => <Image {...this.props} />;
 }
 
 /**

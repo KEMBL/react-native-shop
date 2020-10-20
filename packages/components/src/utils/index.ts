@@ -45,6 +45,7 @@ export class PriceUtils {
         unit = 'шт';
         break;
       default:
+        // eslint-disable-next-line no-console
         console.warn('Unknown unit type', propertyUnitType);
         break;
     }

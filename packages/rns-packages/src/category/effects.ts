@@ -15,7 +15,7 @@ const debug = Debug('app:action:fetchCategories');
  *
  * @param {object} action action without payload
  */
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type, @typescript-eslint/explicit-module-boundary-types
 function* onFetchAllCategories(action: Action) {
   yield put(setLoaderStatus.start());
   try {
@@ -35,7 +35,7 @@ function* onFetchAllCategories(action: Action) {
  *
  * @param {object} action action with category Id as payload
  */
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type, @typescript-eslint/explicit-module-boundary-types
 function* onFetchCategoriesWithProducts(action: ActionWithPayload<CategoryId>) {
   const categoryId = action.payload;
   yield put(setLoaderStatus.start());

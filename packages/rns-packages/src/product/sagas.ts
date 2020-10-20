@@ -6,7 +6,7 @@ import { onFetchProducts } from './effects';
 /**
  * Saga takes category list from the backend
  */
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type, @typescript-eslint/explicit-module-boundary-types
 function* fetchProductsSaga() {
   yield takeEvery(`${fetchProducts.start}`, onFetchProducts);
 }

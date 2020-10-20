@@ -13,7 +13,7 @@ const debug = Debug('app:action:fetchProducts');
  *
  * @param {object} action action without payload
  */
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type, @typescript-eslint/explicit-module-boundary-types
 function* onFetchProducts(action: Action) {
   yield put(setLoaderStatus.start());
   try {

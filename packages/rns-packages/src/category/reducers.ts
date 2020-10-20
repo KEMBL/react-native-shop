@@ -1,21 +1,19 @@
-import { debug as Debug } from 'rns-packages/src/shared';
-import { FailedActionResult, FailedActionResultWithPayload } from 'rns-packages/src/shared/types';
+import { debug as Debug, nameofFactory } from 'rns-packages/src/shared';
+import { FailedActionResult, ExternalData } from 'rns-packages/src/shared/types';
 import { fetchCategories } from './actions';
-import { CategoriesCollection, CategoryId, ProductCategoryCollection, ProductCategoryModel } from './types';
-import { nameofFactory } from '../shared';
-import { ExternalData } from '../initialization';
+import { CategoriesCollection, ProductCategoryModel } from './types';
 
 const debug = Debug('app:reducers:fetchCategory');
 
-export interface FetchCategoriesWithProductsDoneAction {
-  type: string;
-  payload: ProductCategoryCollection;
-}
+// export interface FetchCategoriesWithProductsDoneAction {
+//   type: string;
+//   payload: ProductCategoryCollection;
+// }
 
-interface FetchCategoriesWithProductsFailAction {
-  type: string;
-  payload: FailedActionResultWithPayload<CategoryId>;
-}
+// interface FetchCategoriesWithProductsFailAction {
+//   type: string;
+//   payload: FailedActionResultWithPayload<CategoryId>;
+// }
 
 export interface FetchCategoriesDoneAction {
   type: string;

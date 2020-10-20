@@ -15,7 +15,5 @@ export class Image extends Component<ImageProps> {
     }
   });
 
-  public render(): JSX.Element {
-    return <ImageRN style={this.styles.image} source={{ uri: this.props.src }} />;
-  }
+  public render = (): JSX.Element => <ImageRN style={this.styles.image} source={{ uri: this.props.src }} />;
 }
