@@ -7,15 +7,17 @@ The programming language is Typescript. Os Windows.
 
 # What it uses already
 
-- React (with hooks), Rect-Navigation, Redux (local data state), Redux ducks, Immutable, Axios, GraphQL by Appolo Client (remote data state)
+- React (with hooks), Rect-Navigation, Redux (local data state), Redux saga, GraphQL by Appolo Client (remote data state)
 - Java dependent modules are injected into the core package. Core package supposed not to know anything about platform-dependent things like Java modules (unless they work fine in both web and mobile platforms)
+- Everyting what is related to Redux resides in `rns-packages` project, other projects just import only actions and selectors from it and does not care about Redux at all
+- Redux uses GraphQL to update its state from the backend. That theoretically allows to interoperate with arbitrary backend itit supports used GQL scheme
 - Metro for bundling the Android buld and Webpack for the Web build
 
 # How it looks like
 
 Click on the image below to make it bigger. Just a demo that Monorepo with react-native and react-native-web with all components and even theme in a dedicated package is possible. 
 
-The Left side is a web version and right is an Android version. Yes, they look different as web version is used just to speed up developing process, but still, to make everything live together was a challengeable goal.
+The Left side is a web version and right is an Android version. Yes, they look a bit different as web version is used just to speed up developing process, but still, to make everything live together was a challengeable goal.
 
 <img src="images/android_and_web_together.jpg" width="400px" />
 
@@ -26,12 +28,14 @@ Check Issues to get know about planned changes https://github.com/KEMBL/react-na
 For now, works:
 
     a) Monorepo
-    b) The package with React-native application (Core)
-    c) Android application package
-    d) React components package
-    e) Theme package
-    f) Web application package for debug based on react-native-web
-
+    b) The package with application services (Core)
+    c) React components package
+    d) Theme package
+    e) Redux abstraction package
+    f) Android application package
+    g) Web application package based on `react-native-web`. Allows to make a faster development of UI unrelated things
+    h) A package with shared types for logic decoupling
+    
 Famous problems were fixed:
 
     a) metro.config file content is not picked-up from a react-native package folder #6
@@ -41,19 +45,26 @@ Famous problems were fixed:
 
 # How to start the app
 
-1. You should have installed Android studio: https://developer.android.com/studio
+1. You should install NodeJs v14.5+ including build tools
 
-2. Download Dev branch
+2. Download app grom Git. Dev branch usually has more app features
 
-3. yarn
+3. go to app root folder and perform `npx yarn`
 
-4. yarn android
+Now you can go two ways - faster is start app as a web page
 
-After this, the Android emulator should start and you will see an example of the interface.
+4. `npx yarn web`
 
-5. yarn web
+That way web app could be bundled. Just open index.html from packages\rns-web-app\dist in a modern web browser. Many styles are not correct but this mode supposed to be used for improving app logic without needing of android device/emulator. 
 
-That way web app could be bundled. Just open index.html from packages\rns-web-app\dist in a modern web browser. Many styles are not correct but this mode could be used for improving app logic without needing of android device/emulator. 
+Or you can try android version
+
+5. Installed Android studio: https://developer.android.com/studio
+
+6. `npx yarn android`
+
+After this, the Android emulator should start and you will see the app's interface.
+
 
 # Packages
 
@@ -61,7 +72,11 @@ That way web app could be bundled. Just open index.html from packages\rns-web-ap
 
 - RNS-Core - platform-independent application logics. Supposed to be started on mobile and Web platforms
 
+- RNS-Packages - Redux related logic, other packages should know only how to dispatch actions and query selectors
+
 - RNS-Theme - A visual style for RNS-Core
+
+- RNS-Types - contains shared types, used mostly for logic decoupling among other packages
 
 - RNS-Mobile-App - a consumer of all other packages - e-commerce mobile application (Android only for now)
 
