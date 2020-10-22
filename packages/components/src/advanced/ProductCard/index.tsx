@@ -1,23 +1,30 @@
-import React, { PureComponent } from 'react';
-import { View } from 'react-native';
+import React from 'react';
+import { TouchableWithoutFeedback, View } from 'react-native';
+import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 
+import { ProductId } from 'rns-types';
+import { ui } from 'rns-packages';
 import { containerStyle, default as ProductCardTheme } from 'rns-theme/src/theme/components/ProductCard';
+
 import { CacheableImage } from 'components/src/trivial/CacheableImage';
 import { PlainText } from 'components/src/trivial/text/PlainText';
 import { AppContext } from 'components/src/context';
 import { SView } from 'components/src/shared';
 
 interface ProductCardProps {
+  id: ProductId;
   thumbnail: string;
   title: string;
   weight: number;
   price: string;
 }
 
-export class ProductCard extends PureComponent<ProductCardProps> {
-  public render(): JSX.Element {
-    const { thumbnail, title, weight, price } = this.props;
-    return (
+export const ProductCard: React.FC<ProductCardProps> = (props) => {
+  const dispatch = useDispatch();
+  const { id, thumbnail, title, weight, price } = props;
+  return (
+    <TouchableWithoutFeedback onPress={(): unknown => dispatch(ui.actionSetCurrentProduct.start(id))}>
       <SView rnCSS={containerStyle}>
         <AppContext.Consumer>
           {({ imageCacherInterface }): JSX.Element => (
@@ -40,6 +47,14 @@ export class ProductCard extends PureComponent<ProductCardProps> {
           </View>
         </View>
       </SView>
-    );
-  }
-}
+    </TouchableWithoutFeedback>
+  );
+};
+
+ProductCard.propTypes = {
+  id: PropTypes.number.isRequired,
+  thumbnail: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  weight: PropTypes.number.isRequired,
+  price: PropTypes.string.isRequired
+};

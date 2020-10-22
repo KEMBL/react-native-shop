@@ -7,7 +7,7 @@ import {
   ProductCategoryModel,
   ProductCategoryModelWithProducts,
   selectConfiguration,
-  selectCurrentCategoryCategories
+  category
 } from 'rns-packages';
 
 import { TopDownGradient } from 'components/src/trivial/icons/gradients/TopDownGradient';
@@ -35,6 +35,7 @@ const renderCategory = (item: ProductCategoryModelWithProducts, configuration: C
           // eslint-disable-next-line no-console
           console.error('undefined product cart value!', item);
           return {
+            id: 0,
             thumbnail: '',
             title: 'Error cart',
             weight: 0,
@@ -52,6 +53,7 @@ const renderCategory = (item: ProductCategoryModelWithProducts, configuration: C
         }
 
         return {
+          id: value.id,
           thumbnail: imageUrl,
           title: value.name,
           weight: 1.2,
@@ -69,7 +71,7 @@ const renderCategory = (item: ProductCategoryModelWithProducts, configuration: C
  */
 export const ProductsListScreen: React.FC = () => {
   const configuration = useSelector(selectConfiguration, shallowEqual);
-  const categories = useSelector(selectCurrentCategoryCategories, shallowEqual);
+  const categories = useSelector(category.selectCurrentCategoryCategories, shallowEqual);
   // console.log('categories', categories);
   const mainStyle = StyleSheet.create({
     container: {

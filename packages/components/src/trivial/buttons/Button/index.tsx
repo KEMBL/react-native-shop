@@ -3,7 +3,6 @@ import {
   TouchableNativeFeedback,
   TouchableOpacity,
   AccessibilityState,
-  Text,
   View,
   GestureResponderEvent
 } from 'react-native';
@@ -11,22 +10,23 @@ import {
 import { Theme } from 'rns-theme/src/theme/Theme';
 import { default as ButtonTheme, ButtonStyle } from 'rns-theme/src/theme/components/Button';
 
-export interface ButtonProps {
-  title: string;
+export interface ButtonBaseProps {
   onPress: (event: GestureResponderEvent) => void;
   style?: ButtonStyle;
   isDisabled?: boolean;
   accessibilityLabel?: string;
 }
 
-export class Button extends React.PureComponent<ButtonProps> {
+/**
+ * Base button implementation
+ */
+export class Button extends React.PureComponent<ButtonBaseProps> {
   public render(): JSX.Element {
-    const { accessibilityLabel, title, isDisabled, style } = this.props;
+    const { accessibilityLabel, isDisabled, style, children } = this.props;
 
     const theme = style || ButtonTheme;
 
     const buttonStyle = isDisabled ? theme.buttonDisabled : theme.button;
-    const textStyle = isDisabled ? theme.textDisabled : theme.text;
 
     const accessibilityState: AccessibilityState = {};
     if (isDisabled) {
@@ -45,11 +45,7 @@ export class Button extends React.PureComponent<ButtonProps> {
             accessibilityState={accessibilityState}
             disabled={isDisabled}
             onPress={this.onButtonPressed}>
-            <View style={buttonStyle}>
-              <Text style={textStyle} ellipsizeMode={'clip'} numberOfLines={1}>
-                {title}
-              </Text>
-            </View>
+            <View style={buttonStyle}>{children}</View>
           </TouchableOpacity>
         </View>
       );
@@ -63,11 +59,7 @@ export class Button extends React.PureComponent<ButtonProps> {
           accessibilityState={accessibilityState}
           disabled={isDisabled}
           onPress={this.onButtonPressed}>
-          <View style={buttonStyle}>
-            <Text style={textStyle} ellipsizeMode={'clip'} numberOfLines={1}>
-              {title}
-            </Text>
-          </View>
+          <View style={buttonStyle}>{children}</View>
         </TouchableNativeFeedback>
       </View>
     );

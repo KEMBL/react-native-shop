@@ -130,7 +130,10 @@ export const steelSheetInstance = StyleSheet.create<ProductPageStyle>({
   },
   toolBar: {
     height: 52,
-    backgroundColor: Theme.green
+    backgroundColor: Theme.green,
+    alignItems: 'flex-start',
+    paddingTop: 17,
+    paddingLeft: 15
   },
   image: {
     width: 300,

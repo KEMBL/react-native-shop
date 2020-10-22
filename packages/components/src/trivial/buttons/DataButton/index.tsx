@@ -1,7 +1,7 @@
 import React from 'react';
 import { GestureResponderEvent } from 'react-native';
 
-import { Button, ButtonProps } from '../Button';
+import { TextButton, ButtonProps } from '../TextButton';
 import { Modify } from '../../../types';
 
 interface MakeOnPressOptional<T> {
@@ -17,7 +17,7 @@ export class DataButton<T> extends React.PureComponent<DataButtonProps<T>> {
   public render(): JSX.Element {
     const { accessibilityLabel, title, isDisabled, style } = this.props;
     return (
-      <Button
+      <TextButton
         accessibilityLabel={accessibilityLabel}
         title={title}
         isDisabled={isDisabled}

@@ -3,35 +3,31 @@ import { createSelector } from 'reselect';
 import { ProductId, ProductModel } from 'rns-types';
 import { CategoryId, ApplicationState } from 'rns-packages/src/shared/types';
 import { ParametrizedSelector, proxyParam } from 'rns-packages/src/shared';
+import { selectCurrentProductId } from 'rns-packages/src/ui';
+import { notFoundProduct } from './default';
 
 const selectAllProducts = (state: ApplicationState): ProductModel[] => state.externalData.products;
 const selectProductById = (state: ApplicationState, id: ProductId): ProductModel | undefined =>
   selectAllProducts(state).find((p) => p.id === id);
-// const getProductsByCategoryId = (state: ApplicationState, id: ProductId): ProductModel[] =>
-//   getAllProducts(state).filter((p) => p.categoryId === id);
-
-// export const selectProductById = (): ParametrizedSelector<ProductId, ProductModel | undefined> =>
-//   createSelector(proxyParam, getAllProducts, (productId: ProductId, products) =>
-//     products.find((p) => p && p.id === productId)
-//   );
-
 const selectProductsByCategoryId = (): ParametrizedSelector<ProductId, ProductModel[]> =>
   createSelector(proxyParam, selectAllProducts, (categoryId: CategoryId, products) =>
     products.filter((p) => p && p.categoryId === categoryId)
   );
 
 /**
- * Returns products in the current category
+ * Returns currently selected in UI product
  *
- * @returns {Array} products
+ * @returns selected in UI product
  */
-// export const selectCurrentCategoryProducts = (): ParametrizedSelector<ProductId, ProductModel[]> =>
-//   createSelector(selectCurrentCategoryId, getAllProducts, (currentCategoryId: CategoryId, products) =>
-//     products.filter((p) => p && p.categoryId === currentCategoryId)
-//   );
+export const selectCurrentProduct = createSelector(
+  selectCurrentProductId,
+  selectAllProducts,
+  (currentProductId: ProductId, products) => products.find((p) => p && p.id === currentProductId) ?? notFoundProduct
+);
 
 export const selectors = {
   selectProductById,
+  selectCurrentProduct,
   selectAllProducts,
   selectProductsByCategoryId
 };

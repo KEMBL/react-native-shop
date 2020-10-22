@@ -1,5 +1,10 @@
 export * from 'rns-packages/src/shared/types';
-export * from './src/configuration/selectors';
-export * from './src/initialization';
-export * from './src/bootup/selectors';
-export * from './src/category';
+export * from 'rns-packages/src/configuration/selectors';
+export * from 'rns-packages/src/initialization';
+export * from 'rns-packages/src/bootup/selectors';
+
+import * as ui from 'rns-packages/src/ui';
+import * as product from 'rns-packages/src/product';
+import * as category from 'rns-packages/src/category';
+
+export {ui, product, category};

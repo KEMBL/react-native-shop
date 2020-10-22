@@ -12,7 +12,11 @@ class Theme {
   public black = 'black'; // "#212121";
 
   // text
-  public fontFamily = this.platform.isIos ? 'System' : 'Roboto_medium';
+  public fontFamily = this.platform.isIos
+    ? 'System'
+    : this.platform.isWeb
+    ? '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,sans-serif'
+    : 'Roboto_medium';
   public textColor = this.black;
 }
 

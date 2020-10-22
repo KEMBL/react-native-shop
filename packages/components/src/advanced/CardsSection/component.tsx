@@ -4,7 +4,7 @@ import { View, FlatList } from 'react-native';
 import { default as CardsSectionTheme } from 'rns-theme/src/theme/components/CardsSection';
 import { ButtonStyle } from 'rns-theme/src/theme/components/Button';
 import { Header3Text } from 'components/src/trivial/text/Header3Text';
-import { Button } from 'components/src/trivial/buttons/Button';
+import { TextButton } from 'components/src/trivial/buttons/TextButton';
 
 import { ProductCard } from 'components/src/advanced/ProductCard';
 import { ProductCardModel } from './types';
@@ -44,7 +44,7 @@ export class CardsSection extends PureComponent<CardsSectionProps, CardsSectionS
             <View>
               <Header3Text style={CardsSectionTheme.title}>{title}</Header3Text>
             </View>
-            <Button onPress={this.onLayoutChanged} title="MORE" style={this.buttonStyle} />
+            <TextButton onPress={this.onLayoutChanged} title="MORE" style={this.buttonStyle} />
           </View>
         </View>
         <View style={CardsSectionTheme.cardsRowContainer}>
@@ -70,7 +70,9 @@ export class CardsSection extends PureComponent<CardsSectionProps, CardsSectionS
    * @returns elemet
    */
   private renderCard = ({ item }: { item: ProductCardModel }): JSX.Element => {
-    return <ProductCard thumbnail={item.thumbnail} title={item.title} price={item.price} weight={item.weight} />;
+    return (
+      <ProductCard id={item.id} thumbnail={item.thumbnail} title={item.title} price={item.price} weight={item.weight} />
+    );
   };
 
   private keyExtractor = (_item: ProductCardModel, index: number): string => {

@@ -1,10 +1,16 @@
+import { ProductId } from 'rns-types';
+
 import { CategoryId } from 'rns-packages/src/shared/types';
 import { actionCreator } from 'rns-packages/src/shared';
 
 /**
  * Sets selected in UI category
  */
-const actionName = 'SET_CURRENT_CATEGORY';
-const start = actionCreator.start<CategoryId>(actionName);
+const setCurrentCategoryStart = actionCreator.start<CategoryId>('SET_CURRENT_CATEGORY');
+export const actionSetCurrentCategory = { start: setCurrentCategoryStart };
 
-export const actionSetCurrentCategory = { start };
+/**
+ * Sets selected in UI product
+ */
+const setCurrentProductStart = actionCreator.start<ProductId>('SET_CURRENT_PRODUCT');
+export const actionSetCurrentProduct = { start: setCurrentProductStart };

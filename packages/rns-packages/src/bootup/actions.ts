@@ -6,7 +6,6 @@ import { CategoryId, FailedActionResultWithPayload } from 'rns-packages/src/shar
  */
 const actionName = 'APP_BOOTUP';
 const start = actionCreator.start(actionName);
-//const done = actionCreator.done(actionName);
 const fail = actionCreator.fail<FailedActionResultWithPayload<CategoryId>>(actionName);
 
 export const appBootup = { start, fail };

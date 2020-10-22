@@ -19,7 +19,6 @@ const debug = Debug('app:action:bootup');
 export function* onBootup() {
   const categoryId: CategoryId = yield select(selectCurrentCategoryId); // tODO: remove noneeed!
   try {
-    //yield put(fetchCategoriesWithProducts.start(categoryId)); // dispatch action
     yield put(fetchProducts.start());
     yield put(fetchCategories.start());
   } catch (error) {

@@ -3,8 +3,6 @@ import { ProductsCollection } from 'rns-types';
 
 import { GqlClientService } from 'rns-packages/src/shared';
 
-// const debug = Debug('app:fetch:fetchProducts');
-
 export const PRODUCTS_FRAGMENT = gql`
   fragment ProductFields on Product {
     id
@@ -39,6 +37,5 @@ export const gqlFetchAllProductsAsync = async (): Promise<ProductsCollection> =>
     query: FETCH_ALL_PRODUCTS
   });
 
-  //debug('result.data.products', result.data);
   return result.data?.allProducts;
 };

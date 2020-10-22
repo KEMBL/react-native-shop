@@ -6,7 +6,6 @@ import { ApplicationState } from './types';
 // more https://stackoverflow.com/questions/57464286/how-to-correctly-use-a-curried-selector-function-with-react-reduxs-useselector
 // more: https://react-redux.js.org/api/hooks#using-memoizing-selectors
 export type ParametrizedSelector<A, R> = (state: ApplicationState, arg: A) => R;
-// export type ParamLessSelector<R> = (state: ApplicationState) => R;
 
 /**
  * Stub for selector argument
@@ -38,39 +37,3 @@ export const useMemoizedSelectorWithParam = <A, R>(
   }, [selectorCreator, tempArgument]);
   return useSelector(memoizedSelector);
 };
-
-// /**
-//  * Helper to make memoized selector without parameter
-//  *
-//  * @param {object} selectorCreator selector object for memoization
-//  *
-//  * @returns {object} memoized parametrized selector
-//  */
-// export const useMemoizedSelectorWithoutParam = <R>(selectorCreator: () => ParamLessSelector<R>): R => {
-//   const memoizedSelector = useMemo(() => {
-//     const parametrizedSelector = selectorCreator();
-//     return (state: ApplicationState): R => parametrizedSelector(state);
-//     // eslint-disable-next-line react-hooks/exhaustive-deps
-//   }, [selectorCreator]);
-//   return useSelector(memoizedSelector);
-// };
-
-// more https://github.com/reduxjs/react-redux/pull/1288#issuecomment-493676858
-// const getShallowComapredSelector = selector => {
-//   let latestResult;
-//   return state => {
-//     const result = selector(state);
-//     if (shallowEqual(result, latestResult) {
-//       return latestResult;
-//     }
-//     return (latestlResult = result);
-//   }
-// }
-
-// const useMemoizedSelector = selector => {
-//   const memoizedSelector = useMemo(
-//     () => getShallowComapredSelector(selector),
-//     [selector]
-//   );
-//   return useSelector(memoizedSelector);
-// }

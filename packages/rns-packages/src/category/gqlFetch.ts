@@ -4,8 +4,6 @@ import { PRODUCTS_FRAGMENT } from '../product';
 import { GqlClientService } from '../shared';
 import { CategoriesCollection, CategoryId, ProductCategoryCollection } from './types';
 
-// const debug = Debug('app:fetch:fetchCategoryWithProducts');
-
 const CATEGORY_WITH_PRODUCT_FRAGMENT = gql`
   ${PRODUCTS_FRAGMENT}
 
@@ -41,7 +39,6 @@ export const gqlFetchCategoryWithProductsAsync = async (
     variables: { rootId, withProducts, deep }
   });
 
-  // debug('result.data', result.data);
   return result.data?.categories;
 };
 
@@ -70,6 +67,5 @@ export const gqlFetchAllCategorisAsync = async (): Promise<CategoriesCollection>
     query: FETCH_ALL_CATEGORIES
   });
 
-  // debug('result.data.categories', result.data);
   return result.data?.allCategories;
 };

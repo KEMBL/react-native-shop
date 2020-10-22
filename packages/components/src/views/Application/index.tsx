@@ -3,9 +3,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { useSelector } from 'react-redux';
 
 import { NavigationStackParamList } from 'rns-types';
-import { isBootUpCompleted, isBootUpFailed } from 'rns-packages';
+import { isBootUpCompleted, isBootUpFailed, ui } from 'rns-packages';
 import { ProductsListScreen } from 'components/src/views/ProductsListScreen';
 import { InitialLoadingScreen } from 'components/src/views/InitialLoadingScreen';
+import { ProductPage } from '../ProductPage';
 
 /**
  * Application logic starts here
@@ -16,6 +17,7 @@ import { InitialLoadingScreen } from 'components/src/views/InitialLoadingScreen'
 export const Application: React.FC = (): JSX.Element => {
   const isLoaded = useSelector(isBootUpCompleted);
   const isLoadingError = useSelector(isBootUpFailed);
+  const currentProductId = useSelector(ui.selectCurrentProductId);
   const NavigationStack = createStackNavigator<NavigationStackParamList>();
 
   return (
@@ -28,18 +30,17 @@ export const Application: React.FC = (): JSX.Element => {
           initialParams={{ isError: isLoadingError }}
         />
       )}
-      <NavigationStack.Screen
-        name="ProductsListScreen"
-        component={ProductsListScreen}
-        options={{ title: 'Main Screen' }}
-        // initialParams={{ products: productsSelector.toArray() }}
-      />
-      {/* <NavigationStack.Screen
-        name="ProductPage"
-        component={MainScreen}
-        options={{title: 'Product Page'}}
-        initialParams={{products: productsSelector.toArray()}}
-      /> */}
+      {currentProductId === 0 && (
+        <NavigationStack.Screen
+          name="ProductsListScreen"
+          component={ProductsListScreen}
+          options={{ title: 'Main Screen' }}
+          // initialParams={{ products: productsSelector.toArray() }}
+        />
+      )}
+      {currentProductId !== 0 && (
+        <NavigationStack.Screen name="ProductPage" component={ProductPage} options={{ title: 'Product Page' }} />
+      )}
     </NavigationStack.Navigator>
   );
 };
