@@ -19,6 +19,8 @@ for %%x in (
         packages\rns-core\src
         packages\rns-theme\src
         packages\rns-web-app\src
+        packages\rns-types\src
+        packages\rns-packages\src
        ) do (
         call :remove-files-by-ext-from-dir %%x
        )
@@ -29,11 +31,13 @@ for %%x in (
         packages\rns-theme
         packages\rns-web-app
         packages\rns-mobile-app
+        packages\rns-types
+        packages\rns-packages
        ) do (
         call :remove-build-files-by-ext-from-dir %%x
        )
 
-exit 0
+exit /b 0
 
 :remove-files-by-ext-from-dir
 
@@ -42,14 +46,14 @@ for %%G in (
     ) do (
     FORFILES /P "%ProjectDir%\%1" /S /M *%%G /C "CMD /C DEL /Q @path"
     )
-exit /b
+exit /b 0
 
 :removefile
 echo "%ProjectDir%\%1"
 DEL /Q "%ProjectDir%\%1"
-exit /b
+exit /b 0
 
 :remove-build-files-by-ext-from-dir
 DEL /Q "%ProjectDir%\%1\yarn-error.log"
 DEL /Q "%ProjectDir%\%1\tsconfig.tsbuildinfo"
-exit /b
+exit /b 0
