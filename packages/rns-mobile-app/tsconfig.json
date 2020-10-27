@@ -7,8 +7,9 @@
       "../../node_modules/@types"
     ]
   },
-  "include": ["index.tsx", "app.json", "@types"],
-  "exclude": ["rn-cli.config.js"],
+  "files":  ["index.tsx", "app.json"],
+  "include": ["@types"],
+  "exclude": ["metro.config.js"],
   "references": [
     {
       "path": "../components"
