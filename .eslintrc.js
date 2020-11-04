@@ -53,8 +53,10 @@ module.exports = {
     'no-unused-vars': 'error',
     'no-console': 'warn',
     semi: 'error',
-    'jsdoc/require-param-type': 'off', // in typescript argument type usually is given in function signature
-    'jsdoc/require-returns-type': 'off', // in typescript return type usually is given in function signature
+    'jsdoc/require-param': 'off', // in typescript param usually is obvious from the function signature
+    'jsdoc/require-param-type': 'off', // in typescript argument type usually is given in the function signature
+    'jsdoc/require-returns': 'off', // in typescript returns type usually is given in the function signature
+    'jsdoc/require-returns-type': 'off', // in typescript return type usually is given in the function signature
     'react/jsx-uses-react': 'error', // Prevent React to be incorrectly marked as unused
     'react/jsx-uses-vars': 'error', // Prevent variables used in JSX to be incorrectly marked as unused
     '@typescript-eslint/indent': 'off',
