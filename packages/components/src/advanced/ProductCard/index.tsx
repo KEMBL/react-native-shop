@@ -16,13 +16,13 @@ interface ProductCardProps {
   id: ProductId;
   thumbnail: string;
   title: string;
-  weight: number;
   price: string;
+  units?: string;
 }
 
 export const ProductCard: React.FC<ProductCardProps> = (props) => {
   const dispatch = useDispatch();
-  const { id, thumbnail, title, weight, price } = props;
+  const { id, thumbnail, title, units, price } = props;
   return (
     <TouchableWithoutFeedback onPress={(): unknown => dispatch(ui.actionSetCurrentProduct.start(id))}>
       <SView rnCSS={containerStyle}>
@@ -37,12 +37,12 @@ export const ProductCard: React.FC<ProductCardProps> = (props) => {
               {title}
             </PlainText>
           </View>
-          <View>
-            <View style={{ flex: 1, marginTop: 3 }}>
-              <PlainText style={ProductCardTheme.weight}>{weight} КГ</PlainText>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+            <View>
+              <PlainText style={ProductCardTheme.units}>{units}</PlainText>
             </View>
             <View>
-              <PlainText style={ProductCardTheme.price}>RUB {price}</PlainText>
+              <PlainText style={ProductCardTheme.price}>{price}</PlainText>
             </View>
           </View>
         </View>
@@ -55,6 +55,6 @@ ProductCard.propTypes = {
   id: PropTypes.number.isRequired,
   thumbnail: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  weight: PropTypes.number.isRequired,
-  price: PropTypes.string.isRequired
+  price: PropTypes.string.isRequired,
+  units: PropTypes.string
 };

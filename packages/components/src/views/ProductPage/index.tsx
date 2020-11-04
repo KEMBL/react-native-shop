@@ -16,7 +16,7 @@ import { StylableText } from 'components/src/trivial/text/StylableText';
 import { TextButton } from 'components/src/trivial/buttons/TextButton';
 import { DataButton } from 'components/src/trivial/buttons/DataButton';
 import { Hr } from 'components/src/trivial/hr';
-import { PriceUtils } from 'components/src/utils';
+import { ProductUtils } from 'components/src/utils';
 import { AppContext } from 'components/src/context';
 import { DeliverySelector } from 'components/src/advanced/DeliverySelector';
 import { Button } from '../../trivial/buttons/Button';
@@ -48,7 +48,7 @@ export const ProductPage: React.FC = () => {
   };
 
   const priceContainer = (priceModel: PriceModel): JSX.Element => {
-    const buttons = priceModel.properties.map((p, index) => priceButton(index, PriceUtils.makeButtonTitle(p)));
+    const buttons = priceModel.properties.map((p, index) => priceButton(index, ProductUtils.makeButtonTitle(p)));
     return <View style={ItemPageTheme.variantsContainer}>{buttons}</View>;
   };
 
@@ -82,7 +82,7 @@ export const ProductPage: React.FC = () => {
         </AppContext.Consumer>
         <View style={ItemPageTheme.priceContainer}>
           <StylableText style={ItemPageTheme.price}>
-            {PriceUtils.makePriceString(
+            {ProductUtils.makePriceString(
               productData.price.properties,
               configuration.currency,
               configuration.priceError,

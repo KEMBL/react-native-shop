@@ -71,7 +71,7 @@ export class CardsSection extends PureComponent<CardsSectionProps, CardsSectionS
    */
   private renderCard = ({ item }: { item: ProductCardModel }): JSX.Element => {
     return (
-      <ProductCard id={item.id} thumbnail={item.thumbnail} title={item.title} price={item.price} weight={item.weight} />
+      <ProductCard id={item.id} thumbnail={item.thumbnail} title={item.title} price={item.price} units={item.units} />
     );
   };
 

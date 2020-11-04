@@ -4,6 +4,6 @@ export interface ProductCardModel {
   id: ProductId;
   thumbnail: string;
   title: string;
-  weight: number;
+  units: string;
   price: string;
 }

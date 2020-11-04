@@ -12,7 +12,7 @@ import {
 
 import { TopDownGradient } from 'components/src/trivial/icons/gradients/TopDownGradient';
 import { Theme } from 'rns-theme/src/theme/Theme';
-import { PriceUtils } from 'components/src/utils';
+import { ProductUtils } from 'components/src/utils';
 import { CardsSection, ProductCardModel } from 'components/src/advanced/CardsSection';
 
 const keyExtractor = (_item: ProductCategoryModel, index: number): string => {
@@ -38,8 +38,8 @@ const renderCategory = (item: ProductCategoryModelWithProducts, configuration: C
             id: 0,
             thumbnail: '',
             title: 'Error cart',
-            weight: 0,
-            price: 'error price'
+            units: configuration.amountError,
+            price: configuration.priceError
           };
         }
 
@@ -55,9 +55,13 @@ const renderCategory = (item: ProductCategoryModelWithProducts, configuration: C
         return {
           id: value.id,
           thumbnail: imageUrl,
-          title: value.name,
-          weight: 1.2,
-          price: PriceUtils.makePriceString(value.price.properties, configuration.currency, configuration.priceError)
+          title: ProductUtils.cleanTitle(value.name),
+          units: ProductUtils.makeSimpleAmountString(value.price.properties, configuration.amountError),
+          price: ProductUtils.makeMinPriceString(
+            value.price.properties,
+            configuration.currency,
+            configuration.priceError
+          )
         };
       })
     : [];
