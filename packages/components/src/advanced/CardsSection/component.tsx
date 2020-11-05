@@ -44,7 +44,7 @@ export class CardsSection extends PureComponent<CardsSectionProps, CardsSectionS
             <View>
               <Header3Text style={CardsSectionTheme.title}>{title}</Header3Text>
             </View>
-            <TextButton onPress={this.onLayoutChanged} title="MORE" style={this.buttonStyle} />
+            {/* <TextButton onPress={this.onLayoutChanged} title="MORE" style={this.buttonStyle} /> */}
           </View>
         </View>
         <View style={CardsSectionTheme.cardsRowContainer}>
