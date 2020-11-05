@@ -99,13 +99,13 @@ export class ProductUtils {
     return `${priceProperty.property}${unit}`;
   };
 
-  public static arrayMin = (arr: Array<number>) => {
+  public static arrayMin = (arr: Array<number>): number => {
     return arr.reduce((p, v) => {
       return p < v ? p : v;
     });
   };
 
-  public static arrayMax = (arr: Array<number>) => {
+  public static arrayMax = (arr: Array<number>): number => {
     return arr.reduce((p, v) => {
       return p > v ? p : v;
     });
