@@ -29,7 +29,7 @@ export const variantsButton: ButtonStyle = {
   }
 };
 
-export const variantsButtonSelected: ButtonStyle = {
+export const variantsButtonHighlighted: ButtonStyle = {
   button: {
     flex: 1,
     justifyContent: 'center',
@@ -145,7 +145,6 @@ export const steelSheetInstance = StyleSheet.create<ProductPageStyle>({
   },
   price: {
     includeFontPadding: false,
-    fontFamily: 'sans-serif-condensed',
     fontWeight: 'bold',
     color: Theme.black,
     fontSize: 19,
@@ -160,7 +159,6 @@ export const steelSheetInstance = StyleSheet.create<ProductPageStyle>({
     marginTop: 10
   },
   title: {
-    fontFamily: 'sans-serif-condensed',
     fontSize: 15,
     color: Theme.black,
     lineHeight: 22
@@ -172,7 +170,6 @@ export const steelSheetInstance = StyleSheet.create<ProductPageStyle>({
   },
   variantSelectedText: {
     marginTop: 5,
-    fontFamily: 'sans-serif-condensed',
     fontSize: 15,
     color: Theme.black
   },
@@ -181,7 +178,7 @@ export const steelSheetInstance = StyleSheet.create<ProductPageStyle>({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignContent: 'center',
-    width: 180,
+    width: 200,
     marginTop: 5
   },
   amountSelectorContainer: {
@@ -191,8 +188,9 @@ export const steelSheetInstance = StyleSheet.create<ProductPageStyle>({
     marginLeft: 20
   },
   amountSelectorText: {
-    fontFamily: 'roboto',
     fontSize: 20,
-    color: Theme.black
+    color: Theme.black,
+    marginLeft: 10,
+    marginRight: 10
   }
 });

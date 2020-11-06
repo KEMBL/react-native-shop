@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Image as ImageRN } from 'react-native';
+import { ErrorBoundary } from 'components/src/utils';
 
 export interface ImageProps {
   src: string;
@@ -15,5 +16,9 @@ export class Image extends Component<ImageProps> {
     }
   });
 
-  public render = (): JSX.Element => <ImageRN style={this.styles.image} source={{ uri: this.props.src }} />;
+  public render = (): JSX.Element => (
+    <ErrorBoundary>
+      <ImageRN style={this.styles.image} source={{ uri: this.props.src }} />
+    </ErrorBoundary>
+  );
 }

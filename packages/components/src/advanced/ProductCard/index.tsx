@@ -1,16 +1,16 @@
 import React from 'react';
-import { TouchableWithoutFeedback, View } from 'react-native';
+import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 
 import { ProductId } from 'rns-types';
 import { ui } from 'rns-packages';
-import { containerStyle, default as ProductCardTheme } from 'rns-theme/src/theme/components/ProductCard';
+import { default as ProductCardTheme } from 'rns-theme/src/theme/components/ProductCard';
 
 import { CacheableImage } from 'components/src/trivial/CacheableImage';
 import { PlainText } from 'components/src/trivial/text/PlainText';
 import { AppContext } from 'components/src/context';
-import { SView } from 'components/src/shared';
+import { Button } from 'components/src/trivial/buttons/Button';
 
 interface ProductCardProps {
   id: ProductId;
@@ -24,8 +24,8 @@ export const ProductCard: React.FC<ProductCardProps> = (props) => {
   const dispatch = useDispatch();
   const { id, thumbnail, title, units, price } = props;
   return (
-    <TouchableWithoutFeedback onPress={(): unknown => dispatch(ui.actionSetCurrentProduct.start(id))}>
-      <SView rnCSS={containerStyle}>
+    <Button onPress={(): unknown => dispatch(ui.actionSetCurrentProduct.start(id))}>
+      <View style={ProductCardTheme.container}>
         <AppContext.Consumer>
           {({ imageCacherInterface }): JSX.Element => (
             <CacheableImage style={ProductCardTheme.image} src={thumbnail} imageCacheHoc={imageCacherInterface} />
@@ -46,8 +46,8 @@ export const ProductCard: React.FC<ProductCardProps> = (props) => {
             </View>
           </View>
         </View>
-      </SView>
-    </TouchableWithoutFeedback>
+      </View>
+    </Button>
   );
 };
 

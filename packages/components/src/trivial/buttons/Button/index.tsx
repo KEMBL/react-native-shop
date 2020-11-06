@@ -38,30 +38,26 @@ export class Button extends React.PureComponent<ButtonBaseProps> {
       Theme.platform.isIos
     ) {
       return (
-        <View>
-          <TouchableOpacity
-            accessibilityLabel={accessibilityLabel}
-            accessibilityRole="button"
-            accessibilityState={accessibilityState}
-            disabled={isDisabled}
-            onPress={this.onButtonPressed}>
-            <View style={buttonStyle}>{children}</View>
-          </TouchableOpacity>
-        </View>
-      );
-    }
-
-    return (
-      <View>
-        <TouchableNativeFeedback
+        <TouchableOpacity
           accessibilityLabel={accessibilityLabel}
           accessibilityRole="button"
           accessibilityState={accessibilityState}
           disabled={isDisabled}
           onPress={this.onButtonPressed}>
           <View style={buttonStyle}>{children}</View>
-        </TouchableNativeFeedback>
-      </View>
+        </TouchableOpacity>
+      );
+    }
+
+    return (
+      <TouchableNativeFeedback
+        accessibilityLabel={accessibilityLabel}
+        accessibilityRole="button"
+        accessibilityState={accessibilityState}
+        disabled={isDisabled}
+        onPress={this.onButtonPressed}>
+        <View style={buttonStyle}>{children}</View>
+      </TouchableNativeFeedback>
     );
   }
 

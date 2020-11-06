@@ -6,7 +6,7 @@ import { PriceModel } from 'rns-types';
 import { selectConfiguration, product, ui } from 'rns-packages';
 import {
   steelSheetInstance as ItemPageTheme,
-  variantsButtonSelected,
+  variantsButtonHighlighted,
   variantsButton,
   amountButton,
   buyButton
@@ -30,18 +30,33 @@ import { ArrowLeftIcon } from '../../trivial/icons/arrows/ArrowLeft';
 export const ProductPage: React.FC = () => {
   const [selectedVariantIndex, setSelectedVariantIndex] = useState(-1);
   const [amount, setAmount] = useState(1);
+  /**
+   * This product has only one variant of the price
+   */
+  const [single, setSingle] = useState(false);
+  const [isSelected, setIsSelected] = useState(false);
   const configuration = useSelector(selectConfiguration, shallowEqual);
   const productData = useSelector(product.selectors.selectCurrentProduct, shallowEqual);
   const dispatch = useDispatch();
 
+  if (!single && productData.price.properties.length === 1) {
+    // if we have only one variant of
+    setSingle(true);
+    setIsSelected(true);
+  }
+
   const onPriceButtonClick = (data: number): void => {
+    if (single) {
+      return;
+    }
     const nextState = selectedVariantIndex === data ? -1 : data; // turn button on / off
     setSelectedVariantIndex(nextState);
+    setIsSelected(nextState !== -1);
   };
 
   const priceButton = (index: number, property: string): JSX.Element => {
-    const isSelected = selectedVariantIndex === index;
-    const currentStyle = isSelected ? variantsButtonSelected : variantsButton;
+    const isHighlighted = single || selectedVariantIndex === index;
+    const currentStyle = isHighlighted ? variantsButtonHighlighted : variantsButton;
     return (
       <DataButton<number> key={index} style={currentStyle} title={property} onClick={onPriceButtonClick} data={index} />
     );
@@ -100,7 +115,7 @@ export const ProductPage: React.FC = () => {
             </StylableText>
           </View>
           <Hr color="#dfdfdf" />
-          {selectedVariantIndex !== -1 && (
+          {isSelected && (
             <View style={ItemPageTheme.amountContainer}>
               <StylableText style={ItemPageTheme.variantSelectedText}>Количество:</StylableText>
               <View style={ItemPageTheme.amountSelectorContainer}>

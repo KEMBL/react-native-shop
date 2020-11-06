@@ -14,3 +14,6 @@ export const actionSetCurrentCategory = { start: setCurrentCategoryStart };
  */
 const setCurrentProductStart = actionCreator.start<ProductId>('SET_CURRENT_PRODUCT');
 export const actionSetCurrentProduct = { start: setCurrentProductStart };
+
+const openDeliveryStart = actionCreator.start('OPEN_DELIVERY');
+export const actionOpenDelivery = { start: openDeliveryStart };

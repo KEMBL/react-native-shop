@@ -8361,11 +8361,6 @@ rimraf@~2.2.6:
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.2.8.tgz#e439be2aaee327321952730f99a8929e4fc50582"
   integrity sha1-5Dm+Kq7jJzIZUnMPmaiSnk/FBYI=
 
-rn-css@0.6.12:
-  version "0.6.12"
-  resolved "https://registry.yarnpkg.com/rn-css/-/rn-css-0.6.12.tgz#aa35caae56e618fab4dc4b63f4c07026e80676e3"
-  integrity sha512-dDfMSTR7ZacIEz3hlmq1GMLli/dwvb5A1emWMTm4JjgXD5ukNIIqjYWB9ACGnjue6XMYOIp5wEp0KoJiT0wo7Q==
-
 rn-fetch-blob@0.10.13:
   version "0.10.13"
   resolved "https://registry.yarnpkg.com/rn-fetch-blob/-/rn-fetch-blob-0.10.13.tgz#e0fd5eac1a3a872563b35061353d96c4e51ae1cc"
