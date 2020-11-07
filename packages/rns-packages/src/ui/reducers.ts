@@ -1,7 +1,7 @@
 import { ProductId } from 'rns-types';
 
 import { CategoryId } from 'rns-packages/src/shared/types';
-import { actionSetCurrentCategory, actionSetCurrentProduct } from './actions';
+import { actionSetCurrentCategory, actionSetCurrentProduct, actionSetDeliveryManagerOpened } from './actions';
 import { uiStateBranchName } from './selectors';
 import { UiState } from './types';
 
@@ -15,20 +15,33 @@ interface SetCurrentProduct {
   payload: ProductId;
 }
 
-type ActionTypes = SetCurrentCategory | SetCurrentProduct;
+interface SetDeliveryManagerOpened {
+  type: string;
+}
+
+type ActionTypes = SetCurrentCategory | SetCurrentProduct | SetDeliveryManagerOpened;
 
 const dataReducer = (state: UiState = new UiState(), action: ActionTypes): UiState => {
   switch (action.type) {
     case `${actionSetCurrentCategory.start}`: {
-      if (state.currentCategoryId !== action.payload) {
-        return { ...state, currentCategoryId: action.payload };
+      const myAction = action as SetCurrentCategory;
+      if (state.currentCategoryId !== myAction.payload) {
+        return { ...state, currentCategoryId: myAction.payload };
       }
       return state;
     }
 
     case `${actionSetCurrentProduct.start}`: {
-      if (state.currentProductId !== action.payload) {
-        return { ...state, currentProductId: action.payload };
+      const myAction = action as SetCurrentProduct;
+      if (state.currentProductId !== myAction.payload) {
+        return { ...state, currentProductId: myAction.payload };
+      }
+      return state;
+    }
+
+    case `${actionSetDeliveryManagerOpened.start}`: {
+      if (!state.isDeliveryManagerOpened) {
+        return { ...state, isDeliveryManagerOpened: true };
       }
       return state;
     }

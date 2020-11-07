@@ -6,3 +6,5 @@ nameofFactory<ApplicationState>()(uiStateBranchName); // name guard
 
 export const selectCurrentCategoryId = (state: ApplicationState): CategoryId => state.uiState.currentCategoryId;
 export const selectCurrentProductId = (state: ApplicationState): CategoryId => state.uiState.currentProductId;
+export const selectIsDeliveryManagerOpened = (state: ApplicationState): boolean =>
+  state.uiState.isDeliveryManagerOpened;
