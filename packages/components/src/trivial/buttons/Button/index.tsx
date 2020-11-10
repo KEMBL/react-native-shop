@@ -7,8 +7,7 @@ import {
   GestureResponderEvent
 } from 'react-native';
 
-import { Theme } from 'rns-theme/src/theme/Theme';
-import { default as ButtonTheme, ButtonStyle } from 'rns-theme/src/theme/components/Button';
+import { Theme, ButtonTheme, ButtonStyle } from 'rns-theme';
 
 export interface ButtonBaseProps {
   onPress: (event: GestureResponderEvent) => void;

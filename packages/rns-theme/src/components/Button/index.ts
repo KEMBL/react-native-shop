@@ -9,7 +9,7 @@ export interface ButtonStyle {
   textDisabled: TextStyle;
 }
 
-const steelSheetInstance = StyleSheet.create<ButtonStyle>({
+export const ButtonTheme = StyleSheet.create<ButtonStyle>({
   button: {},
   text: {
     textAlign: 'center',
@@ -24,5 +24,3 @@ const steelSheetInstance = StyleSheet.create<ButtonStyle>({
     color: '#a1a1a1'
   }
 });
-
-export default steelSheetInstance;

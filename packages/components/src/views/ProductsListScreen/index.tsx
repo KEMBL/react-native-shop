@@ -10,8 +10,8 @@ import {
   category
 } from 'rns-packages';
 
+import { Theme } from 'rns-theme';
 import { TopDownGradient } from 'components/src/trivial/icons/gradients/TopDownGradient';
-import { Theme } from 'rns-theme/src/theme/Theme';
 import { ProductUtils } from 'components/src/utils';
 import { CardsSection, ProductCardModel } from 'components/src/advanced/CardsSection';
 

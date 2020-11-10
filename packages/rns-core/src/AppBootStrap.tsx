@@ -3,9 +3,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { View } from 'react-native';
 
+import { Platform } from 'rns-theme';
 import { AppContext, AppContextProps, Application } from 'components';
 import { ApplicationStateComponent, setApolloClient } from 'rns-packages';
-import { Platform } from 'rns-theme/src/theme/Platform';
 import { StoreService, GraphqlService } from './services';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface

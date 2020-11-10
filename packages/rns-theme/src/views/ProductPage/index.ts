@@ -103,10 +103,6 @@ export const buyButton: ButtonStyle = {
 export interface ProductPageStyle {
   /* the whole item page container */
   container: ViewStyle;
-  /* area with clock, batarry, etc. */
-  statusBar: ViewStyle;
-  /* area with user menu and basket */
-  toolBar: ViewStyle;
   image: ImageStyle;
   priceContainer: ViewStyle;
   price: TextStyle;
@@ -120,20 +116,10 @@ export interface ProductPageStyle {
   amountSelectorText: TextStyle;
 }
 
-export const steelSheetInstance = StyleSheet.create<ProductPageStyle>({
+export const ProductPageTheme = StyleSheet.create<ProductPageStyle>({
   container: {
     flex: 1,
     backgroundColor: Theme.white
-  },
-  statusBar: {
-    backgroundColor: Theme.darkGreen
-  },
-  toolBar: {
-    height: 52,
-    backgroundColor: Theme.green,
-    alignItems: 'flex-start',
-    paddingTop: 17,
-    paddingLeft: 15
   },
   image: {
     width: 300,

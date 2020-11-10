@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text } from 'react-native';
 
-import { default as ButtonTheme } from 'rns-theme/src/theme/components/Button';
+import { ButtonTheme } from 'rns-theme';
 import { Button, ButtonBaseProps } from '../Button';
 
 export interface ButtonProps extends ButtonBaseProps {

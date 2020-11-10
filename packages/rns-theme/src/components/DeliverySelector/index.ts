@@ -4,7 +4,7 @@ export interface DeliverySelectorStyle {
   container: ViewStyle;
 }
 
-const steelSheetInstance = StyleSheet.create<DeliverySelectorStyle>({
+export const DeliverySelectorTheme = StyleSheet.create<DeliverySelectorStyle>({
   container: {
     flexDirection: 'row',
     marginTop: 14,
@@ -20,5 +20,3 @@ const steelSheetInstance = StyleSheet.create<DeliverySelectorStyle>({
     paddingLeft: 5
   }
 });
-
-export default steelSheetInstance;

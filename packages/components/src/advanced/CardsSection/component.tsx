@@ -1,10 +1,8 @@
 import React, { PureComponent } from 'react';
 import { View, FlatList } from 'react-native';
 
-import { default as CardsSectionTheme } from 'rns-theme/src/theme/components/CardsSection';
-import { ButtonStyle } from 'rns-theme/src/theme/components/Button';
+import { ButtonStyle, CardsSectionTheme } from 'rns-theme';
 import { Header3Text } from 'components/src/trivial/text/Header3Text';
-// import { TextButton } from 'components/src/trivial/buttons/TextButton';
 
 import { ProductCard } from 'components/src/advanced/ProductCard';
 import { ProductCardModel } from './types';

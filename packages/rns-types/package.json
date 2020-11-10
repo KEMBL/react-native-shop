@@ -6,6 +6,6 @@
   "scripts": {
     "lint": "eslint -c ../../.eslintrc.js --ext .ts,.tsx --ignore-pattern *.d.ts ./src",
     "lint:fix": "eslint -c ../../.eslintrc.js --ext .ts,.tsx --ignore-pattern *.d.ts --fix ./src",
-    "format": "prettier --config ../../.prettierrc.js --ignore-path ../../.prettierignore --write src/**/*.ts"
+    "format": "prettier --config ../../.prettierrc.js --ignore-path ../../.prettierignore --write \"{index.ts,src/**/*.ts}\""
   }
 }

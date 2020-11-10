@@ -13,7 +13,7 @@ export interface CardsSectionStyle {
   cardsRowContainer: ViewStyle;
 }
 
-const steelSheetInstance = StyleSheet.create<CardsSectionStyle>({
+export const CardsSectionTheme = StyleSheet.create<CardsSectionStyle>({
   container: {
     height: 195,
     backgroundColor: Theme.white,
@@ -61,5 +61,3 @@ const steelSheetInstance = StyleSheet.create<CardsSectionStyle>({
     flexDirection: 'column'
   }
 });
-
-export default steelSheetInstance;

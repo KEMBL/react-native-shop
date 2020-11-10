@@ -3,10 +3,6 @@ import PropTypes from 'prop-types';
 import * as rnSvg from 'react-native-svg';
 import { ViewStyle } from 'react-native';
 
-export interface BaseIconBaseProps extends BaseIconProps {
-  children?: React.ReactNode;
-}
-
 export interface BaseIconProps {
   color?: string;
   width?: number;
@@ -14,6 +10,10 @@ export interface BaseIconProps {
   viewBox?: string;
   children?: React.ReactNode;
   style?: ViewStyle;
+}
+
+export interface BaseIconBaseProps extends BaseIconProps {
+  children?: React.ReactNode;
 }
 
 export const BaseIcon: React.FC<BaseIconBaseProps> = (props): JSX.Element => {

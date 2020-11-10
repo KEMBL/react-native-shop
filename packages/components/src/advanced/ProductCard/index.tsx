@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 
 import { ProductId } from 'rns-types';
 import { ui } from 'rns-packages';
-import { default as ProductCardTheme } from 'rns-theme/src/theme/components/ProductCard';
+import { ProductCardTheme } from 'rns-theme';
 
 import { CacheableImage } from 'components/src/trivial/CacheableImage';
 import { PlainText } from 'components/src/trivial/text/PlainText';

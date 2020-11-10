@@ -7,4 +7,4 @@ import * as ui from 'rns-packages/src/ui';
 import * as product from 'rns-packages/src/product';
 import * as category from 'rns-packages/src/category';
 
-export {ui, product, category};
+export { ui, product, category };

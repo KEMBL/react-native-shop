@@ -1,6 +1,6 @@
 import { StyleSheet, TextStyle, ImageStyle, ViewStyle } from 'react-native';
 
-import { Theme } from 'rns-theme/src/theme/Theme';
+import { Theme } from '../../Theme';
 
 export interface ProductCardStyle {
   container: ViewStyle;
@@ -10,7 +10,7 @@ export interface ProductCardStyle {
   units: TextStyle;
 }
 
-const steelSheetInstance = StyleSheet.create<ProductCardStyle>({
+export const ProductCardTheme = StyleSheet.create<ProductCardStyle>({
   container: {
     flex: 1,
     width: 100,
@@ -43,5 +43,3 @@ const steelSheetInstance = StyleSheet.create<ProductCardStyle>({
     fontFamily: Theme.fontFamily
   }
 });
-
-export default steelSheetInstance;

@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { useDispatch } from 'react-redux';
 
 import { ui } from 'rns-packages';
-import { default as DeliverySelectorTheme } from 'rns-theme/src/theme/components/DeliverySelector';
+import { DeliverySelectorTheme } from 'rns-theme';
 import { StylableText } from 'components/src/trivial/text/StylableText';
 import { LocationIcon } from 'components/src/trivial/icons/Location';
 import { Button } from 'components/src/trivial/buttons/Button';

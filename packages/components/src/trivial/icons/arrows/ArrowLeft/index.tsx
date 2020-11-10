@@ -6,7 +6,10 @@ import { BaseIcon, BaseIconProps } from '../../BaseIcon';
 
 export const ArrowLeftIcon: React.FC<BaseIconProps> = (props): JSX.Element => {
   const { Path } = rnSvg;
-  const { color, width, height, style } = props;
+  const { color, height, style } = props;
+
+  const width = props.width ?? 22;
+
   return (
     <BaseIcon color={color} width={width} height={height} style={style}>
       <Path

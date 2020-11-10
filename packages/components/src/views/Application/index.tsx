@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useSelector } from 'react-redux';
 
@@ -22,39 +22,39 @@ export const Application: React.FC = (): JSX.Element => {
   const isDeliveryManagerOpened = useSelector(ui.selectIsDeliveryManagerOpened);
   const NavigationStack = createStackNavigator<NavigationStackParamList>();
 
-  const [showLodingScreen, setShowLodingScreen] = useState(false);
-  const [showProductsListScreen, setShowProductsListScreen] = useState(false);
-  const [showProductScreen, setShowProductScreen] = useState(false);
-  const [showDeliveryManagerScreen, setShowDeliveryManagerScreen] = useState(false);
+  let showLodingScreen = false;
+  let showProductsListScreen = false;
+  let showProductScreen = false;
+  let showDeliveryManagerScreen = false;
 
-  // TODO: #41 make normal hierarchical navigation
+  // TODO: #41 make normal hierarchical navigation or make somethig better than below
   if (!isLoaded || isLoadingError) {
     if (!showLodingScreen) {
-      setShowLodingScreen(true);
-      setShowProductsListScreen(false);
-      setShowProductScreen(false);
-      setShowDeliveryManagerScreen(false);
+      showLodingScreen = true;
+      showProductsListScreen = false;
+      showProductScreen = false;
+      showDeliveryManagerScreen = false;
     }
   } else if (isDeliveryManagerOpened) {
     if (!showDeliveryManagerScreen) {
-      setShowLodingScreen(false);
-      setShowProductsListScreen(false);
-      setShowProductScreen(false);
-      setShowDeliveryManagerScreen(true);
+      showLodingScreen = false;
+      showProductsListScreen = false;
+      showProductScreen = false;
+      showDeliveryManagerScreen = true;
     }
   } else if (currentProductId === 0) {
     if (!showProductsListScreen) {
-      setShowLodingScreen(false);
-      setShowProductsListScreen(true);
-      setShowProductScreen(false);
-      setShowDeliveryManagerScreen(false);
+      showLodingScreen = false;
+      showProductsListScreen = true;
+      showProductScreen = false;
+      showDeliveryManagerScreen = false;
     }
   } else if (currentProductId !== 0) {
     if (!showProductScreen) {
-      setShowLodingScreen(false);
-      setShowProductsListScreen(false);
-      setShowProductScreen(true);
-      setShowDeliveryManagerScreen(false);
+      showLodingScreen = false;
+      showProductsListScreen = false;
+      showProductScreen = true;
+      showDeliveryManagerScreen = false;
     }
   }
 

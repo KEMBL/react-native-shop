@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Text, TextStyle } from 'react-native';
 
-import { Theme } from 'rns-theme/src/theme/Theme';
+import { Theme } from 'rns-theme';
 
 type EllipsizeMode = 'head' | 'middle' | 'tail' | 'clip';
 
