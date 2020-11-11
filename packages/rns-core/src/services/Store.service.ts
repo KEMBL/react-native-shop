@@ -2,7 +2,7 @@ import { Middleware } from 'redux';
 // does not work, more: https://github.com/zalmoxisus/remote-redux-devtools/issues/68
 //import { composeWithDevTools } from 'remote-redux-devtools';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { ApplicationStore, StoreBuilder } from 'rns-packages';
+import { ApplicationStore, StoreBuilderService } from 'rns-packages';
 
 // import { ConfiguationService } from '../../../services';
 
@@ -29,8 +29,7 @@ class StoreService {
       //port: 8081 //remoteDevServerPort
     });
 
-    const builder = new StoreBuilder(middleware, composeEnhancers);
-    this.store = builder.getStore;
+    this.store = StoreBuilderService.buildStore(middleware, composeEnhancers);
   }
 }
 

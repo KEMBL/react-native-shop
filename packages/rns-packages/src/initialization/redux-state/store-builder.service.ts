@@ -1,26 +1,44 @@
 import { createStore, applyMiddleware, Middleware, StoreEnhancer } from 'redux';
 import createSagaMiddleware from 'redux-saga';
+import { persistStore, persistReducer, Persistor } from 'redux-persist';
+import storage from '@react-native-async-storage/async-storage';
 
 import { debug as Debug } from 'rns-packages/src/shared';
+import { uiStateBranchName } from 'rns-packages/src/ui';
 import { ApplicationState, ApplicationStore } from './types';
 import { rootReducer, rootSaga } from './root-objects';
 
 const debug = Debug('app:store:error');
 
 /**
- * Build redux store
+ * Service builds redux store and persistor, then keeps them for further reusing
  */
-export class StoreBuilder {
+class StoreBuilderService {
+  private store!: ApplicationStore;
+  private persistor!: Persistor;
+
   get getStore(): ApplicationStore {
     return this.store;
   }
-  private store: ApplicationStore;
 
-  constructor(
+  get getPersistor(): Persistor {
+    return this.persistor;
+  }
+
+  buildStore = (
     middleware?: Middleware[],
     enhancer?: (...funcs: StoreEnhancer[]) => StoreEnhancer,
     initState?: ApplicationState
-  ) {
+  ): ApplicationStore => {
+    const persistConfig = {
+      key: 'root',
+      storage,
+      version: 0,
+      whitelist: [uiStateBranchName]
+    };
+
+    const persistedReducer = persistReducer(persistConfig, rootReducer);
+
     if (!middleware) {
       middleware = [];
     }
@@ -43,7 +61,18 @@ export class StoreBuilder {
     const enhancedMiddleware = enhancer ? enhancer(appledMiddleware) : appledMiddleware;
 
     middleware = [...middleware, sagaMiddleware];
-    this.store = createStore(rootReducer, initState, enhancedMiddleware);
+    this.store = createStore(
+      persistedReducer,
+      initState as any, // track https://github.com/rt2zz/redux-persist/pull/1170
+      enhancedMiddleware
+    );
+    this.persistor = persistStore(this.store);
+
     sagaMiddleware.run(rootSaga);
-  }
+
+    return this.store;
+  };
 }
+
+const storeBuilderService = new StoreBuilderService();
+export { storeBuilderService as StoreBuilderService };
