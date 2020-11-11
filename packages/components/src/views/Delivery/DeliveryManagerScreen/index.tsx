@@ -17,7 +17,9 @@ export const DeliverySelectorScreen: React.FC = () => {
 
   return (
     <View style={DeliveryScreenTheme.container}>
-      <TopBar title="Shipment Address" onBack={(): unknown => dispatch(ui.actionSetCurrentProduct.start(0))}></TopBar>
+      <TopBar
+        title="Shipment Address"
+        onBack={(): unknown => dispatch(ui.actionSetDeliveryManagerClose.start())}></TopBar>
       <View>
         <StylableText>DeliverySelectorScreen is shown</StylableText>
       </View>

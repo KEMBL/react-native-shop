@@ -11,7 +11,7 @@ import { Button } from 'components/src/trivial/buttons/Button';
 export const DeliverySelector: React.FC = (): JSX.Element => {
   const dispatch = useDispatch();
   return (
-    <Button onPress={(): unknown => dispatch(ui.actionSetDeliveryManagerOpened.start())}>
+    <Button onPress={(): unknown => dispatch(ui.actionSetDeliveryManagerOpen.start())}>
       <View style={DeliverySelectorTheme.container}>
         <LocationIcon />
         <View style={{ flexDirection: 'column' }}>
