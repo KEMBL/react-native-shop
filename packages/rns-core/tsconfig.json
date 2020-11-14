@@ -17,6 +17,9 @@
     },
     {
       "path": "../rns-packages"
+    },
+    {
+      "path": "../localization"
     }
   ]
 }

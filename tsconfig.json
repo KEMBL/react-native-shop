@@ -8,6 +8,7 @@
     {"path": "packages/rns-core"},
     {"path": "packages/rns-mobile-app"},
     {"path": "packages/rns-web-app"},  
-    {"path": "packages/rns-packages"}
+    {"path": "packages/rns-packages"},
+    {"path": "packages/localization"}    
   ]
 }

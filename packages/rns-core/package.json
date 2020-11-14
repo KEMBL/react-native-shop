@@ -11,6 +11,7 @@
   "dependencies": {
     "@apollo/client": "^3.2.4",
     "components": "0.0.2",
+    "localization": "0.0.1",
     "redux-devtools-extension": "^2.13.8",    
     "rns-packages": "0.0.1",
     "rns-theme": "0.0.1",
