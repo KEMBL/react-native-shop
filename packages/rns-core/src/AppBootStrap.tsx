@@ -4,9 +4,12 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { View } from 'react-native';
 
 import { Platform } from 'rns-theme';
+import { LocalizationService } from 'localization';
 import { AppContext, AppContextProps, Application } from 'components';
 import { ApplicationStateComponent, setApolloClient } from 'rns-packages';
+
 import { StoreService, GraphqlService } from './services';
+
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface AppBootStrapProps extends AppContextProps {}
@@ -29,6 +32,7 @@ const getNavigationContainer = (): JSX.Element => {
 export const AppBootStrap: React.FC<AppBootStrapProps> = (props: AppBootStrapProps) => {
   const store = StoreService.getStore;
   setApolloClient(GraphqlService.apolloClient);
+  LocalizationService.init();
   return (
     <AppContext.Provider value={props}>
       <ApplicationStateComponent store={store}>

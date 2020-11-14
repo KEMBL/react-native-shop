@@ -9,6 +9,7 @@
     "format": "prettier --config ../../.prettierrc.js --ignore-path ../../.prettierignore --write \"{index.ts,src/**/*.{ts,tsx}}\""
   },
   "dependencies": {
+    "localization": "0.0.1",
     "rns-packages": "0.0.1",
     "rns-theme": "0.0.1",
     "rns-types": "0.0.1"

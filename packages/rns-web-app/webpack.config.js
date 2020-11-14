@@ -24,6 +24,7 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js', '.web.js'],
     alias: {
       'react-native$': 'react-native-web',
+      './module$': aliasPathJoin(['react-native-localize', 'lib', 'module', 'module.web.js']), // Danger! to coomon replacement pattern
       './ReactNativeSVG': aliasPathJoin(['react-native-svg', 'lib', 'module', 'ReactNativeSVG.web.js']),
       './RNGestureHandlerModule': aliasPathJoin(['react-native-gesture-handler', 'RNGestureHandlerModule.web.js']),
       './GestureHandlerButton': aliasPathJoin(['react-native-gesture-handler', 'GestureHandlerButton.web.js']),

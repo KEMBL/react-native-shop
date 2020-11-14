@@ -2,10 +2,11 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useSelector } from 'react-redux';
 
+import { translate } from 'localization';
 import { NavigationStackParamList } from 'rns-types';
 import { isBootUpCompleted, isBootUpFailed, ui } from 'rns-packages';
-import { ProductsListScreen } from 'components/src/views/ProductsListScreen';
-import { InitialLoadingScreen } from 'components/src/views/InitialLoadingScreen';
+import { InitialLoadingScreen, ProductsListScreen } from 'components';
+
 import { ProductPage } from '../ProductPage';
 import { DeliverySelectorScreen } from '../Delivery';
 
@@ -64,7 +65,7 @@ export const Application: React.FC = (): JSX.Element => {
         <NavigationStack.Screen
           name="Loading"
           component={InitialLoadingScreen}
-          options={{ title: 'Loading...' }}
+          options={{ title: `${translate('Loading')}...` }}
           initialParams={{ isError: isLoadingError }}
         />
       )}
@@ -80,11 +81,15 @@ export const Application: React.FC = (): JSX.Element => {
         <NavigationStack.Screen
           name="ProductsListScreen"
           component={ProductsListScreen}
-          options={{ title: 'Main Screen' }}
+          options={{ title: translate('Main Screen') }}
         />
       )}
       {showProductScreen && (
-        <NavigationStack.Screen name="ProductPage" component={ProductPage} options={{ title: 'Product Page' }} />
+        <NavigationStack.Screen
+          name="ProductPage"
+          component={ProductPage}
+          options={{ title: translate('Product Page') }}
+        />
       )}
     </NavigationStack.Navigator>
   );
