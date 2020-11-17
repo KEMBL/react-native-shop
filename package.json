@@ -26,7 +26,8 @@
     "remotedev": "remotedev --hostname=localhost --port=8888",
     "lint": "yarn workspaces run lint",
     "lint:fix": "yarn workspaces run lint:fix",
-    "format": "yarn workspaces run format"
+    "format": "yarn workspaces run format",
+    "fcl": "yarn format && yarn compile && yarn lint"
   },
   "dependencies": {
     "react": "16.14.0",

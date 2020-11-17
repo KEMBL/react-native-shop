@@ -1,4 +1,4 @@
-import { ProductId } from 'rns-types';
+import { DeliveryAddressId, ProductId } from 'rns-types';
 
 import { CategoryId } from 'rns-packages/src/shared/types';
 import { actionCreator } from 'rns-packages/src/shared';
@@ -20,3 +20,6 @@ export const actionSetDeliveryManagerOpen = { start: setDeliveryManagerOpenedSta
 
 const setDeliveryManagerCloseStart = actionCreator.start('CLOSE_DELIVERY_MANAGER');
 export const actionSetDeliveryManagerClose = { start: setDeliveryManagerCloseStart };
+
+const setSetDeliveryAddressStart = actionCreator.start<DeliveryAddressId>('SET_DELIVERY_ADDRESS');
+export const actionSetDeliveryAddress = { start: setSetDeliveryAddressStart };

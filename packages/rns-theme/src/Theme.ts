@@ -9,6 +9,7 @@ class Theme {
   public darkGreen = '#016C4C';
   public white = 'white';
   public grey = 'grey';
+  public lightGrey = '#F2F2F2';
   public black = 'black'; // "#212121";
 
   // text

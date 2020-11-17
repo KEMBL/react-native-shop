@@ -10,7 +10,6 @@ import { ApplicationStateComponent, setApolloClient } from 'rns-packages';
 
 import { StoreService, GraphqlService } from './services';
 
-
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface AppBootStrapProps extends AppContextProps {}
 

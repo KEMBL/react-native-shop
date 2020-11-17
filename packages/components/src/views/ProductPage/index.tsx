@@ -12,7 +12,7 @@ import { DataButton } from 'components/src/trivial/buttons/DataButton';
 import { Hr } from 'components/src/trivial/hr';
 import { ProductUtils } from 'components/src/utils';
 import { AppContext } from 'components/src/context';
-import { DeliverySelector } from 'components/src/advanced/DeliverySelector';
+import { DeliverySelector } from 'components/src/advanced/Delivery';
 import { TopBar } from 'components/src/advanced/TopBar';
 
 /**
