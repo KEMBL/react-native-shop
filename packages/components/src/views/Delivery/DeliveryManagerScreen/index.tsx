@@ -21,11 +21,13 @@ export const DeliverySelectorScreen: React.FC = () => {
   return (
     <View style={DeliveryScreenTheme.container}>
       <TopBar
-        title={translate('Shipment address')}
+        title={translate('Select shipment address')}
         onBack={(): unknown => dispatch(ui.actionSetDeliveryManagerClose.start())}></TopBar>
       <View>
-        <DeliveryAddressCard id="string-id"></DeliveryAddressCard>
-        <StylableText>DeliverySelectorScreen is shown</StylableText>
+        <DeliveryAddressCard id="string-id1" isSelected={true} isPickup={true}></DeliveryAddressCard>
+        <DeliveryAddressCard id="string-id2" isSelected={true} isPickup={false}></DeliveryAddressCard>
+        <DeliveryAddressCard id="string-id3" isSelected={false} isPickup={true}></DeliveryAddressCard>
+        <DeliveryAddressCard id="string-id4" isSelected={false} isPickup={false}></DeliveryAddressCard>
       </View>
     </View>
   );

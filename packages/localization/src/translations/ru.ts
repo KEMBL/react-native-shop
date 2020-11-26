@@ -21,7 +21,7 @@ export default {
   // DELIVERY
 
   'edit shippong address': 'добавление адреса доставки',
-  'shipment address': 'aдрес доставки',
+  'select shipment address': 'выбор адреса доставки',
   delivery: 'доставка',
   pickup: 'самовывоз',
   addressee: 'получатель',

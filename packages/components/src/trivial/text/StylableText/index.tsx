@@ -21,6 +21,12 @@ export class StylableText extends PureComponent<StylableTextProps> {
   public render(): JSX.Element {
     const { style, wrapLines, children } = this.props;
 
+    let conbinedStyle = StylableText.defaultProps.style;
+
+    if (style) {
+      conbinedStyle = { ...StylableText.defaultProps.style, ...style };
+    }
+
     let numberOfLines = 0;
     let ellipsizeMode: EllipsizeMode = 'clip';
     if (wrapLines) {
@@ -29,7 +35,7 @@ export class StylableText extends PureComponent<StylableTextProps> {
     }
 
     return (
-      <Text style={style} ellipsizeMode={ellipsizeMode} numberOfLines={numberOfLines || undefined}>
+      <Text style={conbinedStyle} ellipsizeMode={ellipsizeMode} numberOfLines={numberOfLines || undefined}>
         {children}
       </Text>
     );
