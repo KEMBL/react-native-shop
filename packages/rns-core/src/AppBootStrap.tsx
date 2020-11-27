@@ -37,7 +37,7 @@ export const AppBootStrap: React.FC<AppBootStrapProps> = (props: AppBootStrapPro
       <ApplicationStateComponent store={store}>
         {Platform.isWeb ? (
           // solves zero height in a web build
-          <View style={{ height: Platform.deviceHeight }}>{getNavigationContainer()}</View>
+          <View style={{ height: 'inherit' }}>{getNavigationContainer()}</View>
         ) : (
           getNavigationContainer()
         )}
