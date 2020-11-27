@@ -1,5 +1,5 @@
+import { StylableText } from 'components/src/trivial/text/StylableText';
 import React from 'react';
-import { Text } from 'react-native';
 
 import { ButtonTheme } from 'rns-theme';
 import { Button, ButtonBaseProps } from '../Button';
@@ -17,9 +17,7 @@ export class TextButton extends React.PureComponent<ButtonProps> {
 
     return (
       <Button onPress={onPress} style={style} isDisabled={isDisabled} accessibilityLabel={accessibilityLabel}>
-        <Text style={textStyle} ellipsizeMode={'clip'} numberOfLines={1}>
-          {title}
-        </Text>
+        <StylableText style={textStyle}>{title}</StylableText>
       </Button>
     );
   }

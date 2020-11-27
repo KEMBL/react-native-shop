@@ -92,7 +92,6 @@ export const buyButton: ButtonStyle = {
   text: {
     textAlign: 'center',
     textAlignVertical: 'center',
-    fontFamily: 'Arial Cyr Bold',
     fontSize: 15,
     color: '#FFFFFF'
   },
