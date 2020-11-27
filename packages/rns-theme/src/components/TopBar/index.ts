@@ -8,6 +8,7 @@ interface TopBarStyle {
   statusBar: ViewStyle;
   /* area with user menu and basket */
   toolBar: ViewStyle;
+  backIcon: ViewStyle;
   titleContainer: ViewStyle;
   title: TextStyle;
 }
@@ -24,9 +25,11 @@ export const TopBarTheme = StyleSheet.create<TopBarStyle>({
     flex: 1,
     flexDirection: 'row',
     height: 52,
-    alignItems: 'flex-start',
-    paddingTop: 17,
+    alignItems: 'center',
     paddingLeft: 15
+  },
+  backIcon: {
+    marginTop: 3
   },
   titleContainer: {
     marginLeft: 15

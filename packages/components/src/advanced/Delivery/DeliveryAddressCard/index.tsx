@@ -31,13 +31,19 @@ export const DeliveryAddressCard: React.FC<DeliveryAddressCardProps> = (props): 
           }}>
           <View
             style={{
-              display: isSelected ? 'flex' : 'none',
               alignItems: 'center',
               backgroundColor: '#6FFFCB',
               borderBottomRightRadius: 8
             }}>
             <StylableText
-              style={{ color: '#01875F', fontSize: 12, fontWeight: 'bold', paddingLeft: 10, paddingRight: 10 }}>
+              style={{
+                display: isSelected ? 'flex' : 'none',
+                color: '#01875F',
+                fontSize: 12, // WEB? +1 ??
+                fontWeight: 'bold',
+                paddingLeft: 10,
+                paddingRight: 10
+              }}>
               Заберу отсюда
             </StylableText>
           </View>

@@ -21,7 +21,7 @@ export const TopBar: React.FC<TopBarProps> = (props): JSX.Element => {
     <View style={TopBarTheme.container}>
       <StatusBar backgroundColor={TopBarTheme.statusBar.backgroundColor} barStyle="light-content" />
       <View style={TopBarTheme.toolBar}>
-        <View>
+        <View style={TopBarTheme.backIcon}>
           <Button onPress={onBack}>
             <ArrowLeftIcon />
           </Button>

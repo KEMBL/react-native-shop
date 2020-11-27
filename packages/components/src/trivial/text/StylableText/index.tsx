@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Text, TextStyle } from 'react-native';
+import { StyleProp, StyleSheet, Text, TextStyle } from 'react-native';
 
 import { Theme } from 'rns-theme';
 
@@ -21,12 +21,10 @@ export class StylableText extends PureComponent<StylableTextProps> {
   public render(): JSX.Element {
     const { style, wrapLines, children } = this.props;
 
-    let conbinedStyle = StylableText.defaultProps.style;
-
+    let combinedStyle: StyleProp<TextStyle> = StylableText.defaultProps.style;
     if (style) {
-      conbinedStyle = { ...StylableText.defaultProps.style, ...style };
+      combinedStyle = StyleSheet.compose(StylableText.defaultProps.style, style);
     }
-
     let numberOfLines = 0;
     let ellipsizeMode: EllipsizeMode = 'clip';
     if (wrapLines) {
@@ -35,7 +33,7 @@ export class StylableText extends PureComponent<StylableTextProps> {
     }
 
     return (
-      <Text style={conbinedStyle} ellipsizeMode={ellipsizeMode} numberOfLines={numberOfLines || undefined}>
+      <Text style={combinedStyle} ellipsizeMode={ellipsizeMode} numberOfLines={numberOfLines || undefined}>
         {children}
       </Text>
     );
