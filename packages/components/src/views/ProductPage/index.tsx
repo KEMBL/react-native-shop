@@ -73,7 +73,7 @@ export const ProductPage: React.FC = () => {
 
   return (
     <View style={ProductPageTheme.container}>
-      <TopBar onBack={(): unknown => dispatch(ui.actionSetCurrentProduct.start(0))} />
+      <TopBar title={translate('Product description')} onBack={(): unknown => dispatch(ui.actionSetCurrentProduct.start(0))} />
       <ScrollView style={{ height: 550 }}>
         <AppContext.Consumer>
           {({ imageCacherInterface }): JSX.Element => (

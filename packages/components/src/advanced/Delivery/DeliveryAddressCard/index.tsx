@@ -16,6 +16,9 @@ interface DeliveryAddressCardProps {
   isPickup?: boolean;
 }
 
+/**
+ * One card with delivery or pickup information about single place
+ */
 export const DeliveryAddressCard: React.FC<DeliveryAddressCardProps> = (props): JSX.Element => {
   const dispatch = useDispatch();
   const { id, isSelected, isPickup } = props;

@@ -15,6 +15,7 @@ export default {
 
   // PRODUCT
 
+  'product description': 'описание продукта',
   amount: 'количество',
   'add to basket': 'добавить в корзину',
 
