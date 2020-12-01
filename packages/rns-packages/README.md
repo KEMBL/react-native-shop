@@ -1,6 +1,10 @@
 # Entities guidelines
 
-This package contains application entities which are supposed to be used with redux-package-loader. The general idea is - each entity folder contains all necessary parts which are required to use it in react-redux application. Look at folders as at dedicated npm packages.
+This package contains application entities which are supposed to be used with redux-package-loader. 
+
+The general ideas are: 
+* each entity folder contains all necessary parts which are required to use it in react-redux application. Look at folders as at dedicated npm packages.
+* Other packages can access only selectors and actions inside this package
 
 Mostly inspired by these articles:
 

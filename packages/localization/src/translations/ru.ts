@@ -9,20 +9,21 @@ export default {
   change: 'изменить',
   rub: 'руб.',
   'order sum': 'сумма заказа',
-  amount: 'количество',
   sum: 'итого',
   discount: 'скидка',
   comment: 'комментарий',
 
   // PRODUCT
 
-  'ADD TO BASKET': 'ДОБАВИТЬ В КОРЗИНУ',
+  amount: 'количество',
+  'add to basket': 'добавить в корзину',
 
   // DELIVERY
 
   'edit shopping address': 'изменение адреса доставки',
   'select shipment address': 'выбор адреса доставки',
-  'add shopping address': 'добавить адрес доставки',
+  'add shipment address': 'добавить адрес доставки',
+  'save shipment address': 'сохранить адрес доставки',
   delivery: 'доставка',
   pickup: 'самовывоз',
   addressee: 'получатель',

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { View, ScrollView } from 'react-native';
 
+import { translate } from 'localization';
 import { PriceModel } from 'rns-types';
 import { selectConfiguration, product, ui } from 'rns-packages';
 import { ProductPageTheme, variantsButtonHighlighted, variantsButton, amountButton, buyButton } from 'rns-theme';
@@ -105,7 +106,7 @@ export const ProductPage: React.FC = () => {
           <Hr color="#dfdfdf" />
           {isSelected && (
             <View style={ProductPageTheme.amountContainer}>
-              <StylableText style={ProductPageTheme.variantSelectedText}>Количество:</StylableText>
+              <StylableText style={ProductPageTheme.variantSelectedText}>{translate('Amount')}:</StylableText>
               <View style={ProductPageTheme.amountSelectorContainer}>
                 <TextButton style={amountButton} title="-" onPress={onAmountDecrease} />
                 <StylableText style={ProductPageTheme.amountSelectorText}>{amount}</StylableText>
@@ -121,7 +122,7 @@ export const ProductPage: React.FC = () => {
           }}
         />
       </ScrollView>
-      <TextButton style={buyButton} title="ДОБАВИТЬ В КОРЗИНУ" onPress={(): null => null} />
+      <TextButton style={buyButton} title={translate('add to basket')} onPress={(): null => null} />
     </View>
   );
 };

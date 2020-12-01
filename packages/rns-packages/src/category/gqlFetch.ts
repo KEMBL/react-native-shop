@@ -1,8 +1,10 @@
 import { gql } from '@apollo/client';
 
+import { CategoryId } from 'rns-types';
+
 import { PRODUCTS_FRAGMENT } from '../product';
 import { GqlClientService } from '../shared';
-import { CategoriesCollection, CategoryId, ProductCategoryCollection } from './types';
+import { CategoriesCollection, ProductCategoryCollection } from './types';
 
 const CATEGORY_WITH_PRODUCT_FRAGMENT = gql`
   ${PRODUCTS_FRAGMENT}

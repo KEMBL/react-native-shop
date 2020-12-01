@@ -1,5 +1,7 @@
+import { CategoryId } from 'rns-types';
+
 import { actionCreator } from 'rns-packages/src/shared';
-import { CategoryId, FailedActionResultWithPayload } from 'rns-packages/src/shared/types';
+import { FailedActionResultWithPayload } from 'rns-packages/src/shared/types';
 
 /**
  * Action handlers

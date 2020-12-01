@@ -1,4 +1,6 @@
-import { CategoryId, ApplicationState } from 'rns-packages/src/shared/types';
+import { CategoryId } from 'rns-types';
+
+import { ApplicationState } from 'rns-packages/src/shared/types';
 import { nameofFactory } from 'rns-packages/src/shared';
 
 export const uiStateBranchName = 'uiState';

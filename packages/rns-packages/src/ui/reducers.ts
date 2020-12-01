@@ -1,6 +1,5 @@
-import { ProductId } from 'rns-types';
+import { CategoryId, ProductId } from 'rns-types';
 
-import { CategoryId } from 'rns-packages/src/shared/types';
 import {
   actionSetCurrentCategory,
   actionSetCurrentProduct,

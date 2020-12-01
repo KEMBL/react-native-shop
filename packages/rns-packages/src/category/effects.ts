@@ -1,8 +1,9 @@
 import { put, call } from 'redux-saga/effects';
 import { Action, ActionWithPayload } from 'robodux';
 
+import { CategoryId } from 'rns-types';
+
 import { debug as Debug } from 'rns-packages/src/shared';
-import { CategoryId } from 'rns-packages/src/shared/types';
 import { actionSetCurrentCategory } from 'rns-packages/src/ui';
 import { setLoaderStatus } from 'rns-packages/src/loading';
 import { fetchCategories, fetchCategoriesWithProducts } from './actions';

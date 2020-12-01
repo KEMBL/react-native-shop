@@ -93,7 +93,8 @@ export const buyButton: ButtonStyle = {
     textAlign: 'center',
     textAlignVertical: 'center',
     fontSize: 15,
-    color: '#FFFFFF'
+    color: '#FFFFFF',
+    textTransform: 'uppercase'
   },
   buttonDisabled: {},
   textDisabled: {}

@@ -1,7 +1,8 @@
 import { put, call, select } from 'redux-saga/effects';
 
+import { CategoryId } from 'rns-types';
+
 import { debug as Debug } from 'rns-packages/src/shared';
-import { CategoryId } from 'rns-packages/src/shared/types';
 import { fetchProducts } from 'rns-packages/src/product';
 import { fetchCategories } from 'rns-packages/src/category';
 import { selectCurrentCategoryId } from 'rns-packages/src/ui';

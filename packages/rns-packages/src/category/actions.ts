@@ -1,6 +1,8 @@
+import { CategoryId } from 'rns-types';
+
 import { FailedActionResult, FailedActionResultWithPayload } from 'rns-packages/src/shared/types';
 import { actionCreator } from 'rns-packages/src/shared';
-import { CategoriesCollection, CategoryId, ProductCategoryCollection } from './types';
+import { CategoriesCollection, ProductCategoryCollection } from './types';
 
 /**
  * Requests categories with preloaded products inisde

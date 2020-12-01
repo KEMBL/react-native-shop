@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 
-import { ProductId, ProductModel } from 'rns-types';
-import { CategoryId, ApplicationState } from 'rns-packages/src/shared/types';
+import { CategoryId, ProductId, ProductModel } from 'rns-types';
+import { ApplicationState } from 'rns-packages/src/shared/types';
 import { ParametrizedSelector, proxyParam } from 'rns-packages/src/shared';
 import { selectCurrentProductId } from 'rns-packages/src/ui';
 import { notFoundProduct } from './default';

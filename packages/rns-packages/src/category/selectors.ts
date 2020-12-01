@@ -1,11 +1,10 @@
 import { createSelector } from 'reselect';
-import { ProductId, ProductModel } from 'rns-types';
+import { CategoryId, ProductCategoryModel, ProductCategoryModelWithProducts, ProductId, ProductModel } from 'rns-types';
 
 import { selectState, ParametrizedSelector, proxyParam } from 'rns-packages/src/shared';
 import { Probability, ApplicationState } from 'rns-packages/src/shared/types';
 import { selectors as productSelectors } from 'rns-packages/src/product';
 import { selectCurrentCategoryId } from 'rns-packages/src/ui';
-import { CategoryId, ProductCategoryModel, ProductCategoryModelWithProducts } from './types';
 
 const selectAllCategories = (state: ApplicationState): ProductCategoryModel[] => state.externalData.categories;
 const selectCategoryById = (state: ApplicationState, { id = 0 }: { id: CategoryId }): ProductCategoryModel =>

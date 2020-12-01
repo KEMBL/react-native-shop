@@ -2,15 +2,10 @@ import React from 'react';
 import { shallowEqual, useSelector } from 'react-redux';
 import { StyleSheet, View, StatusBar, FlatList } from 'react-native';
 
-import {
-  Configuration,
-  ProductCategoryModel,
-  ProductCategoryModelWithProducts,
-  selectConfiguration,
-  category
-} from 'rns-packages';
-
+import { Configuration, ProductCategoryModel, ProductCategoryModelWithProducts } from 'rns-types';
+import { selectConfiguration, category } from 'rns-packages';
 import { Theme } from 'rns-theme';
+
 import { TopDownGradient } from 'components/src/trivial/icons/gradients/TopDownGradient';
 import { ProductUtils } from 'components/src/utils';
 import { CardsSection, ProductCardModel } from 'components/src/advanced/CardsSection';

@@ -1,6 +1,7 @@
+import { Configuration } from 'rns-types';
+
 import { ApplicationState } from '../initialization';
 import { nameofFactory } from '../shared';
-import { Configuration } from './types';
 
 /**
  * Combines reducers for external data
