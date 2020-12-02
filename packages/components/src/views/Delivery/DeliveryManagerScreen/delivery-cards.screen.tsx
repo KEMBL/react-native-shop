@@ -1,9 +1,9 @@
 import React from 'react';
-import { View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { translate } from 'localization';
-import { buyButton, DeliveryScreenTheme } from 'rns-theme';
+import { RedDownButton, DeliveryScreenTheme } from 'rns-theme';
 
 import { TopBar } from 'components/src/advanced/TopBar';
 import { DeliveryAddressCard } from 'components/src/advanced/Delivery';
@@ -29,15 +29,18 @@ export const DeliveryCardsScreen: React.FC<DeliveryCardsScreenProps> = (props) =
         <TopBar title={translate('Select shipment address')} onBack={onClose}>
           <PencilIcon />
         </TopBar>
-        <View>
+        <ScrollView>
           <DeliveryAddressCard id="string-id1" isSelected={true} isPickup={true}></DeliveryAddressCard>
           <DeliveryAddressCard id="string-id2" isSelected={true} isPickup={false}></DeliveryAddressCard>
           <DeliveryAddressCard id="string-id3" isSelected={false} isPickup={true}></DeliveryAddressCard>
           <DeliveryAddressCard id="string-id4" isSelected={false} isPickup={false}></DeliveryAddressCard>
-        </View>
+          <DeliveryAddressCard id="string-id4" isSelected={false} isPickup={false}></DeliveryAddressCard>
+          <DeliveryAddressCard id="string-id4" isSelected={false} isPickup={false}></DeliveryAddressCard>
+          <View style={{ height: 10 }} />
+        </ScrollView>
       </View>
       <View>
-        <TextButton style={buyButton} title={translate('Add shipment address')} onPress={onAddCard} />
+        <TextButton style={RedDownButton} title={translate('Add shipment address')} onPress={onAddCard} />
       </View>
     </View>
   );

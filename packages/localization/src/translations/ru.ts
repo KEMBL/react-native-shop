@@ -36,10 +36,14 @@ export default {
   'your name': 'ваше имя',
   surname: 'фамилия',
   'e-mail': 'e-mail',
-  'Note to delivery man': 'Примечание для доставщика',
+  'note to a delivery man': 'примечание для доставщика',
   'phone number': 'Номер телефона',
   'street, house, flat number': 'Улица, дом, квартира',
   city: 'город',
   'required field': 'нужно заполнить',
-  'set as default shipping address': 'установить как адрес достваки по умолчанию'
+  'set as default shipping address': 'установить как адрес достваки по умолчанию',
+
+  // DELIVERY ADD
+
+  'The delivery is possible only within Rostov-on-Don': 'Мы осуществляем доставку только по г.Ростов-на-Дону'
 };

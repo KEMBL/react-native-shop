@@ -3,10 +3,11 @@ import { View } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { translate } from 'localization';
-import { buyButton, DeliveryScreenTheme } from 'rns-theme';
+import { RedDownButton, DeliveryScreenTheme } from 'rns-theme';
 
 import { TopBar } from 'components/src/advanced/TopBar';
 import { TextButton } from 'components/src/trivial/buttons/TextButton';
+import { StylableText } from 'components/src/trivial/text/StylableText';
 
 export interface UpdateDeliveryCardScreenProps {
   onClose: () => void;
@@ -21,10 +22,21 @@ export const UpdateDeliveryCardScreen: React.FC<UpdateDeliveryCardScreenProps> =
     <View style={DeliveryScreenTheme.container}>
       <View style={DeliveryScreenTheme.cards}>
         <TopBar title={translate('Add shipment address')} onBack={(): unknown => onClose()} />
-        <View></View>
+        <View>
+          <View style={{ backgroundColor: '#FCFABF', height: 50, justifyContent: 'center' }}>
+            <StylableText style={{ width: 240, alignSelf: 'center', textAlign: 'center' }}>
+              {translate('The delivery is possible only within Rostov-on-Don')}
+            </StylableText>
+          </View>
+        </View>
       </View>
       <View>
-        <TextButton style={buyButton} title={translate('Save shipment address')} onPress={(): unknown => null} />
+        <TextButton
+          style={RedDownButton}
+          isDisabled={true}
+          title={translate('Save shipment address')}
+          onPress={(): unknown => null}
+        />
       </View>
     </View>
   );

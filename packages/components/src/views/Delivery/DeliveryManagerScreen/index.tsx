@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { View } from 'react-native';
 
 import { ui } from 'rns-packages';
 
@@ -17,7 +16,7 @@ export const DeliverySelectorScreen: React.FC = () => {
   const dispatch = useDispatch();
 
   return (
-    <View>
+    <>
       {screenIndex === 0 && (
         <DeliveryCardsScreen
           onClose={(): unknown => dispatch(ui.actionSetDeliveryManagerClose.start())}
@@ -25,6 +24,6 @@ export const DeliverySelectorScreen: React.FC = () => {
         />
       )}
       {screenIndex === 1 && <UpdateDeliveryCardScreen onClose={(): unknown => setSubScreen(0)} />}
-    </View>
+    </>
   );
 };

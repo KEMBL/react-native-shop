@@ -5,7 +5,7 @@ import { View, ScrollView } from 'react-native';
 import { translate } from 'localization';
 import { PriceModel } from 'rns-types';
 import { selectConfiguration, product, ui } from 'rns-packages';
-import { ProductPageTheme, variantsButtonHighlighted, variantsButton, amountButton, buyButton } from 'rns-theme';
+import { ProductPageTheme, variantsButtonHighlighted, variantsButton, amountButton, RedDownButton } from 'rns-theme';
 import { CacheableImage } from 'components/src/trivial/CacheableImage';
 import { StylableText } from 'components/src/trivial/text/StylableText';
 import { TextButton } from 'components/src/trivial/buttons/TextButton';
@@ -73,7 +73,10 @@ export const ProductPage: React.FC = () => {
 
   return (
     <View style={ProductPageTheme.container}>
-      <TopBar title={translate('Product description')} onBack={(): unknown => dispatch(ui.actionSetCurrentProduct.start(0))} />
+      <TopBar
+        title={translate('Product description')}
+        onBack={(): unknown => dispatch(ui.actionSetCurrentProduct.start(0))}
+      />
       <ScrollView style={{ height: 550 }}>
         <AppContext.Consumer>
           {({ imageCacherInterface }): JSX.Element => (
@@ -122,7 +125,7 @@ export const ProductPage: React.FC = () => {
           }}
         />
       </ScrollView>
-      <TextButton style={buyButton} title={translate('add to basket')} onPress={(): null => null} />
+      <TextButton style={RedDownButton} title={translate('add to basket')} onPress={(): null => null} />
     </View>
   );
 };

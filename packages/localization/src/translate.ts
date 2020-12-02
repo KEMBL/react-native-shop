@@ -16,16 +16,20 @@ export const translate = memoize(
   (key: string, options?: TranslateOptions) => {
     options = options ?? { defaultValue: '' };
     let translation = i18n.translate(key, options);
+
     if (!translation) {
+      // Warn! would not work if `key` message has anther capital letters, like city names
       translation = i18n.translate(key.toLowerCase(), options);
       //!!! in a simplest case  we think that the first letter is capital but there could be more capital letters in string so
       // to avoid translation problems is better to add such difficult strings to vocabulary file
-      return capitalize(translation);
+      if (translation) {
+        return capitalize(translation);
+      }
     }
 
     if (!translation) {
-      console.warn('Cannot translate', key);
-      return options ? key + JSON.stringify(options) : key;
+      console.warn('Cannot translate', key, options);
+      return key;
     }
 
     return translation;

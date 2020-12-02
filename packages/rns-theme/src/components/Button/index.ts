@@ -24,3 +24,34 @@ export const ButtonTheme = StyleSheet.create<ButtonStyle>({
     color: '#a1a1a1'
   }
 });
+
+export const RedDownButton: ButtonStyle = StyleSheet.create<ButtonStyle>({
+  button: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#FF4747',
+    height: 47
+  },
+  text: {
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    fontSize: 15,
+    color: Theme.white,
+    textTransform: 'uppercase'
+  },
+  buttonDisabled: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: Theme.middleGrey,
+    height: 47
+  },
+  textDisabled: {
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    fontSize: 15,
+    color: Theme.white,
+    textTransform: 'uppercase'
+  }
+});

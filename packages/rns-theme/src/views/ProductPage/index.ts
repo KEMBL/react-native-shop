@@ -81,25 +81,6 @@ export const amountButton: ButtonStyle = {
   }
 };
 
-export const buyButton: ButtonStyle = {
-  button: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#FF4747',
-    height: 47
-  },
-  text: {
-    textAlign: 'center',
-    textAlignVertical: 'center',
-    fontSize: 15,
-    color: '#FFFFFF',
-    textTransform: 'uppercase'
-  },
-  buttonDisabled: {},
-  textDisabled: {}
-};
-
 export interface ProductPageStyle {
   /* the whole item page container */
   container: ViewStyle;

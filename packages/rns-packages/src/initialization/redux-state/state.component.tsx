@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
@@ -21,7 +21,14 @@ interface ApplicationStateProps {
 export const ApplicationStateComponent: React.FC<ApplicationStateProps> = (props: ApplicationStateProps) => {
   const { store, children } = props;
   const persistor = StoreBuilderService.getPersistor;
-  store.dispatch(appBootup.start());
+
+  // Note: Dispatching to the store has to be done in a useEffect so that React
+  // can sync the update with the render cycle otherwise it causes the message:
+  // `Warning: Cannot update a component from inside the function body of a different component.`
+  useEffect(() => {
+    store.dispatch(appBootup.start());
+  }, [store]);
+
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
