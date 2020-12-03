@@ -15,6 +15,7 @@ import { ProductUtils } from 'components/src/utils';
 import { AppContext } from 'components/src/context';
 import { DeliverySelector } from 'components/src/advanced/Delivery';
 import { TopBar } from 'components/src/advanced/TopBar';
+import { Theme } from 'rns-theme';
 
 /**
  * Page with full information about the product
@@ -106,7 +107,7 @@ export const ProductPage: React.FC = () => {
               стерилизованных кошек с индейкой и рисом
             </StylableText>
           </View>
-          <Hr color="#dfdfdf" />
+          <Hr style={{ borderBottomColor: Theme.middleGrey, margin: 10 }} />
           {isSelected && (
             <View style={ProductPageTheme.amountContainer}>
               <StylableText style={ProductPageTheme.variantSelectedText}>{translate('Amount')}:</StylableText>

@@ -10,7 +10,7 @@ interface DeliveryScreenStyle {
 export const DeliveryScreenTheme = StyleSheet.create<DeliveryScreenStyle>({
   container: {
     flex: 1,
-    backgroundColor: Theme.lightGrey
+    backgroundColor: Theme.white
   },
   cards: {
     flex: 1
