@@ -139,7 +139,7 @@ export const UpdateDeliveryCardScreen: React.FC<UpdateDeliveryCardScreenProps> =
                 height: 100,
                 fontSize: 16,
                 borderWidth: StyleSheet.hairlineWidth * 1.5,
-                borderBottomColor: Theme.middleGrey,
+                borderColor: Theme.middleGrey,
                 textAlign: note || noteFocused ? 'left' : 'center'
               }}
               maxLength={250}
