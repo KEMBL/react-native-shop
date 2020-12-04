@@ -4,8 +4,16 @@ import { View, ScrollView } from 'react-native';
 
 import { translate } from 'localization';
 import { PriceModel } from 'rns-types';
+import {
+  Theme,
+  ProductPageTheme,
+  variantsButtonHighlighted,
+  variantsButton,
+  amountButton,
+  RedDownButton
+} from 'rns-theme';
 import { selectConfiguration, product, ui } from 'rns-packages';
-import { ProductPageTheme, variantsButtonHighlighted, variantsButton, amountButton, RedDownButton } from 'rns-theme';
+
 import { CacheableImage } from 'components/src/trivial/CacheableImage';
 import { StylableText } from 'components/src/trivial/text/StylableText';
 import { TextButton } from 'components/src/trivial/buttons/TextButton';
@@ -15,7 +23,6 @@ import { ProductUtils } from 'components/src/utils';
 import { AppContext } from 'components/src/context';
 import { DeliverySelector } from 'components/src/advanced/Delivery';
 import { TopBar } from 'components/src/advanced/TopBar';
-import { Theme } from 'rns-theme';
 
 /**
  * Page with full information about the product

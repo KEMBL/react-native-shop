@@ -8,6 +8,7 @@ import { RedDownButton, DeliveryScreenTheme, Theme } from 'rns-theme';
 import { TopBar } from 'components/src/advanced/TopBar';
 import { TextButton } from 'components/src/trivial/buttons/TextButton';
 import { StylableText } from 'components/src/trivial/text/StylableText';
+import { CheckBox } from 'components/src/trivial/CheckBox';
 
 export interface UpdateDeliveryCardScreenProps {
   onClose: () => void;
@@ -24,6 +25,11 @@ export const UpdateDeliveryCardScreen: React.FC<UpdateDeliveryCardScreenProps> =
   const [address2, setAddress2] = useState('');
   const [note, setNote] = useState('');
   const [noteFocused, setNoteFocused] = useState(false);
+  const [isBaseAddress, setIsBaseAddress] = useState(false);
+
+  const isFormValid = (): boolean => {
+    return !!name && !!phone && !!address1;
+  };
 
   return (
     <View style={DeliveryScreenTheme.container}>
@@ -152,12 +158,21 @@ export const UpdateDeliveryCardScreen: React.FC<UpdateDeliveryCardScreenProps> =
               defaultValue={note}
             />
           </View>
+          <View style={{ flexDirection: 'row', marginTop: 25 }}>
+            <CheckBox
+              value={isBaseAddress}
+              onValueChange={setIsBaseAddress}
+              style={{ alignSelf: 'center' }}
+              tintColors={{ true: Theme.red, false: Theme.darkGreen }}
+            />
+            <StylableText style={{ marginLeft: 15 }}>{translate('Default delivery address')}</StylableText>
+          </View>
         </ScrollView>
       </View>
       <View>
         <TextButton
           style={RedDownButton}
-          isDisabled={true}
+          isDisabled={!isFormValid()}
           title={translate('Save shipment address')}
           onPress={(): unknown => null}
         />

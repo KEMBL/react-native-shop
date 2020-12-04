@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as rnSvg from 'react-native-svg';
-import { ViewStyle } from 'react-native';
+import { StyleProp, ViewStyle } from 'react-native';
 
 export interface BaseIconProps {
   color?: string;
@@ -9,7 +9,7 @@ export interface BaseIconProps {
   height?: number;
   viewBox?: string;
   children?: React.ReactNode;
-  style?: ViewStyle;
+  style?: StyleProp<ViewStyle>;
 }
 
 export interface BaseIconBaseProps extends BaseIconProps {

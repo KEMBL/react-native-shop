@@ -48,5 +48,6 @@ export default {
   'set as default shipping address': 'установить как адрес достваки по умолчанию',
   'The delivery is possible only within Rostov-on-Don': 'Мы осуществляем доставку только по г.Ростов-на-Дону',
   'Please, fill-in fields in Russian Language': 'Пожалуйста, введите информацию на Русском языке',
-  'Rostov-on-Don': 'Ростов-на-Дону'
+  'Rostov-on-Don': 'Ростов-на-Дону',
+  'default delivery address': 'основной адрес доставки'
 };
