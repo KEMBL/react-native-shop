@@ -81,7 +81,7 @@ export const Application: React.FC = (): JSX.Element => {
         <NavigationStack.Screen
           name="ProductsListScreen"
           component={ProductsListScreen}
-          options={{ title: translate('Main Screen') }}
+          options={{ title: translate('Products list') }}
         />
       )}
       {showProductScreen && (

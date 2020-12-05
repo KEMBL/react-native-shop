@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import { ScrollView, StyleSheet, TextInput, View } from 'react-native';
 import PropTypes from 'prop-types';
 
@@ -9,6 +9,8 @@ import { TopBar } from 'components/src/advanced/TopBar';
 import { TextButton } from 'components/src/trivial/buttons/TextButton';
 import { StylableText } from 'components/src/trivial/text/StylableText';
 import { CheckBox } from 'components/src/trivial/CheckBox';
+import { Button } from '../../../trivial/buttons/Button';
+import { Platform } from 'rns-theme/src/Platform';
 
 export interface UpdateDeliveryCardScreenProps {
   onClose: () => void;
@@ -29,6 +31,30 @@ export const UpdateDeliveryCardScreen: React.FC<UpdateDeliveryCardScreenProps> =
 
   const isFormValid = (): boolean => {
     return !!name && !!phone && !!address1;
+  };
+
+  const textEditInput = (value: string, callback: (value: string) => void, placeholder: string): ReactNode => {
+    return (
+      <View style={{ marginTop: 10 }}>
+        <TextInput
+          style={[
+            {
+              height: 40,
+              fontSize: 16,
+              borderBottomWidth: StyleSheet.hairlineWidth * 1.5,
+              borderBottomColor: Theme.middleGrey
+            },
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            (Platform.isWeb && { outline: 'none' }) as any // currently there is no other way to remove outline from web version
+          ]}
+          maxLength={50}
+          underlineColorAndroid="transparent"
+          placeholder={translate(placeholder)}
+          onChangeText={(value): void => callback(value)}
+          defaultValue={value}
+        />
+      </View>
+    );
   };
 
   return (
@@ -68,66 +94,10 @@ export const UpdateDeliveryCardScreen: React.FC<UpdateDeliveryCardScreenProps> =
             margin: 15,
             justifyContent: 'center'
           }}>
-          <View style={{ marginTop: 10 }}>
-            <TextInput
-              style={{
-                height: 40,
-                fontSize: 16,
-                borderBottomWidth: StyleSheet.hairlineWidth * 1.5,
-                borderBottomColor: Theme.middleGrey
-              }}
-              maxLength={50}
-              underlineColorAndroid="transparent"
-              placeholder={translate('Your name')}
-              onChangeText={(value): void => setName(value)}
-              defaultValue={name}
-            />
-          </View>
-          <View style={{ marginTop: 10 }}>
-            <TextInput
-              style={{
-                height: 40,
-                fontSize: 16,
-                borderBottomWidth: StyleSheet.hairlineWidth * 1.5,
-                borderBottomColor: Theme.middleGrey
-              }}
-              maxLength={50}
-              underlineColorAndroid="transparent"
-              placeholder={translate('Phone number')}
-              onChangeText={(value): void => setPhone(value)}
-              defaultValue={phone}
-            />
-          </View>
-          <View style={{ marginTop: 13 }}>
-            <TextInput
-              style={{
-                height: 40,
-                fontSize: 16,
-                borderBottomWidth: StyleSheet.hairlineWidth * 1.5,
-                borderBottomColor: Theme.middleGrey
-              }}
-              maxLength={50}
-              underlineColorAndroid="transparent"
-              placeholder={translate('Address1')}
-              onChangeText={(value): void => setAddress1(value)}
-              defaultValue={address1}
-            />
-          </View>
-          <View style={{ marginTop: 13 }}>
-            <TextInput
-              style={{
-                height: 40,
-                fontSize: 16,
-                borderBottomWidth: StyleSheet.hairlineWidth * 1.5,
-                borderBottomColor: Theme.middleGrey
-              }}
-              maxLength={50}
-              underlineColorAndroid="transparent"
-              placeholder={translate('Address2')}
-              onChangeText={(value): void => setAddress2(value)}
-              defaultValue={address2}
-            />
-          </View>
+          {textEditInput(name, setName, 'Your name')}
+          {textEditInput(phone, setPhone, 'Phone number')}
+          {textEditInput(address1, setAddress1, 'Address1')}
+          {textEditInput(address2, setAddress2, 'Address2')}
           <View style={{ marginTop: 13 }}>
             <StylableText
               style={{
@@ -158,14 +128,18 @@ export const UpdateDeliveryCardScreen: React.FC<UpdateDeliveryCardScreenProps> =
               defaultValue={note}
             />
           </View>
-          <View style={{ flexDirection: 'row', marginTop: 25 }}>
-            <CheckBox
-              value={isBaseAddress}
-              onValueChange={setIsBaseAddress}
-              style={{ alignSelf: 'center' }}
-              tintColors={{ true: Theme.red, false: Theme.darkGreen }}
-            />
-            <StylableText style={{ marginLeft: 15 }}>{translate('Default delivery address')}</StylableText>
+          <Button onPress={(): unknown => setIsBaseAddress(!isBaseAddress)}>
+            <View style={{ flexDirection: 'row', marginTop: 25 }}>
+              <CheckBox
+                value={isBaseAddress}
+                style={{ alignSelf: 'center' }}
+                tintColors={{ true: Theme.red, false: Theme.darkGreen }}
+              />
+              <StylableText style={{ marginLeft: 15 }}>{translate('Default delivery address')}</StylableText>
+            </View>
+          </Button>
+          <View style={{ height: 25 }}>
+            {/* Rrequired because when keyboard pops up on android scroll list cuts off last input */}
           </View>
         </ScrollView>
       </View>

@@ -14,6 +14,10 @@ export default {
   comment: 'комментарий',
   'required field': 'нужно заполнить',
 
+  // SCREENS
+
+  'products list': 'список товаров',
+
   // PRODUCT
 
   'product description': 'описание продукта',
