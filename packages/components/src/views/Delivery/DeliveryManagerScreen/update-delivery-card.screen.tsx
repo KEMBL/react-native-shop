@@ -138,9 +138,11 @@ export const UpdateDeliveryCardScreen: React.FC<UpdateDeliveryCardScreenProps> =
               <StylableText style={{ marginLeft: 15 }}>{translate('Default delivery address')}</StylableText>
             </View>
           </Button>
-          <View style={{ height: 25 }}>
-            {/* Rrequired because when keyboard pops up on android scroll list cuts off last input */}
-          </View>
+          {!Platform.isWeb && (
+            <View style={{ height: 25 }}>
+              {/* Rrequired because when keyboard pops up on android scroll list cuts off last input */}
+            </View>
+          )}
         </ScrollView>
       </View>
       <View>
