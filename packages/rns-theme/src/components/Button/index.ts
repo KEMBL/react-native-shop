@@ -25,33 +25,48 @@ export const ButtonTheme = StyleSheet.create<ButtonStyle>({
   }
 });
 
+const button: ViewStyle = {
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'center',
+  backgroundColor: '#FF4747',
+  height: 47
+};
+
+const titleText: TextStyle = {
+  textAlign: 'center',
+  textAlignVertical: 'center',
+  fontSize: 15,
+  color: Theme.white,
+  textTransform: 'uppercase'
+};
+
+const buttonDisabled: ViewStyle = {
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'center',
+  backgroundColor: Theme.middleGrey,
+  height: 47
+};
+
+const titleTextDisabled: TextStyle = {
+  textAlign: 'center',
+  textAlignVertical: 'center',
+  fontSize: 15,
+  color: Theme.white,
+  textTransform: 'uppercase'
+};
+
 export const RedDownButton: ButtonStyle = StyleSheet.create<ButtonStyle>({
-  button: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#FF4747',
-    height: 47
-  },
-  text: {
-    textAlign: 'center',
-    textAlignVertical: 'center',
-    fontSize: 15,
-    color: Theme.white,
-    textTransform: 'uppercase'
-  },
-  buttonDisabled: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: Theme.middleGrey,
-    height: 47
-  },
-  textDisabled: {
-    textAlign: 'center',
-    textAlignVertical: 'center',
-    fontSize: 15,
-    color: Theme.white,
-    textTransform: 'uppercase'
-  }
+  button,
+  text: titleText,
+  buttonDisabled,
+  textDisabled: titleTextDisabled
+});
+
+export const FakeDisabledDownButton: ButtonStyle = StyleSheet.create<ButtonStyle>({
+  button: buttonDisabled,
+  text: titleTextDisabled,
+  buttonDisabled,
+  textDisabled: titleTextDisabled
 });

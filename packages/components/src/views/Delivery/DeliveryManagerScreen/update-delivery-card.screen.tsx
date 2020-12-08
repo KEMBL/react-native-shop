@@ -3,14 +3,15 @@ import { ScrollView, StyleSheet, TextInput, View } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { translate } from 'localization';
-import { RedDownButton, DeliveryScreenTheme, Theme } from 'rns-theme';
+import { RedDownButton, DeliveryScreenTheme, Theme, FakeDisabledDownButton } from 'rns-theme';
 
+import { Platform } from 'rns-theme/src/Platform';
 import { TopBar } from 'components/src/advanced/TopBar';
 import { TextButton } from 'components/src/trivial/buttons/TextButton';
 import { StylableText } from 'components/src/trivial/text/StylableText';
 import { CheckBox } from 'components/src/trivial/CheckBox';
-import { Button } from '../../../trivial/buttons/Button';
-import { Platform } from 'rns-theme/src/Platform';
+import { Button } from 'components/src/trivial/buttons/Button';
+import { AlertIcon } from 'components/src/trivial/icons/Alert';
 
 export interface UpdateDeliveryCardScreenProps {
   onClose: () => void;
@@ -22,39 +23,88 @@ export interface UpdateDeliveryCardScreenProps {
 export const UpdateDeliveryCardScreen: React.FC<UpdateDeliveryCardScreenProps> = (props) => {
   const { onClose } = props;
   const [name, setName] = useState('');
+  const [isNameValid, setNameValid] = useState(true);
   const [phone, setPhone] = useState('');
+  const [isPhoneValid, setPhoneValid] = useState(true);
   const [address1, setAddress1] = useState('');
+  const [isAddress1Valid, setAddress1Valid] = useState(true);
   const [address2, setAddress2] = useState('');
   const [note, setNote] = useState('');
   const [noteFocused, setNoteFocused] = useState(false);
   const [isBaseAddress, setIsBaseAddress] = useState(false);
+  const [isAlerIconsAllowed, setAlerIconsAllowed] = useState(false);
 
+  const maxInputSymbols = 50;
   const isFormValid = (): boolean => {
-    return !!name && !!phone && !!address1;
+
+    const nameCheck = !!name && name.length > 1 && name.length <= maxInputSymbols;
+    if (nameCheck !== isNameValid) {
+      setNameValid(nameCheck);
+    }
+
+    let phoneCheck = !!phone && phone.length > 6 && phone.length <= maxInputSymbols;
+    if (phoneCheck) {
+      const phoneRe = /^[+\-()\s,/0-9]*$/;
+      phoneCheck = phoneRe.test(phone);
+    }
+    if (phoneCheck !== isPhoneValid) {
+      setPhoneValid(phoneCheck);
+    }
+
+    const addressCheck = !!address1 && address1.length > 9 && address1.length <= maxInputSymbols;
+    if (addressCheck !== isAddress1Valid) {
+      setAddress1Valid(addressCheck);
+    }
+
+    return isNameValid && isPhoneValid && isAddress1Valid;
   };
 
-  const textEditInput = (value: string, callback: (value: string) => void, placeholder: string): ReactNode => {
+  const textEditInput = (
+    value: string,
+    callback: (value: string) => void,
+    placeholder: string,
+    isValid = true
+  ): ReactNode => {
     return (
-      <View style={{ marginTop: 10 }}>
-        <TextInput
-          style={[
-            {
-              height: 40,
-              fontSize: 16,
-              borderBottomWidth: StyleSheet.hairlineWidth * 1.5,
-              borderBottomColor: Theme.middleGrey
-            },
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            (Platform.isWeb && { outline: 'none' }) as any // currently there is no other way to remove outline from web version
-          ]}
-          maxLength={50}
-          underlineColorAndroid="transparent"
-          placeholder={translate(placeholder)}
-          onChangeText={(value): void => callback(value)}
-          defaultValue={value}
-        />
+      <View style={{ marginTop: 10, display: 'flex', flexDirection: 'row' }}>
+        <View style={{ flexGrow: 1 }}>
+          <TextInput
+            style={[
+              {
+                height: 40,
+                fontSize: 16,
+                borderBottomWidth: StyleSheet.hairlineWidth * 1.5,
+                borderBottomColor: isValid ? Theme.middleGrey : Theme.red
+              },
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              (Platform.isWeb && { outline: 'none' }) as any // currently there is no other way to remove outline from web version
+            ]}
+            maxLength={maxInputSymbols}
+            underlineColorAndroid="transparent"
+            placeholder={translate(placeholder)}
+            onChangeText={(value): void => callback(value)}
+            defaultValue={value}
+          />
+        </View>
+        {!isValid && isAlerIconsAllowed && (
+          <View style={{ width: 24, justifyContent: 'flex-end', marginBottom: 5 }}>
+            <AlertIcon color={Theme.red} />
+          </View>
+        )}
       </View>
     );
+  };
+
+  /** save field values */
+  const onSave = (): void => {
+    setAlerIconsAllowed(true);
+
+    if (isFormValid()) {
+      console.log('onClose');
+      //onClose();
+    } else {
+      console.log('onClose INVALID', isNameValid, isPhoneValid, isAddress1Valid);
+    }
   };
 
   return (
@@ -94,9 +144,9 @@ export const UpdateDeliveryCardScreen: React.FC<UpdateDeliveryCardScreenProps> =
             margin: 15,
             justifyContent: 'center'
           }}>
-          {textEditInput(name, setName, 'Your name')}
-          {textEditInput(phone, setPhone, 'Phone number')}
-          {textEditInput(address1, setAddress1, 'Address1')}
+          {textEditInput(name, setName, 'Your name', isNameValid)}
+          {textEditInput(phone, setPhone, 'Phone number', isPhoneValid)}
+          {textEditInput(address1, setAddress1, 'Address1', isAddress1Valid)}
           {textEditInput(address2, setAddress2, 'Address2')}
           <View style={{ marginTop: 13 }}>
             <StylableText
@@ -147,10 +197,9 @@ export const UpdateDeliveryCardScreen: React.FC<UpdateDeliveryCardScreenProps> =
       </View>
       <View>
         <TextButton
-          style={RedDownButton}
-          isDisabled={!isFormValid()}
+          style={isFormValid() ? RedDownButton : FakeDisabledDownButton}
           title={translate('Save shipment address')}
-          onPress={(): unknown => null}
+          onPress={onSave}
         />
       </View>
     </View>
