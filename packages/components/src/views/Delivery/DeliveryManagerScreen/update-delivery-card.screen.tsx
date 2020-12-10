@@ -1,11 +1,13 @@
 import React, { ReactNode, useState } from 'react';
 import { ScrollView, StyleSheet, TextInput, View } from 'react-native';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { translate } from 'localization';
-import { RedDownButton, DeliveryScreenTheme, Theme, FakeDisabledDownButton } from 'rns-theme';
+import { delivery } from 'rns-packages';
+import { DeliveryInfo } from 'rns-types';
+import { Platform, RedDownButton, DeliveryScreenTheme, Theme, FakeDisabledDownButton } from 'rns-theme';
 
-import { Platform } from 'rns-theme/src/Platform';
 import { TopBar } from 'components/src/advanced/TopBar';
 import { TextButton } from 'components/src/trivial/buttons/TextButton';
 import { StylableText } from 'components/src/trivial/text/StylableText';
@@ -22,7 +24,8 @@ export interface UpdateDeliveryCardScreenProps {
  */
 export const UpdateDeliveryCardScreen: React.FC<UpdateDeliveryCardScreenProps> = (props) => {
   const { onClose } = props;
-  const [name, setName] = useState('');
+  const dispatch = useDispatch();
+  const [clientName, setName] = useState('');
   const [isNameValid, setNameValid] = useState(true);
   const [phone, setPhone] = useState('');
   const [isPhoneValid, setPhoneValid] = useState(true);
@@ -36,8 +39,7 @@ export const UpdateDeliveryCardScreen: React.FC<UpdateDeliveryCardScreenProps> =
 
   const maxInputSymbols = 50;
   const isFormValid = (): boolean => {
-
-    const nameCheck = !!name && name.length > 1 && name.length <= maxInputSymbols;
+    const nameCheck = !!clientName && clientName.length > 1 && clientName.length <= maxInputSymbols;
     if (nameCheck !== isNameValid) {
       setNameValid(nameCheck);
     }
@@ -100,8 +102,19 @@ export const UpdateDeliveryCardScreen: React.FC<UpdateDeliveryCardScreenProps> =
     setAlerIconsAllowed(true);
 
     if (isFormValid()) {
-      console.log('onClose');
-      //onClose();
+      const deliveryInfo: DeliveryInfo = {
+        clientName: clientName,
+        phoneNumber: phone,
+        address1: address1,
+        address2: address2,
+        note: note,
+        isBaseAddress: isBaseAddress
+      };
+
+      // save results
+      dispatch(delivery.actionSaveDeliveryAddress.start(deliveryInfo));
+      // console.log('onClose');
+      onClose();
     } else {
       console.log('onClose INVALID', isNameValid, isPhoneValid, isAddress1Valid);
     }
@@ -144,7 +157,7 @@ export const UpdateDeliveryCardScreen: React.FC<UpdateDeliveryCardScreenProps> =
             margin: 15,
             justifyContent: 'center'
           }}>
-          {textEditInput(name, setName, 'Your name', isNameValid)}
+          {textEditInput(clientName, setName, 'Your name', isNameValid)}
           {textEditInput(phone, setPhone, 'Phone number', isPhoneValid)}
           {textEditInput(address1, setAddress1, 'Address1', isAddress1Valid)}
           {textEditInput(address2, setAddress2, 'Address2')}

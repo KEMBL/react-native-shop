@@ -5,6 +5,8 @@ import storage from '@react-native-async-storage/async-storage';
 
 import { debug as Debug } from 'rns-packages/src/shared';
 import { uiStateBranchName } from 'rns-packages/src/ui';
+import { deliveryStateBranchName } from 'rns-packages/src/delivery';
+
 import { ApplicationState, ApplicationStore } from './types';
 import { rootReducer, rootSaga } from './root-objects';
 
@@ -34,7 +36,7 @@ class StoreBuilderService {
       key: 'root',
       storage,
       version: 0,
-      whitelist: [uiStateBranchName]
+      whitelist: [uiStateBranchName, deliveryStateBranchName]
     };
 
     const persistedReducer = persistReducer(persistConfig, rootReducer);

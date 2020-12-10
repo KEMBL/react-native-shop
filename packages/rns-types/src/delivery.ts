@@ -12,13 +12,15 @@ export enum DeliveryType {
 }
 
 /**
- * Information about delivery
+ * Information about delivery address
  */
 export interface DeliveryInfo {
-  DeliveryInfoId: number;
+  deliveryAddressId?: DeliveryAddressId;
+  deliveryType?: DeliveryType;
   clientName: string;
   phoneNumber: string;
   address1: string;
   address2: string;
   note: string;
+  isBaseAddress: boolean;
 }

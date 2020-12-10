@@ -15,7 +15,8 @@ const corePackages = [
   require('../../product/export'),
   require('../../category/export'),
   require('../../external-data/export'),
-  require('../../ui/export')
+  require('../../ui/export'),
+  require('../../delivery/export')
 ];
 
 const packages = use(corePackages);

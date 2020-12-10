@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 
 import { ApplicationState } from './types';
 
@@ -37,3 +38,5 @@ export const useMemoizedSelectorWithParam = <A, R>(
   }, [selectorCreator, tempArgument]);
   return useSelector(memoizedSelector);
 };
+
+export const newUuid = (): string => uuidv4();

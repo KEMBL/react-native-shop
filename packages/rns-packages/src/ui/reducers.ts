@@ -1,12 +1,14 @@
 import { CategoryId, ProductId } from 'rns-types';
 
+import { ApplicationState } from 'rns-packages/src/shared/types';
+import { nameofFactory } from 'rns-packages/src/shared';
+
 import {
   actionSetCurrentCategory,
   actionSetCurrentProduct,
   actionSetDeliveryManagerClose,
   actionSetDeliveryManagerOpen
 } from './actions';
-import { uiStateBranchName } from './selectors';
 import { UiState } from './types';
 
 interface SetCurrentCategory {
@@ -65,6 +67,9 @@ const dataReducer = (state: UiState = new UiState(), action: ActionTypes): UiSta
       return state;
   }
 };
+
+export const uiStateBranchName = 'uiState';
+nameofFactory<ApplicationState>()(uiStateBranchName); // name guard
 
 export default {
   [uiStateBranchName]: dataReducer

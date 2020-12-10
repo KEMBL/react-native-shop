@@ -22,7 +22,7 @@ export const actionSetDeliveryManagerClose = { start: setDeliveryManagerCloseSta
 
 const setSetDeliveryAddressStart = actionCreator.start<DeliveryAddressId>('SET_DELIVERY_ADDRESS');
 /**
- * Select delivery place card
+ * Ui related. Select delivery place card to modify
  */
 export const actionSetDeliveryAddress = { start: setSetDeliveryAddressStart };
 
