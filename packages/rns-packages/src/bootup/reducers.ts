@@ -69,8 +69,9 @@ const bootUpReducer = (state: BootUpStatus = new BootUpStatus(), action: BootUpA
   }
 };
 
-const nameof = nameofFactory<ApplicationState>();
+const bootUpStatusBranchName = 'bootUpStatus';
+nameofFactory<ApplicationState>()(bootUpStatusBranchName);
 
 export default {
-  [nameof('bootUpStatus')]: bootUpReducer
+  [bootUpStatusBranchName]: bootUpReducer
 };

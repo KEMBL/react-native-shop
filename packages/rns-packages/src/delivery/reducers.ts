@@ -1,10 +1,10 @@
-import { DeliveryInfo, DeliveryType } from 'rns-types';
+import { DeliveryInfo, DeliveryPickupPointsCollectionResponse, DeliveryType } from 'rns-types';
 
-import { ApplicationState } from 'rns-packages/src/shared/types';
+import { ApplicationState, FailedActionResult } from 'rns-packages/src/shared/types';
 import { nameofFactory, newUuid, debug as Debug } from 'rns-packages/src/shared';
 
 import { DeliveryState } from './types';
-import { actionSaveDeliveryAddress } from './actions';
+import { actionSaveDeliveryAddress, fetchDeliveryPickupPoints } from './actions';
 
 const debug = Debug('app:reducer:delivery');
 
@@ -13,7 +13,17 @@ interface SaveDeliveryAddress {
   payload: DeliveryInfo;
 }
 
-type ActionTypes = SaveDeliveryAddress;
+export interface FetchDeliveryPickupPointsDoneAction {
+  type: string;
+  payload: DeliveryPickupPointsCollectionResponse;
+}
+
+export interface FetchDeliveryPickupPointsFailAction {
+  type: string;
+  payload: FailedActionResult;
+}
+
+type ActionTypes = SaveDeliveryAddress | FetchDeliveryPickupPointsDoneAction | FetchDeliveryPickupPointsFailAction;
 
 const dataReducer = (state: DeliveryState = new DeliveryState(), action: ActionTypes): DeliveryState => {
   switch (action.type) {
@@ -41,6 +51,25 @@ const dataReducer = (state: DeliveryState = new DeliveryState(), action: ActionT
           address.isBaseAddress = updatedAddress.isBaseAddress;
         }
       }
+      return state;
+    }
+
+    case `${fetchDeliveryPickupPoints.done}`: {
+      const myAction = action as FetchDeliveryPickupPointsDoneAction;
+      const response = myAction.payload;
+
+      if (!response || !response.pickupInfoList || response.pickupInfoList.length === 0) {
+        debug('Empty delivery pickup points response', response);
+        return state;
+      }
+
+      debug('TODO: Update current state', response);
+      return state;
+    }
+
+    case `${fetchDeliveryPickupPoints.fail}`: {
+      const myAction = action as FetchDeliveryPickupPointsFailAction;
+      debug('Problem with fetching delivery pickup points', myAction.payload);
       return state;
     }
 

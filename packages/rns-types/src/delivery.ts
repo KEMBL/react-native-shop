@@ -23,4 +23,24 @@ export interface DeliveryInfo {
   address2: string;
   note: string;
   isBaseAddress: boolean;
+  lastUsedAt?: Date;
+}
+
+/**
+ * Information about pickup address
+ */
+export interface DeliveryPickupInfo {
+  id?: DeliveryAddressId;
+  storeName: string;
+  phoneNumber: string;
+  address1: string;
+  address2: string;
+  note: string;
+}
+
+/**
+ * Delivery pickup points API response
+ */
+export interface DeliveryPickupPointsCollectionResponse {
+  pickupInfoList: DeliveryPickupInfo[];
 }
