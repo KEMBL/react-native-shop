@@ -32,5 +32,5 @@ export const gqlFetchDeliveryPickupPointsAsync = async (): Promise<DeliveryPicku
     query: FETCH_ALL_DELIVERY_PICKUP_POINTS
   });
 
-  return result.data;
+  return result.data?.pickupInfoResponse;
 };

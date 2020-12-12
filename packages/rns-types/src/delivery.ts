@@ -20,7 +20,7 @@ export interface DeliveryInfo {
   clientName: string;
   phoneNumber: string;
   address1: string;
-  address2: string;
+  address2?: string;
   note: string;
   isBaseAddress: boolean;
   lastUsedAt?: Date;
@@ -34,7 +34,7 @@ export interface DeliveryPickupInfo {
   storeName: string;
   phoneNumber: string;
   address1: string;
-  address2: string;
+  address2?: string;
   note: string;
 }
 
