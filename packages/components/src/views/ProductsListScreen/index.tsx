@@ -70,7 +70,7 @@ const renderCategory = (item: ProductCategoryModelWithProducts, configuration: C
  */
 export const ProductsListScreen: React.FC = () => {
   const configuration = useSelector(selectConfiguration, shallowEqual);
-  const categories = useSelector(category.selectCurrentCategoryCategories, shallowEqual);
+  const categories = useSelector(category.selectors.selectCurrentCategoryCategories, shallowEqual);
   // console.log('categories', categories);
   const mainStyle = StyleSheet.create({
     container: {

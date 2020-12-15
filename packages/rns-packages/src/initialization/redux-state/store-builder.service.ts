@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware, Middleware, StoreEnhancer } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import { persistStore, persistReducer, Persistor } from 'redux-persist';
+import { persistStore, Persistor, persistReducer } from 'redux-persist';
+import autoMergeLevel1 from 'redux-persist/es/stateReconciler/autoMergeLevel1';
 import storage from '@react-native-async-storage/async-storage';
 
 import { debug as Debug } from 'rns-packages/src/shared';
@@ -35,11 +36,13 @@ class StoreBuilderService {
     const persistConfig = {
       key: 'root',
       storage,
-      version: 0,
+      stateReconciler: autoMergeLevel1,
+      // debug: true,
+      version: 1,
       whitelist: [uiStateBranchName, deliveryStateBranchName]
     };
 
-    const persistedReducer = persistReducer(persistConfig, rootReducer);
+    const persistedReducer = persistReducer<ApplicationState>(persistConfig, rootReducer);
 
     if (!middleware) {
       middleware = [];

@@ -15,14 +15,14 @@ export enum DeliveryType {
  * Information about delivery address
  */
 export interface DeliveryInfo {
-  deliveryAddressId?: DeliveryAddressId;
-  deliveryType?: DeliveryType;
+  deliveryAddressId: DeliveryAddressId;
+  deliveryType: DeliveryType;
   clientName: string;
   phoneNumber: string;
   address1: string;
   address2?: string;
-  note: string;
-  isBaseAddress: boolean;
+  note?: string;
+  isBaseAddress?: boolean;
   lastUsedAt?: Date;
 }
 
@@ -30,12 +30,12 @@ export interface DeliveryInfo {
  * Information about pickup address
  */
 export interface DeliveryPickupInfo {
-  id?: DeliveryAddressId;
+  id: DeliveryAddressId;
   storeName: string;
   phoneNumber: string;
   address1: string;
   address2?: string;
-  note: string;
+  note?: string;
 }
 
 /**

@@ -1,7 +1,9 @@
 import React from 'react';
 import { ScrollView, View } from 'react-native';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import { delivery } from 'rns-packages';
 import { translate } from 'localization';
 import { RedDownButton, DeliveryScreenTheme } from 'rns-theme';
 
@@ -22,6 +24,11 @@ export interface DeliveryCardsScreenProps {
  */
 export const DeliveryCardsScreen: React.FC<DeliveryCardsScreenProps> = (props) => {
   const { onAddCard, onClose } = props;
+  const deliveryAddresses = useSelector(delivery.selectors.selectAddressesSorted);
+
+  const cards = deliveryAddresses.map((a) => (
+    <DeliveryAddressCard key={a.deliveryAddressId} id={a.deliveryAddressId}></DeliveryAddressCard>
+  ));
 
   return (
     <View style={DeliveryScreenTheme.container}>
@@ -30,12 +37,7 @@ export const DeliveryCardsScreen: React.FC<DeliveryCardsScreenProps> = (props) =
           <PencilIcon />
         </TopBar>
         <ScrollView>
-          <DeliveryAddressCard id="string-id1" isSelected={true} isPickup={true}></DeliveryAddressCard>
-          <DeliveryAddressCard id="string-id2" isSelected={true} isPickup={false}></DeliveryAddressCard>
-          <DeliveryAddressCard id="string-id3" isSelected={false} isPickup={true}></DeliveryAddressCard>
-          <DeliveryAddressCard id="string-id4" isSelected={false} isPickup={false}></DeliveryAddressCard>
-          <DeliveryAddressCard id="string-id4" isSelected={false} isPickup={false}></DeliveryAddressCard>
-          <DeliveryAddressCard id="string-id4" isSelected={false} isPickup={false}></DeliveryAddressCard>
+          {cards}
           <View style={{ height: 10 }} />
         </ScrollView>
       </View>

@@ -7,33 +7,33 @@ import { selectors as productSelectors } from 'rns-packages/src/product';
 import { selectCurrentCategoryId } from 'rns-packages/src/ui';
 
 const selectAllCategories = (state: ApplicationState): ProductCategoryModel[] => state.externalData.categories;
-const selectCategoryById = (state: ApplicationState, { id = 0 }: { id: CategoryId }): ProductCategoryModel =>
-  state.externalData.categories[id];
+// const selectCategoryById = (state: ApplicationState, { id = 0 }: { id: CategoryId }): ProductCategoryModel =>
+//   state.externalData.categories[id];
 
-export const selectCurrentCategoryCategoriesOld = createSelector(
-  selectCurrentCategoryId,
-  selectAllCategories,
-  productSelectors.selectAllProducts,
-  (currentCategoryId, categories, products) => {
-    const subCategories: ProductCategoryModelWithProducts[] = [];
-    for (const category of categories) {
-      if (!category || category.parentId !== currentCategoryId) {
-        continue;
-      }
+// export const selectCurrentCategoryCategoriesOld = createSelector(
+//   selectCurrentCategoryId,
+//   selectAllCategories,
+//   productSelectors.selectAllProducts,
+//   (currentCategoryId, categories, products) => {
+//     const subCategories: ProductCategoryModelWithProducts[] = [];
+//     for (const category of categories) {
+//       if (!category || category.parentId !== currentCategoryId) {
+//         continue;
+//       }
 
-      const subCategory: ProductCategoryModelWithProducts = {
-        id: category.id,
-        parentId: category.parentId,
-        title: category.title
-      };
+//       const subCategory: ProductCategoryModelWithProducts = {
+//         id: category.id,
+//         parentId: category.parentId,
+//         title: category.title
+//       };
 
-      subCategory.products = products.filter((p) => !!p && p.categoryId === category.id);
-      subCategories.push(subCategory);
-    }
+//       subCategory.products = products.filter((p) => !!p && p.categoryId === category.id);
+//       subCategories.push(subCategory);
+//     }
 
-    return subCategories;
-  }
-);
+//     return subCategories;
+//   }
+// );
 
 /**
  * All categories inside given one as a numbers array
@@ -102,7 +102,7 @@ const MIN_PRODUCTS_TO_RETURN = 10;
  *
  * @returns {Array} found categories
  */
-export const selectCategoryCategories = (): ParametrizedSelector<CategoryId, ProductCategoryModelWithProducts[]> =>
+const selectCategoryCategories = (): ParametrizedSelector<CategoryId, ProductCategoryModelWithProducts[]> =>
   createSelector(proxyParam, selectAllCategories, selectState, (categoryId, categories, state) => {
     const subCategories: ProductCategoryModelWithProducts[] = [];
     for (const category of categories) {
@@ -137,7 +137,7 @@ export const selectCategoryCategories = (): ParametrizedSelector<CategoryId, Pro
  *
  * @returns {Array} found categories with products
  */
-export const selectCurrentCategoryCategories = createSelector(
+const selectCurrentCategoryCategories = createSelector(
   (state: ApplicationState) => selectState(state), // anonymous function that calls input-selector.
   (state) => {
     // ?? more https://github.com/reduxjs/reselect/issues/169#issuecomment-675021575
@@ -145,4 +145,6 @@ export const selectCurrentCategoryCategories = createSelector(
   }
 );
 
-export const selectors = { selectCategoryById, selectCurrentCategoryCategories };
+export const selectors = {
+  selectCurrentCategoryCategories
+};

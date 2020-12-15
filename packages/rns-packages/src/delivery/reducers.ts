@@ -49,6 +49,9 @@ const dataReducer = (state: DeliveryState = new DeliveryState(), action: ActionT
           address.address2 = updatedAddress.address2;
           address.note = updatedAddress.note;
           address.isBaseAddress = updatedAddress.isBaseAddress;
+          if (updatedAddress.isBaseAddress) {
+            address.lastUsedAt = new Date();
+          }
         }
       }
       return state;
@@ -62,8 +65,38 @@ const dataReducer = (state: DeliveryState = new DeliveryState(), action: ActionT
         debug('Empty delivery pickup points response', response);
         return state;
       }
+      debug('state', state);
+      const newDeliveryInfoList: DeliveryInfo[] = [];
+      for (const apiAddress of response.pickupInfoList) {
+        const address = state.pickupInfoList.find((a) => a.deliveryAddressId === apiAddress.id);
+        if (!address) {
+          debug('Add pickup address into list', apiAddress, state.pickupInfoList);
 
-      debug('TODO: Update current state', response);
+          const deliveryInfo: DeliveryInfo = {
+            deliveryAddressId: apiAddress.id,
+            deliveryType: DeliveryType.pickup,
+            clientName: apiAddress.storeName,
+            phoneNumber: apiAddress.phoneNumber,
+            address1: apiAddress.address1,
+            address2: apiAddress.address2,
+            note: apiAddress.note
+          };
+
+          newDeliveryInfoList.push(deliveryInfo);
+        } else if (address.deliveryType !== DeliveryType.pickup) {
+          debug('Delivery address collision, check logic', address, apiAddress);
+        } else {
+          debug('Update delivery address', address, apiAddress);
+          address.clientName = apiAddress.storeName;
+          address.phoneNumber = apiAddress.phoneNumber;
+          address.address1 = apiAddress.address1;
+          address.address2 = apiAddress.address2;
+          address.note = apiAddress.note;
+          newDeliveryInfoList.push(address);
+        }
+      }
+
+      state.pickupInfoList = newDeliveryInfoList; // this also clenups old addresses which are not in api list
       return state;
     }
 

@@ -3,25 +3,53 @@ import { View } from 'react-native';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { ui } from 'rns-packages';
-import { DeliveryAddressCardTheme } from 'rns-theme';
+import { DeliveryAddressId, DeliveryType } from 'rns-types';
+import { ui, delivery, utils } from 'rns-packages';
+import { DeliveryAddressCardTheme, Theme } from 'rns-theme';
+import { translate } from 'localization';
 import { StylableText } from 'components/src/trivial/text/StylableText';
 import { LocationIcon } from 'components/src/trivial/icons/Location';
 import { Button } from 'components/src/trivial/buttons/Button';
-import { DeliveryAddressId } from 'rns-types';
 
 interface DeliveryAddressCardProps {
   id: DeliveryAddressId;
-  isSelected?: boolean;
-  isPickup?: boolean;
 }
 
 /**
  * One card with delivery or pickup information about single place
  */
 export const DeliveryAddressCard: React.FC<DeliveryAddressCardProps> = (props): JSX.Element => {
+  const { id } = props;
   const dispatch = useDispatch();
-  const { id, isSelected, isPickup } = props;
+  const deliveryInfo = utils.useMemoizedSelectorWithParam(delivery.selectors.selectAddressById, id);
+
+  if (!deliveryInfo) {
+    return (
+      <View style={DeliveryAddressCardTheme.container}>
+        <StylableText
+          style={{
+            display: 'flex',
+            color: Theme.red,
+            fontSize: 16, // WEB? +1 ??
+            fontWeight: 'bold',
+            paddingLeft: 10,
+            paddingRight: 10
+          }}>
+          Error: Unknown delivery address {id}
+        </StylableText>
+      </View>
+    );
+  }
+
+  const isSelected = deliveryInfo.isBaseAddress;
+  const isPickup = deliveryInfo.deliveryType === DeliveryType.pickup;
+
+  const title = deliveryInfo.clientName;
+  const phoneInfo = deliveryInfo.phoneNumber;
+  const address1 = deliveryInfo.address1;
+  const address2 = deliveryInfo.address2;
+  const note = deliveryInfo.note;
+
   return (
     <Button onPress={(): unknown => dispatch(ui.actionSetDeliveryAddress.start(id))}>
       <View style={DeliveryAddressCardTheme.container}>
@@ -47,7 +75,7 @@ export const DeliveryAddressCard: React.FC<DeliveryAddressCardProps> = (props): 
                 paddingLeft: 10,
                 paddingRight: 10
               }}>
-              Заберу отсюда
+              {isPickup ? translate('Pickup here') : translate('Delivery here')}
             </StylableText>
           </View>
           <View
@@ -59,7 +87,7 @@ export const DeliveryAddressCard: React.FC<DeliveryAddressCardProps> = (props): 
             }}>
             <StylableText
               style={{ color: '#FFFFFF', fontSize: 12, fontWeight: 'bold', paddingLeft: 10, paddingRight: 10 }}>
-              Самовывоз
+              {translate('Pickup')}
             </StylableText>
           </View>
         </View>
@@ -68,10 +96,15 @@ export const DeliveryAddressCard: React.FC<DeliveryAddressCardProps> = (props): 
             <LocationIcon />
           </View>
           <View>
-            <StylableText style={{ fontSize: 13 }}>String1</StylableText>
-            <StylableText style={{ fontSize: 13, fontWeight: 'bold' }}>String2</StylableText>
-            <StylableText style={{ fontSize: 13, fontWeight: 'bold' }}>String3</StylableText>
-            <StylableText style={{ fontSize: 13, fontWeight: 'bold', marginTop: 4 }}>String4</StylableText>
+            <StylableText style={{ fontSize: 13 }}>{title}</StylableText>
+            <StylableText style={{ fontSize: 13, fontWeight: 'bold' }}>
+              {translate('ph')}
+              {'. '}
+              {phoneInfo}
+            </StylableText>
+            <StylableText style={{ fontSize: 13, fontWeight: 'bold' }}>{address1}</StylableText>
+            {!!address2 && <StylableText style={{ fontSize: 13, fontWeight: 'bold' }}>{address2}</StylableText>}
+            {!!note && <StylableText style={{ fontSize: 13, fontWeight: 'bold', marginTop: 4 }}>{note}</StylableText>}
           </View>
         </View>
       </View>
@@ -80,7 +113,5 @@ export const DeliveryAddressCard: React.FC<DeliveryAddressCardProps> = (props): 
 };
 
 DeliveryAddressCard.propTypes = {
-  id: PropTypes.string.isRequired,
-  isSelected: PropTypes.bool,
-  isPickup: PropTypes.bool
+  id: PropTypes.string.isRequired
 };

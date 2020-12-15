@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import { translate } from 'localization';
 import { delivery } from 'rns-packages';
-import { DeliveryInfo } from 'rns-types';
+import { DeliveryInfo, DeliveryType } from 'rns-types';
 import { Platform, RedDownButton, DeliveryScreenTheme, Theme, FakeDisabledDownButton } from 'rns-theme';
 
 import { TopBar } from 'components/src/advanced/TopBar';
@@ -103,12 +103,14 @@ export const UpdateDeliveryCardScreen: React.FC<UpdateDeliveryCardScreenProps> =
 
     if (isFormValid()) {
       const deliveryInfo: DeliveryInfo = {
+        deliveryAddressId: '',
         clientName: clientName,
         phoneNumber: phone,
         address1: address1,
         address2: address2,
         note: note,
-        isBaseAddress: isBaseAddress
+        isBaseAddress: isBaseAddress,
+        deliveryType: DeliveryType.delivery
       };
 
       // save results
