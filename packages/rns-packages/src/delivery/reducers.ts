@@ -95,9 +95,8 @@ const dataReducer = (state: DeliveryState = new DeliveryState(), action: ActionT
           newDeliveryInfoList.push(address);
         }
       }
-
-      state.pickupInfoList = newDeliveryInfoList; // this also clenups old addresses which are not in api list
-      return state;
+      // below also clenups old addresses which are not in api list
+      return { ...state, pickupInfoList: newDeliveryInfoList };
     }
 
     case `${fetchDeliveryPickupPoints.fail}`: {

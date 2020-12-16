@@ -38,7 +38,7 @@ class StoreBuilderService {
       storage,
       stateReconciler: autoMergeLevel1,
       // debug: true,
-      version: 1,
+      version: 0,
       whitelist: [uiStateBranchName, deliveryStateBranchName]
     };
 

@@ -4,7 +4,6 @@ import { DeliveryAddressId, DeliveryInfo } from 'rns-types';
 import { ApplicationState } from 'rns-packages/src/shared/types';
 import { ParametrizedSelector, proxyParam } from 'rns-packages/src/shared';
 
-
 const selectAddresses = (state: ApplicationState): DeliveryInfo[] => {
   return state.delivery.pickupInfoList.concat(state.delivery.deliveryInfoList);
 };
