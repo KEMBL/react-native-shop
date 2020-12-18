@@ -4,8 +4,8 @@ import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { translate } from 'localization';
-import { delivery } from 'rns-packages';
-import { DeliveryInfo, DeliveryType } from 'rns-types';
+import { delivery, utils, debug as Debug } from 'rns-packages';
+import { DeliveryAddressId, DeliveryInfo, DeliveryType } from 'rns-types';
 import { Platform, RedDownButton, DeliveryScreenTheme, Theme, FakeDisabledDownButton } from 'rns-theme';
 
 import { TopBar } from 'components/src/advanced/TopBar';
@@ -15,30 +15,43 @@ import { CheckBox } from 'components/src/trivial/CheckBox';
 import { Button } from 'components/src/trivial/buttons/Button';
 import { AlertIcon } from 'components/src/trivial/icons/Alert';
 
+const debug = Debug.debug('app:component:UpdateDeliveryCardScreen');
+
 export interface UpdateDeliveryCardScreenProps {
   onClose: () => void;
+  cardId?: DeliveryAddressId;
 }
 
 /**
  * Interface for adding new selivery address
  */
 export const UpdateDeliveryCardScreen: React.FC<UpdateDeliveryCardScreenProps> = (props) => {
-  const { onClose } = props;
+  const { onClose, cardId } = props;
   const dispatch = useDispatch();
-  const [clientName, setName] = useState('');
+  const deliveryInfo = cardId
+    ? utils.useMemoizedSelectorWithParam(delivery.selectors.selectAddressById, cardId)
+    : undefined;
+  const isPickup = deliveryInfo ? deliveryInfo.deliveryType === DeliveryType.pickup : false;
+  const [clientName, setName] = useState(deliveryInfo?.clientName ?? '');
   const [isNameValid, setNameValid] = useState(true);
-  const [phone, setPhone] = useState('');
+  const [phone, setPhone] = useState(
+    deliveryInfo?.phoneNumber ? `${translate('ph')}. ${deliveryInfo?.phoneNumber}` : ''
+  );
   const [isPhoneValid, setPhoneValid] = useState(true);
-  const [address1, setAddress1] = useState('');
+  const [address1, setAddress1] = useState(deliveryInfo?.address1 ?? '');
   const [isAddress1Valid, setAddress1Valid] = useState(true);
-  const [address2, setAddress2] = useState('');
-  const [note, setNote] = useState('');
+  const [address2, setAddress2] = useState(deliveryInfo?.address2 ?? '');
+  const [note, setNote] = useState(deliveryInfo?.note ?? '');
   const [noteFocused, setNoteFocused] = useState(false);
-  const [isBaseAddress, setIsBaseAddress] = useState(false);
+  const [isBaseAddress, setIsBaseAddress] = useState(deliveryInfo?.isBaseAddress ?? false);
   const [isAlerIconsAllowed, setAlerIconsAllowed] = useState(false);
 
   const maxInputSymbols = 50;
   const isFormValid = (): boolean => {
+    if (isPickup) {
+      return true;
+    }
+
     const nameCheck = !!clientName && clientName.length > 1 && clientName.length <= maxInputSymbols;
     if (nameCheck !== isNameValid) {
       setNameValid(nameCheck);
@@ -67,28 +80,45 @@ export const UpdateDeliveryCardScreen: React.FC<UpdateDeliveryCardScreenProps> =
     placeholder: string,
     isValid = true
   ): ReactNode => {
+    if (isPickup && !value) {
+      return <></>;
+    }
+
     return (
       <View style={{ marginTop: 10, display: 'flex', flexDirection: 'row' }}>
         <View style={{ flexGrow: 1 }}>
-          <TextInput
-            style={[
-              {
+          {isPickup && (
+            <StylableText
+              style={{
                 height: 40,
                 fontSize: 16,
                 borderBottomWidth: StyleSheet.hairlineWidth * 1.5,
-                borderBottomColor: isValid ? Theme.middleGrey : Theme.red
-              },
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              (Platform.isWeb && { outline: 'none' }) as any // currently there is no other way to remove outline from web version
-            ]}
-            maxLength={maxInputSymbols}
-            underlineColorAndroid="transparent"
-            placeholder={translate(placeholder)}
-            onChangeText={(value): void => callback(value)}
-            defaultValue={value}
-          />
+                borderBottomColor: Theme.middleGrey
+              }}>
+              {value}
+            </StylableText>
+          )}
+          {!isPickup && (
+            <TextInput
+              style={[
+                {
+                  height: 40,
+                  fontSize: 16,
+                  borderBottomWidth: StyleSheet.hairlineWidth * 1.5,
+                  borderBottomColor: isValid ? Theme.middleGrey : Theme.red
+                },
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                (Platform.isWeb && { outline: 'none' }) as any // currently there is no other way to remove outline from web version
+              ]}
+              maxLength={maxInputSymbols}
+              underlineColorAndroid="transparent"
+              placeholder={translate(placeholder)}
+              onChangeText={(value): void => callback(value)}
+              defaultValue={value}
+            />
+          )}
         </View>
-        {!isValid && isAlerIconsAllowed && (
+        {!isPickup && !isValid && isAlerIconsAllowed && (
           <View style={{ width: 24, justifyContent: 'flex-end', marginBottom: 5 }}>
             <AlertIcon color={Theme.red} />
           </View>
@@ -103,14 +133,14 @@ export const UpdateDeliveryCardScreen: React.FC<UpdateDeliveryCardScreenProps> =
 
     if (isFormValid()) {
       const deliveryInfo: DeliveryInfo = {
-        deliveryAddressId: '',
+        deliveryAddressId: cardId ?? '',
         clientName: clientName,
         phoneNumber: phone,
         address1: address1,
         address2: address2,
         note: note,
         isBaseAddress: isBaseAddress,
-        deliveryType: DeliveryType.delivery
+        deliveryType: isPickup ? DeliveryType.pickup : DeliveryType.delivery
       };
 
       // save results
@@ -118,42 +148,48 @@ export const UpdateDeliveryCardScreen: React.FC<UpdateDeliveryCardScreenProps> =
       // console.log('onClose');
       onClose();
     } else {
-      console.log('onClose INVALID', isNameValid, isPhoneValid, isAddress1Valid);
+      debug('onClose INVALID', isNameValid, isPhoneValid, isAddress1Valid);
     }
   };
 
   return (
     <View style={DeliveryScreenTheme.container}>
       <View style={DeliveryScreenTheme.cards}>
-        <TopBar title={translate('Add shipment address')} onBack={(): unknown => onClose()} />
+        <TopBar title={translate(isPickup ? 'Pickup address' : 'Add shipment address')} onBack={onClose} />
         <View>
           <View style={{ backgroundColor: '#FCFABF', height: 50, justifyContent: 'center' }}>
             <StylableText style={{ width: 240, alignSelf: 'center', textAlign: 'center' }}>
-              {translate('The delivery is possible only within Rostov-on-Don')}
+              {translate(
+                isPickup
+                  ? 'You can pickup items at address below'
+                  : 'The delivery is possible only within Rostov-on-Don'
+              )}
             </StylableText>
           </View>
         </View>
-        <View>
-          <View
-            style={{
-              marginTop: 10,
-              marginLeft: 10,
-              marginRight: 10,
-              height: 42,
-              justifyContent: 'center',
-              backgroundColor: Theme.lightGrey
-            }}>
-            <StylableText
+        {!isPickup && (
+          <View>
+            <View
               style={{
-                fontSize: 12,
-                alignSelf: 'center',
-                textAlign: 'center',
-                color: Theme.middleGrey
+                marginTop: 10,
+                marginLeft: 10,
+                marginRight: 10,
+                height: 42,
+                justifyContent: 'center',
+                backgroundColor: Theme.lightGrey
               }}>
-              {translate('Please, fill-in fields in Russian Language')}
-            </StylableText>
+              <StylableText
+                style={{
+                  fontSize: 12,
+                  alignSelf: 'center',
+                  textAlign: 'center',
+                  color: Theme.middleGrey
+                }}>
+                {translate('Please, fill-in fields in Russian Language')}
+              </StylableText>
+            </View>
           </View>
-        </View>
+        )}
         <ScrollView
           contentContainerStyle={{
             margin: 15,
@@ -175,23 +211,37 @@ export const UpdateDeliveryCardScreen: React.FC<UpdateDeliveryCardScreenProps> =
             </StylableText>
           </View>
           <View style={{ marginTop: 13 }}>
-            <TextInput
-              style={{
-                height: 100,
-                fontSize: 16,
-                borderWidth: StyleSheet.hairlineWidth * 1.5,
-                borderColor: Theme.middleGrey,
-                textAlign: note || noteFocused ? 'left' : 'center'
-              }}
-              maxLength={250}
-              onFocus={(): void => setNoteFocused(true)}
-              onBlur={(): void => setNoteFocused(false)}
-              multiline
-              underlineColorAndroid="transparent"
-              placeholder={note || noteFocused ? '' : translate('note to a delivery man')}
-              onChangeText={(value): void => setNote(value)}
-              defaultValue={note}
-            />
+            {isPickup && (
+              <StylableText
+                style={{
+                  height: 100,
+                  fontSize: 16,
+                  borderWidth: StyleSheet.hairlineWidth * 1.5,
+                  borderColor: Theme.middleGrey,
+                  textAlign: note || noteFocused ? 'left' : 'center'
+                }}>
+                {note}
+              </StylableText>
+            )}
+            {!isPickup && (
+              <TextInput
+                style={{
+                  height: 100,
+                  fontSize: 16,
+                  borderWidth: StyleSheet.hairlineWidth * 1.5,
+                  borderColor: Theme.middleGrey,
+                  textAlign: note || noteFocused ? 'left' : 'center'
+                }}
+                maxLength={250}
+                onFocus={(): void => setNoteFocused(true)}
+                onBlur={(): void => setNoteFocused(false)}
+                multiline
+                underlineColorAndroid="transparent"
+                placeholder={note || noteFocused ? '' : translate('note to a delivery man')}
+                onChangeText={(value): void => setNote(value)}
+                defaultValue={note}
+              />
+            )}
           </View>
           <Button onPress={(): unknown => setIsBaseAddress(!isBaseAddress)}>
             <View style={{ flexDirection: 'row', marginTop: 25 }}>
@@ -222,5 +272,6 @@ export const UpdateDeliveryCardScreen: React.FC<UpdateDeliveryCardScreenProps> =
 };
 
 UpdateDeliveryCardScreen.propTypes = {
+  cardId: PropTypes.string,
   onClose: PropTypes.func.isRequired
 };

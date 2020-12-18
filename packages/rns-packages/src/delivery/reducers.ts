@@ -37,11 +37,23 @@ const dataReducer = (state: DeliveryState = new DeliveryState(), action: ActionT
         state.deliveryInfoList.push(updatedAddress);
       } else {
         // update exists address
-        const address = state.deliveryInfoList.find((a) => a.deliveryAddressId === updatedAddress.deliveryAddressId);
+        const address =
+          updatedAddress.deliveryType === DeliveryType.delivery
+            ? state.deliveryInfoList.find((a) => a.deliveryAddressId === updatedAddress.deliveryAddressId)
+            : state.pickupInfoList.find((a) => a.deliveryAddressId === updatedAddress.deliveryAddressId);
+
         if (!address) {
-          debug('Delivery address is not in list', updatedAddress);
+          debug('Delivery address is not in list', updatedAddress, state);
         } else if (address.deliveryType === DeliveryType.pickup) {
-          debug('Pickup delivery address cannot be updated', updatedAddress);
+          debug('Pickup delivery address update', address.isBaseAddress, updatedAddress.isBaseAddress);
+          // we can only make it as default delivery address
+          if (updatedAddress.isBaseAddress !== address.isBaseAddress) {
+            state.deliveryInfoList.filter((a) => a.isBaseAddress).forEach((a) => (a.isBaseAddress = false));
+            address.isBaseAddress = updatedAddress.isBaseAddress;
+            if (updatedAddress.isBaseAddress) {
+              address.lastUsedAt = new Date();
+            }
+          }
         } else {
           address.clientName = updatedAddress.clientName;
           address.phoneNumber = updatedAddress.phoneNumber;
@@ -65,7 +77,6 @@ const dataReducer = (state: DeliveryState = new DeliveryState(), action: ActionT
         debug('Empty delivery pickup points response', response);
         return state;
       }
-      debug('state', state);
       const newDeliveryInfoList: DeliveryInfo[] = [];
       for (const apiAddress of response.pickupInfoList) {
         const address = state.pickupInfoList.find((a) => a.deliveryAddressId === apiAddress.id);

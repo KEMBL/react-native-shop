@@ -1,4 +1,4 @@
-import { CategoryId, DeliveryAddressId, ProductId } from 'rns-types';
+import { CategoryId, ProductId } from 'rns-types';
 
 import { actionCreator } from 'rns-packages/src/shared';
 
@@ -19,15 +19,3 @@ export const actionSetDeliveryManagerOpen = { start: setDeliveryManagerOpenedSta
 
 const setDeliveryManagerCloseStart = actionCreator.start('CLOSE_DELIVERY_MANAGER');
 export const actionSetDeliveryManagerClose = { start: setDeliveryManagerCloseStart };
-
-const setSetDeliveryAddressStart = actionCreator.start<DeliveryAddressId>('SET_DELIVERY_ADDRESS');
-/**
- * Ui related. Select delivery place card to modify
- */
-export const actionSetDeliveryAddress = { start: setSetDeliveryAddressStart };
-
-// const setAddDeliveryAddressOpenedStart = actionCreator.start('OPEN_ADD_DELIVERY_ADDRESS');
-// /**
-//  * Add delivery place card
-//  */
-// export const actionAddDeliveryAddressStart = { start: setAddDeliveryAddressOpenedStart };

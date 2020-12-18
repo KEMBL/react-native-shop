@@ -11,10 +11,12 @@ import { TopBar } from 'components/src/advanced/TopBar';
 import { DeliveryAddressCard } from 'components/src/advanced/Delivery';
 import { PencilIcon } from 'components/src/trivial/icons/Pencil';
 import { TextButton } from 'components/src/trivial/buttons/TextButton';
+import { DeliveryAddressId } from 'rns-types';
 
 export interface DeliveryCardsScreenProps {
   onAddCard: () => void;
   onClose: () => void;
+  onOpenCard: (id: DeliveryAddressId) => void;
 }
 
 /**
@@ -23,11 +25,14 @@ export interface DeliveryCardsScreenProps {
  * @returns product page UI
  */
 export const DeliveryCardsScreen: React.FC<DeliveryCardsScreenProps> = (props) => {
-  const { onAddCard, onClose } = props;
+  const { onAddCard, onClose, onOpenCard } = props;
   const deliveryAddresses = useSelector(delivery.selectors.selectAddressesSorted);
 
   const cards = deliveryAddresses.map((a) => (
-    <DeliveryAddressCard key={a.deliveryAddressId} id={a.deliveryAddressId}></DeliveryAddressCard>
+    <DeliveryAddressCard
+      key={a.deliveryAddressId}
+      id={a.deliveryAddressId}
+      onPress={(): void => onOpenCard(a.deliveryAddressId)}></DeliveryAddressCard>
   ));
 
   return (
@@ -50,5 +55,6 @@ export const DeliveryCardsScreen: React.FC<DeliveryCardsScreenProps> = (props) =
 
 DeliveryCardsScreen.propTypes = {
   onAddCard: PropTypes.func.isRequired,
-  onClose: PropTypes.func.isRequired
+  onClose: PropTypes.func.isRequired,
+  onOpenCard: PropTypes.func.isRequired
 };

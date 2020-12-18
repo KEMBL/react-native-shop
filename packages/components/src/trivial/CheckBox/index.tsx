@@ -34,12 +34,18 @@ export const CheckBox: React.FC<CheckBoxProps> = (props): JSX.Element => {
     }
   };
 
-  return (
-    <Button onPress={changeValue}>
+  const icons = (
+    <>
       {value && <CheckBoxOnIcon style={style} color={tintColors?.true} />}
       {!value && <CheckBoxOffIcon style={style} color={tintColors?.false} />}
-    </Button>
+    </>
   );
+
+  if (!onValueChange) {
+    return icons;
+  }
+
+  return <Button onPress={changeValue}>{icons}</Button>;
 };
 
 CheckBox.defaultProps = {

@@ -8,5 +8,6 @@ import * as product from 'rns-packages/src/product';
 import * as category from 'rns-packages/src/category';
 import * as delivery from 'rns-packages/src/delivery';
 import * as utils from 'rns-packages/src/shared/utils';
+import * as debug from 'rns-packages/src/shared/debug';
 
-export { ui, product, category, delivery, utils };
+export { ui, product, category, delivery, utils, debug };

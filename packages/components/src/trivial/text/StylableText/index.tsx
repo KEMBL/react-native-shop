@@ -33,7 +33,11 @@ export class StylableText extends PureComponent<StylableTextProps> {
     }
 
     return (
-      <Text style={combinedStyle} ellipsizeMode={ellipsizeMode} numberOfLines={numberOfLines || undefined}>
+      <Text
+        style={combinedStyle}
+        ellipsizeMode={ellipsizeMode}
+        numberOfLines={numberOfLines || undefined}
+        selectable={true}>
         {children}
       </Text>
     );

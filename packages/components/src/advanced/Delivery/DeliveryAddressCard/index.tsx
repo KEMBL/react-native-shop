@@ -1,10 +1,9 @@
 import React from 'react';
 import { View } from 'react-native';
-import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { DeliveryAddressId, DeliveryType } from 'rns-types';
-import { ui, delivery, utils } from 'rns-packages';
+import { delivery, utils } from 'rns-packages';
 import { DeliveryAddressCardTheme, Theme } from 'rns-theme';
 import { translate } from 'localization';
 import { StylableText } from 'components/src/trivial/text/StylableText';
@@ -13,14 +12,14 @@ import { Button } from 'components/src/trivial/buttons/Button';
 
 interface DeliveryAddressCardProps {
   id: DeliveryAddressId;
+  onPress: () => void;
 }
 
 /**
  * One card with delivery or pickup information about single place
  */
 export const DeliveryAddressCard: React.FC<DeliveryAddressCardProps> = (props): JSX.Element => {
-  const { id } = props;
-  const dispatch = useDispatch();
+  const { id, onPress } = props;
   const deliveryInfo = utils.useMemoizedSelectorWithParam(delivery.selectors.selectAddressById, id);
 
   if (!deliveryInfo) {
@@ -43,7 +42,6 @@ export const DeliveryAddressCard: React.FC<DeliveryAddressCardProps> = (props): 
 
   const isSelected = deliveryInfo.isBaseAddress;
   const isPickup = deliveryInfo.deliveryType === DeliveryType.pickup;
-
   const title = deliveryInfo.clientName;
   const phoneInfo = deliveryInfo.phoneNumber;
   const address1 = deliveryInfo.address1;
@@ -51,7 +49,7 @@ export const DeliveryAddressCard: React.FC<DeliveryAddressCardProps> = (props): 
   const note = deliveryInfo.note;
 
   return (
-    <Button onPress={(): unknown => dispatch(ui.actionSetDeliveryAddress.start(id))}>
+    <Button onPress={onPress}>
       <View style={DeliveryAddressCardTheme.container}>
         <View
           style={{
@@ -113,5 +111,6 @@ export const DeliveryAddressCard: React.FC<DeliveryAddressCardProps> = (props): 
 };
 
 DeliveryAddressCard.propTypes = {
-  id: PropTypes.string.isRequired
+  id: PropTypes.string.isRequired,
+  onPress: PropTypes.func.isRequired
 };
