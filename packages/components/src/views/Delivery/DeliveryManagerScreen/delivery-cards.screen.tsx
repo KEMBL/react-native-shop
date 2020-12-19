@@ -28,12 +28,14 @@ export const DeliveryCardsScreen: React.FC<DeliveryCardsScreenProps> = (props) =
   const { onAddCard, onClose, onOpenCard } = props;
   const deliveryAddresses = useSelector(delivery.selectors.selectAddressesSorted);
 
-  const cards = deliveryAddresses.map((a) => (
-    <DeliveryAddressCard
-      key={a.deliveryAddressId}
-      id={a.deliveryAddressId}
-      onPress={(): void => onOpenCard(a.deliveryAddressId)}></DeliveryAddressCard>
-  ));
+  const cards = deliveryAddresses
+    .sort((a, b) => b.lastUsedAt?.getTime() - a.lastUsedAt?.getTime())
+    .map((a) => (
+      <DeliveryAddressCard
+        key={a.deliveryAddressId}
+        id={a.deliveryAddressId}
+        onPress={(): void => onOpenCard(a.deliveryAddressId)}></DeliveryAddressCard>
+    ));
 
   return (
     <View style={DeliveryScreenTheme.container}>

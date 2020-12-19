@@ -11,23 +11,34 @@ export enum DeliveryType {
   delivery = 2
 }
 
-/**
- * Information about delivery address
- */
-export interface DeliveryInfo {
-  deliveryAddressId: DeliveryAddressId;
-  deliveryType: DeliveryType;
+export interface DeliveryInfoAdd {
   clientName: string;
   phoneNumber: string;
   address1: string;
   address2?: string;
   note?: string;
   isBaseAddress?: boolean;
-  lastUsedAt?: Date;
+}
+
+export interface DeliveryInfoUpdate extends DeliveryInfoAdd {
+  deliveryAddressId: DeliveryAddressId;
+}
+
+export interface DeliveryPickupInfoUpdate {
+  deliveryAddressId: DeliveryAddressId;
+  isBaseAddress: boolean;
 }
 
 /**
- * Information about pickup address
+ * Full information about delivery address in store
+ */
+export interface DeliveryInfo extends DeliveryInfoAdd, DeliveryInfoUpdate {
+  deliveryType: DeliveryType;
+  lastUsedAt: Date;
+}
+
+/**
+ * Information about pickup address came from API
  */
 export interface DeliveryPickupInfo {
   id: DeliveryAddressId;

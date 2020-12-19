@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import { translate } from 'localization';
 import { delivery, utils, debug as Debug } from 'rns-packages';
-import { DeliveryAddressId, DeliveryInfo, DeliveryType } from 'rns-types';
+import { DeliveryAddressId, DeliveryInfoAdd, DeliveryType } from 'rns-types';
 import { Platform, RedDownButton, DeliveryScreenTheme, Theme, FakeDisabledDownButton } from 'rns-theme';
 
 import { TopBar } from 'components/src/advanced/TopBar';
@@ -48,10 +48,6 @@ export const UpdateDeliveryCardScreen: React.FC<UpdateDeliveryCardScreenProps> =
 
   const maxInputSymbols = 50;
   const isFormValid = (): boolean => {
-    if (isPickup) {
-      return true;
-    }
-
     const nameCheck = !!clientName && clientName.length > 1 && clientName.length <= maxInputSymbols;
     if (nameCheck !== isNameValid) {
       setNameValid(nameCheck);
@@ -129,27 +125,35 @@ export const UpdateDeliveryCardScreen: React.FC<UpdateDeliveryCardScreenProps> =
 
   /** save field values */
   const onSave = (): void => {
-    setAlerIconsAllowed(true);
+    if (isPickup) {
+      dispatch(delivery.actionUpdateDeliveryPickupAddress.start({ deliveryAddressId: cardId!, isBaseAddress }));
+      // console.log('onClose');
+      onClose();
+      return;
+    }
 
+    setAlerIconsAllowed(true);
     if (isFormValid()) {
-      const deliveryInfo: DeliveryInfo = {
-        deliveryAddressId: cardId ?? '',
+      const deliveryInfo: DeliveryInfoAdd = {
         clientName: clientName,
         phoneNumber: phone,
         address1: address1,
         address2: address2,
         note: note,
-        isBaseAddress: isBaseAddress,
-        deliveryType: isPickup ? DeliveryType.pickup : DeliveryType.delivery
+        isBaseAddress: isBaseAddress
       };
 
-      // save results
-      dispatch(delivery.actionSaveDeliveryAddress.start(deliveryInfo));
-      // console.log('onClose');
+      if (cardId) {
+        dispatch(delivery.actionUpdateDeliveryAddress.start({ ...deliveryInfo, deliveryAddressId: cardId }));
+      } else {
+        dispatch(delivery.actionAddDeliveryAddress.start(deliveryInfo));
+      }
+
       onClose();
-    } else {
-      debug('onClose INVALID', isNameValid, isPhoneValid, isAddress1Valid);
+      return;
     }
+
+    debug('onClose called for INVALID form', isNameValid, isPhoneValid, isAddress1Valid);
   };
 
   return (
