@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, Middleware, StoreEnhancer } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import { persistStore, Persistor, persistReducer } from 'redux-persist';
+import { persistStore, Persistor, persistReducer, createTransform } from 'redux-persist';
 import autoMergeLevel1 from 'redux-persist/es/stateReconciler/autoMergeLevel1';
 import storage from '@react-native-async-storage/async-storage';
 
@@ -38,11 +38,23 @@ class StoreBuilderService {
       storage,
       stateReconciler: autoMergeLevel1,
       // debug: true,
-      version: 0,
-      whitelist: [uiStateBranchName, deliveryStateBranchName]
+      version: 1,
+      whitelist: [uiStateBranchName, deliveryStateBranchName],
+      // Transform dates back into JS Dates on rehydrate
+      // (see: https://github.com/rt2zz/redux-persist/issues/82)
+      transforms: [
+        createTransform(JSON.stringify, (toRehydrate) =>
+          JSON.parse(toRehydrate, (key, value) =>
+            typeof value === 'string' && value.match(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}/) ? new Date(value) : value
+          )
+        )
+      ]
     };
 
-    const persistedReducer = persistReducer<ApplicationState>(persistConfig, rootReducer);
+    const persistedReducer = persistReducer<ApplicationState>(
+      persistConfig as any, // any because `transform in `persistConfig amkes value incompatible by type
+      rootReducer
+    );
 
     if (!middleware) {
       middleware = [];

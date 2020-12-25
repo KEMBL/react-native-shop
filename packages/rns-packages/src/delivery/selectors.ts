@@ -15,7 +15,7 @@ const selectAddressesSorted = (state: ApplicationState): DeliveryInfo[] =>
     }
 
     if (a.lastUsedAt && b.lastUsedAt) {
-      return b.lastUsedAt.getTime() - a.lastUsedAt.getTime();
+      return b.lastUsedAt.getDate() - a.lastUsedAt.getDate();
     }
 
     return b.deliveryType - a.deliveryType;

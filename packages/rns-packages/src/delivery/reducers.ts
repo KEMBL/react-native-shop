@@ -1,16 +1,38 @@
-import { DeliveryInfo, DeliveryPickupPointsCollectionResponse, DeliveryType } from 'rns-types';
+import {
+  DeliveryInfo,
+  DeliveryInfoAdd,
+  DeliveryInfoUpdate,
+  DeliveryPickupInfoUpdate,
+  DeliveryPickupPointsCollectionResponse,
+  DeliveryType
+} from 'rns-types';
 
 import { ApplicationState, FailedActionResult } from 'rns-packages/src/shared/types';
 import { nameofFactory, newUuid, debug as Debug } from 'rns-packages/src/shared';
 
 import { DeliveryState } from './types';
-import { actionSaveDeliveryAddress, fetchDeliveryPickupPoints } from './actions';
+import {
+  actionAddDeliveryAddress,
+  actionUpdateDeliveryAddress,
+  actionUpdateDeliveryPickupAddress,
+  fetchDeliveryPickupPoints
+} from './actions';
 
 const debug = Debug('app:reducer:delivery');
 
-interface SaveDeliveryAddress {
+interface AddDeliveryAddress {
   type: string;
-  payload: DeliveryInfo;
+  payload: DeliveryInfoAdd;
+}
+
+interface UpdateDeliveryAddress {
+  type: string;
+  payload: DeliveryInfoUpdate;
+}
+
+interface UpdateDeliveryPickupAddress {
+  type: string;
+  payload: DeliveryPickupInfoUpdate;
 }
 
 export interface FetchDeliveryPickupPointsDoneAction {
@@ -23,52 +45,132 @@ export interface FetchDeliveryPickupPointsFailAction {
   payload: FailedActionResult;
 }
 
-type ActionTypes = SaveDeliveryAddress | FetchDeliveryPickupPointsDoneAction | FetchDeliveryPickupPointsFailAction;
+const DeliveryInfoFromDeliveryInfoAdd = (newAddress: DeliveryInfoAdd): DeliveryInfo => {
+  return { ...newAddress, deliveryAddressId: newUuid(), deliveryType: DeliveryType.delivery, lastUsedAt: new Date() };
+};
 
-const dataReducer = (state: DeliveryState = new DeliveryState(), action: ActionTypes): DeliveryState => {
+const DeliveryInfoUpdate = (oldAddress: DeliveryInfo, newAddress: DeliveryInfoUpdate): void => {
+  oldAddress.clientName = newAddress.clientName;
+  oldAddress.phoneNumber = newAddress.phoneNumber;
+  oldAddress.address1 = newAddress.address1;
+  oldAddress.address2 = newAddress.address2;
+  oldAddress.note = newAddress.note;
+};
+
+const DeliveryInfoUpdateBaseAddress = (
+  state: DeliveryState,
+  addressId: string,
+  deliveryType: DeliveryType,
+  isBaseAddress: boolean
+): DeliveryState => {
+  const address =
+    deliveryType === DeliveryType.delivery
+      ? state.deliveryInfoList.find((a) => a.deliveryAddressId === addressId)
+      : state.pickupInfoList.find((a) => a.deliveryAddressId === addressId);
+
+  if (!address) {
+    debug('Cannot find delivery address by id', addressId, deliveryType);
+    return state;
+  }
+
+  const makeNotBase = (d: DeliveryInfo): void => {
+    if (d.isBaseAddress) d.isBaseAddress = false;
+  };
+  state.pickupInfoList.forEach((d) => makeNotBase(d));
+  state.deliveryInfoList.forEach((d) => makeNotBase(d));
+
+  if (isBaseAddress) {
+    address.isBaseAddress = true;
+    address.lastUsedAt = new Date();
+  }
+
+  return state;
+};
+
+type DeliveryActionTypes = AddDeliveryAddress | UpdateDeliveryAddress | UpdateDeliveryPickupAddress;
+type FetchActionTypes = FetchDeliveryPickupPointsDoneAction | FetchDeliveryPickupPointsFailAction;
+
+const dataReducer = (
+  state: DeliveryState = new DeliveryState(),
+  action: DeliveryActionTypes | FetchActionTypes
+): DeliveryState => {
+  let stateNew = deliveryReducer(state, action as DeliveryActionTypes);
+  stateNew = fetchReducer(stateNew, action as FetchActionTypes);
+  return stateNew;
+};
+
+/**
+ * Reducer for internal delivery data updates
+ */
+const deliveryReducer = (state: DeliveryState = new DeliveryState(), action: DeliveryActionTypes): DeliveryState => {
   switch (action.type) {
-    case `${actionSaveDeliveryAddress.start}`: {
-      const myAction = action as SaveDeliveryAddress;
-      const updatedAddress = myAction.payload;
-      if (!updatedAddress.deliveryAddressId) {
-        // add new delivery address
-        updatedAddress.deliveryAddressId = newUuid();
-        updatedAddress.deliveryType = DeliveryType.delivery;
-        state.deliveryInfoList.push(updatedAddress);
-      } else {
-        // update exists address
-        const address =
-          updatedAddress.deliveryType === DeliveryType.delivery
-            ? state.deliveryInfoList.find((a) => a.deliveryAddressId === updatedAddress.deliveryAddressId)
-            : state.pickupInfoList.find((a) => a.deliveryAddressId === updatedAddress.deliveryAddressId);
+    case `${actionAddDeliveryAddress.start}`: {
+      const myAction = action as AddDeliveryAddress;
+      const address = myAction.payload;
+      const newAddress = DeliveryInfoFromDeliveryInfoAdd(address);
+      const newDeliveryInfoList: DeliveryInfo[] = [...state.deliveryInfoList, newAddress];
+      let newState = { ...state, deliveryInfoList: newDeliveryInfoList };
+      newState = DeliveryInfoUpdateBaseAddress(
+        newState,
+        newAddress.deliveryAddressId,
+        newAddress.deliveryType,
+        newAddress.isBaseAddress
+      );
+      return newState;
+    }
 
-        if (!address) {
-          debug('Delivery address is not in list', updatedAddress, state);
-        } else if (address.deliveryType === DeliveryType.pickup) {
-          debug('Pickup delivery address update', address.isBaseAddress, updatedAddress.isBaseAddress);
-          // we can only make it as default delivery address
-          if (updatedAddress.isBaseAddress !== address.isBaseAddress) {
-            state.deliveryInfoList.filter((a) => a.isBaseAddress).forEach((a) => (a.isBaseAddress = false));
-            address.isBaseAddress = updatedAddress.isBaseAddress;
-            if (updatedAddress.isBaseAddress) {
-              address.lastUsedAt = new Date();
-            }
-          }
-        } else {
-          address.clientName = updatedAddress.clientName;
-          address.phoneNumber = updatedAddress.phoneNumber;
-          address.address1 = updatedAddress.address1;
-          address.address2 = updatedAddress.address2;
-          address.note = updatedAddress.note;
-          address.isBaseAddress = updatedAddress.isBaseAddress;
-          if (updatedAddress.isBaseAddress) {
-            address.lastUsedAt = new Date();
-          }
+    case `${actionUpdateDeliveryAddress.start}`: {
+      const myAction = action as UpdateDeliveryAddress;
+      const updatedAddress = myAction.payload;
+
+      const address = state.deliveryInfoList.find((a) => a.deliveryAddressId === updatedAddress.deliveryAddressId);
+      if (address) {
+        DeliveryInfoUpdate(address, updatedAddress);
+        if (address.isBaseAddress !== updatedAddress.isBaseAddress) {
+          state = DeliveryInfoUpdateBaseAddress(
+            state,
+            address.deliveryAddressId,
+            DeliveryType.delivery,
+            updatedAddress.isBaseAddress
+          );
         }
+      } else {
+        debug('Delivery address is not in list', updatedAddress.deliveryAddressId);
+      }
+
+      return state;
+    }
+
+    case `${actionUpdateDeliveryPickupAddress.start}`: {
+      const myAction = action as UpdateDeliveryPickupAddress;
+      const updatedAddress = myAction.payload;
+
+      const address = state.pickupInfoList.find((a) => a.deliveryAddressId === updatedAddress.deliveryAddressId);
+      if (address) {
+        if (address.isBaseAddress !== updatedAddress.isBaseAddress) {
+          state = DeliveryInfoUpdateBaseAddress(
+            state,
+            address.deliveryAddressId,
+            address.deliveryType,
+            updatedAddress.isBaseAddress
+          );
+        }
+      } else {
+        debug('Delivery pickup address is not in list', updatedAddress.deliveryAddressId);
       }
       return state;
     }
 
+    default:
+      return state;
+  }
+};
+
+/**
+ * Reducer for fetch API operations
+ */
+const fetchReducer = (state: DeliveryState = new DeliveryState(), action: FetchActionTypes): DeliveryState => {
+  switch (action.type) {
     case `${fetchDeliveryPickupPoints.done}`: {
       const myAction = action as FetchDeliveryPickupPointsDoneAction;
       const response = myAction.payload;
@@ -90,14 +192,16 @@ const dataReducer = (state: DeliveryState = new DeliveryState(), action: ActionT
             phoneNumber: apiAddress.phoneNumber,
             address1: apiAddress.address1,
             address2: apiAddress.address2,
-            note: apiAddress.note
+            note: apiAddress.note,
+            isBaseAddress: false,
+            lastUsedAt: new Date()
           };
 
           newDeliveryInfoList.push(deliveryInfo);
         } else if (address.deliveryType !== DeliveryType.pickup) {
           debug('Delivery address collision, check logic', address, apiAddress);
         } else {
-          debug('Update delivery address', address, apiAddress);
+          debug('Update delivery address', address.deliveryAddressId);
           address.clientName = apiAddress.storeName;
           address.phoneNumber = apiAddress.phoneNumber;
           address.address1 = apiAddress.address1;

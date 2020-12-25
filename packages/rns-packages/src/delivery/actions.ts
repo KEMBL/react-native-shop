@@ -17,18 +17,18 @@ const setAddDeliveryAddressStart = actionCreator.start<DeliveryInfoAdd>('ADD_DEL
 export const actionAddDeliveryAddress = { start: setAddDeliveryAddressStart };
 
 /**
+ * Update delivery address
+ */
+const setUpdateDeliveryAddressStart = actionCreator.start<DeliveryInfoUpdate>('UPDATE_DELIVERY_ADDRESS');
+export const actionUpdateDeliveryAddress = { start: setUpdateDeliveryAddressStart };
+
+/**
  * Update delivery pickup address
  */
 const setUpdateDeliveryPickupAddressStart = actionCreator.start<DeliveryPickupInfoUpdate>(
   'UPDATE_DELIVERY_PICKUP_ADDRESS'
 );
 export const actionUpdateDeliveryPickupAddress = { start: setUpdateDeliveryPickupAddressStart };
-
-/**
- * Update delivery address
- */
-const setUpdateDeliveryAddressStart = actionCreator.start<DeliveryInfoUpdate>('UPDATE_DELIVERY_ADDRESS');
-export const actionUpdateDeliveryAddress = { start: setUpdateDeliveryAddressStart };
 
 /**
  * Requests exist product pickup points

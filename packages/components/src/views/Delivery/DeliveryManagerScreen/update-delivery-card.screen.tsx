@@ -34,9 +34,7 @@ export const UpdateDeliveryCardScreen: React.FC<UpdateDeliveryCardScreenProps> =
   const isPickup = deliveryInfo ? deliveryInfo.deliveryType === DeliveryType.pickup : false;
   const [clientName, setName] = useState(deliveryInfo?.clientName ?? '');
   const [isNameValid, setNameValid] = useState(true);
-  const [phone, setPhone] = useState(
-    deliveryInfo?.phoneNumber ? `${translate('ph')}. ${deliveryInfo?.phoneNumber}` : ''
-  );
+  const [phone, setPhone] = useState(deliveryInfo?.phoneNumber ?? '');
   const [isPhoneValid, setPhoneValid] = useState(true);
   const [address1, setAddress1] = useState(deliveryInfo?.address1 ?? '');
   const [isAddress1Valid, setAddress1Valid] = useState(true);
@@ -46,8 +44,40 @@ export const UpdateDeliveryCardScreen: React.FC<UpdateDeliveryCardScreenProps> =
   const [isBaseAddress, setIsBaseAddress] = useState(deliveryInfo?.isBaseAddress ?? false);
   const [isAlerIconsAllowed, setAlerIconsAllowed] = useState(false);
 
+  const initialDeliveryValues = { ...deliveryInfo };
+  const hasChanges = (): boolean => {
+    if (!initialDeliveryValues.deliveryAddressId) {
+      return true;
+    }
+
+    if (initialDeliveryValues.clientName !== clientName) {
+      return true;
+    }
+
+    if (initialDeliveryValues.phoneNumber !== phone) {
+      return true;
+    }
+
+    if (initialDeliveryValues.address1 !== address1) {
+      return true;
+    }
+
+    if (!!initialDeliveryValues.address2 !== !!address2) {
+      return true;
+    }
+
+    if (!initialDeliveryValues.isBaseAddress !== !isBaseAddress) {
+      return true;
+    }
+    return false;
+  };
+
   const maxInputSymbols = 50;
   const isFormValid = (): boolean => {
+    if (isPickup) {
+      return true;
+    }
+
     const nameCheck = !!clientName && clientName.length > 1 && clientName.length <= maxInputSymbols;
     if (nameCheck !== isNameValid) {
       setNameValid(nameCheck);
@@ -74,7 +104,8 @@ export const UpdateDeliveryCardScreen: React.FC<UpdateDeliveryCardScreenProps> =
     value: string,
     callback: (value: string) => void,
     placeholder: string,
-    isValid = true
+    isValid = true,
+    prefix = ''
   ): ReactNode => {
     if (isPickup && !value) {
       return <></>;
@@ -82,6 +113,19 @@ export const UpdateDeliveryCardScreen: React.FC<UpdateDeliveryCardScreenProps> =
 
     return (
       <View style={{ marginTop: 10, display: 'flex', flexDirection: 'row' }}>
+        {!!prefix && (
+          <View style={{ width: 15, marginTop: isPickup ? 0 : 8 }}>
+            <StylableText
+              style={{
+                height: 40,
+                fontSize: 16,
+                borderBottomWidth: isPickup ? StyleSheet.hairlineWidth * 1.5 : 0,
+                borderBottomColor: isPickup ? (isValid ? Theme.middleGrey : Theme.red) : Theme.white
+              }}>
+              {prefix}
+            </StylableText>
+          </View>
+        )}
         <View style={{ flexGrow: 1 }}>
           {isPickup && (
             <StylableText
@@ -135,12 +179,12 @@ export const UpdateDeliveryCardScreen: React.FC<UpdateDeliveryCardScreenProps> =
     setAlerIconsAllowed(true);
     if (isFormValid()) {
       const deliveryInfo: DeliveryInfoAdd = {
-        clientName: clientName,
+        clientName,
         phoneNumber: phone,
-        address1: address1,
-        address2: address2,
-        note: note,
-        isBaseAddress: isBaseAddress
+        address1,
+        address2,
+        note,
+        isBaseAddress
       };
 
       if (cardId) {
@@ -200,9 +244,9 @@ export const UpdateDeliveryCardScreen: React.FC<UpdateDeliveryCardScreenProps> =
             justifyContent: 'center'
           }}>
           {textEditInput(clientName, setName, 'Your name', isNameValid)}
-          {textEditInput(phone, setPhone, 'Phone number', isPhoneValid)}
+          {textEditInput(phone, setPhone, 'Phone number', isPhoneValid, `${translate('ph')}. `)}
           {textEditInput(address1, setAddress1, 'Address1', isAddress1Valid)}
-          {textEditInput(address2, setAddress2, 'Address2')}
+          {textEditInput(address2, setAddress2, 'Address2', true)}
           <View style={{ marginTop: 13 }}>
             <StylableText
               style={{
@@ -266,7 +310,7 @@ export const UpdateDeliveryCardScreen: React.FC<UpdateDeliveryCardScreenProps> =
       </View>
       <View>
         <TextButton
-          style={isFormValid() ? RedDownButton : FakeDisabledDownButton}
+          style={hasChanges() && isFormValid() ? RedDownButton : FakeDisabledDownButton}
           title={translate('Save shipment address')}
           onPress={onSave}
         />

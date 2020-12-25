@@ -17,7 +17,7 @@ export interface DeliveryInfoAdd {
   address1: string;
   address2?: string;
   note?: string;
-  isBaseAddress?: boolean;
+  isBaseAddress: boolean;
 }
 
 export interface DeliveryInfoUpdate extends DeliveryInfoAdd {
