@@ -62,7 +62,7 @@ export const UpdateDeliveryCardScreen: React.FC<UpdateDeliveryCardScreenProps> =
       return true;
     }
 
-    if (!!initialDeliveryValues.address2 !== !!address2) {
+    if (!!initialDeliveryValues.address2 !== !!address2 || initialDeliveryValues.address2 !== address2) {
       return true;
     }
 
@@ -169,6 +169,10 @@ export const UpdateDeliveryCardScreen: React.FC<UpdateDeliveryCardScreenProps> =
 
   /** save field values */
   const onSave = (): void => {
+    if (!hasChanges()) {
+      return;
+    }
+
     if (isPickup) {
       dispatch(delivery.actionUpdateDeliveryPickupAddress.start({ deliveryAddressId: cardId!, isBaseAddress }));
       // console.log('onClose');

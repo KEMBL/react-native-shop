@@ -83,8 +83,9 @@ const DeliveryInfoUpdateBaseAddress = (
     address.isBaseAddress = true;
     address.lastUsedAt = new Date();
   }
-
-  return state;
+  debug('Set delivery address as base', addressId);
+  // changed state should be remade as new object othrvice redux-persist will not save it to storage
+  return { pickupInfoList: state.pickupInfoList, deliveryInfoList: state.deliveryInfoList };
 };
 
 type DeliveryActionTypes = AddDeliveryAddress | UpdateDeliveryAddress | UpdateDeliveryPickupAddress;
@@ -94,9 +95,9 @@ const dataReducer = (
   state: DeliveryState = new DeliveryState(),
   action: DeliveryActionTypes | FetchActionTypes
 ): DeliveryState => {
-  let stateNew = deliveryReducer(state, action as DeliveryActionTypes);
-  stateNew = fetchReducer(stateNew, action as FetchActionTypes);
-  return stateNew;
+  const state2 = deliveryReducer(state, action as DeliveryActionTypes);
+  const state3 = fetchReducer(state2, action as FetchActionTypes);
+  return state3;
 };
 
 /**
@@ -133,6 +134,8 @@ const deliveryReducer = (state: DeliveryState = new DeliveryState(), action: Del
             DeliveryType.delivery,
             updatedAddress.isBaseAddress
           );
+        } else {
+          state = { ...state, deliveryInfoList: state.deliveryInfoList }; // othervice change will not be updated by redux-persist
         }
       } else {
         debug('Delivery address is not in list', updatedAddress.deliveryAddressId);
@@ -199,9 +202,10 @@ const fetchReducer = (state: DeliveryState = new DeliveryState(), action: FetchA
 
           newDeliveryInfoList.push(deliveryInfo);
         } else if (address.deliveryType !== DeliveryType.pickup) {
-          debug('Delivery address collision, check logic', address, apiAddress);
+          debug('Delivery address type collision, check logic', address, apiAddress);
+          return state;
         } else {
-          debug('Update delivery address', address.deliveryAddressId);
+          debug('Update pickup delivery address', address.deliveryAddressId);
           address.clientName = apiAddress.storeName;
           address.phoneNumber = apiAddress.phoneNumber;
           address.address1 = apiAddress.address1;

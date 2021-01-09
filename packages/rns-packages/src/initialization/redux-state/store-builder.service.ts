@@ -34,7 +34,7 @@ class StoreBuilderService {
     initState?: ApplicationState
   ): ApplicationStore => {
     const persistConfig = {
-      key: 'root',
+      key: 'rns',
       storage,
       stateReconciler: autoMergeLevel1,
       // debug: true,
