@@ -29,6 +29,7 @@ export default {
   'edit shopping address': 'изменение адреса доставки',
   'select shipment address': 'выбор адреса доставки',
   'add shipment address': 'добавить адрес доставки',
+  'remove shipment address': 'удалить адрес доставки',
   'pickup address': 'адрес самовывоза',
   'save shipment address': 'сохранить адрес доставки',
   'pickup here': 'заберу отсюда',

@@ -8,18 +8,24 @@ import { DeliveryAddressCardTheme, Theme } from 'rns-theme';
 import { translate } from 'localization';
 import { StylableText } from 'components/src/trivial/text/StylableText';
 import { LocationIcon } from 'components/src/trivial/icons/Location';
-import { Button } from 'components/src/trivial/buttons/Button';
+import { TextButton } from 'components/src/trivial/buttons/TextButton';
 
 interface DeliveryAddressCardProps {
   id: DeliveryAddressId;
-  onPress: () => void;
+  /** Remove or Edit card */
+  isEdit?: boolean;
+  //  onPress: () => void;
 }
 
 /**
  * One card with delivery or pickup information about single place
  */
 export const DeliveryAddressCard: React.FC<DeliveryAddressCardProps> = (props): JSX.Element => {
-  const { id, onPress } = props;
+  const {
+    id,
+    isEdit
+    //  , isEdit, onPress
+  } = props;
   const deliveryInfo = utils.useMemoizedSelectorWithParam(delivery.selectors.selectAddressById, id);
 
   if (!deliveryInfo) {
@@ -49,68 +55,76 @@ export const DeliveryAddressCard: React.FC<DeliveryAddressCardProps> = (props): 
   const note = deliveryInfo.note;
 
   return (
-    <Button onPress={onPress}>
-      <View style={DeliveryAddressCardTheme.container}>
+    <View style={DeliveryAddressCardTheme.container}>
+      <View
+        style={{
+          display: isSelected || isPickup ? 'flex' : 'none',
+          height: 19,
+          flexDirection: 'row',
+          justifyContent: 'space-between'
+        }}>
         <View
           style={{
-            display: isSelected || isPickup ? 'flex' : 'none',
-            height: 19,
-            flexDirection: 'row',
-            justifyContent: 'space-between'
+            alignItems: 'center',
+            backgroundColor: '#6FFFCB',
+            borderBottomRightRadius: 8
           }}>
-          <View
+          <StylableText
             style={{
-              alignItems: 'center',
-              backgroundColor: '#6FFFCB',
-              borderBottomRightRadius: 8
+              display: isSelected ? 'flex' : 'none',
+              color: '#01875F',
+              fontSize: 12, // WEB? +1 ??
+              fontWeight: 'bold',
+              paddingLeft: 10,
+              paddingRight: 10
             }}>
-            <StylableText
-              style={{
-                display: isSelected ? 'flex' : 'none',
-                color: '#01875F',
-                fontSize: 12, // WEB? +1 ??
-                fontWeight: 'bold',
-                paddingLeft: 10,
-                paddingRight: 10
-              }}>
-              {isPickup ? translate('Pickup here') : translate('Delivery here')}
-            </StylableText>
-          </View>
-          <View
-            style={{
-              display: isPickup ? 'flex' : 'none',
-              alignItems: 'center',
-              backgroundColor: '#FF6B00',
-              borderBottomLeftRadius: 8
-            }}>
-            <StylableText
-              style={{ color: '#FFFFFF', fontSize: 12, fontWeight: 'bold', paddingLeft: 10, paddingRight: 10 }}>
-              {translate('Pickup')}
-            </StylableText>
-          </View>
+            {isPickup ? translate('Pickup here') : translate('Delivery here')}
+          </StylableText>
         </View>
-        <View style={{ marginLeft: 20, marginTop: 10, display: 'flex', flexDirection: 'row' }}>
-          <View style={{ paddingTop: 3, paddingRight: 5 }}>
-            <LocationIcon />
-          </View>
-          <View>
-            <StylableText style={{ fontSize: 13 }}>{title}</StylableText>
-            <StylableText style={{ fontSize: 13, fontWeight: 'bold' }}>
-              {translate('ph')}
-              {'. '}
-              {phoneInfo}
-            </StylableText>
-            <StylableText style={{ fontSize: 13, fontWeight: 'bold' }}>{address1}</StylableText>
-            {!!address2 && <StylableText style={{ fontSize: 13, fontWeight: 'bold' }}>{address2}</StylableText>}
-            {!!note && <StylableText style={{ fontSize: 13, fontWeight: 'bold', marginTop: 4 }}>{note}</StylableText>}
-          </View>
+        <View
+          style={{
+            display: isPickup ? 'flex' : 'none',
+            alignItems: 'center',
+            backgroundColor: '#FF6B00',
+            borderBottomLeftRadius: 8
+          }}>
+          <StylableText
+            style={{ color: '#FFFFFF', fontSize: 12, fontWeight: 'bold', paddingLeft: 10, paddingRight: 10 }}>
+            {translate('Pickup')}
+          </StylableText>
         </View>
       </View>
-    </Button>
+      <View style={{ marginLeft: 20, marginTop: 10, display: 'flex', flexDirection: 'row' }}>
+        <View style={{ paddingTop: 3, paddingRight: 5 }}>
+          <LocationIcon />
+        </View>
+        <View>
+          <StylableText style={{ fontSize: 13 }}>{title}</StylableText>
+          <StylableText style={{ fontSize: 13, fontWeight: 'bold' }}>
+            {translate('ph')}
+            {'. '}
+            {phoneInfo}
+          </StylableText>
+          <StylableText style={{ fontSize: 13, fontWeight: 'bold' }}>{address1}</StylableText>
+          {!!address2 && <StylableText style={{ fontSize: 13, fontWeight: 'bold' }}>{address2}</StylableText>}
+          {!!note && <StylableText style={{ fontSize: 13, fontWeight: 'bold', marginTop: 4 }}>{note}</StylableText>}
+        </View>
+      </View>
+      <View style={{ marginLeft: 20, marginTop: 10, display: 'flex', flexDirection: 'row' }}>
+        {isEdit && (
+          <View>
+            <TextButton title={translate('Change')} onPress={() => null} />
+          </View>
+        )}
+      </View>
+    </View>
   );
+
+  //return isEdit ? deliveryCardUi : <Button onPress={onPress}>{deliveryCardUi}</Button>;
 };
 
 DeliveryAddressCard.propTypes = {
   id: PropTypes.string.isRequired,
-  onPress: PropTypes.func.isRequired
+  isEdit: PropTypes.bool
+  // onPress: PropTypes.func.isRequired
 };
