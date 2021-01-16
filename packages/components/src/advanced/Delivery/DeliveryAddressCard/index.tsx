@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import { DeliveryAddressId, DeliveryType } from 'rns-types';
 import { delivery, utils } from 'rns-packages';
-import { DeliveryAddressCardTheme, Theme } from 'rns-theme';
+import { ButtonTheme, DeliveryAddressCardTheme, Theme } from 'rns-theme';
 import { translate } from 'localization';
 import { StylableText } from 'components/src/trivial/text/StylableText';
 import { LocationIcon } from 'components/src/trivial/icons/Location';
@@ -12,20 +12,15 @@ import { TextButton } from 'components/src/trivial/buttons/TextButton';
 
 interface DeliveryAddressCardProps {
   id: DeliveryAddressId;
-  /** Remove or Edit card */
-  isEdit?: boolean;
-  //  onPress: () => void;
+  onEdit: (id: DeliveryAddressId) => void;
+  showButtons?: boolean;
 }
 
 /**
  * One card with delivery or pickup information about single place
  */
 export const DeliveryAddressCard: React.FC<DeliveryAddressCardProps> = (props): JSX.Element => {
-  const {
-    id,
-    isEdit
-    //  , isEdit, onPress
-  } = props;
+  const { id, showButtons, onEdit } = props;
   const deliveryInfo = utils.useMemoizedSelectorWithParam(delivery.selectors.selectAddressById, id);
 
   if (!deliveryInfo) {
@@ -110,21 +105,23 @@ export const DeliveryAddressCard: React.FC<DeliveryAddressCardProps> = (props): 
           {!!note && <StylableText style={{ fontSize: 13, fontWeight: 'bold', marginTop: 4 }}>{note}</StylableText>}
         </View>
       </View>
-      <View style={{ marginLeft: 20, marginTop: 10, display: 'flex', flexDirection: 'row' }}>
-        {isEdit && (
-          <View>
-            <TextButton title={translate('Change')} onPress={() => null} />
+      <View style={{ marginTop: 10, display: 'flex', flexDirection: 'row', justifyContent: 'flex-end' }}>
+        {showButtons && (
+          <View style={{ marginRight: 20 }}>
+            <TextButton
+              title={translate('Change').toLocaleUpperCase()}
+              style={{ ...ButtonTheme, text: { fontWeight: 'bold', color: Theme.red } }}
+              onPress={(): void => onEdit(id)}
+            />
           </View>
         )}
       </View>
     </View>
   );
-
-  //return isEdit ? deliveryCardUi : <Button onPress={onPress}>{deliveryCardUi}</Button>;
 };
 
 DeliveryAddressCard.propTypes = {
   id: PropTypes.string.isRequired,
-  isEdit: PropTypes.bool
-  // onPress: PropTypes.func.isRequired
+  onEdit: PropTypes.func.isRequired,
+  showButtons: PropTypes.bool
 };

@@ -1,8 +1,9 @@
 import {
   DeliveryInfoAdd,
   DeliveryInfoUpdate,
-  DeliveryPickupInfoUpdate,
-  DeliveryPickupPointsCollectionResponse
+  DeliveryDefaultAddressUpdate,
+  DeliveryPickupPointsCollectionResponse,
+  DeliveryAddressId
 } from 'rns-types';
 
 import { FailedActionResult } from 'rns-packages/src/shared/types';
@@ -23,12 +24,18 @@ const setUpdateDeliveryAddressStart = actionCreator.start<DeliveryInfoUpdate>('U
 export const actionUpdateDeliveryAddress = { start: setUpdateDeliveryAddressStart };
 
 /**
- * Update delivery pickup address
+ * Update default delivery address by id
  */
-const setUpdateDeliveryPickupAddressStart = actionCreator.start<DeliveryPickupInfoUpdate>(
-  'UPDATE_DELIVERY_PICKUP_ADDRESS'
+const setDefaultDeliveryAddressStart = actionCreator.start<DeliveryDefaultAddressUpdate>(
+  'UPDATE_DELIVERY_DEFAULT_ADDRESS'
 );
-export const actionUpdateDeliveryPickupAddress = { start: setUpdateDeliveryPickupAddressStart };
+export const actionSetDefaultDeliveryAddress = { start: setDefaultDeliveryAddressStart };
+
+/**
+ * Remove selected delivery addresses
+ */
+const setDeleteDeliveryAddressesStart = actionCreator.start<DeliveryAddressId[]>('DELETE_DELIVERY_ADDRESSES');
+export const actionDeleteDeliveryAddresses = { start: setDeleteDeliveryAddressesStart };
 
 /**
  * Requests exist product pickup points

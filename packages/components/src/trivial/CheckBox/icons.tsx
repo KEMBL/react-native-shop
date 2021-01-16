@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import * as rnSvg from 'react-native-svg';
 
 import { BaseIcon, BaseIconProps } from '../icons/BaseIcon';
+import { Theme } from 'rns-theme/src/Theme';
 
 const propTypes = {
   color: PropTypes.string,
@@ -52,3 +53,24 @@ export const CheckBoxOffIcon: React.FC<BaseIconProps> = (props): JSX.Element => 
 };
 
 CheckBoxOffIcon.propTypes = propTypes;
+
+/**
+ * Un-selected checkbox
+ */
+export const CheckBoxDisabledIcon: React.FC<BaseIconProps> = (props): JSX.Element => {
+  const { Path } = rnSvg;
+  const { height, style } = props;
+
+  const width = props.width ?? 16;
+
+  return (
+    <BaseIcon color={Theme.middleGrey} width={width} height={height} style={style} viewBox="0 0 51 51">
+      <Path
+        d="M45.0417 5.95833V45.0417H5.95833V5.95833H45.0417ZM45.0417 0.375H5.95833C2.8875 0.375 0.375 2.8875 0.375 5.95833V45.0417C0.375 48.1125 2.8875 50.625 5.95833 50.625H45.0417C48.1125 50.625 50.625 48.1125 50.625 45.0417V5.95833C50.625 2.8875 48.1125 0.375 45.0417 0.375Z"
+        // fill="#FF0000"
+      />
+    </BaseIcon>
+  );
+};
+
+CheckBoxDisabledIcon.propTypes = propTypes;

@@ -2,9 +2,10 @@ import {
   DeliveryInfo,
   DeliveryInfoAdd,
   DeliveryInfoUpdate,
-  DeliveryPickupInfoUpdate,
+  DeliveryDefaultAddressUpdate,
   DeliveryPickupPointsCollectionResponse,
-  DeliveryType
+  DeliveryType,
+  DeliveryAddressId
 } from 'rns-types';
 
 import { ApplicationState, FailedActionResult } from 'rns-packages/src/shared/types';
@@ -13,8 +14,9 @@ import { nameofFactory, newUuid, debug as Debug } from 'rns-packages/src/shared'
 import { DeliveryState } from './types';
 import {
   actionAddDeliveryAddress,
+  actionDeleteDeliveryAddresses,
+  actionSetDefaultDeliveryAddress,
   actionUpdateDeliveryAddress,
-  actionUpdateDeliveryPickupAddress,
   fetchDeliveryPickupPoints
 } from './actions';
 
@@ -29,18 +31,22 @@ interface UpdateDeliveryAddress {
   type: string;
   payload: DeliveryInfoUpdate;
 }
-
-interface UpdateDeliveryPickupAddress {
+interface SetDeliveryDefaultAddress {
   type: string;
-  payload: DeliveryPickupInfoUpdate;
+  payload: DeliveryDefaultAddressUpdate;
 }
 
-export interface FetchDeliveryPickupPointsDoneAction {
+interface DeleteDeliveryAddresses {
+  type: string;
+  payload: DeliveryAddressId[];
+}
+
+interface FetchDeliveryPickupPointsDoneAction {
   type: string;
   payload: DeliveryPickupPointsCollectionResponse;
 }
 
-export interface FetchDeliveryPickupPointsFailAction {
+interface FetchDeliveryPickupPointsFailAction {
   type: string;
   payload: FailedActionResult;
 }
@@ -88,7 +94,11 @@ const DeliveryInfoUpdateBaseAddress = (
   return { pickupInfoList: state.pickupInfoList, deliveryInfoList: state.deliveryInfoList };
 };
 
-type DeliveryActionTypes = AddDeliveryAddress | UpdateDeliveryAddress | UpdateDeliveryPickupAddress;
+type DeliveryActionTypes =
+  | AddDeliveryAddress
+  | UpdateDeliveryAddress
+  | SetDeliveryDefaultAddress
+  | DeleteDeliveryAddresses;
 type FetchActionTypes = FetchDeliveryPickupPointsDoneAction | FetchDeliveryPickupPointsFailAction;
 
 const dataReducer = (
@@ -105,6 +115,44 @@ const dataReducer = (
  */
 const deliveryReducer = (state: DeliveryState = new DeliveryState(), action: DeliveryActionTypes): DeliveryState => {
   switch (action.type) {
+    case `${actionSetDefaultDeliveryAddress.start}`: {
+      const myAction = action as SetDeliveryDefaultAddress;
+      const addressInfo = myAction.payload;
+
+      let address = state.deliveryInfoList.find((a) => a.deliveryAddressId === addressInfo.deliveryAddressId);
+      if (!address) {
+        address = state.pickupInfoList.find((a) => a.deliveryAddressId === addressInfo.deliveryAddressId);
+      }
+
+      if (!address) {
+        debug('Delivery address to set as default is not in list', addressInfo.deliveryAddressId);
+        return state;
+      }
+
+      if (!address.isBaseAddress) {
+        state = DeliveryInfoUpdateBaseAddress(
+          state,
+          addressInfo.deliveryAddressId,
+          address.deliveryType,
+          addressInfo.isBaseAddress
+        );
+      }
+
+      return state;
+    }
+
+    case `${actionDeleteDeliveryAddresses.start}`: {
+      const myAction = action as DeleteDeliveryAddresses;
+      const addressesToDel = myAction.payload;
+
+      const leftAddress = state.deliveryInfoList.filter(
+        (a) => !addressesToDel.some((da) => da === a.deliveryAddressId)
+      );
+      state = { ...state, deliveryInfoList: leftAddress }; // othervice change will not be updated by redux-persist
+
+      return state;
+    }
+
     case `${actionAddDeliveryAddress.start}`: {
       const myAction = action as AddDeliveryAddress;
       const address = myAction.payload;
@@ -141,26 +189,6 @@ const deliveryReducer = (state: DeliveryState = new DeliveryState(), action: Del
         debug('Delivery address is not in list', updatedAddress.deliveryAddressId);
       }
 
-      return state;
-    }
-
-    case `${actionUpdateDeliveryPickupAddress.start}`: {
-      const myAction = action as UpdateDeliveryPickupAddress;
-      const updatedAddress = myAction.payload;
-
-      const address = state.pickupInfoList.find((a) => a.deliveryAddressId === updatedAddress.deliveryAddressId);
-      if (address) {
-        if (address.isBaseAddress !== updatedAddress.isBaseAddress) {
-          state = DeliveryInfoUpdateBaseAddress(
-            state,
-            address.deliveryAddressId,
-            address.deliveryType,
-            updatedAddress.isBaseAddress
-          );
-        }
-      } else {
-        debug('Delivery pickup address is not in list', updatedAddress.deliveryAddressId);
-      }
       return state;
     }
 

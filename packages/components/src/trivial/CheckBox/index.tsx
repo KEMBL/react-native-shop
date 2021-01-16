@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
-import { ViewStyle } from 'react-native';
+import React from 'react';
+import { View, ViewStyle } from 'react-native';
 import PropTypes from 'prop-types';
-import { Theme } from 'rns-theme';
-import { CheckBoxOffIcon, CheckBoxOnIcon } from './icons';
+
+import { Theme } from 'rns-theme/src/Theme';
+
+import { CheckBoxDisabledIcon, CheckBoxOffIcon, CheckBoxOnIcon } from './icons';
 import { Button } from '../buttons/Button';
 
 export interface CheckBoxTintColors {
@@ -11,8 +13,9 @@ export interface CheckBoxTintColors {
 }
 
 export interface CheckBoxProps {
-  value?: boolean;
-  onValueChange?: (value: boolean) => void;
+  value: boolean;
+  onValueChange: (value: boolean) => void;
+  isDisabled?: boolean;
   tintColors?: CheckBoxTintColors;
   style?: ViewStyle;
 }
@@ -21,25 +24,28 @@ export interface CheckBoxProps {
  * UI element CheckBox
  */
 export const CheckBox: React.FC<CheckBoxProps> = (props): JSX.Element => {
-  const { value, style, onValueChange } = props;
-  const [checkBoxValue, setCheckBoxValue] = useState(!!value);
+  const { value, style, isDisabled, onValueChange } = props;
 
   const tintColors = props.tintColors ?? CheckBox.defaultProps?.tintColors;
 
   const changeValue = (): void => {
-    const newValue = !checkBoxValue;
-    setCheckBoxValue(newValue);
-    if (onValueChange) {
-      onValueChange(newValue);
+    if (isDisabled) {
+      return;
     }
+    onValueChange(!value);
   };
 
   const icons = (
     <>
-      {value && <CheckBoxOnIcon style={style} color={tintColors?.true} />}
-      {!value && <CheckBoxOffIcon style={style} color={tintColors?.false} />}
+      {isDisabled && <CheckBoxDisabledIcon style={style} color={tintColors?.true} />}
+      {!isDisabled && value && <CheckBoxOnIcon style={style} color={tintColors?.true} />}
+      {!isDisabled && !value && <CheckBoxOffIcon style={style} color={tintColors?.false} />}
     </>
   );
+
+  if (isDisabled) {
+    return <View style={{ backgroundColor: Theme.lightGrey }}>{icons}</View>;
+  }
 
   if (!onValueChange) {
     return icons;
@@ -56,8 +62,9 @@ CheckBox.defaultProps = {
 };
 
 CheckBox.propTypes = {
-  value: PropTypes.bool,
-  onValueChange: PropTypes.func,
+  value: PropTypes.bool.isRequired,
+  onValueChange: PropTypes.func.isRequired,
+  isDisabled: PropTypes.bool.isRequired,
   tintColors: PropTypes.any,
   style: PropTypes.object
 };

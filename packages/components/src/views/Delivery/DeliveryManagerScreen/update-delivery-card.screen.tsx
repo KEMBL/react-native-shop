@@ -12,7 +12,6 @@ import { TopBar } from 'components/src/advanced/TopBar';
 import { TextButton } from 'components/src/trivial/buttons/TextButton';
 import { StylableText } from 'components/src/trivial/text/StylableText';
 import { CheckBox } from 'components/src/trivial/CheckBox';
-import { Button } from 'components/src/trivial/buttons/Button';
 import { AlertIcon } from 'components/src/trivial/icons/Alert';
 
 const debug = Debug.debug('app:component:UpdateDeliveryCardScreen');
@@ -174,8 +173,7 @@ export const UpdateDeliveryCardScreen: React.FC<UpdateDeliveryCardScreenProps> =
     }
 
     if (isPickup) {
-      dispatch(delivery.actionUpdateDeliveryPickupAddress.start({ deliveryAddressId: cardId!, isBaseAddress }));
-      // console.log('onClose');
+      dispatch(delivery.actionSetDefaultDeliveryAddress.start({ deliveryAddressId: cardId!, isBaseAddress }));
       onClose();
       return;
     }
@@ -295,16 +293,15 @@ export const UpdateDeliveryCardScreen: React.FC<UpdateDeliveryCardScreenProps> =
               />
             )}
           </View>
-          <Button onPress={(): unknown => setIsBaseAddress(!isBaseAddress)}>
-            <View style={{ flexDirection: 'row', marginTop: 25 }}>
-              <CheckBox
-                value={isBaseAddress}
-                style={{ alignSelf: 'center' }}
-                tintColors={{ true: Theme.red, false: Theme.darkGreen }}
-              />
-              <StylableText style={{ marginLeft: 15 }}>{translate('Default delivery address')}</StylableText>
-            </View>
-          </Button>
+          <View style={{ flexDirection: 'row', marginTop: 25 }}>
+            <CheckBox
+              value={isBaseAddress}
+              onValueChange={(state): void => setIsBaseAddress(state)}
+              style={{ alignSelf: 'center' }}
+              tintColors={{ true: Theme.red, false: Theme.darkGreen }}
+            />
+            <StylableText style={{ marginLeft: 15 }}>{translate('Default delivery address')}</StylableText>
+          </View>
           {!Platform.isWeb && (
             <View style={{ height: 25 }}>
               {/* Rrequired because when keyboard pops up on android scroll list cuts off last input */}

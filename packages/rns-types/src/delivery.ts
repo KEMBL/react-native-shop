@@ -24,7 +24,7 @@ export interface DeliveryInfoUpdate extends DeliveryInfoAdd {
   deliveryAddressId: DeliveryAddressId;
 }
 
-export interface DeliveryPickupInfoUpdate {
+export interface DeliveryDefaultAddressUpdate {
   deliveryAddressId: DeliveryAddressId;
   isBaseAddress: boolean;
 }
