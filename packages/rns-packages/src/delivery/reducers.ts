@@ -3,9 +3,11 @@ import {
   DeliveryInfoAdd,
   DeliveryInfoUpdate,
   DeliveryDefaultAddressUpdate,
-  DeliveryPickupPointsCollectionResponse,
+  DeliveryInformationResponse,
   DeliveryType,
-  DeliveryAddressId
+  DeliveryAddressId,
+  DeliveryPickupInfo,
+  DeliveryCost
 } from 'rns-types';
 
 import { ApplicationState, FailedActionResult } from 'rns-packages/src/shared/types';
@@ -17,7 +19,7 @@ import {
   actionDeleteDeliveryAddresses,
   actionSetDefaultDeliveryAddress,
   actionUpdateDeliveryAddress,
-  fetchDeliveryPickupPoints
+  fetchDeliveryInformation
 } from './actions';
 
 const debug = Debug('app:reducer:delivery');
@@ -41,12 +43,12 @@ interface DeleteDeliveryAddresses {
   payload: DeliveryAddressId[];
 }
 
-interface FetchDeliveryPickupPointsDoneAction {
+interface FetchDeliveryInformationDoneAction {
   type: string;
-  payload: DeliveryPickupPointsCollectionResponse;
+  payload: DeliveryInformationResponse;
 }
 
-interface FetchDeliveryPickupPointsFailAction {
+interface FetchDeliveryInformationFailAction {
   type: string;
   payload: FailedActionResult;
 }
@@ -91,7 +93,7 @@ const DeliveryInfoUpdateBaseAddress = (
   }
   debug('Set delivery address as base', addressId);
   // changed state should be remade as new object othrvice redux-persist will not save it to storage
-  return { pickupInfoList: state.pickupInfoList, deliveryInfoList: state.deliveryInfoList };
+  return { ...state, pickupInfoList: state.pickupInfoList, deliveryInfoList: state.deliveryInfoList };
 };
 
 type DeliveryActionTypes =
@@ -99,7 +101,7 @@ type DeliveryActionTypes =
   | UpdateDeliveryAddress
   | SetDeliveryDefaultAddress
   | DeleteDeliveryAddresses;
-type FetchActionTypes = FetchDeliveryPickupPointsDoneAction | FetchDeliveryPickupPointsFailAction;
+type FetchActionTypes = FetchDeliveryInformationDoneAction | FetchDeliveryInformationFailAction;
 
 const dataReducer = (
   state: DeliveryState = new DeliveryState(),
@@ -197,57 +199,108 @@ const deliveryReducer = (state: DeliveryState = new DeliveryState(), action: Del
   }
 };
 
+const updateDeliveryPickupPoints = (state: DeliveryState, pickupInfoList: DeliveryPickupInfo[]): DeliveryState => {
+  if (!pickupInfoList || pickupInfoList.length === 0) {
+    debug('Warning: Empty API delivery pickup points info', pickupInfoList);
+    return state;
+  }
+
+  if (!state.pickupInfoList) {
+    debug('Delivery pickup points info state branch will be initialized from API payload');
+    return { ...state, pickupInfoList: [] };
+  }
+
+  const newDeliveryInfoList: DeliveryInfo[] = [];
+  for (const apiAddress of pickupInfoList) {
+    const address = state.pickupInfoList.find((a) => a.deliveryAddressId === apiAddress.id);
+    if (!address) {
+      debug('Add pickup address into list', apiAddress, state.pickupInfoList);
+
+      const deliveryInfo: DeliveryInfo = {
+        deliveryAddressId: apiAddress.id,
+        deliveryType: DeliveryType.pickup,
+        clientName: apiAddress.storeName,
+        phoneNumber: apiAddress.phoneNumber,
+        address1: apiAddress.address1,
+        address2: apiAddress.address2,
+        note: apiAddress.note,
+        isBaseAddress: false,
+        lastUsedAt: new Date()
+      };
+
+      newDeliveryInfoList.push(deliveryInfo);
+    } else if (address.deliveryType !== DeliveryType.pickup) {
+      debug('Delivery address type collision, check logic', address, apiAddress);
+      return state;
+    } else {
+      debug('Update pickup delivery address', address.deliveryAddressId);
+      address.clientName = apiAddress.storeName;
+      address.phoneNumber = apiAddress.phoneNumber;
+      address.address1 = apiAddress.address1;
+      address.address2 = apiAddress.address2;
+      address.note = apiAddress.note;
+      newDeliveryInfoList.push(address);
+    }
+  }
+  // below also clenups old addresses which are not in api list
+  return { ...state, pickupInfoList: newDeliveryInfoList };
+};
+
+const updateDeliveryCostInfo = (state: DeliveryState, deliveryCostList: DeliveryCost[]): DeliveryState => {
+  if (!deliveryCostList || deliveryCostList.length === 0) {
+    debug('Warning: Empty API delivery cost info', deliveryCostList);
+    return state;
+  }
+
+  if (!state.deliveryCostList) {
+    debug('Delivery cost info state branch was initialized from API payload');
+    return { ...state, deliveryCostList };
+  }
+
+  const newDeliveryCostList: DeliveryCost[] = [];
+  for (const apiCost of deliveryCostList) {
+    const cost = state.deliveryCostList.find((c) => c.id === apiCost.id);
+    if (!cost) {
+      debug('Add a new cost information', apiCost, state.deliveryCostList);
+
+      const newCostInfo: DeliveryCost = {
+        id: apiCost.id,
+        cost: apiCost.cost,
+        distance: apiCost.distance
+      };
+
+      newDeliveryCostList.push(newCostInfo);
+    } else {
+      debug('Update cost information', cost.id);
+      cost.cost = apiCost.cost;
+      cost.distance = apiCost.distance;
+      newDeliveryCostList.push(cost);
+    }
+  }
+  // below also clenups old cost information  which are not in api list
+  return { ...state, deliveryCostList: newDeliveryCostList };
+};
+
 /**
  * Reducer for fetch API operations
  */
 const fetchReducer = (state: DeliveryState = new DeliveryState(), action: FetchActionTypes): DeliveryState => {
   switch (action.type) {
-    case `${fetchDeliveryPickupPoints.done}`: {
-      const myAction = action as FetchDeliveryPickupPointsDoneAction;
-      const response = myAction.payload;
-
-      if (!response || !response.pickupInfoList || response.pickupInfoList.length === 0) {
-        debug('Empty delivery pickup points response', response);
+    case `${fetchDeliveryInformation.done}`: {
+      const myAction = action as FetchDeliveryInformationDoneAction;
+      if (!myAction?.payload) {
+        debug('Uninitialized delivery pickup points response', myAction);
         return state;
       }
-      const newDeliveryInfoList: DeliveryInfo[] = [];
-      for (const apiAddress of response.pickupInfoList) {
-        const address = state.pickupInfoList.find((a) => a.deliveryAddressId === apiAddress.id);
-        if (!address) {
-          debug('Add pickup address into list', apiAddress, state.pickupInfoList);
 
-          const deliveryInfo: DeliveryInfo = {
-            deliveryAddressId: apiAddress.id,
-            deliveryType: DeliveryType.pickup,
-            clientName: apiAddress.storeName,
-            phoneNumber: apiAddress.phoneNumber,
-            address1: apiAddress.address1,
-            address2: apiAddress.address2,
-            note: apiAddress.note,
-            isBaseAddress: false,
-            lastUsedAt: new Date()
-          };
-
-          newDeliveryInfoList.push(deliveryInfo);
-        } else if (address.deliveryType !== DeliveryType.pickup) {
-          debug('Delivery address type collision, check logic', address, apiAddress);
-          return state;
-        } else {
-          debug('Update pickup delivery address', address.deliveryAddressId);
-          address.clientName = apiAddress.storeName;
-          address.phoneNumber = apiAddress.phoneNumber;
-          address.address1 = apiAddress.address1;
-          address.address2 = apiAddress.address2;
-          address.note = apiAddress.note;
-          newDeliveryInfoList.push(address);
-        }
-      }
-      // below also clenups old addresses which are not in api list
-      return { ...state, pickupInfoList: newDeliveryInfoList };
+      const response = myAction.payload;
+      state = updateDeliveryPickupPoints(state, response.pickupInfoList);
+      state = updateDeliveryCostInfo(state, response.costInfoList);
+      return state;
     }
 
-    case `${fetchDeliveryPickupPoints.fail}`: {
-      const myAction = action as FetchDeliveryPickupPointsFailAction;
+    case `${fetchDeliveryInformation.fail}`: {
+      const myAction = action as FetchDeliveryInformationFailAction;
       debug('Problem with fetching delivery pickup points', myAction.payload);
       return state;
     }

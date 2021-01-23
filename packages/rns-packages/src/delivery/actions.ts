@@ -2,7 +2,7 @@ import {
   DeliveryInfoAdd,
   DeliveryInfoUpdate,
   DeliveryDefaultAddressUpdate,
-  DeliveryPickupPointsCollectionResponse,
+  DeliveryInformationResponse,
   DeliveryAddressId
 } from 'rns-types';
 
@@ -38,11 +38,11 @@ const setDeleteDeliveryAddressesStart = actionCreator.start<DeliveryAddressId[]>
 export const actionDeleteDeliveryAddresses = { start: setDeleteDeliveryAddressesStart };
 
 /**
- * Requests exist product pickup points
+ * Requests exist product pickup points, delivery cost, etc.
  */
-const actionName = 'FETCH_DELIVERY_PICKUP_POINTS';
+const actionName = 'FETCH_DELIVERY_INFORMATION';
 const start = actionCreator.start(actionName);
-const done = actionCreator.done<DeliveryPickupPointsCollectionResponse>(actionName);
+const done = actionCreator.done<DeliveryInformationResponse>(actionName);
 const fail = actionCreator.fail<FailedActionResult>(actionName);
 
-export const fetchDeliveryPickupPoints = { start, done, fail };
+export const fetchDeliveryInformation = { start, done, fail };

@@ -1,4 +1,5 @@
 export type DeliveryAddressId = string;
+export type DeliveryCostId = string;
 
 export enum DeliveryType {
   /**
@@ -50,8 +51,18 @@ export interface DeliveryPickupInfo {
 }
 
 /**
+ * Information about delivery cost
+ */
+export interface DeliveryCost {
+  id: DeliveryCostId;
+  distance: number;
+  cost: number;
+}
+
+/**
  * Delivery pickup points API response
  */
-export interface DeliveryPickupPointsCollectionResponse {
+export interface DeliveryInformationResponse {
   pickupInfoList: DeliveryPickupInfo[];
+  costInfoList: DeliveryCost[];
 }

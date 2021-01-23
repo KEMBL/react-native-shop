@@ -3,8 +3,8 @@ import { ScrollView, View } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { delivery } from 'rns-packages';
 import { translate } from 'localization';
+import { delivery } from 'rns-packages';
 import { RedDownButton, DeliveryScreenTheme, Theme } from 'rns-theme';
 import { DeliveryAddressId, DeliveryType } from 'rns-types';
 

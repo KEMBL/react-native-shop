@@ -5,7 +5,7 @@ import { CategoryId } from 'rns-types';
 import { debug as Debug } from 'rns-packages/src/shared';
 import { fetchProducts } from 'rns-packages/src/product';
 import { fetchCategories } from 'rns-packages/src/category';
-import { fetchDeliveryPickupPoints } from 'rns-packages/src/delivery';
+import { fetchDeliveryInformation } from 'rns-packages/src/delivery';
 import { selectCurrentCategoryId } from 'rns-packages/src/ui';
 import { appBootup } from './actions';
 
@@ -24,7 +24,7 @@ export function* onBootup() {
   try {
     yield put(fetchProducts.start());
     yield put(fetchCategories.start());
-    yield put(fetchDeliveryPickupPoints.start());
+    yield put(fetchDeliveryInformation.start());
   } catch (error) {
     yield call(debug, `Exception during the app bootup with category ${categoryId}`, error);
     yield put(appBootup.fail({ payload: categoryId, error }));

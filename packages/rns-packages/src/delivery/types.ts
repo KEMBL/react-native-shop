@@ -1,4 +1,4 @@
-import { DeliveryInfo } from 'rns-types';
+import { DeliveryCost, DeliveryInfo } from 'rns-types';
 
 export class DeliveryState {
   /**
@@ -9,4 +9,8 @@ export class DeliveryState {
    * Delivery points added by user
    */
   deliveryInfoList: DeliveryInfo[] = [];
+  /**
+   * Delivery cost information
+   */
+  deliveryCostList: DeliveryCost[] = [];
 }
