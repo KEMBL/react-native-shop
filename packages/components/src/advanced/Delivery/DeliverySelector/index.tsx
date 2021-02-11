@@ -4,10 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { translate } from 'localization';
 import { delivery, ui } from 'rns-packages';
-import { DeliverySelectorTheme } from 'rns-theme';
+import { Theme, DeliverySelectorTheme } from 'rns-theme';
 import { StylableText } from 'components/src/trivial/text/StylableText';
 import { LocationIcon } from 'components/src/trivial/icons/Location';
 import { Button } from 'components/src/trivial/buttons/Button';
+import { ChevronRightIcon } from 'components/src/trivial/icons/arrows/ChevronRight';
 
 export const DeliverySelector: React.FC = (): JSX.Element => {
   const dispatch = useDispatch();
@@ -46,21 +47,12 @@ export const DeliverySelector: React.FC = (): JSX.Element => {
           <StylableText
             style={{
               fontSize: 15,
-              color: 'black',
-              paddingBottom: 10
+              color: 'black'
             }}>
             {messageLine2}
           </StylableText>
         </View>
-        <StylableText
-          style={{
-            fontFamily: 'Roboto',
-            fontSize: 20,
-            color: 'black',
-            paddingBottom: 10
-          }}>
-          &gt;
-        </StylableText>
+        <ChevronRightIcon color={Theme.black} width={24} />
       </View>
     </Button>
   );
