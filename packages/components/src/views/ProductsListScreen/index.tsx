@@ -9,6 +9,7 @@ import { Theme } from 'rns-theme';
 import { TopDownGradient } from 'components/src/trivial/icons/gradients/TopDownGradient';
 import { ProductUtils } from 'components/src/utils';
 import { CardsSection, ProductCardModel } from 'components/src/advanced/CardsSection';
+import { ShoppingCartButton } from 'components/src/advanced/buttons/ShoppingCartButton';
 
 const keyExtractor = (_item: ProductCategoryModel, index: number): string => {
   return index.toString();
@@ -82,7 +83,13 @@ export const ProductsListScreen: React.FC = () => {
   return (
     <View style={mainStyle.container}>
       <StatusBar backgroundColor="#016C4C" barStyle="light-content" />
-      <View style={{ height: 94, backgroundColor: '#01875F' }} />
+      <View style={{ height: 94, backgroundColor: '#01875F', display: 'flex', justifyContent: 'center' }}>
+        <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-end' }}>
+          <View style={{ marginRight: 15 }}>
+            <ShoppingCartButton />
+          </View>
+        </View>
+      </View>
       <View
         style={{
           height: 51,

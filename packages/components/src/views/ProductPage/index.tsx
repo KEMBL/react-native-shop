@@ -23,6 +23,7 @@ import { ProductUtils } from 'components/src/utils';
 import { AppContext } from 'components/src/context';
 import { DeliverySelector } from 'components/src/advanced/Delivery';
 import { TopBar } from 'components/src/advanced/TopBar';
+import { ShoppingCartButton } from 'components/src/advanced/buttons/ShoppingCartButton';
 
 /**
  * Page with full information about the product
@@ -83,8 +84,14 @@ export const ProductPage: React.FC = () => {
     <View style={ProductPageTheme.container}>
       <TopBar
         title={translate('Product description')}
-        onBack={(): unknown => dispatch(ui.actionSetCurrentProduct.start(0))}
-      />
+        onBack={(): unknown => dispatch(ui.actionSetCurrentProduct.start(0))}>
+        <View style={{ display: 'flex', flexDirection: 'row' }}>
+          <View style={{ marginRight: 15 }}>
+            <ShoppingCartButton />
+          </View>
+        </View>
+      </TopBar>
+
       <ScrollView style={{ height: 550 }}>
         <AppContext.Consumer>
           {({ imageCacherInterface }): JSX.Element => (
