@@ -57,7 +57,7 @@ const DeliveryInfoFromDeliveryInfoAdd = (newAddress: DeliveryInfoAdd): DeliveryI
   return { ...newAddress, deliveryAddressId: newUuid(), deliveryType: DeliveryType.delivery, lastUsedAt: new Date() };
 };
 
-const DeliveryInfoUpdate = (oldAddress: DeliveryInfo, newAddress: DeliveryInfoUpdate): void => {
+const ApplyDeliveryInfoUpdate = (oldAddress: DeliveryInfo, newAddress: DeliveryInfoUpdate): void => {
   oldAddress.clientName = newAddress.clientName;
   oldAddress.phoneNumber = newAddress.phoneNumber;
   oldAddress.address1 = newAddress.address1;
@@ -176,7 +176,7 @@ const deliveryReducer = (state: DeliveryState = new DeliveryState(), action: Del
 
       const address = state.deliveryInfoList.find((a) => a.deliveryAddressId === updatedAddress.deliveryAddressId);
       if (address) {
-        DeliveryInfoUpdate(address, updatedAddress);
+        ApplyDeliveryInfoUpdate(address, updatedAddress);
         if (address.isBaseAddress !== updatedAddress.isBaseAddress) {
           state = DeliveryInfoUpdateBaseAddress(
             state,
