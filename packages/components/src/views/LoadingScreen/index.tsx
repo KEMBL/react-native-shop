@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useLayoutEffect } from 'react';
 import { View } from 'react-native';
 import { useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
@@ -13,12 +13,16 @@ export const LoadingScreen: React.FC = () => {
   const isLoaded = useSelector(isBootUpCompleted);
   const isLoadingError = useSelector(isBootUpFailed);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (isLoaded) {
       navigation.navigate('Main');
     }
   }),
     [isLoaded];
+
+  if (isLoaded) {
+    return null; // as user will be bypassed to Main it is not required to render the current page
+  }
 
   return (
     <View>

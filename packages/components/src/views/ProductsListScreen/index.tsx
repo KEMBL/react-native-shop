@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useLayoutEffect } from 'react';
 import { shallowEqual, useSelector } from 'react-redux';
 import { StyleSheet, View, StatusBar, FlatList } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
@@ -22,6 +22,20 @@ export const ProductsListScreen: React.FC = () => {
   const currentProductId = useSelector(ui.selectCurrentProductId);
   const configuration = useSelector(selectConfiguration, shallowEqual);
   const categories = useSelector(category.selectors.selectCurrentCategoryCategories, shallowEqual);
+
+  useLayoutEffect(() => {
+    if (currentProductId) {
+      navigation.navigate('ProductPage');
+      //TODO: Not so good solution, we will get out from condition below that hook but still
+      // have to initialize unnecessary selectors from a start of this component :( is it performant?
+    }
+  }),
+    [currentProductId];
+
+  if (currentProductId) {
+    return null; // need because user will be bypassed to the product page from above hook
+  }
+
   // console.log('categories', categories);
   const mainStyle = StyleSheet.create({
     container: {
@@ -33,13 +47,6 @@ export const ProductsListScreen: React.FC = () => {
   const keyExtractor = (_item: ProductCategoryModel, index: number): string => {
     return index.toString();
   };
-
-  useEffect(() => {
-    if (currentProductId) {
-      navigation.navigate('ProductPage');
-    }
-  }),
-    [currentProductId];
 
   return (
     <View style={mainStyle.container}>

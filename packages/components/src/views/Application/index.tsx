@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Navigation } from 'components/src/views/Navigation';
+import { Navigation } from 'components/src/context';
 
 /**
  * Application logic starts here
