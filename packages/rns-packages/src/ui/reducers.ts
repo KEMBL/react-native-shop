@@ -3,12 +3,7 @@ import { CategoryId, ProductId } from 'rns-types';
 import { ApplicationState } from 'rns-packages/src/shared/types';
 import { nameofFactory } from 'rns-packages/src/shared';
 
-import {
-  actionSetCurrentCategory,
-  actionSetCurrentProduct,
-  actionSetDeliveryManagerClose,
-  actionSetDeliveryManagerOpen
-} from './actions';
+import { actionSetCurrentCategory, actionSetCurrentProduct } from './actions';
 import { UiState } from './types';
 
 interface SetCurrentCategory {
@@ -21,15 +16,7 @@ interface SetCurrentProduct {
   payload: ProductId;
 }
 
-interface SetDeliveryManagerOpen {
-  type: string;
-}
-
-interface SetDeliveryManagerClose {
-  type: string;
-}
-
-type ActionTypes = SetCurrentCategory | SetCurrentProduct | SetDeliveryManagerOpen | SetDeliveryManagerClose;
+type ActionTypes = SetCurrentCategory | SetCurrentProduct;
 
 const dataReducer = (state: UiState = new UiState(), action: ActionTypes): UiState => {
   switch (action.type) {
@@ -45,20 +32,6 @@ const dataReducer = (state: UiState = new UiState(), action: ActionTypes): UiSta
       const myAction = action as SetCurrentProduct;
       if (state.currentProductId !== myAction.payload) {
         return { ...state, currentProductId: myAction.payload };
-      }
-      return state;
-    }
-
-    case `${actionSetDeliveryManagerOpen.start}`: {
-      if (!state.isDeliveryManagerOpened) {
-        return { ...state, isDeliveryManagerOpened: true };
-      }
-      return state;
-    }
-
-    case `${actionSetDeliveryManagerClose.start}`: {
-      if (state.isDeliveryManagerOpened) {
-        return { ...state, isDeliveryManagerOpened: false };
       }
       return state;
     }

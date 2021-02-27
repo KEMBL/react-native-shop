@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useNavigation } from '@react-navigation/native';
 
-import { ui } from 'rns-packages';
 import { DeliveryAddressId } from 'rns-types';
 
 import { DeliveryCardsScreen } from './delivery-cards.screen';
@@ -13,15 +12,15 @@ import { UpdateDeliveryCardScreen } from './update-delivery-card.screen';
  * @returns product page UI
  */
 export const DeliverySelectorScreen: React.FC = () => {
+  const navigation = useNavigation();
   const [screenIndex, setSubScreen] = useState(0);
   const [cardId, setCardId] = useState<DeliveryAddressId>('');
-  const dispatch = useDispatch();
 
   return (
     <>
       {screenIndex === 0 && (
         <DeliveryCardsScreen
-          onClose={(): unknown => dispatch(ui.actionSetDeliveryManagerClose.start())}
+          onClose={(): void => navigation.navigate('Products')}
           onAddCard={(): void => setSubScreen(1)}
           onOpenCard={(id: DeliveryAddressId): void => {
             setCardId(id);

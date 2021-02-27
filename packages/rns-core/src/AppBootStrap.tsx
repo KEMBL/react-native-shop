@@ -1,6 +1,4 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 import { View } from 'react-native';
 
 import { Platform } from 'rns-theme';
@@ -17,14 +15,16 @@ export interface AppBootStrapProps extends AppContextProps {}
  * Platform independent logic starts here
  */
 
-const NavigationStack = createStackNavigator();
-const getNavigationContainer = (): JSX.Element => {
-  return (
-    <NavigationContainer>
-      <NavigationStack.Navigator headerMode="none">
-        <NavigationStack.Screen name="Application" component={Application} />
-      </NavigationStack.Navigator>
-    </NavigationContainer>
+/**
+ * Need to fix zero height in a web build
+ */
+const AppWebHeightFixer = (): JSX.Element => {
+  return Platform.isWeb ? (
+    <View style={{ height: 'inherit' }}>
+      <Application />
+    </View>
+  ) : (
+    <Application />
   );
 };
 
@@ -35,12 +35,7 @@ export const AppBootStrap: React.FC<AppBootStrapProps> = (props: AppBootStrapPro
   return (
     <AppContext.Provider value={props}>
       <ApplicationStateComponent store={store}>
-        {Platform.isWeb ? (
-          // solves zero height in a web build
-          <View style={{ height: 'inherit' }}>{getNavigationContainer()}</View>
-        ) : (
-          getNavigationContainer()
-        )}
+        <AppWebHeightFixer />
       </ApplicationStateComponent>
     </AppContext.Provider>
   );

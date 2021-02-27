@@ -1,17 +1,19 @@
 import React from 'react';
 import { View } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useNavigation } from '@react-navigation/native';
 
 import { translate } from 'localization';
-import { delivery, ui } from 'rns-packages';
+import { delivery } from 'rns-packages';
 import { Theme, DeliverySelectorTheme } from 'rns-theme';
+
 import { StylableText } from 'components/src/trivial/text/StylableText';
 import { LocationIcon } from 'components/src/trivial/icons/Location';
 import { Button } from 'components/src/trivial/buttons/Button';
 import { ChevronRightIcon } from 'components/src/trivial/icons/arrows/ChevronRight';
 
 export const DeliverySelector: React.FC = (): JSX.Element => {
-  const dispatch = useDispatch();
+  const navigation = useNavigation();
 
   const deliveryAddresses = useSelector(delivery.selectors.selectBaseDeliveryAddress);
   const deliveryAddress2 = deliveryAddresses && deliveryAddresses.address2 ? `${deliveryAddresses.address2}, ` : '';
@@ -33,7 +35,7 @@ export const DeliverySelector: React.FC = (): JSX.Element => {
   const messageLine2 = deliveryAddressesMessage;
 
   return (
-    <Button onPress={(): unknown => dispatch(ui.actionSetDeliveryManagerOpen.start())}>
+    <Button onPress={(): void => navigation.navigate('DeliveryManager')}>
       <View style={DeliverySelectorTheme.container}>
         <LocationIcon />
         <View style={{ flexDirection: 'column' }}>

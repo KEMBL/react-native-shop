@@ -16,8 +16,6 @@ export default {
 
   // SCREENS
 
-  'products list': 'список товаров',
-
   // PRODUCT
 
   'product description': 'описание продукта',

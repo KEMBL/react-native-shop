@@ -64,7 +64,7 @@ CheckBox.defaultProps = {
 CheckBox.propTypes = {
   value: PropTypes.bool.isRequired,
   onValueChange: PropTypes.func.isRequired,
-  isDisabled: PropTypes.bool.isRequired,
+  isDisabled: PropTypes.bool,
   tintColors: PropTypes.any,
   style: PropTypes.object
 };

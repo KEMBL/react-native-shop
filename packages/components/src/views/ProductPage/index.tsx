@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { View, ScrollView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import { translate } from 'localization';
 import { PriceModel } from 'rns-types';
@@ -31,6 +32,7 @@ import { ShoppingCartButton } from 'components/src/advanced/buttons/ShoppingCart
  * @returns product page UI
  */
 export const ProductPage: React.FC = () => {
+  const navigation = useNavigation();
   const [selectedVariantIndex, setSelectedVariantIndex] = useState(-1);
   const [amount, setAmount] = useState(1);
   /**
@@ -84,7 +86,10 @@ export const ProductPage: React.FC = () => {
     <View style={ProductPageTheme.container}>
       <TopBar
         title={translate('Product description')}
-        onBack={(): unknown => dispatch(ui.actionSetCurrentProduct.start(0))}>
+        onBack={(): void => {
+          dispatch(ui.actionSetCurrentProduct.start(0));
+          navigation.goBack();
+        }}>
         <View style={{ display: 'flex', flexDirection: 'row' }}>
           <View style={{ marginRight: 15 }}>
             <ShoppingCartButton />
