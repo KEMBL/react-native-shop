@@ -7,6 +7,7 @@ export * from 'rns-packages/src/ui/types';
 export * from 'rns-packages/src/configuration/types';
 export * from 'rns-packages/src/initialization/redux-state/types';
 export * from 'rns-packages/src/delivery/types';
+export * from 'rns-packages/src/shopping/types';
 
 // shared types
 import { IdentifierId } from 'rns-types';

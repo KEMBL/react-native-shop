@@ -7,6 +7,7 @@ import storage from '@react-native-async-storage/async-storage';
 import { debug as Debug } from 'rns-packages/src/shared';
 import { uiStateBranchName } from 'rns-packages/src/ui';
 import { deliveryStateBranchName } from 'rns-packages/src/delivery';
+import { shoppingStateBranchName } from 'rns-packages/src/shopping';
 
 import { ApplicationState, ApplicationStore } from './types';
 import { rootReducer, rootSaga } from './root-objects';
@@ -39,7 +40,7 @@ class StoreBuilderService {
       stateReconciler: autoMergeLevel1,
       // debug: true,
       version: 1,
-      whitelist: [uiStateBranchName, deliveryStateBranchName],
+      whitelist: [uiStateBranchName, deliveryStateBranchName, shoppingStateBranchName],
       // Transform dates back into JS Dates on rehydrate
       // (see: https://github.com/rt2zz/redux-persist/issues/82)
       transforms: [
