@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 import PropTypes from 'prop-types';
-import { Theme } from 'rns-theme';
 
+import { Theme } from 'rns-theme';
 export interface HrProps {
   style?: ViewStyle;
 }
