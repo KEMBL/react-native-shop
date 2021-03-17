@@ -12,14 +12,14 @@ export const CicrcleBadgeTheme = StyleSheet.create<CicrcleBadgeStyle>({
   innerContainer: {
     position: 'absolute',
     right: -10,
-    top: -6,    
+    top: -6,
     borderRadius: 8,
     width: 16,
     height: 16,
     justifyContent: 'center',
     alignItems: 'center',
     textAlign: 'center',
-    fontSize: 11,    
+    fontSize: 11,
     fontFamily: Theme.fontFamily,
     backgroundColor: Theme.red
   }

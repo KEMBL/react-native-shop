@@ -3,6 +3,7 @@ import { FailedActionResult } from 'rns-packages/src/shared/types';
 import { ApplicationState } from 'rns-packages/src/initialization';
 import { fetchProducts, FetchProductsDoneAction } from 'rns-packages/src/product';
 import { fetchCategories, FetchCategoriesDoneAction } from 'rns-packages/src/category';
+
 import { appBootup } from './actions';
 import { BootUpProgressEnum, BootUpStatus } from './types';
 

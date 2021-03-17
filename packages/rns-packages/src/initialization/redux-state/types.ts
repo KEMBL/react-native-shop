@@ -1,7 +1,7 @@
 import { Store, AnyAction } from 'redux';
-import { ProductCategoryModel, ProductModel } from 'rns-types';
+import { ProductCategoryModel, ProductModel, Configuration } from 'rns-types';
 
-import { BootUpStatus, UiState, Configuration, DeliveryState, ShoppingState } from 'rns-packages/src/shared/types';
+import { BootUpStatus, UiState, DeliveryState, ShoppingState } from 'rns-packages/src/shared/types';
 
 /**
  * Application store type

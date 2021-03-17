@@ -7,9 +7,9 @@ export class ProductUtils {
   /**
    * Simplified price string
    */
-  public static makeSimpleAmountString = (priceProperties: PricePropertiesModel[], amountError: string): string => {
+  public static makeSimpleQuantityString = (priceProperties: PricePropertiesModel[], quantityError: string): string => {
     if (priceProperties == null || priceProperties.length === 0) {
-      return amountError;
+      return quantityError;
     }
 
     if (priceProperties.length === 1) {
@@ -48,7 +48,7 @@ export class ProductUtils {
     currency: string,
     priceError: string,
     index = -1,
-    amount = 1
+    quantity = 1
   ): string => {
     if (priceProperties == null || priceProperties.length === 0) {
       return priceError;
@@ -59,7 +59,7 @@ export class ProductUtils {
     }
 
     if (index > -1) {
-      return `${priceProperties[index].price * amount} ${currency}`;
+      return `${priceProperties[index].price * quantity} ${currency}`;
     }
 
     return `${priceProperties[0].price} - ${priceProperties[priceProperties.length - 1].price} ${currency}`;

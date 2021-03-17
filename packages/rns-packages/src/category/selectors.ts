@@ -56,7 +56,7 @@ const selectSubCategoriesFlatTree = (): ParametrizedSelector<CategoryId, number[
 
 interface DeepProductsRequest {
   categoryId: CategoryId;
-  amount: number;
+  quantity: number;
 }
 
 /**
@@ -70,11 +70,11 @@ const selectCategoryProductsDeep = (): ParametrizedSelector<DeepProductsRequest,
     selectState,
     productSelectors.selectAllProducts,
     (parameters: DeepProductsRequest, state, productsSelector) => {
-      const { categoryId, amount } = parameters;
+      const { categoryId, quantity } = parameters;
 
       // 1. select all sub products: build category flat tree, select sub products
       const categoriesFlatTree = selectSubCategoriesFlatTree()(state, categoryId);
-      // console.log('selectCategoryProductsDeep', categoryId, amount, categoriesFlatTree);
+      // console.log('selectCategoryProductsDeep', categoryId, quantity, categoriesFlatTree);
       // 2. get all products with category from the categories flat tree
       const products: ProductModel[] = productsSelector.filter((p) => categoriesFlatTree.includes(p.categoryId));
 
@@ -88,7 +88,7 @@ const selectCategoryProductsDeep = (): ParametrizedSelector<DeepProductsRequest,
             return { id: p.id, probability: Math.random() };
           }) // add random num to each product
           .sort((p1, p2) => p1.probability - p2.probability) // sort products by random param (order does not matter here)
-          .slice(0, amount) // select first X elemets
+          .slice(0, quantity) // select first X elemets
           // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
           .map((p) => productSelectors.selectProductById(state, p.id)!)
       ); // convert back po rpoducts
@@ -122,7 +122,7 @@ const selectCategoryCategories = (): ParametrizedSelector<CategoryId, ProductCat
         subCategory.products.push(
           ...selectCategoryProductsDeep()(state, {
             categoryId: category.id,
-            amount: MIN_PRODUCTS_TO_RETURN - productsCount
+            quantity: MIN_PRODUCTS_TO_RETURN - productsCount
           })
         );
       }

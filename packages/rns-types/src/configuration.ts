@@ -8,7 +8,7 @@ export class Configuration {
    */
   public priceError = 'Error#1';
   /**
-   * Error in amount
+   * Error in quantity
    */
-  public amountError = 'Error#2';
+  public quantityError = 'Error#2';
 }

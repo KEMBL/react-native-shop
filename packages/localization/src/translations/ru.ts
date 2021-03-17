@@ -19,7 +19,7 @@ export default {
   // PRODUCT
 
   'product description': 'описание продукта',
-  amount: 'количество',
+  quantity: 'количество',
   'add to basket': 'добавить в корзину',
 
   // DELIVERY

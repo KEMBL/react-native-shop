@@ -1,9 +1,9 @@
 import { ProductModel, ProductsCollection } from 'rns-types';
 
-import { debug as Debug } from 'rns-packages/src/shared';
+import { debug as Debug, nameofFactory } from 'rns-packages/src/shared';
 import { ExternalData, FailedActionResult } from 'rns-packages/src/shared/types';
+
 import { fetchProducts } from './actions';
-import { nameofFactory } from '../shared';
 
 const debug = Debug('app:reducers:fetchProduct');
 

@@ -10,10 +10,10 @@ import {
   ProductPageTheme,
   variantsButtonHighlighted,
   variantsButton,
-  amountButton,
+  quantityButton,
   RedDownButton
 } from 'rns-theme';
-import { selectConfiguration, product, ui } from 'rns-packages';
+import { selectConfiguration, product, ui, shopping } from 'rns-packages';
 
 import { CacheableImage } from 'components/src/trivial/CacheableImage';
 import { StylableText } from 'components/src/trivial/text/StylableText';
@@ -34,7 +34,7 @@ import { ShoppingCartButton } from 'components/src/advanced/buttons/ShoppingCart
 export const ProductPage: React.FC = () => {
   const navigation = useNavigation();
   const [selectedVariantIndex, setSelectedVariantIndex] = useState(-1);
-  const [amount, setAmount] = useState(1);
+  const [quantity, setQuantity] = useState(1);
   /**
    * This product has only one variant of the price
    */
@@ -72,13 +72,13 @@ export const ProductPage: React.FC = () => {
     return <View style={ProductPageTheme.variantsContainer}>{buttons}</View>;
   };
 
-  const onAmountIncrease = (): void => {
-    setAmount(amount + 1);
+  const onQuantityIncrease = (): void => {
+    setQuantity(quantity + 1);
   };
 
-  const onAmountDecrease = (): void => {
-    if (amount > 1) {
-      setAmount(amount - 1);
+  const onQuantityDecrease = (): void => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
     }
   };
 
@@ -114,7 +114,7 @@ export const ProductPage: React.FC = () => {
               configuration.currency,
               configuration.priceError,
               selectedVariantIndex,
-              amount
+              quantity
             )}
           </StylableText>
         </View>
@@ -128,12 +128,12 @@ export const ProductPage: React.FC = () => {
           </View>
           <Hr style={{ borderBottomColor: Theme.middleGrey, margin: 10 }} />
           {isSelected && (
-            <View style={ProductPageTheme.amountContainer}>
-              <StylableText style={ProductPageTheme.variantSelectedText}>{translate('Amount')}:</StylableText>
-              <View style={ProductPageTheme.amountSelectorContainer}>
-                <TextButton style={amountButton} title="-" onPress={onAmountDecrease} />
-                <StylableText style={ProductPageTheme.amountSelectorText}>{amount}</StylableText>
-                <TextButton style={amountButton} title="+" onPress={onAmountIncrease} />
+            <View style={ProductPageTheme.quantityContainer}>
+              <StylableText style={ProductPageTheme.variantSelectedText}>{translate('Quantity')}:</StylableText>
+              <View style={ProductPageTheme.quantitySelectorContainer}>
+                <TextButton style={quantityButton} title="-" onPress={onQuantityDecrease} />
+                <StylableText style={ProductPageTheme.quantitySelectorText}>{quantity}</StylableText>
+                <TextButton style={quantityButton} title="+" onPress={onQuantityIncrease} />
               </View>
             </View>
           )}
@@ -145,7 +145,13 @@ export const ProductPage: React.FC = () => {
           }}
         />
       </ScrollView>
-      <TextButton style={RedDownButton} title={translate('add to basket')} onPress={(): null => null} />
+      <TextButton
+        style={RedDownButton}
+        title={translate('add to basket')}
+        onPress={(): void => {
+          dispatch(shopping.addProductToShoppingCart.start({ productId: productData.id, quantity }));
+        }}
+      />
     </View>
   );
 };

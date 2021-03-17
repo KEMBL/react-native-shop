@@ -55,7 +55,7 @@ export const variantsButtonHighlighted: ButtonStyle = {
   }
 };
 
-export const amountButton: ButtonStyle = {
+export const quantityButton: ButtonStyle = {
   button: {
     flex: 1,
     justifyContent: 'center',
@@ -92,9 +92,9 @@ export interface ProductPageStyle {
   title: TextStyle;
   variantsContainer: ViewStyle;
   variantSelectedText: TextStyle;
-  amountContainer: ViewStyle;
-  amountSelectorContainer: ViewStyle;
-  amountSelectorText: TextStyle;
+  quantityContainer: ViewStyle;
+  quantitySelectorContainer: ViewStyle;
+  quantitySelectorText: TextStyle;
 }
 
 export const ProductPageTheme = StyleSheet.create<ProductPageStyle>({
@@ -140,7 +140,7 @@ export const ProductPageTheme = StyleSheet.create<ProductPageStyle>({
     fontSize: 15,
     color: Theme.black
   },
-  amountContainer: {
+  quantityContainer: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -148,13 +148,13 @@ export const ProductPageTheme = StyleSheet.create<ProductPageStyle>({
     width: 200,
     marginTop: 5
   },
-  amountSelectorContainer: {
+  quantitySelectorContainer: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginLeft: 20
   },
-  amountSelectorText: {
+  quantitySelectorText: {
     fontSize: 20,
     color: Theme.black,
     marginLeft: 10,

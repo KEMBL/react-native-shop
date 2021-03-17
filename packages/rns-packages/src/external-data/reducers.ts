@@ -2,9 +2,9 @@ import merge from 'lodash.merge';
 import { combineReducers } from 'redux';
 import { ApplicationState } from '../initialization';
 
-import { reducers as productReducers } from '../product';
-import { reducers as categoryReducers } from '../category';
-import { nameofFactory } from '../shared';
+import { nameofFactory } from 'rns-packages/src/shared';
+import { reducers as productReducers } from 'rns-packages/src/product';
+import { reducers as categoryReducers } from 'rns-packages/src/category';
 
 /**
  * Combines reducers for external data

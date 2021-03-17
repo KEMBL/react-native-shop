@@ -4,7 +4,7 @@ interface ErrorInfo {
 }
 
 /**
- * Returns a number with fixed numbers amount after comma
+ * Returns a number with fixed numbers quantity after the comma
  *
  * @param {number} num to fix
  * @param {number} fixedVals to left after a coma

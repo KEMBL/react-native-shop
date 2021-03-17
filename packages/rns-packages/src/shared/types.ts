@@ -4,7 +4,6 @@
 export * from 'rns-packages/src/bootup/types';
 export * from 'rns-packages/src/category/types';
 export * from 'rns-packages/src/ui/types';
-export * from 'rns-packages/src/configuration/types';
 export * from 'rns-packages/src/initialization/redux-state/types';
 export * from 'rns-packages/src/delivery/types';
 export * from 'rns-packages/src/shopping/types';

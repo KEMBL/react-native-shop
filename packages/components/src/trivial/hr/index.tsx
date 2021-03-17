@@ -25,7 +25,7 @@ Hr.propTypes = {
 
 Hr.defaultProps = {
   style: {
-    height: 3, // less amount caused it to cut off simetimes
+    height: 3, // less quantity caused it to cut off simetimes
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: Theme.middleGrey
   }

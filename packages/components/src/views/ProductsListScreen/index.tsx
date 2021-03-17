@@ -102,7 +102,7 @@ const renderCategory = (item: ProductCategoryModelWithProducts, configuration: C
             id: 0,
             thumbnail: '',
             title: 'Error cart',
-            units: configuration.amountError,
+            units: configuration.quantityError,
             price: configuration.priceError
           };
         }
@@ -120,7 +120,7 @@ const renderCategory = (item: ProductCategoryModelWithProducts, configuration: C
           id: value.id,
           thumbnail: imageUrl,
           title: ProductUtils.cleanTitle(value.name),
-          units: ProductUtils.makeSimpleAmountString(value.price.properties, configuration.amountError),
+          units: ProductUtils.makeSimpleQuantityString(value.price.properties, configuration.quantityError),
           price: ProductUtils.makeMinPriceString(
             value.price.properties,
             configuration.currency,

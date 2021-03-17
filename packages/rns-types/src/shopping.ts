@@ -5,5 +5,5 @@ import { ProductId } from './product';
  */
 export interface ShoppingInfo {
   productId: ProductId;
-  amount: number;
+  quantity: number;
 }
