@@ -3,7 +3,7 @@ import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { View, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import { translate } from 'localization';
+import { decodeEntities, translate } from 'localization';
 import { PriceModel } from 'rns-types';
 import {
   Theme,
@@ -121,10 +121,7 @@ export const ProductPage: React.FC = () => {
         <View style={ProductPageTheme.infoContainer}>
           {priceContainer(productData.price)}
           <View style={ProductPageTheme.titleContainer}>
-            <StylableText style={ProductPageTheme.title}>
-              New Dog Cat Bowls Stainless Steel Travel Footprint Feeding One & Only (Ван & Онли) Sterilized Cat для
-              стерилизованных кошек с индейкой и рисом
-            </StylableText>
+            <StylableText style={ProductPageTheme.title}>{decodeEntities(productData.name)}</StylableText>
           </View>
           <Hr style={{ borderBottomColor: Theme.middleGrey, margin: 10 }} />
           {isSelected && (

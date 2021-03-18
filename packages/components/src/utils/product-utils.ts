@@ -1,8 +1,9 @@
+import { decodeEntities } from 'localization';
 import { PricePropertiesModel, ProprtyUnitType } from 'rns-types';
 
 export class ProductUtils {
   public static cleanTitle = (name: string): string => {
-    return name.replace(/&quot;/g, 'i');
+    return decodeEntities(name);
   };
   /**
    * Simplified price string
