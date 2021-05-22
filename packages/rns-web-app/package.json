@@ -5,6 +5,7 @@
   "scripts": {
     "compile": "tsc -b --incremental --verbose --lib dom",
     "web": ".\\node_modules\\.bin\\webpack-cli --config webpack.config.js --watch",
+    "web-export": ".\\node_modules\\.bin\\webpack-cli --config webpack.config.js",
     "remotedev": "remotedev --hostname=localhost --port=8888",
     "lint": "eslint -c ../../.eslintrc.js --ext .ts,.tsx --ignore-pattern *.d.ts ./src",
     "lint:fix": "eslint -c ../../.eslintrc.js --ext .ts,.tsx --ignore-pattern *.d.ts --fix ./src",

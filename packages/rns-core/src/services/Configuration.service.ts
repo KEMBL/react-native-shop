@@ -5,7 +5,7 @@ export class ConfiguationService {
   /**
    * Source of application external data
    */
-  public static baseApiURL = 'http://api.termokot.ru/graphql';
+  public static baseApiURL = 'https://api.termokot.ru/graphql';
   /**
    * Should be the same as hostname remotedev script of package.json
    * !!! Do not forget to start remotedev-server
