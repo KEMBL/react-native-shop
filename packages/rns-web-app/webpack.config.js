@@ -13,7 +13,7 @@ module.exports = {
   output: {
     filename: 'bundle.js'
   },
-  watch: !isProduction,
+//  watch: !isProduction, // we use command line key for that
   watchOptions: {
     aggregateTimeout: 600
   },
